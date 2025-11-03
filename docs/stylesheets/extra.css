@@ -1,0 +1,150 @@
+/* Custom styles for VPforce Rhino Manual */
+
+/* Improve blockquote rendering - your document uses blockquotes extensively */
+blockquote {
+    border-left: 4px solid #2196F3;
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    background-color: #f5f5f5;
+    font-size: 0.95em;
+}
+
+blockquote p {
+    margin: 0.5em 0;
+}
+
+/* Style for nested blockquotes */
+blockquote blockquote {
+    border-left-color: #4CAF50;
+    background-color: #f9f9f9;
+}
+
+/* Better handling of bold text in blockquotes */
+blockquote strong {
+    color: #1976D2;
+}
+
+/* Better list styling */
+ul {
+    padding-left: 2em;
+}
+
+li {
+    margin: 0.3em 0;
+}
+
+/* Code blocks */
+code {
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+/* Image captions and sizing */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+/* Better table rendering */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+table th {
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+    padding: 0.75em;
+    text-align: left;
+}
+
+table td {
+    padding: 0.75em;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Anchor links styling */
+a[href^="#"] {
+    text-decoration: none;
+}
+
+/* Section headings */
+h1, h2, h3, h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    border-bottom: 2px solid #2196F3;
+    padding-bottom: 0.3em;
+}
+
+/* Better rendering of definition lists */
+dt {
+    font-weight: bold;
+    margin-top: 1em;
+    color: #1976D2;
+}
+
+dd {
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+/* Admonition boxes for notes, warnings, etc. */
+.admonition {
+    margin: 1em 0;
+    padding: 1em;
+    border-radius: 4px;
+    border-left: 4px solid;
+}
+
+.admonition.note {
+    border-left-color: #2196F3;
+    background-color: #E3F2FD;
+}
+
+.admonition.warning {
+    border-left-color: #FF9800;
+    background-color: #FFF3E0;
+}
+
+.admonition.danger {
+    border-left-color: #F44336;
+    background-color: #FFEBEE;
+}
+.admonition.tip {
+    border-left-color: rgb(33, 224, 186);
+    background-color: #E8F5E8;
+}
+/* Print styles */
+@media print {
+    blockquote {
+        page-break-inside: avoid;
+    }
+    
+    img {
+        page-break-inside: avoid;
+    }
+    
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+}

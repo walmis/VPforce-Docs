@@ -1,0 +1,83 @@
+site_name: VPforce Rhino Manual
+site_description: 'Complete documentation for the VPforce Rhino FFB controller'
+site_author: 'VPforce'
+
+# Documentation directory
+docs_dir: docs
+
+# Output directory
+site_dir: site
+
+watch:
+  - docs
+
+theme:
+  name: readthedocs
+  navigation_depth: 3
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - python
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+
+# Extra CSS for better rendering of your blockquotes and formatting
+extra_css:
+  - stylesheets/extra.css
+
+# Navigation - structured by sections
+# nav:
+#   - Home: index.md
+#   - Welcome: 1-welcome.md
+#   - Getting Started: 2-getting-started.md
+#   - Using the RHINO: 3-using-the-rhino.md
+#   - TelemFFB Application: 4-the-vpforce-telemffb-application.md
+#   - Game Settings & Tips: 5-game-specific-ffb-settings-tips-and-tricks.md
+#   - Troubleshooting: 6-troubleshooting-maintenance.md
+#   - Appendices:
+#       - '7 Appendix A: Known issues': 7-appendix-a-known-issues.md
+#       - '8 Appendix B: Legacy TelemFFB Documentation': 8-appendix-b-legacy-telemffb-documentation.md
+
+# Markdown extensions for better formatting support
+markdown_extensions:
+  - toc:
+      permalink: true
+      permalink_title: Link to this section
+      toc_depth: 4
+      baselevel: 1
+      separator: "-"
+  - tables
+  - fenced_code
+  - attr_list
+  - md_in_html
+  - admonition
+  - def_list
+  - footnotes
+  - abbr
+  - sane_lists
+  - nl2br
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+# Plugins
+plugins:
+  - search
+  - enumerate-headings:
+      toc_depth: 3
+  
+# Hooks for custom processing (e.g., image path handling)
+#hooks:
+#  - hooks.py
+  
+# Extra configuration
+#extra:
+#  generator: false

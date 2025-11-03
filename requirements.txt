@@ -1,0 +1,3 @@
+mkdocs-enumerate-headings-plugin
+pymdown-extensions
+mkdocs
