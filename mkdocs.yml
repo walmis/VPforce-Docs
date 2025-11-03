@@ -1,5 +1,5 @@
 site_name: VPforce Rhino Manual
-site_description: 'Complete documentation for the VPforce Rhino FFB controller'
+site_description: 'Complete documentation for the VPforce Rhino FFB ecosystem.'
 site_author: 'VPforce'
 
 # Documentation directory
@@ -79,5 +79,6 @@ plugins:
 #  - hooks.py
   
 # Extra configuration
-#extra:
-#  generator: false
+extra:
+  generator: false
+  copyright: 'Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>'
