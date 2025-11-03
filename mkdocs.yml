@@ -74,11 +74,14 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.blocks.caption
+  - pymdownx.magiclink
   - pymdownx.tasklist:
       custom_checkbox: true
 
 # Plugins
 plugins:
+  - autorefs:
+      link_titles: true
   - search
   - enumerate-headings:
       toc_depth: 3
