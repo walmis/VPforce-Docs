@@ -49,10 +49,10 @@ jobs:
           ssh-keyscan -p $SSH_PORT -H $SSH_HOST >> ~/.ssh/known_hosts 2>/dev/null || true
           
           # Create deployment directory if it doesn't exist
-          ssh -o StrictHostKeyChecking=no -p $SSH_PORT $SSH_USER@$SSH_HOST "mkdir -p $DEPLOY_PATH" 2>&1 | grep -v "Warning\|Permanently added"
+          ssh -o StrictHostKeyChecking=no -p $SSH_PORT $SSH_USER@$SSH_HOST "mkdir -p $DEPLOY_PATH" 2>&1"
           
           # Sync the built site to the server
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -p $SSH_PORT" site/ $SSH_USER@$SSH_HOST:$DEPLOY_PATH/ 2>&1 | tail -20
+          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no -p $SSH_PORT" site/ $SSH_USER@$SSH_HOST:$DEPLOY_PATH/
 
       - name: Cleanup SSH key
         if: always()
