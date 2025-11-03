@@ -1171,7 +1171,11 @@ TelemFFB supports trim and autopilot following in MSFS and X-planes, with specia
 
 **For MSFS:**
 
-Since MSFS does not have a specific override toggle for external axis control, this means that in order to use this feature of TelemFFB, ***you must unbind your joystick or pedal axes inside of MSFS***. Otherwise, the internal joystick position will conflict with what is being sent by TelemFFB.
+!!! note
+    Trim and Autopilot following in MSFS is an ***experimental feature*** and may not work correctly with all aircraft. Some aircraft may require custom tuning of the gain settings to achieve the desired effect.
+
+!!! important
+    Since MSFS does not have a specific override toggle for external axis control, this means that in order to use this feature of TelemFFB, ***you must unbind your joystick or pedal axes inside of MSFS***. Otherwise, the internal joystick position will conflict with what is being sent by TelemFFB.
 
 **For X-Plane:**
 
