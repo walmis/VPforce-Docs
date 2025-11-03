@@ -171,7 +171,7 @@ Other glitches may occur when changing windows focus to another window and then 
 
 The latest iteration in the MSFS franchise does not offer native support for force feedback. It does offer a multitude of exports, though, which enables external software such as VPforce TelemFFB to approximate force feedback effects from the telemetry.
 
-For more information see TelemFFB [MSFS and X-Plane Section][msfs-and-x-plane].
+For more information see TelemFFB **[MSFS and X-Plane Section][msfs-and-x-plane]**.
 
 !!! note
     The VPforce TelemFFB application implements full support for FFB with MSFS 2020/2024.
