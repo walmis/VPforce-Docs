@@ -1,6 +1,6 @@
 # VPforce Rhino Manual
 
-[![Build and Deploy Documentation](https://github.com/walmis/vpforce-rhino-manual/actions/workflows/deploy.yml/badge.svg)](https://github.com/walmis/vpforce-rhino-manual/actions/workflows/deploy.yml)
+[![Build and Deploy Documentation](https://github.com/walmis/VPforce-Docs/actions/workflows/deploy.yml/badge.svg)](https://github.com/walmis/VPforce-Docs/actions/workflows/deploy.yml)
 
 Complete documentation for the **VPforce Rhino FFB stick base** - a high-performance force feedback controller for flight simulation.
 
@@ -38,7 +38,7 @@ We welcome contributions from the community! Whether you're fixing typos, improv
 5. Commit with clear messages: `git commit -m "Add: improved X section"`
 6. Push to your fork and open a **Pull Request**
 
-**Please follow the [style guide](docs/.github/copilot-instructions.md)** for consistency:
+**Please follow the [style guide](.github/copilot-instructions.md)** for consistency:
 - Use clear, concise language
 - Keep sentences short and direct
 - Use active voice
