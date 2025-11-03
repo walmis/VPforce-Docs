@@ -109,6 +109,22 @@ vpforce-rhino-manual/
 
 Documentation is written in **Markdown**. Each page corresponds to a `.md` file in the `docs/` directory.
 
+### Recommended Editors
+
+- **VS Code** - Excellent markdown support with built-in helpers. Automatically generates syntax when pasting images, and GitHub Copilot can assist with writing documentation.
+- **Milkdown Editor** - A [plugin-based WYSIWYG markdown editor framework](https://milkdown.dev/) if you prefer a visual editing experience.
+
+### Workflow
+
+The repository uses a continuous deployment workflow similar to TelemFFB:
+
+1. **Edit locally** - Use `mkdocs serve --livereload` to preview changes in real-time
+2. **Test changes** - Verify your edits look correct before committing
+3. **Push to master** - When satisfied with changes, push to the master branch
+4. **Automatic deployment** - The site automatically renders and uploads to the docs server
+
+You can also use `mkdocs serve --livereload -a 127.0.0.1:9000` to serve on a specific port.
+
 ### Adding a New Page
 
 1. Create a new `.md` file in the appropriate `docs/` subdirectory
@@ -126,7 +142,7 @@ Documentation is written in **Markdown**. Each page corresponds to a `.md` file 
 - Keyboard key notation
 - Strikethrough and emphasis
 
-See the [MkDocs documentation](https://www.mkdocs.org/user-guide/writing-your-docs/) for more details.
+For advanced markdown extensions and formatting options, see the [MkDocs Material reference guide](https://squidfunk.github.io/mkdocs-material/reference/formatting/) and the [MkDocs documentation](https://www.mkdocs.org/user-guide/writing-your-docs/).
 
 ## 🔨 Building for Production
 
