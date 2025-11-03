@@ -32,7 +32,7 @@ theme:
 
 # Extra CSS for better rendering of your blockquotes and formatting
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/extra.css?v=1.0
 
 # Navigation - structured by sections
 # nav:

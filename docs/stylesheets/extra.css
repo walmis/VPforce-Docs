@@ -134,6 +134,18 @@ dd {
     border-left-color: rgb(33, 224, 186);
     background-color: #E8F5E8;
 }
+
+.admonition.important {
+    border-left-color: #FFD54F;
+    background-color: #FFFDE7;
+}
+
+.admonition.important > .admonition-title {
+    background-color: #ffe697;
+    color: #333;
+    font-weight: bold;
+}
+
 /* Print styles */
 @media print {
     blockquote {
