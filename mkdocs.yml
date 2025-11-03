@@ -1,6 +1,9 @@
 site_name: VPforce Rhino Manual
 site_description: 'Complete documentation for the VPforce Rhino FFB ecosystem.'
 site_author: 'VPforce'
+repo_url: 'https://github.com/walmis/VPforce-Docs'
+edit_uri: blob/master/docs/
+copyright: 'Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>'
 
 # Documentation directory
 docs_dir: docs
@@ -13,6 +16,7 @@ watch:
 
 theme:
   name: readthedocs
+  logo: images/vpforcelogo_dark.svg
   navigation_depth: 3
   highlightjs: true
   hljs_languages:
@@ -22,6 +26,9 @@ theme:
     - navigation.tabs
     - navigation.sections
     - toc.integrate
+  palette:
+    primary: purple
+    accent: amber
 
 # Extra CSS for better rendering of your blockquotes and formatting
 extra_css:
@@ -49,6 +56,7 @@ markdown_extensions:
       baselevel: 1
       separator: "-"
   - tables
+  - smarty
   - fenced_code
   - attr_list
   - md_in_html
@@ -65,6 +73,7 @@ markdown_extensions:
   - pymdownx.tilde
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.blocks.caption
   - pymdownx.tasklist:
       custom_checkbox: true
 
@@ -81,4 +90,3 @@ plugins:
 # Extra configuration
 extra:
   generator: false
-  copyright: 'Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>'

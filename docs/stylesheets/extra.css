@@ -148,3 +148,14 @@ dd {
         page-break-after: avoid;
     }
 }
+
+.wy-side-nav-search {
+    display: block;
+    width: 300px;
+    padding: .809em;
+    margin-bottom: .809em;
+    z-index: 200;
+    background-color: #381546;
+    text-align: center;
+    color: #fcfcfc;
+}
