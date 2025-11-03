@@ -57,8 +57,8 @@ We welcome contributions from the community! Whether you're fixing typos, improv
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/walmis/vpforce-rhino-manual.git
-   cd vpforce-rhino-manual
+   git clone https://github.com/walmis/VPforce-Docs.git
+   cd VPforce-Docs
    ```
 
 2. **Create a virtual environment** (recommended)
@@ -165,8 +165,8 @@ For full terms, see the [LICENCE](LICENCE) file.
 
 ## 🙋 Questions or Issues?
 
-- **Found a bug?** Open an [Issue](https://github.com/walmis/vpforce-rhino-manual/issues)
-- **Have a suggestion?** Start a [Discussion](https://github.com/walmis/vpforce-rhino-manual/discussions)
+- **Found a bug?** Open an [Issue](https://github.com/walmis/VPforce-Docs/issues)
+- **Have a suggestion?** Start a [Discussion](https://github.com/walmis/VPforce-Docs/discussions)
 - **Want to help?** See the [Contributing](#-contributing) section
 
 ---
