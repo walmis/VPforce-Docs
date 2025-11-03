@@ -50,7 +50,7 @@ jobs:
           
          
           # Sync the built site to the server
-          rsync -avz --delete -e "ssh -i -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no -p $SSH_PORT" site/ $SSH_USER@$SSH_HOST:$DEPLOY_PATH/
+          rsync -avz --delete -e "ssh -i $HOME/.ssh/id_rsa -o StrictHostKeyChecking=no -p $SSH_PORT" site/ $SSH_USER@$SSH_HOST:$DEPLOY_PATH/
 
       - name: Cleanup SSH key
         if: always()
