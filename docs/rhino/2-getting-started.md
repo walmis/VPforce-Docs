@@ -69,7 +69,7 @@ Note that rotating Thrustmaster grips requires the use of an extension. For VKB 
 
 ###  The VKB Adapter
 
-![](media/Pictures/1000020100000727000008001DBCB6BB2E3883E3.png){ width="156px" height="174px" }
+![The VKB Adapter](media/Pictures/1000020100000727000008001DBCB6BB2E3883E3.png){ width="300px" }
 
 The VKB Adapter allows for the mounting of any socket rev. B and C style VKB grips. In addition to the Adapter, you will need a VKB main controller (black box) to operate VKB grips with the Rhino. 
 
@@ -87,23 +87,28 @@ There is no electrical connection between the adapter and the Rhino, so you can 
 
 To use a VKB grip's buttons for force trim or other functions in the Rhino software, you need to use the included RhinoLoopback app. See details in the relevant section.
 
-![](media/Pictures/10000000000004E200000539F6FC95994BDEBD44.png){ width="170px" height="182px" }
 
-###  The WinWing Adapter
+###  The Winwing Adapter
 
-The WinWing adapter adapts the WinWing grips to the Rhino interface both mechanically and electrically. Tested and correctly working correctly with the WinWing F-16EX and F-18 grips.
+![The WinWing Adapter](media/Pictures/10000000000004E200000539F6FC95994BDEBD44.png){ width="300px" }
 
-It converts the proprietary WinWing protocol to a TM standard 5-pin interface and also passes analog axis data such as brake lever and thumbsticks. It should be compatible with TM/Virpil bases, but without the analog axis functionality and possibly limited to 24 buttons.
 
-In some rare cases a WinWing grip will not report analog axis data, in that case a calibration of the grip analog functions needs to be performed via WinWing software on a WinWing base.
+The Winwing adapter adapts the Winwing grips to the Rhino interface both mechanically and electrically. Tested and correctly working correctly with the Winwing F-16EX and F-18 grips.
 
-To use the full grip functionality on the Rhino base the "WinWing adapter" grip type needs to be selected in the drop down menu.
+It converts the proprietary Winwing protocol to a TM standard 5-pin interface and also passes analog axis data such as brake lever and thumbsticks. It should be compatible with TM/Virpil bases, but without the analog axis functionality and possibly limited to 24 buttons.
 
-![](media/Pictures/100002010000029C0000001C8EB99BF61ACD2EA1.png){ width="624px" height="27px" }
+!!! note
+    In some rare cases a Winwing grip will not report analog axis data, in that case a calibration of the grip analog functions needs to be performed via Winwing software on a Winwing base.
 
-![](media/Pictures/100002010000003600000068B5D6998D65E731A8.png){ width="40px" height="77px" }
+To use the full grip functionality on the Rhino base the *"Winwing adapter"* grip type needs to be selected in the drop down menu.
 
-On newer revisions of the WinWing adapter firmware, button number 32 will illuminate if the Grip connection with the WinWing grip is not functioning/disconnected.
+![Winwing Grip Type Selected](media/Pictures/100002010000029C0000001C8EB99BF61ACD2EA1.png){ width="624px" height="27px" }
+
+
+!!! note
+    On newer revisions of the Winwing adapter firmware, button number 32 will illuminate if the Grip connection with the Winwing grip is not functioning/disconnected.
+
+![Button 32 Active, indicating an error](media/Pictures/100002010000003600000068B5D6998D65E731A8.png){ width="40px" height="77px" }
 
 ###  The RHINO Throw Limiter Adapters
 
@@ -125,7 +130,7 @@ When you connect the **Rhino** to your computer for the first time, a popup shou
 
 On the website, click **"Connect"** to access firmware updates and basic configuration utilities. Select the correct Rhino from the list (for most users, it will be the only one shown) and click **"Connect"** again to establish the connection.
 
-![](media/Pictures/10000201000002B7000001ED6823A57A905CB1E9.png){ width="403px" height="286px" }
+![The Rhino WebUSB Interface](media/Pictures/10000201000002B7000001ED6823A57A905CB1E9.png){ width="403px" height="286px" }
 
 If the system detects that a newer firmware version is available, it will give you the option to update it - unsurprisingly labeled **"Update Firmware"**.
 
