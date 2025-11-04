@@ -4,7 +4,7 @@
 ### WinUSB / WebUSB Firmware Update Issues
 
 **Issue:**
-On **Windows 10/11** with **firmware 1.0.16 and older**, the Rhino may appear correctly in Windows, but **WinUSB fails to operate**, preventing firmware updates through WebUSB. Users may see network WebUSB tool. This problem is fixed in newer firmwares.
+On **Windows 10/11** with **firmware 1.0.16 and older**, the Rhino may appear correctly in Windows, but **WinUSB fails to operate**, preventing firmware updates through WebUSB. Users may see `network error`s in the WebUSB tool. This problem is fixed in newer firmwares.
 
 You can apply a simple registry fix to restore WebUSB functionality. This requires administrative privileges.
 

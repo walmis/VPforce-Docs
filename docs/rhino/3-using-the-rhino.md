@@ -62,7 +62,7 @@ Contains four main tabs where you can modify the Rhino's behavior:
 
 ###  Effects Tab
 
-![](media/Pictures/100002010000048400000459590D138A40BF582D.png){ width="671px" height="647px" }
+![Effects Tab View](media/Pictures/100002010000048400000459590D138A40BF582D.png){ width="671px" height="647px" }
 
 The **Effects Tab** is where you configure the individual force feedback effects that the Rhino generates locally. Each effect can be independently enabled or disabled using its checkbox. When enabled, the effect becomes part of the force feedback you feel during use.
 
@@ -71,33 +71,22 @@ The **Effects Tab** is where you configure the individual force feedback effects
 
 #### Available Effects
 
-**Spring Effect**
+- **Spring Effect** - Generates a centering force that behaves like a physical spring, pulling the joystick back toward its center position. The further you move from center, the stronger the pull becomes. This is the foundation of most force feedback experiences.
+    - **Common Parameters:**
 
-Generates a centering force that behaves like a physical spring, pulling the joystick back toward its center position. The further you move from center, the stronger the pull becomes. This is the foundation of most force feedback experiences.
+        - **Gain:** Overall strength multiplier for the effect (0-100%)
+        - **Saturation:** Maximum output level as a percentage of total available force
+        - **Deadband:** Range near the center where no force is applied, useful for creating a "dead zone"
 
-**Common Parameters:**
+- **Damper Effect** - Simulates resistance similar to moving the joystick through a viscous fluid like oil or honey. The faster you move the stick, the stronger the opposing force becomes. This effect adds a sense of weight and prevents overly twitchy movements.
 
-- **Gain:** Overall strength multiplier for the effect (0-100%)
-- **Saturation:** Maximum output level as a percentage of total available force
-- **Deadband:** Range near the center where no force is applied, useful for creating a "dead zone"
+- **Inertia Effect** - Simulates momentum and mass, making the joystick resist changes in motion. When you start moving the stick, it feels like it wants to continue moving in that direction. This creates a sense of physical mass and realistic control inertia.
 
-**Damper Effect**
+- **Friction Effect** - Simulates a constant, static resistance to movement, similar to dragging the joystick through a mechanical friction joint or over a rough surface. Unlike damper, friction force is constant regardless of speed.
 
-Simulates resistance similar to moving the joystick through a viscous fluid like oil or honey. The faster you move the stick, the stronger the opposing force becomes. This effect adds a sense of weight and prevents overly twitchy movements.
+- **Endstops** - Generates a firm resistance when the joystick reaches a defined boundary, preventing further movement. The endstop parameters can be adjusted in the green and red boxes under the **End Stops** section of the page.
 
-**Inertia Effect**
-
-Simulates momentum and mass, making the joystick resist changes in motion. When you start moving the stick, it feels like it wants to continue moving in that direction. This creates a sense of physical mass and realistic control inertia.
-
-**Friction Effect**
-
-Simulates a constant, static resistance to movement, similar to dragging the joystick through a mechanical friction joint or over a rough surface. Unlike damper, friction force is constant regardless of speed.
-
-**Endstops**
-
-Generates a firm resistance when the joystick reaches a defined boundary, preventing further movement. The endstop parameters can be adjusted in the green and red boxes under the **End Stops** section of the page.
-
-![](media/Pictures/100002010000047F00000457A7AC2A5CB7341DC5.png){ width="671px" height="648px" }
+![Activated Endstops](media/Pictures/100002010000047F00000457A7AC2A5CB7341DC5.png){ width="671px" height="648px" }
 
 In the example above, the endstops are configured at **50% of Y-axis travel** in both directions, with **50% of the maximum available force** applied at each endstop. Each direction is represented by a different colored box: **green** for pushing the stick *toward* you, and **red** for pulling it *away from* you.
 
@@ -111,7 +100,7 @@ If you continue to push the stick further into the resistance zone, the red dot 
 
 If the rescale axes box is checked, then the joystick will tell the computer it has reached full excursion when it reaches an endstop. Below you can see this as the red dot has moved to the limit of the little box. However, the blue dot is still centered because the motors are not doing anything.
 
-![](media/Pictures/100000000000036B000003AC9332F2BD783D61D6.jpg){ width="624px" height="671px" }
+![Effects Tab View](media/Pictures/100000000000036B000003AC9332F2BD783D61D6.jpg){ width="624px" height="671px" }
 
 **Constant Force**
 
@@ -123,7 +112,7 @@ Simulates the initial resistance or "stiction" that must be overcome before a co
 
 **Hardware Force Trim**
 
-![](media/Pictures/10000201000001180000013BA476006988DB8038.png){ width="280px" height="315px" }
+![Hardware Force Trim View](media/Pictures/10000201000001180000013BA476006988DB8038.png){ width="280px" height="315px" }
 
 This setting enables hardware-based force trim functionality, particularly useful for helicopter simulation. When enabled:
 
@@ -139,7 +128,7 @@ The Balance Spring feature compensates for grip weight and extension length to p
 
 ###  Settings Tab
 
-![](media/Pictures/10000000000004F40000059361AF1DE1EA619835.jpg){ width="624px" height="702px" }
+![Settings Tab View](media/Pictures/10000000000004F40000059361AF1DE1EA619835.jpg){ width="624px" height="702px" }
 
 The **Settings Tab** provides global gain multipliers (master volume controls) for each force feedback effect type. These sliders act as maximum force limiters that apply to **all** effects - whether they come from the Configurator, a game, or TelemFFB.
 
@@ -166,7 +155,7 @@ Think of the Effects tab as setting "what effects are available and how they beh
 
 #### Grip Type Selection and Calibration
 
-![Grip calibration](media/grip_calibration.png)
+![Grip Calibration View](media/grip_calibration.png)
 
 Inside the Settings tab, you'll find a **Grip Type** dropdown menu. This allows you to select the type of grip connected to your Rhino (e.g., VKB, Virpil, Loopback, or other supported grips).
 
@@ -256,7 +245,7 @@ TelemFFB can also override individual effects in the same way a simulator does, 
 
 ###  Debug Tab
 
-![](media/Pictures/10000000000004F10000059129B47A07DBD12716.jpg){ width="514px" height="579px" }
+![Debug Tab View](media/Pictures/10000000000004F10000059129B47A07DBD12716.jpg){ width="514px" height="579px" }
 
 The **Debug Tab** is your window into the Rhino's internal operations, providing real-time monitoring, diagnostic tools, and troubleshooting capabilities. This tab is essential for understanding what's happening under the hood and resolving issues.
 
@@ -305,7 +294,7 @@ The Debug tab includes several utility functions:
 
 ### Button Mapping Tab
 
-![](media/Pictures/10000000000004F6000005957DE0F1D6307E0EC4.jpg){ width="624px" height="702px" }
+![Button Mapping View](media/Pictures/10000000000004F6000005957DE0F1D6307E0EC4.jpg){ width="624px" height="702px" }
 
 The **Button Mapping Tab** allows you to configure how buttons on your grip are recognized and mapped by the system. This is where you can:
 
@@ -316,7 +305,7 @@ The **Button Mapping Tab** allows you to configure how buttons on your grip are 
 
 ## The RhinoLoopback Application
 
-![RhinoLoopback](images/3-using-the-rhino/image.png)
+![RhinoLoopback Application](images/3-using-the-rhino/image.png)
 
 ### Purpose and Overview
 
@@ -379,9 +368,9 @@ When using heavier grips or extension pieces, you may notice the joystick saggin
 
 The **Balance Spring** feature, found in the VPforce Configurator, compensates for grip weight and orientation by applying directional bias forces. This allows you to achieve perfect trim performance regardless of grip weight or extension length.
 
-*<center>Before balance:</center>* ![](media/Pictures/1000020100000083000000805C63BB7B7A0F0FF9.png){ width="131px" height="128px" }
+![Before balance](media/Pictures/1000020100000083000000805C63BB7B7A0F0FF9.png){ width="131px" height="128px" }
 
-*<center>After balance:</center>*  ![](media/Pictures/100002010000008A00000081D7486D8A7443891D.png){ width="138px" height="129px" }
+![After balance](media/Pictures/100002010000008A00000081D7486D8A7443891D.png){ width="138px" height="129px" }
 
 !!! note
     Before adjusting the *"Balance Spring"* settings, it's crucial to disable Spring/Damper/Friction/Inertia effects. This ensures that adjustments made to the balance spring force settings are accurately reflected without interference from the other effects.
@@ -405,7 +394,7 @@ Before adjusting the Balance Spring, it's crucial to temporarily disable other f
 
 Locate the "Balance Spring" section in the Effects tab. You'll see four directional strength controls:
 
-![](media/Pictures/10000201000000F20000009531846FA4DDD4F42B.png){ width="242px" height="149px" }
+![Balance Spring Widget](media/Pictures/10000201000000F20000009531846FA4DDD4F42B.png){ width="242px" height="149px" }
 
 **Directional Adjustments:**
 
@@ -434,7 +423,7 @@ Locate the "Balance Spring" section in the Effects tab. You'll see four directio
 
 ### Adaptive Recentering
 
-![](media/Pictures/1000020100000109000000C9295E083C2AF56320.png){ width="265px" height="201px" }
+![Adaptive Recentering Activated](media/Pictures/1000020100000109000000C9295E083C2AF56320.png){ width="265px" height="201px" }
 
 **Adaptive Recentering** is an intelligent system that works alongside Balance Spring to achieve even more precise trim positions. While Balance Spring provides static compensation, Adaptive Recentering dynamically adjusts forces to minimize positioning errors.
 
@@ -470,18 +459,20 @@ Adaptive Recentering works with any **Spring-class effects** from:
 
 ### Static Force
 
-![](media/Pictures/100002010000010C00000075A27DB1F4A48BFF34.png){ width="268px" height="117px" }
+![Static Force Widget](media/Pictures/100002010000010C00000075A27DB1F4A48BFF34.png){ width="268px" height="117px" }
 
 **Static Force** applies a constant directional force, similar to attaching a rubber band that continuously pulls in one direction. This setting is particularly useful for extreme weight imbalances or specialized applications.
 
 #### When to Use Static Force
 
 **Heavy Weight Imbalance:**
+
 - Stick is significantly front-heavy or rear-heavy
 - Balance Spring alone isn't providing enough compensation
 - You need a constant pull to counteract persistent drift
 
 **Specialized Applications:**
+
 - Simulating counterbalance springs in custom FFB collectives
 - Creating intentional force bias for specific aircraft types
 - Compensating for unusual mounting angles or configurations
@@ -505,11 +496,16 @@ The Rhino's two servo motors generate significant thermal energy during continuo
 
 ### How the Motors Heat Up
 
-The Rhino's motors operate at stall speed, holding torque against your input rather than spinning freely. In this mode, nearly all the electrical power supplied to the motors is converted directly into heat through winding resistance. Specifically, the heat generated follows the relationship $P = I^2R$, where current (and thus torque) is directly proportional to the heating. With a typical power draw of 150W from the supply, much of this becomes thermal energy in the motor windings rather than mechanical motion.
+The Rhino's motors operate at stall speed, holding torque against your input rather than spinning freely. 
+In this mode, nearly all the electrical power supplied to the motors is converted directly into heat through winding resistance. 
+Specifically, the heat generated by the motors follows the formula $P = I^2R$, meaning the power dissipated as heat increases with the square of the current (and therefore the torque). This squared relationship means that even small increases in force demand can lead to much higher heat buildup.
+With a typical power draw of 150W from the supply, much of this becomes thermal energy in the motor windings rather than mechanical motion.
 
-Each motor in the Rhino converts electrical energy into mechanical force. However, the power budget works differently than in motion-based systems - most input power becomes winding heat due to the stall-speed operating mode. Under high force demands or continuous operation, this heat accumulates faster than it naturally dissipates, causing the motor temperature to rise.
+Each motor in the Rhino converts electrical energy into mechanical force. 
+However, the power budget works differently than in motion-based systems - most input power becomes winding heat due to the stall-speed operating mode. 
+Under high force demands or continuous operation, this heat accumulates faster than it naturally dissipates, causing the motor temperature to rise.
 
-When you apply strong force feedback effects - such as sustained aerodynamic pressure on the stick or high-resistance haptic events - the motors draw more current and generate more heat. Similarly, extended flight sessions where the motors are constantly engaged will cause gradual thermal buildup. 
+When you apply strong force feedback effects - such as sustained aerodynamic pressure on the stick or prolonged dogfights - the motors draw more current and generate more heat. Similarly, extended flight sessions where the motors are constantly engaged will cause gradual thermal buildup. 
 
 As motor temperature increases, the device automatically manages thermal stress by gradually reducing available torque output to maintain a sustainable power dissipation equilibrium. This allows the system to continue operating without risk of damage, though you will notice reduced force feedback intensity as the motors approach their thermal limits. Once the motors cool sufficiently, full torque output returns.
 
