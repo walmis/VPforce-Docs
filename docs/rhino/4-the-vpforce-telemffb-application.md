@@ -1165,6 +1165,8 @@ This section expands upon some of the more complex or commonly adjusted settings
 
 ### MSFS and X-Plane
 
+Both Microsoft Flight Simulator and X-Plane lack native force feedback support, but TelemFFB bridges this gap by leveraging their robust telemetry export capabilities. This section covers the advanced features and configuration options specific to these simulators, including trim and autopilot following, dynamic spring curves, and helicopter force trim emulation. The settings and workflows described here enable you to achieve sophisticated force feedback behavior that closely simulates real aircraft dynamics and control characteristics.
+
 #### Trim and Autopilot Following
 
 TelemFFB supports trim and autopilot following in MSFS and X-planes, with special caveats for MSFS. In order for TelemFFB to emulate movement of the joystick/pedals in response to trim or autopilot inputs, it needs to be able to control the axis position that MSFS is seeing from the joystick device. This is required since these simulators have no concept of FFB or axis offsets and will interpret any intentional deflection of an axis as ***deflection of the control surface*** and not just a response to the trim input. This is counteracted in software by limiting the amount of physical movement of the joystick that is actually communicated to MSFS.
