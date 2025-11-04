@@ -498,3 +498,40 @@ Static Force can be set to positive or negative values:
 
 !!! warning "Warning: Use Sparingly"
     Static Force applies continuously, which means it's always consuming motor authority and generating heat. Use only as much as needed and prefer Balance Spring adjustments when possible.
+
+## Thermal Management
+
+The Rhino's two servo motors generate significant thermal energy during continuous operation, particularly under sustained high forces or extended flight sessions. Understanding how thermal buildup occurs and how to manage it will help you get the most out of your device.
+
+### How the Motors Heat Up
+
+The Rhino's motors operate at stall speed, holding torque against your input rather than spinning freely. In this mode, nearly all the electrical power supplied to the motors is converted directly into heat through winding resistance. Specifically, the heat generated follows the relationship $P = I^2R$, where current (and thus torque) is directly proportional to the heating. With a typical power draw of 150W from the supply, much of this becomes thermal energy in the motor windings rather than mechanical motion.
+
+Each motor in the Rhino converts electrical energy into mechanical force. However, the power budget works differently than in motion-based systems - most input power becomes winding heat due to the stall-speed operating mode. Under high force demands or continuous operation, this heat accumulates faster than it naturally dissipates, causing the motor temperature to rise.
+
+When you apply strong force feedback effects - such as sustained aerodynamic pressure on the stick or high-resistance haptic events - the motors draw more current and generate more heat. Similarly, extended flight sessions where the motors are constantly engaged will cause gradual thermal buildup. 
+
+As motor temperature increases, the device automatically manages thermal stress by gradually reducing available torque output to maintain a sustainable power dissipation equilibrium. This allows the system to continue operating without risk of damage, though you will notice reduced force feedback intensity as the motors approach their thermal limits. Once the motors cool sufficiently, full torque output returns.
+
+### Built-in Cooling System
+
+The Rhino includes an active cooling system with two fans that automatically engage when the motor temperature reaches 50°C. These fans draw air through the base to dissipate heat from the motors and internal components. As long as the fans have adequate airflow, they will effectively manage thermal buildup during normal use.
+
+### Optimizing Cooling Performance
+
+To ensure the cooling system works at its best:
+
+-   **Maintain clearance around the base:** Position the Rhino so there is adequate space around it, particularly around the sides and bottom where air enters and exits. Avoid placing it flush against walls or enclosures that restrict airflow.
+-   **Keep vents clear:** Periodically check that dust and debris are not blocking the fan vents on the base. A gentle clean with compressed air or a soft brush can help maintain airflow efficiency.
+-   **Ensure proper ventilation:** If you use the Rhino in an enclosed cockpit or sim rig, make sure the area has reasonable ambient air circulation. Placing it in a hot or poorly ventilated space will make thermal management more difficult.
+-   **Consider ambient temperature:** On warm days or in hot rooms, the motors will reach their operating temperature more quickly. This is normal and not a cause for concern, but be aware that sustained heavy use in a warm environment may result in the fans running continuously.
+
+### Managing Thermal Load During Use
+
+If you find the Rhino is throttling heavily or the fans are running constantly, consider these strategies:
+
+-   **Reduce Master Gain:** Lowering the overall output gain reduces the work the motors must do and generates less heat. You can still achieve realistic force feedback at lower gain settings.
+-   **Take breaks:** Extended sessions with high forces naturally accumulate heat. Short breaks allow the system to cool down and perform optimally when you resume.
+-   **Balance effect strengths:** Rather than maxing out all force effects, tune them individually to realistic levels. Lighter, more refined effects often feel better than brute force and are easier on the hardware.
+
+The fans are designed to handle normal operation, and you will rarely need to worry about thermal management during typical use. The built-in protection system ensures the device will never damage itself through overheating - but understanding how cooling works helps you get the best performance and longevity from your Rhino.
