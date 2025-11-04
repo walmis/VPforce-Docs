@@ -2,3 +2,4 @@ mkdocs-enumerate-headings-plugin
 pymdown-extensions
 mkdocs
 mkdocs-autorefs
+mkdocs-img2figv2-plugin

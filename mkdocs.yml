@@ -34,6 +34,10 @@ theme:
 extra_css:
   - stylesheets/extra.css?v=1.0
 
+# Extra JavaScript for custom functionality
+extra_javascript:
+  - javascripts/figure-numbering.js
+
 # Navigation - structured by sections
 # nav:
 #   - Home: index.md
@@ -65,7 +69,7 @@ markdown_extensions:
   - footnotes
   - abbr
   - sane_lists
-  - nl2br
+  #- nl2br
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
@@ -85,6 +89,9 @@ plugins:
   - search
   - enumerate-headings:
       toc_depth: 3
+  - img2figv2
+
+
   
 # Hooks for custom processing (e.g., image path handling)
 #hooks:

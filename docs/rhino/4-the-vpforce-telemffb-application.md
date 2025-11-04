@@ -583,11 +583,12 @@ You can force the TelemFFB window to show by double-clicking the icon or from th
 
 When you start a simulator, the system tray icon will change colors to indicate the current status of the sim, very similar to the status indicator icons in the main TelemFFB window.
 
+*![Sim is running, receiving telemetry](media/Pictures/100002010000010000000100A49CDBD55AB225A2.png){ width="20px" height="20px" }*
 
-![](media/Pictures/100002010000010000000100A49CDBD55AB225A2.png){ width="20px" height="20px" } *<center>Sim is running, receiving telemetry</center>*
-![](media/Pictures/1000020100000100000001005ACB1268E70F91D7.png){ width="20px" height="20px" } *<center>Sim is paused</center>*
+*![Sim is paused](media/Pictures/1000020100000100000001005ACB1268E70F91D7.png){ width="20px" height="20px" }*
 
-![](media/Pictures/1000020100000100000001008EA0CDE77DC78A4A.png){ width="20px" height="20px" } *<center>Error condition.</center>* 
+*![Error condition.](media/Pictures/1000020100000100000001008EA0CDE77DC78A4A.png){ width="20px" height="20px" }*
+
 <center>There will also be a system
     tray notification with the error information and the error message
     will be visible on the TelemFFB main window.</center>

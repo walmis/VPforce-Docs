@@ -171,3 +171,11 @@ dd {
     text-align: center;
     color: #fcfcfc;
 }
+
+figcaption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 0.3em;
+    font-style: italic;
+}
