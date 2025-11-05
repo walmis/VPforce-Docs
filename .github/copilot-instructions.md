@@ -27,6 +27,13 @@ Important formatting notes:
 
 	When creating a list, include a blank line before the list block. This ensures correct rendering across MkDocs themes and avoids incorrect nesting in some renderers.
 
+!!! note "Sublist formatting"
+
+	For nested lists (sublists), use proper indentation:
+	- Indent sublists with **4 spaces** (not 2)
+	- Add a **new empty line after the parent item** before starting the sublist
+	- This ensures correct rendering of nested list structures in MkDocs
+
 !!! note "Admonitions"
 
 	Use MkDocs-style admonitions for inline guidance instead of plain bold/italic labels. Examples:
@@ -82,6 +89,57 @@ If uncertain about a technical fact or detail:
 - Follow the patterns established in existing documentation
 - Match the tone and formality level of surrounding content
 - Preserve any project-specific formatting or notation systems
+
+## Changelog Management
+
+When documentation changes are made, maintain `changelog.md` (or the appropriate date-versioned changelog) to record user-facing changes:
+
+### What to Document in Changelog
+
+Document **additions and improvements to user-facing documentation only**. Focus on:
+
+- New sections or pages added
+- Major content enhancements or clarifications
+- New features or capabilities documented
+- Improvements to existing explanations or procedures
+- Troubleshooting guidance additions
+
+**Do NOT document** project infrastructure, internal processes, or technical implementation details.
+
+### Changelog Format
+
+Use this simple list format with dates:
+
+```markdown
+- **Date:**
+  - Change description 1
+  - Change description 2
+  - Change description 3
+```
+
+Each changelog entry should be a concise bullet point describing what was added or improved.
+
+### Language for Changelog
+
+- Use **user-focused language** - explain benefits and capabilities, not internal changes
+- Write from the **reader's perspective** - what can they now do?
+- Keep entries **concise** - One clear sentence per bullet point
+- Use **active voice** - "Added...", "Documented...", "Expanded..." rather than passive voice
+
+### Linking to New Sections
+
+When documenting new sections or pages added, include cross-references using this format:
+
+```markdown
+- Added new section **[Section Name][section-slugged]** explaining...
+```
+
+MkDocs will automatically create links to relevant pages. Use slug format for section links:
+- Convert heading text to lowercase
+- Replace spaces with hyphens
+- Remove special characters (keep only alphanumeric and hyphens)
+
+Example: "Understanding Native DCS FFB" becomes `understanding-native-dcs-ffb`
 
 ---
 

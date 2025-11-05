@@ -9,8 +9,7 @@ A majority of the effects will apply to both DCS and MSFS. Where
 applicable, each effect setting has a comment in-line with the default
 setting to indicate which simulator(s) it applies to.
 
-#### Generic Aircraft Effects (applies to all (or
-multiple) aircraft types)
+#### Generic Aircraft Effects (applies to all (or multiple) aircraft types)
 
 ##### G-Force Loading Effect
 
@@ -23,8 +22,7 @@ The G-Force loading effect simulates the increasing force that is
 required to pull back on the stick as the g forces increase during a
 dive pull-out or hard turn.
 
-![](media/Pictures/10000201000003CD000000BBB1B456D90FB9CE7F.png){ width="6.5in"
-height="1.25in" }
+![](media/Pictures/10000201000003CD000000BBB1B456D90FB9CE7F.png){ width="6.5in" height="1.25in" }
 
 -   gforce_effect_enable (yes/no)
 
@@ -55,8 +53,7 @@ height="1.25in" }
 
     -   Example values (default is 2.2)
 
-    -   ![](media/Pictures/1000020100000238000001BB3ACB2200CB846F2D.png){ width="5.9165in"
-        > height="4.6146in" }
+    -   ![](media/Pictures/1000020100000238000001BB3ACB2200CB846F2D.png){ width="5.9165in" height="4.6146in" }
 
 ##### Deceleration Effect
 

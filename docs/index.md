@@ -4,7 +4,7 @@ Welcome to the VPForce documentation site!
 
 ## Available Documentation
 
-### [Rhino Stick Base Manual](rhino/)
+### [Rhino Stick Base Manual](rhino/index.md)
 
 The comprehensive guide to the VPForce Rhino stick base, covering everything from initial setup to advanced configuration and troubleshooting. Learn about:
 
