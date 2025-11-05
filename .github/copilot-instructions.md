@@ -12,14 +12,31 @@ This file provides guidance for GitHub Copilot when writing, editing, and improv
 
 ## Markdown Formatting
 
-Follow correct Markdown syntax at all times:
+Follow correct Markdown syntax at all times. Prefer MkDocs-compatible styling and the repository's existing conventions.
 
 - Use proper heading hierarchy (`#`, `##`, `###`, etc.)
-- Format code blocks with appropriate language tags (e.g., ` ```python`, ` ```bash`)
+- Format code blocks with appropriate language tags (for example: ```python or ```bash)
 - Create valid links: `[link text](URL)` or `[link text](relative/path.md)`
 - Use consistent list formatting (either `-` or `*` for unordered lists, `1.` for ordered)
 - Format inline code with single backticks: `` `code` ``
 - Use tables correctly with proper alignment
+
+Important formatting notes:
+
+!!! note "Blank line before lists"
+
+	When creating a list, include a blank line before the list block. This ensures correct rendering across MkDocs themes and avoids incorrect nesting in some renderers.
+
+!!! note "Admonitions"
+
+	Use MkDocs-style admonitions for inline guidance instead of plain bold/italic labels. Examples:
+
+	- `!!! note "Note"` for informational notes
+	- `!!! tip "Tip"` for helpful hints
+	- `!!! warning "Warning"` for cautions
+	- `!!! important "Important"` for critical points
+
+	Admonitions should be used for notes, warnings, important caveats, or any UI/behavioral exceptions that readers must see.
 
 ## Terminology and Consistency
 
