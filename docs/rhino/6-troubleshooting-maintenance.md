@@ -1,7 +1,73 @@
 
 # Troubleshooting
 
-### WinUSB / WebUSB Firmware Update Issues
+## USB Connection Issues
+
+**Issue:**
+The Rhino exhibits intermittent connection problems, instability, or appears to disconnect and reconnect frequently. This typically manifests as effects stuttering, dropping out momentarily, or the device appearing offline in VPforce Configurator.
+
+**Common Causes & Solutions:**
+
+Check the following items in order:
+
+1. **USB Hub**
+
+    - If you are currently using a USB hub, disconnect it and connect the Rhino directly to your PC
+    - USB hubs can introduce latency, power delivery issues, and signal integrity problems
+    - Test the direct connection for stability
+
+2. **USB Port**
+
+    - Try a different USB port on your PC
+    - Some USB ports have better power delivery or less electrical noise than others
+    - Test multiple ports to identify if the issue is port-specific
+    - If available, try USB 3.0/3.1 ports (blue ports) rather than USB 2.0 (black ports)
+
+3. **USB Cable**
+
+    - Try a different USB cable if possible
+    - USB cables can degrade over time or have internal damage
+    - A faulty cable is a common cause of intermittent connection issues
+
+4. **DC Power Plug**
+
+    - Inspect the DC power connector on the back of the Rhino
+    - If the DC power plug pulls out easily or feels loose, vibrations during operation might be causing intermittent power connection loss
+    - Poor DC connections can also introduce ground loops, causing electrical noise and instability
+    - Ensure the power plug is firmly seated and making good contact
+    - This is a frequent cause of instability during intense FFB effects
+
+!!! tip
+    If you have access to multiple USB cables and ports, systematically test each combination. Document which configuration is most stable—this can help identify whether the issue is related to your specific port, cable, or something else entirely.
+
+!!! important
+    Once you have confirmed a stable connection with direct PC connection and a known-good cable/port, the instability is likely resolved. If problems persist, the device itself may have a hardware issue and should be checked by support.
+
+### USB Isolator Recommendation
+
+As a best practice or if you continue to experience intermittent connection issues after testing the above steps, or if your PC has noisy USB power delivery, consider using a **USB isolator**. A USB isolator is a device that sits between your PC and the Rhino, providing electrical isolation that eliminates ground loop noise and reduces EMI (electromagnetic interference) that can cause connection instability.
+
+![AduM3160 based USB isolator](images/6-troubleshooting-maintenance/image.png){ width="250" }
+
+Benefits of a USB isolator:
+
+- Eliminates electrical noise from your PC's USB bus
+- Provides cleaner power delivery to the Rhino
+- Can resolve connection issues in systems with high electrical noise (common in gaming rigs with multiple high-power devices)
+
+This is a proven solution for users experiencing persistent USB stability issues, particularly in systems with many power-hungry components.
+
+**Where to Find USB Isolators:**
+
+Search for **AduM3160** isolator boards on AliExpress, Amazon, or other electronics retailers. The AduM3160 is a popular, affordable USB 2.0 isolator IC commonly available on ready-made isolator boards. When searching, look for:
+
+- "AduM3160 isolator board" or "USB isolator AduM3160"
+- Pre-assembled USB isolator modules (no soldering required)
+- Boards with both USB-A connectors or USB-A to USB-C options
+
+Cost is typically low (under $10-20 USD), making it an economical troubleshooting step if you suspect USB noise issues.
+
+## WinUSB / WebUSB Firmware Update Issues
 
 **Issue:**
 On **Windows 10/11** with **firmware 1.0.16 and older**, the Rhino may appear correctly in Windows, but **WinUSB fails to operate**, preventing firmware updates through WebUSB. Users may see `network error`s in the WebUSB tool. This problem is fixed in newer firmwares.
@@ -21,18 +87,41 @@ You can apply a simple registry fix to restore WebUSB functionality. This requir
     - Only run the command exactly as provided; editing the registry incorrectly can cause system issues.
 
 
+## Motor faults
 
-### - Game Specific Troubleshooting
+### FAULT_UNSTABLE
+
+**Issue:**
+The Rhino reports a `FAULT_UNSTABLE` error. This fault typically occurs suddenly, often preceded by an audible thump or impact sensation from the device.
+
+**Note:**
+The device's fault message usually identifies which motor (or axis) triggered the fault. Check the indicated motor/axis first — it typically points straight to the side that needs inspection.
+
+**Cause:**
+This fault is most commonly caused by **belt slippage** on either the X-axis or Y-axis. When the belt connecting a motor to its pulley loses tension or alignment, the motor and pulley can slip relative to each other. The sudden slip causes the controller to detect an unexpected position change that doesn't match the expected motor command, triggering the stability check and generating the fault. The audible thump is often the moment when slippage occurs.
+
+**Resolution:**
+
+1.  **Check belt tension:** Inspect the axis belt which produced the fault. The belts should be firm but not over-tightened.
+
+2.  **Re-tighten if necessary:** If either belt is loose, carefully tighten it to restore proper tension. See the **[Belt Tensioning Guide][re-tightening-the-belts]** for detailed instructions.
+
+4.  **Run Auto Calibration:** After adjusting tension and alignment, launch the VPforce FFB Configurator and run **Auto Calibration** from the **Settings** tab.
+
+5.  **Verify calibration values:** Once calibration completes, check the calibration values. You should see values around **C:~2000** for both axes. If the values are significantly different, the belts may need further adjustment.
+
+
+## - Game Specific Troubleshooting
 
 Various items can cause issues with FFB depending on the sim in question. This section will cover common issues and basic troubleshooting steps that can be used to identify and fix the problem. This section is a living list that will be updated as new issues/causes/solutions are identified.
 
-#### - DCS
+### - DCS
 
 By default, the Spring effect, which is the primary 'FFB' effect type, is owned and managed by DCS. The TelemFFB application does not alter the spring effect unless one of the several override options are enabled.
 
 If FFB is not working, follow the below procedure:
 
-##### Ensure FFB is enabled in the DCS Misc. settings
+#### Ensure FFB is enabled in the DCS Misc. settings
 
 1.  Even with FFB disabled, DCS will create a disabled FFB effect (which renders the joystick limp). However, it will never 'start' the effect, so it remains limp even after loading into an aircraft.
 
@@ -46,7 +135,7 @@ If FFB is not working, follow the below procedure:
 
     2. This is the 'strength' of the spring effect that DCS will use for that axis for that aircraft. Recommended to leave it at %100
 
-##### Test without TelemFFB running
+#### Test without TelemFFB running
 
 1.  **If the issue persists, TelemFFB is not at fault. Proceed to next step**
 
@@ -64,7 +153,7 @@ If FFB is not working, follow the below procedure:
 
     4. If TelemFFB has been determined to be the cause, but the above steps did not reveal the issue, reach out to the **#TelemFFB-User** channel on the VPforce discord
 
-##### Check your configurator settings
+#### Check your configurator settings
 
 1.  Make sure that your master-gain and spring gain sliders are nonzero and are high enough that you feel the spring force you are expecting. These sliders define the maximum force that the Rhino can generate and if they are low/zero, it does not matter what the game sets the spring effect at, it will be no stronger than the combination of those sliders.
 
@@ -86,7 +175,7 @@ If FFB is not working, follow the below procedure:
 
 ![](media/Pictures/1000000000000374000002AE7C4FC959873320DB.png){ width="493px" height="383px" }
 
-##### Check for 3rd party app issues
+#### Check for 3rd party app issues
 
 1. **vJoy**
 
