@@ -45,6 +45,10 @@ Important formatting notes:
 
 	Admonitions should be used for notes, warnings, important caveats, or any UI/behavioral exceptions that readers must see.
 
+!!! note "Line Breaks"
+
+	To create a line break within a paragraph, add **two spaces** at the end of the line. This ensures consistent rendering across different Markdown parsers.
+
 ## Terminology and Consistency
 
 - Maintain **consistent terminology** throughout all documentation
@@ -90,6 +94,29 @@ If uncertain about a technical fact or detail:
 - Match the tone and formality level of surrounding content
 - Preserve any project-specific formatting or notation systems
 
+## FAQ Formatting
+
+When creating FAQ sections, use the following format for consistency and readability:
+
+```markdown
+## FAQ
+
+**Q: Question text here?**  
+**A:** Answer text here.
+
+**Q: Another question?**  
+**A:** Another answer.
+```
+
+Key points:
+
+- Use `## FAQ` as the section heading
+- Format questions with `**Q:**` prefix
+- Format answers with `**A:**` prefix
+- Add two spaces at the end of the Q line (before the line break) to ensure proper separation
+- Each Q&A pair should be separated by a blank line for better readability
+- Keep both Q and A on separate lines for consistency
+
 ## Changelog Management
 
 When documentation changes are made, maintain `changelog.md` (or the appropriate date-versioned changelog) to record user-facing changes:
@@ -111,10 +138,11 @@ Document **additions and improvements to user-facing documentation only**. Focus
 Use this simple list format with dates:
 
 ```markdown
-- **Date:**
-  - Change description 1
-  - Change description 2
-  - Change description 3
+- **Date:** 2025-10-10
+
+    - Change description 1
+    - Change description 2
+    - Change description 3
 ```
 
 Each changelog entry should be a concise bullet point describing what was added or improved.
