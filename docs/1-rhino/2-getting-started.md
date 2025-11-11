@@ -65,7 +65,10 @@ The rotating knob can be used to control different features of the Rhino (see so
 
 The Rhino supports Thrustmaster (Cougar, Warthog, F/A-18C) and Virpil grips directly.
 
-Note that rotating Thrustmaster grips requires the use of an extension. For VKB and Winwing see below.
+!!! note
+    Rotating Thrustmaster grips requires the use of an extension. For VKB and Winwing see below.
+
+![Rhino Grip mount head](images/2-getting-started/grip-compatibility.png){ width="300" }
 
 ###  The VKB Adapter
 

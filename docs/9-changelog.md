@@ -1,5 +1,27 @@
 # Changelog
 
+- **November 9, 2025:**
+
+    - Added **[DIY Tips and Tricks](2-community-projects/1-tips-and-tricks.md)** documenting multi-turn encoder ambiguity and other challenges in custom FFB configurations
+    - Expanded **[Known Issues](1-rhino/7-appendix-a-known-issues.md)** with DCS axis curve incompatibility explanation and FFB best practices
+    - Documented IL-2 8-device USB limit and devreorder workaround solution
+    - Added **[Community Projects](2-community-projects/index.md)** section featuring DIY FFB builds and modifications
+    - Documented **[TheAmazingGreat's 86 Motor FFB Base](2-community-projects/theamazingreat-rhino.md)** with thermal management advantages for extended high-intensity use
+    - Added **[Tiger TPR FFB Mod Guide](2-community-projects/Tiger_TPR_FFB_Mod_Guide.md)** for Thrustmaster TPR pedal FFB conversion
+    - Added **[TPR FFB Project Documentation](2-community-projects/TPR_FFB_Project_Documentation.md)** with complete assembly procedures and troubleshooting FAQ
+    - Added **[MFG Crosswind FFB Mod Guide](2-community-projects/MFG_Crosswind_FFB_Mod_Guide.md)** for MFG Crosswind pedal FFB conversion
+    - Documented **[Planetary Gearbox DIY](2-community-projects/Planetary_Gearboxes_DIY.md)** options for increased torque output with reduced motor speed
+    - Added **[Community Rhino Builds](2-community-projects/community-rhino-builds.md)** overview linking protomaker, mabo, and other community base designs
+    - Created **[Third-Party Vendors](3-third-party-vendors/index.md)** section for commercial FFB kit offerings
+    - Added **[SR-F Winger Monster Rhino Kitbase](3-third-party-vendors/SR-F_Winger.md)** documentation for 86BLF04-based commercial kit
+    - Documented **FAULT_UNDERVOLTAGE** motor fault in **[Troubleshooting & Maintenance](1-rhino/6-troubleshooting-maintenance.md)** with voltage threshold details, under-load vs idle diagnostic guidance, and resolution procedures for power supply and connection issues
+
+- **November 6, 2025:**
+
+    - Added new community project page for the [Tiger TPR FFB Mod](2-community-projects/Tiger_TPR_FFB_Mod_Guide.md)
+    - Added comprehensive documentation for the [Force-Feedback TPR Pedal Mod](2-community-projects/TPR_FFB_Project_Documentation.md) with assembly steps and FAQ
+    - Added guide for the [MFG Crosswind FFB Mod](2-community-projects/MFG_Crosswind_FFB_Mod_Guide.md)
+
 - **November 5, 2025:**
 
     - Added comprehensive section explaining Native DCS FFB, TelemFFB, and VPforce Configurator interactions (TelemFFB Application Guide)

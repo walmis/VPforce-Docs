@@ -40,20 +40,9 @@ extra_javascript:
   - javascripts/figure-numbering.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js
-  - javascripts/katex-config.js
 
-# Navigation - structured by sections
-# nav:
-#   - Home: index.md
-#   - Welcome: 1-welcome.md
-#   - Getting Started: 2-getting-started.md
-#   - Using the RHINO: 3-using-the-rhino.md
-#   - TelemFFB Application: 4-the-vpforce-telemffb-application.md
-#   - Game Settings & Tips: 5-game-specific-ffb-settings-tips-and-tricks.md
-#   - Troubleshooting: 6-troubleshooting-maintenance.md
-#   - Appendices:
-#       - '7 Appendix A: Known issues': 7-appendix-a-known-issues.md
-#       - '8 Appendix B: Legacy TelemFFB Documentation': 8-appendix-b-legacy-telemffb-documentation.md
+
+# Hooks for custom processing (e.g., image path handling, link rewriting)
 
 # Markdown extensions for better formatting support
 markdown_extensions:
@@ -73,7 +62,7 @@ markdown_extensions:
   - footnotes
   - abbr
   - sane_lists
-
+  - pymdownx.highlight
   #- nl2br
   - pymdownx.critic
   - pymdownx.caret
@@ -81,7 +70,11 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: text
+          class: text
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.blocks.caption
   - pymdownx.magiclink
   - pymdownx.tasklist:
@@ -96,13 +89,17 @@ plugins:
   - search
   - enumerate-headings:
       toc_depth: 3
+      restart_increment_after: 
+        - 1-rhino/index.md
+        - 2-community-projects/index.md
+        - 3-third-party-vendors/index.md
+        
   - img2figv2
 
-
   
-# Hooks for custom processing (e.g., image path handling)
-#hooks:
-#  - hooks.py
+# Hooks for custom processing (image conversion to WebP)
+hooks:
+  - hooks.py
   
 # Extra configuration
 extra:

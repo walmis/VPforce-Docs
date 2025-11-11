@@ -145,7 +145,7 @@ Use this simple list format with dates:
     - Change description 3
 ```
 
-Each changelog entry should be a concise bullet point describing what was added or improved.
+Each changelog entry should be a concise bullet point describing what was added or improved. Maintain formatting structure for sublists.
 
 ### Language for Changelog
 

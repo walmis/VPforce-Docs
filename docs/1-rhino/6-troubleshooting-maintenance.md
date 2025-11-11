@@ -110,6 +110,37 @@ This fault is most commonly caused by **belt slippage** on either the X-axis or 
 
 5.  **Verify calibration values:** Once calibration completes, check the calibration values. You should see values around **C:~2000** for both axes. If the values are significantly different, the belts may need further adjustment.
 
+### FAULT_UNDERVOLTAGE
+
+**Issue:**
+The Rhino reports a `FAULT_UNDERVOLTAGE` error, indicating that the supply voltage has dropped below 8 volts.
+
+**Cause:**
+This fault occurs when the controller detects insufficient voltage to operate safely. The threshold is set at 8V to protect the motor drivers and ensure reliable operation.
+
+If the undervoltage fault occurs **under load** (during active force feedback or high-torque movements), it typically indicates one of the following:
+
+- **Poor electrical connection:** Loose or corroded power connector, inadequate wire gauge, or high resistance in the power path
+- **Failing power supply:** PSU unable to maintain voltage under current draw, particularly during peak demand
+- **Insufficient PSU capacity:** Power supply rated below recommended specifications for the motor configuration
+
+If the fault occurs **at idle** (no force feedback active), it may indicate:
+
+- **PSU output voltage set too low:** Check that the power supply is configured for the correct output voltage (typically 24V or 48V depending on motor configuration)
+- **Faulty PSU:** Power supply unable to maintain stable output even without load
+
+**Resolution:**
+
+1. **Check power connections:** Inspect all power cables and connectors between the PSU and the Rhino controller. Ensure connections are tight, clean, and free of corrosion.
+
+2. **Verify PSU voltage output:** Use a multimeter to measure the PSU output voltage under no load. It should match the rated voltage for your motor configuration (typically 24V or 48V).
+
+3. **Test under load:** If possible, monitor the PSU voltage while operating the Rhino under typical load conditions. Significant voltage sag (drop) indicates insufficient PSU capacity or poor connections.
+
+4. **Upgrade wire gauge:** If using long cable runs or thin wires, consider upgrading to heavier gauge wire to reduce voltage drop.
+
+5. **Replace or upgrade PSU:** If the power supply cannot maintain adequate voltage under load, replace it with a higher-capacity unit meeting the recommended specifications for your motor configuration.
+
 
 ## - Game Specific Troubleshooting
 
@@ -120,6 +151,12 @@ Various items can cause issues with FFB depending on the sim in question. This s
 By default, the Spring effect, which is the primary 'FFB' effect type, is owned and managed by DCS. The TelemFFB application does not alter the spring effect unless one of the several override options are enabled.
 
 If FFB is not working, follow the below procedure:
+
+!!! note
+    This procedure assumes you have already confirmed that your Rhino is connected and working properly with VPforce Configurator and that you can feel FFB effects when using the Configurator's test effects.
+
+!!! important
+    DCS does not generate any active FFB effects until you are loaded into an aircraft. Simply being in the main menu or mission editor will deactivate any *Spring* effect set in the *VP Configurator* --- therefore the joystick will remain limp.
 
 #### Ensure FFB is enabled in the DCS Misc. settings
 

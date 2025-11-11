@@ -8,7 +8,21 @@ document here, please post in the discord.
 
 **DCS**
 
-1.  Axis curves are generally incompatible with FFB. This also applies to axis saturation settings in DCS. When curves or axis saturation are used, the FFB absolute position is no longer in sync with the logical position as a result of the curve. This will result in incorrect trimming, autopilot issues and particularly bad force-trimming in helicopters.
+1.  **Axis curves are incompatible with Force Feedback (FFB)**
+
+    Using axis curves or saturation with an FFB device creates a mismatch between the physical position of your joystick and the logical position the game sees.
+
+    *   **Physical Position:** Where your stick actually is. This is where FFB forces are applied.
+    *   **Logical Position:** What the game sees after the curve is applied.
+
+    The game sends FFB commands based on the logical position, but your joystick's motors act on the physical position. This disconnect causes several problems:
+
+    *   **Incorrect Trimming:** When you trim, the stick will not stay in the position you released it. It will jump to a different physical spot.
+    *   **Autopilot Errors:** The autopilot will make physical movements that are either too large or too small.
+    *   **Unstable FFB:** The game and the FFB system are effectively fighting each other, leading to unpredictable behavior.
+
+    !!! important "Solution"
+        Always use linear (straight line) axis curves for your FFB device. If you need to adjust sensitivity, do so using in-game settings that do not affect the FFB data.
 
 2.  The SimHaptic application by rkApps has an "auto start" feature that will launch the application when DCS starts. It is unknown whether the issue is on the SimHaptic side or the DCS side, however this auto-start feature will interfere with and stop FFB from working in DCS. Disabling the auto-start feature in this app will resolve the issue (Issue still exists as of April 2025).
 
