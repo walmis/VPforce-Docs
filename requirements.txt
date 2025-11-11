@@ -3,3 +3,4 @@ pymdown-extensions
 mkdocs
 mkdocs-autorefs
 mkdocs-img2figv2-plugin
+pillow
