@@ -17,15 +17,14 @@ SR-F_Winger offers two versions of the Monster Rhino Kitbase:
 
 ### A) PREMIUM ISSUE
 
-- **Price:** 800€ + shipping
+- **Price:** 800€ + VAT + shipping
 - **Gimbal:** PA12
 - **Recommended For:** Users who want to use extreme extensions, like helicopter goosenecks.
 - **Availability:** This version requires pre-ordering and has a delivery time of around 3 weeks.
 
 ### B) STANDARD ISSUE
 
-- **Price:** 550€ + shipping
--
+- **Price:** 550€ + VAT + shipping
 - **Gimbal:** PETG (100% infill)
 - **Recommended For:** Use with extensions up to 20cm.
 - **Availability:** This version is stocked more often, with new stock announced frequently.
@@ -49,10 +48,11 @@ The latest iteration of the Monster Rhino now includes:
 
 ## Ordering & Shipping
 
-To inquire about pricing and place an order, you can contact 
+To inquire about pricing and place an order, you can contact:
 
-- **SR-F_Winger** (Discord: `SR-F_Winger_[73]_David`) 
-- or visit the [DCS World Forum thread](https://forum.dcs.world/topic/357705-monster-ffb-rhino-diy-kitbase-95-preassembled-supplyservice-supplementary-to-kaltokriwinger-kits) for more information.
+- **SR-F_Winger** (Discord: `SR-F_Winger_[73]_David`)
+- **Email:** david_1@gmx.de
+- **Forum:** [DCS World Forum thread](https://forum.dcs.world/topic/357705-monster-ffb-rhino-diy-kitbase-95-preassembled-supplyservice-supplementary-to-kaltokriwinger-kits)
 
 ### Shipping Rates (Approximate)
 
@@ -61,6 +61,9 @@ To inquire about pricing and place an order, you can contact
 | USA | 47,99€ | Can be higher for express shipping. |
 | Europe | ~20,-€ | |
 | Germany | 6,9€ | |
+
+!!! note "Shipping Note"
+    Shipping fees may vary due to weight variances in available packaging materials.
 
 !!! warning "Note on US Shipping"
     Due to a previous executive order, shipping to the USA may require express shipping at a higher cost (€95). Please confirm with the seller.
