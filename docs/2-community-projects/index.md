@@ -27,6 +27,12 @@ A modified FFB joystick base designed for larger 86BLF03/86BLF04 motors, providi
 
 Documentation of the community build lineage starting with Mabo's original FFB joystick base design, followed by adaptations from Protomaker and Gadroc. Includes CAD files, BOMs, and assembly instructions for various DIY Rhino configurations.
 
+### FFB Yokes
+
+#### [FFB Yoke by YuchenYan](ffb-yoke.md)
+
+3D printable force feedback yoke for general aviation simulation. Features dual VPforce 57BLF03 motors with linear rail gantry system for smooth dual-axis operation. Compatible with custom handles or Honeycomb Alpha adapters. Available as full DIY (GitHub files), printed parts kit, or fully assembled unit.
+
 ### FFB Pedal Modifications
 
 #### [Tiger TPR FFB Mod by FlyDoc53](Tiger_TPR_FFB_Mod_Guide.md)

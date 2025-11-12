@@ -1,5 +1,10 @@
 # Changelog
 
+- **November 12, 2025:**
+
+    - Added **[FFB Yoke by YuchenYan](2-community-projects/ffb-yoke.md)** comprehensive project reference documentation
+    - Added **[FFB Axes Setup][ffb-axes-setup-tab]** section documenting main axis calibration, force compensation, axis control options, and verification procedures
+
 - **November 11, 2025:**
 
     - Added **[Kaltokri DIY FFB Kits](3-third-party-vendors/kaltokri/index.md)** comprehensive documentation suite covering 8 DIY conversion kits

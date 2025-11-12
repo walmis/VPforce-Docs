@@ -300,6 +300,134 @@ The **Button Mapping Tab** allows you to configure how buttons on your grip are 
 - **Assign Button Functions:** Map physical buttons to specific button numbers recognized by games
 - **Test Inputs:** Verify that button presses are being detected correctly
 
+### FFB Axes Setup Tab
+
+![The FFB Axes Setup tab](images/3-using-the-rhino/image-1.png)
+
+The **FFB Axes Setup Tab** defines the input limits, logical center position, and behavioral characteristics of the Rhino's X and Y axes. Proper axis configuration ensures accurate positional mapping and correct centering when force feedback motors are active.
+
+This tab is critical during initial setup, after hardware replacement, or when troubleshooting calibration issues.
+
+#### Axis Range Configuration
+
+**X min / X max, Y min / Y max** -
+These parameters define the raw values mapping range for each axis.
+
+- **Default range:** 0 to 4096
+- **Expected center:** Near 2048 when the stick is physically centered
+- **Purpose:** Used for scaling input values and calculating force feedback output
+
+The center value should read approximately 2048 when the stick is physically at rest in the neutral position. Significant deviation from this value may indicate mechanical misalignment or the need for recalibration.
+
+#### Force Compensation
+
+**Force Comp. (Force Compensation)** - 
+Force Compensation addresses mechanical flex or compliance that occurs under high force feedback torque loads.
+
+**The Problem:**
+When strong FFB forces are applied, the mechanical structure of the gimbal may flex slightly. This flex can create a situation where:
+
+- The stick reaches its physical end stop
+- But the logical position sensor reading does not yet show full deflection
+
+**The Solution:**
+Force Compensation adds a position offset at axis extremes to correct for this mechanical compliance. The value represents the adjustment applied to the logical position when the stick is at or near its physical limits.
+
+**Configuration:**
+
+- Adjustable independently for each axis (X and Y)
+- Higher values increase the positional correction applied
+- Typical use: Prevent dead zones at axis extremes under high torque
+
+!!! note "Not a Gain Parameter"
+    Force Compensation does not adjust force strength. It adjusts positional linearity under torque load to maintain accurate input-to-output mapping throughout the full range of motion.
+
+#### Axis Control Options
+
+**Axis Invert** - Reverses the logical direction of axis input and the corresponding force feedback polarity.
+
+- **When to use:**
+
+    - Mechanical orientation causes inverted behavior (forward stick input registers as backward)
+    - Matching specific simulator or game expectations
+
+---
+
+**Disable Axis** - Disables processing and FFB output for the selected axis.
+
+- **When to use:**
+
+    - Single-axis setups (e.g., collective-only configuration)
+    - Testing hardware individually during troubleshooting
+    - Isolating issues to determine if one axis is malfunctioning
+
+!!! tip "Tip: Troubleshooting with Disable Axis"
+    If experiencing calibration errors or erratic behavior, temporarily disable one axis to determine if the issue is isolated to a specific axis or affects the entire system.
+
+---
+
+**Swap Axes** - Swaps the X and Y axis mappings.
+
+- **When to use:**
+
+    - Gimbal wiring layout differs from expected configuration
+    - Mechanical assembly results in rotated axis orientation
+    - Quick correction without rewiring hardware
+
+#### Calibration Tools
+
+**Auto Calibrate** - Automatically measures and records the physical limits and center position by sampling the live axis range.
+
+**Calibration process:**
+
+1. Click **Auto Calibrate**
+2. Move the stick through its full range of motion in all directions
+3. Ensure the stick reaches all physical stops (forward, back, left, right, and corners)
+4. The system captures minimum, maximum, and center values for both axes
+5. Click **Auto Calibrate** to deactivate the button
+6. Click **Store Config** to save the calibration
+
+- **When to calibrate:**
+
+    - Initial setup of a new Rhino device
+    - After replacing gimbal components
+    - When center position has drifted due to belt slip
+    - After mechanical maintenance or adjustments
+
+---
+
+**Factory Reset** - Restores default calibration values, clearing all user modifications.
+
+**Default values restored:**
+
+- Range: 0 to 4096
+- Center: 2048
+- Force Compensation: 0 (disabled)
+
+**When to use:**
+
+- Starting fresh after extensive modifications
+- Troubleshooting calibration issues by returning to known baseline
+- Preparing device for handoff to another user
+
+!!! warning "Warning: Configuration Loss"
+    Factory Reset clears all axis calibration data. Make note of current settings before resetting if you may want to restore them later.
+
+#### Verification and Testing
+
+After calibration or configuration changes:
+
+1. **Verify center position:** With the stick physically centered, confirm the raw values read near 2048 for both axes
+2. **Check full range:** Move the stick to each physical stop and verify that logical limits match mechanical stops
+3. **Test FFB response:** Enable a spring effect and confirm that centering force behaves correctly
+
+#### Usage Notes and Best Practices
+
+- **Recommended center value:** Approximately 2048 when the stick is physically centered. Deviation of more than ±50 may indicate mechanical issues.
+- **Disable unused axes:** For single-axis configurations, always disable the unused axis.
+- **Force Compensation tuning:** Start with low values (5-10) and increase incrementally if you notice dead zones at axis extremes under high force.
+- **Regular verification:** After firmware updates or mechanical maintenance, verify that calibration remains accurate.
+
 
 ## The RhinoLoopback Application
 

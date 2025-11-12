@@ -93,9 +93,20 @@ Getting the assembly right is key to making sure your controls are perfectly cen
 
 ### What is the Multi-Turn Problem?
 
-The VPforce Rhino motor uses a **single-turn absolute encoder**. This sensor is very precise, but it only knows the motor's position within *one* 360-degree rotation. It reports this as a value from 0 to 4095. It does not count full turns.
+The VPforce Rhino motor uses a **single-turn absolute encoder**. This sensor is very precise and reports the motor's position within one 360-degree rotation as a value from 0 to 4095.
 
-If your mechanical setup (using gears, belts, or linkages) requires the motor to spin more than once, you can run into the **multi-turn problem**.
+**During Runtime:** The motor driver continuously tracks motor rotation and counts full turns beyond 360°. Once powered on and initialized, the system maintains accurate multi-turn position tracking throughout operation.
+
+**The Startup Ambiguity:** The problem occurs **only at power-on**. When the system starts, the encoder reports a position value (0-4095), but the driver has no way of knowing which revolution the motor is in. This creates ambiguity in multi-turn configurations.
+
+If your mechanical setup (using gears, belts, or linkages) requires the motor to spin more than once for full control travel, you face this **startup ambiguity problem**.
+
+!!! warning "Single-Turn Setups Can Also Have This Issue"
+    Even in single-turn configurations (where the motor rotates less than 360° for full control travel), this problem can occur if the mechanical alignment is poor. If your control's physical center position corresponds to an encoder value far from the electrical center (2048), the VPforce Configurator will display the **C: (center) value in red** as a warning.
+    
+    A badly aligned single-turn setup means the control's center point is near the encoder's 0/4095 wrap-around boundary. This creates ambiguity because the system cannot distinguish between encoder positions near 0 and those near 4095 at startup.
+    
+    **Solution:** Mechanically realign your build so the control's physical center corresponds to an encoder reading close to 2048 (the electrical center). This ensures the center position is clearly defined and far from the wrap-around boundary.
 
 Let's visualize it. Imagine your setup requires 3 motor turns to move your joystick from one end to the other:
 
@@ -107,15 +118,18 @@ Let's visualize it. Imagine your setup requires 3 motor turns to move your joyst
          <-------------> <-------------> <------------->  (Actual Motor Revolutions)
           \           /   \           /   \           /
            \_________/     \_________/     \_________/
-            0...4095        0...4095        0...4095      (What the Encoder Reports)
+             0...4095        0...4095        0...4095      (What the Encoder Reports at Startup)
 
 ```
 
-**The Problem:**
+**The Startup Problem:**
 
-When you power on your device, the encoder might report a value of `2048` (its center position). However, the system has no way of knowing *which* of the three turns it's in. The true mechanical center of your joystick might be in the middle of "Motor Turn 2," but the encoder reading is the same in every turn.
+When you power on your device, the encoder might report a value of `2048`. However, the system has no way of knowing *which* of the three turns it's in. The true mechanical center of your joystick might be in the middle of "Motor Turn 2," but the encoder reading at startup is identical in every turn.
 
-This ambiguity means the system can get confused about the true center position of your controls, which can lead to incorrect force feedback or unexpected behavior on startup.
+This startup ambiguity means the system cannot determine the true center position of your controls at power-on, which can lead to incorrect force feedback or unexpected behavior until manually corrected.
+
+!!! note "Runtime vs. Startup"
+    Once powered on and homed, the driver continuously tracks full rotations and maintains accurate multi-turn positioning throughout operation. The ambiguity exists **only** at startup before the reference position is established.
 
 ### The Solution: Manual Homing at Startup
 
