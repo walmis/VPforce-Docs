@@ -28,7 +28,7 @@
     - Added **[Tiger TPR FFB Mod Guide](2-community-projects/Tiger_TPR_FFB_Mod_Guide.md)** for Thrustmaster TPR pedal FFB conversion
     - Added **[TPR FFB Project Documentation](2-community-projects/TPR_FFB_Project_Documentation.md)** with complete assembly procedures and troubleshooting FAQ
     - Added **[MFG Crosswind FFB Mod Guide](2-community-projects/MFG_Crosswind_FFB_Mod_Guide.md)** for MFG Crosswind pedal FFB conversion
-    - Documented **[Planetary Gearbox DIY](2-community-projects/Planetary_Gearboxes_DIY.md)** options for increased torque output with reduced motor speed
+    - Documented **[Planetary Gearbox DIY][planetary-gearboxes-for-diy-projects]** options for increased torque output with reduced motor speed
     - Added **[Community Rhino Builds](2-community-projects/community-rhino-builds.md)** overview linking protomaker, mabo, and other community base designs
     - Created **[Third-Party Vendors](3-third-party-vendors/index.md)** section for commercial FFB kit offerings
     - Added **[SR-F Winger Monster Rhino Kitbase](3-third-party-vendors/SR-F_Winger.md)** documentation for 86BLF04-based commercial kit
