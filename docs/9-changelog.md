@@ -7,16 +7,16 @@
 
 - **November 11, 2025:**
 
-    - Added **[Kaltokri DIY FFB Kits](3-third-party-vendors/kaltokri/index.md)** comprehensive documentation suite covering 8 DIY conversion kits
-        - Documented **[RhinoJoystick](3-third-party-vendors/kaltokri/rhinojoystick.md)** complete DIY FFB joystick base kit with dual 57BLF03 motors
-        - Added **[RhinoMFG](3-third-party-vendors/kaltokri/rhinomfg.md)** MFG Crosswind FFB conversion kit documentation (57BLF03 motor)
-        - Added **[RhinoMFG86](3-third-party-vendors/kaltokri/rhinomfg86.md)** high-torque MFG Crosswind conversion with 86BLF03 motor
-        - Documented **[RhinoTPR Inside](3-third-party-vendors/kaltokri/rhinotpr-inside.md)** Thrustmaster TPR conversion (motor-inside, drilled variant)
-        - Documented **[RhinoTPR Outside](3-third-party-vendors/kaltokri/rhinotpr-outside.md)** Thrustmaster TPR conversion (motor-outside, non-drilled variant)
-        - Added **[RhinoACE](3-third-party-vendors/kaltokri/rhinoace.md)** Virpil ACE pedals FFB conversion documentation
-        - Added **[RhinoOrion](3-third-party-vendors/kaltokri/rhinoorion.md)** WinWing Orion pedals FFB conversion documentation
-        - Added **[RhinoR1](3-third-party-vendors/kaltokri/rhinor1.md)** Virpil R1 pedals FFB conversion documentation
-        - Created **[General FAQ](3-third-party-vendors/kaltokri/general-faq.md)** with centralized pricing, PSU requirements, shipping, payment, assembly guidance, and warranty information
+    - Added **[Kaltokri DIY FFB Kits](3-third-party-vendors/kaltokri-kits/index.md)** comprehensive documentation suite covering 8 DIY conversion kits
+        - Documented **[RhinoJoystick](3-third-party-vendors/kaltokri-kits/rhinojoystick.md)** complete DIY FFB joystick base kit with dual 57BLF03 motors
+        - Added **[RhinoMFG](3-third-party-vendors/kaltokri-kits/rhinomfg.md)** MFG Crosswind FFB conversion kit documentation (57BLF03 motor)
+        - Added **[RhinoMFG86](3-third-party-vendors/kaltokri-kits/rhinomfg86.md)** high-torque MFG Crosswind conversion with 86BLF03 motor
+        - Documented **[RhinoTPR Inside](3-third-party-vendors/kaltokri-kits/rhinotpr-inside.md)** Thrustmaster TPR conversion (motor-inside, drilled variant)
+        - Documented **[RhinoTPR Outside](3-third-party-vendors/kaltokri-kits/rhinotpr-outside.md)** Thrustmaster TPR conversion (motor-outside, non-drilled variant)
+        - Added **[RhinoACE](3-third-party-vendors/kaltokri-kits/rhinoace.md)** Virpil ACE pedals FFB conversion documentation
+        - Added **[RhinoOrion](3-third-party-vendors/kaltokri-kits/rhinoorion.md)** WinWing Orion pedals FFB conversion documentation
+        - Added **[RhinoR1](3-third-party-vendors/kaltokri-kits/rhinor1.md)** Virpil R1 pedals FFB conversion documentation
+        - Created **[General FAQ](3-third-party-vendors/kaltokri-kits/general-faq.md)** with centralized pricing, PSU requirements, shipping, payment, assembly guidance, and warranty information
 
 - **November 9, 2025:**
 
