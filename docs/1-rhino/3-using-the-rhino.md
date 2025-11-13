@@ -319,6 +319,9 @@ These parameters define the raw values mapping range for each axis.
 
 The center value should read approximately 2048 when the stick is physically at rest in the neutral position. Significant deviation from this value may indicate mechanical misalignment or the need for recalibration.
 
+!!! important "Center Value Warning"
+    If the center value is far from 2048 (e.g., below 1900 or above 2200), the `C:xxxx` indicator will turn red. This indicates misalignment between the motor encoder values and mechanical position. See section [The Muti-turn problem][the-multi-turn-problem] for more information.
+
 #### Force Compensation
 
 **Force Comp. (Force Compensation)** - 
