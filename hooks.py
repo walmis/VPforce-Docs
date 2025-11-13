@@ -20,6 +20,7 @@ def fix_html_references(config):
     Fix HTML references to images and other assets that were moved.
     Updates src and href attributes to point to new paths.
     Handles both absolute and relative path references.
+    Also fixes numbered folder names within paths (e.g., images/3-folder/).
     """
     site_dir = Path(config['site_dir'])
     path_mappings = config.get('path_mappings', {})
@@ -68,6 +69,31 @@ def fix_html_references(config):
                     if old_attr in content:
                         content = content.replace(old_attr, new_attr)
                         total_replacements += 1
+            
+            # Additional pass: Fix numbered folder names within paths
+            # Pattern: /\d+-[a-z-]+/ anywhere in src/href attributes
+            def clean_numbered_paths(match):
+                """Remove numeric prefixes from path segments."""
+                attr_name = match.group(1)
+                full_path = match.group(2)
+                
+                # Clean each segment
+                segments = full_path.split('/')
+                cleaned_segments = [re.sub(r'^\d+-', '', seg) for seg in segments]
+                cleaned_path = '/'.join(cleaned_segments)
+                
+                return f'{attr_name}="{cleaned_path}"'
+            
+            # Apply pattern to src and href attributes
+            new_content = re.sub(
+                r'((?:src|href))="([^"]*\d+-[^"]*)"',
+                clean_numbered_paths,
+                content
+            )
+            
+            if new_content != content:
+                content = new_content
+                total_replacements += 1
             
             # Write back if changed
             if content != original_content:
