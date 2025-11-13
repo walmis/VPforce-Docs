@@ -83,6 +83,7 @@ def fix_html_references(config):
 def generate_htaccess(config):
     """
     Generate .htaccess file with redirects for renamed URLs.
+    Handles both trailing slash and no trailing slash cases.
     """
     site_dir = Path(config['site_dir'])
     url_redirects = config.get('url_redirects', {})
@@ -102,17 +103,23 @@ RewriteBase /
 # Redirect old numbered paths to clean paths
 """
     
-    # Sort redirects for cleaner output
+    # Sort redirects for cleaner output and track rules
+    rule_count = 0
     for old_url, new_url in sorted(url_redirects.items()):
         # Strip leading slash for RewriteRule
-        old_pattern = old_url.lstrip('/')
-        new_target = new_url.lstrip('/')
+        old_pattern = old_url.lstrip('/').rstrip('/')
+        new_target = new_url.lstrip('/').rstrip('/')
         
-        # Add redirect rule
-        htaccess_content += f'RewriteRule ^{re.escape(old_pattern)}$ /{new_target} [R=301,L]\n'
+        # Add redirect rule for path with trailing slash
+        htaccess_content += f'RewriteRule ^{re.escape(old_pattern)}/$ /{new_target}/ [R=301,L]\n'
+        rule_count += 1
+        
+        # Add redirect rule for path without trailing slash
+        htaccess_content += f'RewriteRule ^{re.escape(old_pattern)}$ /{new_target}/ [R=301,L]\n'
+        rule_count += 1
     
     htaccess_path.write_text(htaccess_content)
-    print(f"[Redirects] Generated .htaccess with {len(url_redirects)} redirect rules")
+    print(f"[Redirects] Generated .htaccess with {rule_count} redirect rules")
 
 
 def rename_output_directories(config):
