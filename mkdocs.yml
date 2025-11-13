@@ -32,7 +32,7 @@ theme:
 
 # Extra CSS for better rendering of your blockquotes and formatting
 extra_css:
-  - stylesheets/extra.css?v=1.0
+  - stylesheets/extra.css?v=1.1
   - https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css
 
 # Extra JavaScript for custom functionality
@@ -95,7 +95,10 @@ plugins:
         - 3-third-party-vendors/index.md
         
   - img2figv2
-
+  - mkdocs_external_link_processor:
+      class_name: 'external'                # Class name to add to external links
+      link_target: '_blank'                 # Target attribute for links
+      additional_protocols: ['https:']     # Additional protocols to consider as external
   
 # Hooks for custom processing (image conversion to WebP)
 hooks:

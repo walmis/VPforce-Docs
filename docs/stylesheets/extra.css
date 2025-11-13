@@ -179,3 +179,29 @@ figcaption {
     margin-top: 0.3em;
     font-style: italic;
 }
+
+/* External link indicator
+   Adds a small NE-arrow after external links (links processed by
+   mkdocs_external_link_processor are given the class `external`).
+*/
+a.external::after {
+    /* support multiple FA family names (v4/v5/v6) */
+    font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome", "fontawesome-webfont";
+    content: "\f08e"; /* external-link glyph */
+    display: inline-block;
+    margin-left: 0.28em; /* spacing after link text */
+    font-size: 0.85em;
+    line-height: 1;
+    vertical-align: text-top;
+    font-weight: 900; /* for FA5/6 solid family; harmless if not used */
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #666;
+}
+
+/* Make sure external-icon spacing looks good in small text */
+a.external code::after,
+a.external .btn::after {
+    margin-left: 0.15em;
+}

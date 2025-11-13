@@ -59,7 +59,7 @@ There is no further action required to upgrade to version 2.0.
 
 ### Why Antivirus Software May Flag This Application
 
-This application is packaged using[ ](https://pyinstaller.org/)[***PyInstaller***](https://pyinstaller.org/), a tool that bundles Python applications into standalone Windows executables. Occasionally, Windows Defender or other antivirus software may flag the generated .exe file as potentially malicious. This is a common issue across many open-source and independent software projects and **does not mean the application is unsafe**.
+This application is packaged using [***PyInstaller***](https://pyinstaller.org/), a tool that bundles Python applications into standalone Windows executables. Occasionally, Windows Defender or other antivirus software may flag the generated .exe file as potentially malicious. This is a common issue across many open-source and independent software projects and **does not mean the application is unsafe**.
 
 **4.1.2 What Causes False Positives?**
 
@@ -77,14 +77,14 @@ the executable:
 **How We Ensure Safety**
 
 -   All source code is openly available and auditable.
--   Dependencies are widely used Python packages from the [](https://pypi.org/)[*Python Package Index (PyPI)*](https://pypi.org/).
+-   Dependencies are widely used Python packages from the [*Python Package Index (PyPI)*](https://pypi.org/).
 -   Builds are produced in a clean environment to prevent contamination.
 
 **What You Can Do**
 
 -   **Allow the app manually** if it's flagged and you trust the source.
 -   **Submit the executable to Microsoft or your antivirus vendor** for review. This helps improve detection accuracy over time.
--   **Check with **[](https://www.virustotal.com/)[**VirusTotal**](https://www.virustotal.com/) to independently verify whether the file is flagged across multiple engines.
+-   **Check with [**VirusTotal**](https://www.virustotal.com/) to independently verify whether the file is flagged across multiple engines.
 
 ## The TelemFFB Configuration
 
