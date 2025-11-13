@@ -80,15 +80,11 @@ High-quality DC connectors are critical. Low-quality no-name connectors from Ama
 - Contact Kaltokri with your country for exact shipping quote
 
 **Q: How long does it take to assemble and dispatch?**  
-**A:** Timeline depends on stock availability:
+**A:** All kits are generally in stock and can be shipped approximately 2-3 working days after payment is received.
 
-- **In-stock kits:** 2-3 working days dispatch
-- **Out-of-stock kits:** 2-3 weeks (depending on parts delivery)
-- Lead time allows procurement of required materials
-- Payment order determines dispatch priority (unless special requests cause delays)
-
-!!! note "Pre-Orders Recommended"
-    Pre-orders help vendor acquire materials in sufficient quantities. 3-4 week lead time typical for initial material procurement.
+- Dispatch timing may vary based on parts availability
+- Payment order determines dispatch priority
+- Special requests may cause minor delays
 
 ---
 

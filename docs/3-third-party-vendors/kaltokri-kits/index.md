@@ -19,7 +19,7 @@ Kaltokri offers DIY conversion kits that add VPforce FFB capability to joystick 
 **Features:** Dual-axis FFB, pre-assembled gimbal, solder-free assembly, grip compatibility (Virpil, Thrustmaster, WinWing, VKB)  
 **Requirements:** VPforce 57BLF03 x2 motor kit, joystick grip, PSU, USB cable  
 **Optional:** Belt covers (+30€), Aluminum grip mount upgrade (+65€)  
-**Lead Time:** 3-4 weeks
+**Availability:** Generally in stock - ships in 2-3 working days after payment
 
 ### Rudder Pedal Conversions
 
@@ -30,7 +30,7 @@ Kaltokri offers DIY conversion kits that add VPforce FFB capability to joystick 
 **Kit Price:** 139€ | **Motor:** 57BLF03  
 **Features:** Standard torque, solder-free assembly, belt-driven FFB  
 **Requirements:** MFG Crosswind V1/V2/V3, PSU, USB cable  
-**Lead Time:** 3-4 weeks
+**Availability:** Generally in stock - ships in 2-3 working days after payment
 
 #### [RhinoTPR Inside](rhinotpr-inside.md) - Thrustmaster TPR FFB (Motor Inside, Drilled)
 
@@ -39,7 +39,7 @@ Kaltokri offers DIY conversion kits that add VPforce FFB capability to joystick 
 **Kit Price:** 159€ | **Motor:** 86BLF04  
 **Features:** High-torque motor, precise pedal control, requires drilling  
 **Requirements:** Thrustmaster TPR, PSU, USB cable  
-**Lead Time:** 3-4 weeks
+**Availability:** Generally in stock - ships in 2-3 working days after payment
 
 #### [RhinoTPR Outside](rhinotpr-outside.md) - Thrustmaster TPR FFB (Motor Outside, Non-Drilled)
 
@@ -48,7 +48,7 @@ Kaltokri offers DIY conversion kits that add VPforce FFB capability to joystick 
 **Kit Price:** 179€ | **Motor:** 86BLF04  
 **Features:** High-torque motor, non-destructive installation, preserves warranty  
 **Requirements:** Thrustmaster TPR, PSU, USB cable  
-**Lead Time:** 3-4 weeks
+**Availability:** Generally in stock - ships in 2-3 working days after payment
 
 #### [RhinoMFG86](rhinomfg86.md) - MFG Crosswind FFB (High-Torque)
 
@@ -57,7 +57,7 @@ Kaltokri offers DIY conversion kits that add VPforce FFB capability to joystick 
 **Kit Price:** 199€ | **Motor:** 86BLF03  
 **Features:** Upgraded torque motor, pre-assembled aluminum frame  
 **Requirements:** MFG Crosswind V1/V2/V3, PSU, USB cable  
-**Lead Time:** 3-4 weeks
+**Availability:** Generally in stock - ships in 2-3 working days after payment
 
 #### [RhinoACE](rhinoace.md) - Virpil ACE FFB Conversion
 
@@ -66,7 +66,7 @@ Kaltokri offers DIY conversion kits that add VPforce FFB capability to joystick 
 **Kit Price:** 199€ | **Motor:** 86BLF03  
 **Features:** High-torque motor, pre-assembled frame, adjustable height  
 **Requirements:** Virpil ACE pedals, PSU, USB cable  
-**Lead Time:** 3-4 weeks
+**Availability:** Generally in stock - ships in 2-3 working days after payment
 
 #### [RhinoOrion](rhinoorion.md) - WinWing Orion FFB Conversion
 
@@ -75,7 +75,7 @@ Kaltokri offers DIY conversion kits that add VPforce FFB capability to joystick 
 **Kit Price:** 159€ | **Motor:** 86BLF03  
 **Features:** Pre-assembled frame, built-in belt tensioner  
 **Requirements:** WinWing Orion pedals, PSU, USB cable  
-**Lead Time:** 3-4 weeks
+**Availability:** Generally in stock - ships in 2-3 working days after payment
 
 #### [RhinoR1](rhinor1.md) - Virpil R1 FFB Conversion
 
@@ -84,7 +84,7 @@ Kaltokri offers DIY conversion kits that add VPforce FFB capability to joystick 
 **Kit Price:** 199€ | **Motor:** 86BLF03  
 **Features:** Pre-assembled frame, precision spacers, throw limiter pads  
 **Requirements:** Virpil R1 pedals, PSU, USB cable  
-**Lead Time:** 3-4 weeks
+**Availability:** Generally in stock - ships in 2-3 working days after payment
 
 ## General Information
 
@@ -115,8 +115,7 @@ All kaltokri DIY kits share these features:
 
 ### Ordering Information
 
-**Lead Time:** 3-4 weeks (allows procurement of materials)  
-**Pre-orders:** Encouraged to help vendor acquire materials in sufficient quantities  
+**Availability:** Generally in stock - ships in 2-3 working days after payment  
 **Contact:** See [General FAQ](general-faq.md) or contact kaltokri via VPforce Discord
 
 ## General Information
