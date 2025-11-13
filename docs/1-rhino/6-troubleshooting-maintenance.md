@@ -1,6 +1,29 @@
 
 # Troubleshooting
 
+## General Troubleshooting Steps
+
+Before diving into specific issues, try these general troubleshooting steps that resolve many common problems:
+
+### Reset to Factory Defaults
+
+If you're experiencing unexpected behavior, instability, or effects issues, resetting to factory defaults is an excellent first troubleshooting step:
+
+1. Open **VPforce Configurator**
+2. Click **"Factory Reset"** button
+3. Click **"Import Rhino Defaults"** button
+4. Click **"Store Settings"** to save
+
+This ensures you're working with known-good baseline settings and eliminates configuration issues as a potential cause.
+
+!!! tip "When to Factory Reset"
+    Factory reset is particularly useful when:
+    
+    - Effects feel wrong or inconsistent
+    - After firmware updates
+    - Before testing new configurations
+    - When troubleshooting stability issues
+
 ## USB Connection Issues
 
 **Issue:**

@@ -1,5 +1,10 @@
 # Changelog
 
+- **November 13, 2025:**
+
+    - Updated **[Kaltokri DIY FFB Kits availability](3-third-party-vendors/kaltokri-kits/index.md)** - kits now generally in stock with 2-3 working day dispatch after payment
+    - Added **[General Troubleshooting Steps](1-rhino/6-troubleshooting-maintenance.md#general-troubleshooting-steps)** section with factory reset procedure as first troubleshooting step
+
 - **November 12, 2025:**
 
     - Added **[FFB Yoke by YuchenYan](2-community-projects/ffb-yoke.md)** comprehensive project reference documentation
