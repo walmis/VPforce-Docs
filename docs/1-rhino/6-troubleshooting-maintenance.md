@@ -135,34 +135,33 @@ This fault is most commonly caused by **belt slippage** on either the X-axis or 
 
 ### FAULT_UNDERVOLTAGE
 
-**Issue:**
-The Rhino reports a `FAULT_UNDERVOLTAGE` error, indicating that the supply voltage has dropped below 8 volts.
+**Issue:**  
+The Rhino reports a `FAULT_UNDERVOLTAGE` error when supply voltage drops below 8 volts.
 
-**Cause:**
-This fault occurs when the controller detects insufficient voltage to operate safely. The threshold is set at 8V to protect the motor drivers and ensure reliable operation.
+**Cause:**  
+This fault protects motor drivers by halting operation when voltage is insufficient. The 8V threshold ensures reliable operation and prevents damage.
 
-If the undervoltage fault occurs **under load** (during active force feedback or high-torque movements), it typically indicates one of the following:
+**Under load** (during active force feedback or high-torque movements):
 
-- **Poor electrical connection:** Loose or corroded power connector, inadequate wire gauge, or high resistance in the power path
-- **Failing power supply:** PSU unable to maintain voltage under current draw, particularly during peak demand
-- **Insufficient PSU capacity:** Power supply rated below recommended specifications for the motor configuration
+- Poor electrical connection (loose or corroded power connector, high resistance in power path)
+- Failing power supply (unable to maintain voltage during peak current draw)
+- Insufficient PSU capacity (power supply rated below recommended specifications)
+- Failing E-Stop switch (high internal resistance or intermittent disconnection)
 
-If the fault occurs **at idle** (no force feedback active), it may indicate:
+**At idle** (no force feedback active):
 
-- **PSU output voltage set too low:** Check that the power supply is configured for the correct output voltage (typically 24V or 48V depending on motor configuration)
-- **Faulty PSU:** Power supply unable to maintain stable output even without load
+- E-Stop pressed (normal behavior: motor power cut momentarily shows fault until capacitors discharge, then motor status shows `OFFLINE`)
+- Faulty PSU (unable to maintain stable output without load)
 
 **Resolution:**
 
-1. **Check power connections:** Inspect all power cables and connectors between the PSU and the Rhino controller. Ensure connections are tight, clean, and free of corrosion.
+1. **Check power connections:** Inspect PSU-to-controller cables and connectors. Ensure tight, clean, corrosion-free connections.
 
-2. **Verify PSU voltage output:** Use a multimeter to measure the PSU output voltage under no load. It should match the rated voltage for your motor configuration (typically 24V or 48V).
+2. **Verify PSU output voltage:** Measure PSU output voltage with multimeter under no load. Should match rated voltage.
 
-3. **Test under load:** If possible, monitor the PSU voltage while operating the Rhino under typical load conditions. Significant voltage sag (drop) indicates insufficient PSU capacity or poor connections.
+3. **Test under load:** Monitor PSU voltage during typical Rhino operation. Significant voltage sag indicates insufficient PSU capacity or poor connections.
 
-4. **Upgrade wire gauge:** If using long cable runs or thin wires, consider upgrading to heavier gauge wire to reduce voltage drop.
-
-5. **Replace or upgrade PSU:** If the power supply cannot maintain adequate voltage under load, replace it with a higher-capacity unit meeting the recommended specifications for your motor configuration.
+4. **Replace or upgrade PSU:** If power supply cannot maintain adequate voltage under load, replace with higher-capacity unit. 
 
 
 ## - Game Specific Troubleshooting
