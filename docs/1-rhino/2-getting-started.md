@@ -20,30 +20,40 @@ The deeper sections of this manual will then show you how to fine-tune those sen
 
 ## Technical Specifications
 
+**Physical:**
+
 - Weight: 5.2 kg
-- Size: 205mm x 180mm base
-- height to the top of the grip connector 290mm
-- Motors:
-    -   Two type 57BLF03 NEMA servo motors
-    -   Max 30A drive current per motor
-    -   Resolution: 14 bit / Rev, 13 bit effective stick resolution\
-        12 bit / Rev, 11bit effective stick resolution (before 2023 Q2)
-    -   Typical power: 150W
-- Maximum torque: 9 N‧m per-axis
-- Gimbal: 3D Printed PETG / Aluminum / Bearings
+- Base dimensions: 205mm × 180mm
+- Height to grip connector: 290mm
+- Gimbal: 3D printed PETG/aluminum with bearings
 - Transmission: 1:6.2 ratio belt drive
-- Maximum throw: 22 degrees each direction
-- Built-in functions: 1 bindable rotary axis (defaults to spring force strength)
-- One emergency button that cuts off all power to the motors
-- Cooling: Two fans kick in when the motors reach 50°C
-- Power source: 180W, 20V
+- Maximum throw: 22° each direction (44° total)
 
-Grip Compatibility:
+**Motors:**
 
-- Thrustmaster directly
-- Virpil directly (T-50CM2, WarBRD, Constellation Alpha, V.F.X)
-- VKB with an adapter and a black box
-- WinWing with an adapter
+- Two 57BLF03 NEMA servo motors
+- Maximum torque: 9 N‧m per axis
+- Maximum drive current: 30A per motor
+- Typical power consumption: 150W
+- Resolution: 14-bit per revolution, 13-bit effective stick resolution (12-bit per revolution, 11-bit effective for units before 2023 Q2)
+
+**Power & Cooling:**
+
+- Power supply: 180W, 20V (included)
+- Cooling: Dual-fan active cooling (activates at 50°C motor temperature)
+
+**Safety & Controls:**
+
+- Emergency stop button (cuts all motor power when pressed)
+- Built-in rotary encoder (1 bindable axis, defaults to spring force adjustment)
+- Gear Covers are included
+
+**Grip Compatibility:**
+
+- **Thrustmaster-style:** Direct mount (Cougar, Warthog, F/A-18C)
+- **Virpil:** Direct mount (MongoosT-50, WarBRD, Constellation Alpha, VFX, AH-64, UH-60, FLNKR), LEDs supported
+- **VKB:** Adapter required (+ VKB main controller/black box for grip operation)
+- **WinWing:** Adapter required
 
 ## Physical Setup
 
