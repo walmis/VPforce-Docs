@@ -2344,19 +2344,19 @@ If you are not receiving telemetry from DCS, please ensure the following:
 
 ### Microsoft Flight Simulator (FS2020/FS2024)
 
-#### Elevator Axis Flutter or Sudden Reversal in MSFS
+#### Axis Flutter, Jitter, or Sudden Reversal in MSFS
 
-If you experience a situation in Microsoft Flight Simulator (MSFS/FS2024) where the yoke or stick responds normally in pitch and roll, but the elevator axis (pitch) is fluttering strongly, or with the Rhino pulled fully back it suddenly reverses—even when stationary on the ground—while the axes appear perfectly smooth and proportional in Windows Devices and Printers, this is almost always caused by a control binding conflict in the simulator.
+If you experience flutter, strong jitter, or sudden reversal on **any axis** (elevator/pitch, aileron/roll, or rudder) in Microsoft Flight Simulator (MSFS/FS2024)—even when stationary on the ground—while the axes appear perfectly smooth and proportional in Windows Devices and Printers, this is almost always caused by a control binding conflict in the simulator.
 
 **Root Cause:**
 
-MSFS does not natively support force feedback, so TelemFFB takes exclusive control of the axes to provide dynamic FFB and effects. If the same axis (e.g., elevator/pitch, aileron/roll, or rudder) is also bound in the MSFS controls menu, the simulator will attempt to read both the physical device input and the virtual position set by TelemFFB. This results in a feedback loop or conflict, causing strong fluttering, jitter, or unpredictable behavior—especially at the extremes of travel.
+MSFS does not natively support force feedback, so TelemFFB takes exclusive control of the axes to provide dynamic FFB and effects. If the same axis is also bound in the MSFS controls menu, the simulator will attempt to read both the physical device input and the virtual position set by TelemFFB. This results in a feedback loop or conflict, causing strong fluttering, jitter, or unpredictable behavior on any affected axis—especially at the extremes of travel.
 
 In contrast, Windows Devices and Printers simply shows the raw hardware input, which is why the axis appears smooth and normal there.
 
 **Solution:**
 
-You must ensure that all axes controlled by TelemFFB are **unbound** in the MSFS controls menu. This includes elevator (pitch), aileron (roll), and rudder axes. If these axes remain bound in MSFS, the simulator will conflict with the values TelemFFB is sending, resulting in erratic movement.
+You must ensure that **all axes controlled by TelemFFB are unbound** in the MSFS controls menu. This includes elevator (pitch), aileron (roll), and rudder axes. If these axes remain bound in MSFS, the simulator will conflict with the values TelemFFB is sending, resulting in erratic movement.
 
 **Steps to resolve:**
 
