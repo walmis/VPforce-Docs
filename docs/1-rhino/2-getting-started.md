@@ -198,5 +198,32 @@ The same website also provides access to download the **Rhino Desktop Software**
 10. **Next Steps**
     Once calibration and basic settings are complete, you're ready to start testing the Rhino in your simulator. For detailed configuration options, advanced effects, and game-specific setups, see the main sections of this manual.
 
-    With this setup, you're now ready to begin your journey into the
-subtle art, and raw power, of Rhino force feedback.
+    With this setup, you're now ready to begin your journey into the subtle art, and raw power, of Rhino force feedback.
+
+## Understanding Configuration Profiles and Personalization
+
+!!! important "Why Profile Sharing Is Rare in the Rhino Community"
+
+    Unlike traditional gaming peripherals, Rhino setups vary significantly from user to user. Profile sharing is uncommon in the Rhino community for several practical reasons:
+
+    **Hardware Diversity:** The Rhino ecosystem includes stock bases, numerous DIY builds, and fully custom designs. Each configuration behaves differently due to variations in mechanical construction, grip weight, extension length, and material choices.
+
+    **Grip and Extension Variations:** Even stock Rhino bases differ substantially depending on the attached grip (full metal vs plastic) and extension length. A configuration that feels perfect on one setup may be completely unusable on another with different physical characteristics.
+
+    **Individual Preference:** Force feedback is highly subjective. What feels "realistic" or "comfortable" to one pilot may feel too stiff, too loose, or simply wrong to another.
+
+**Recommended Approach - Build Your Own Baseline:**
+
+Rather than searching for pre-made profiles, invest time learning the Config software and building your own baseline configuration from scratch. This approach ensures your settings match your specific hardware and personal preferences.
+
+1. **Start Simple - No Effects:** Begin with just the fundamental feel of the stick before adding complex effects.
+
+2. **Tune Core Forces First:** Focus on damping, inertia, minimal friction (use sparingly), and spring force. These form the foundation of your force feedback experience.
+
+3. **Set Spring to Maximum Safe Level:** Adjust the spring force to the highest setting your hardware can handle without exceeding current limits, then bind it to the rotary potentiometer for easy adjustment during flight.
+
+4. **Add Telemetry Effects Last:** Once you have a solid baseline, start with default TelemFFB settings and adjust them on-the-fly during gameplay to match your taste.
+
+!!! tip "Why This Matters"
+
+    Taking time to understand the Config software and build your own baseline may seem more demanding than loading someone else's profile, but it results in a configuration perfectly matched to your unique hardware and flying style. This foundation makes all future adjustments easier and more effective.
