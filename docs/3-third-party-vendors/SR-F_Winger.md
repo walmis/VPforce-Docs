@@ -54,6 +54,18 @@ To inquire about pricing and place an order, you can contact:
 - **Email:** david_1@gmx.de
 - **Forum:** [DCS World Forum thread](https://forum.dcs.world/topic/357705-monster-ffb-rhino-diy-kitbase-95-preassembled-supplyservice-supplementary-to-kaltokriwinger-kits)
 
+!!! tip "VPforce Motor Kit Discount"
+
+    **10% Discount on VPforce 86BLF04 Motor Kit:**  
+    When you purchase a Monster Rhino Kitbase from SR-F_Winger, you will receive an individual VPforce discount code for **10% off the "2x86BLF04+USB" DIY Kit** from VPforce.
+
+    **Important details:**
+    
+    - Discount code is linked to your Monster Rhino Kitbase order
+    - Provided after your Monster Rhino Kitbase order is fulfilled
+    - Valid for one-time use only
+    - Applies exclusively to the VPforce 2x86BLF04+USB motor kit
+
 ### Shipping Rates (Approximate)
 
 | Region | Price | Notes |
