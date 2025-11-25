@@ -92,6 +92,8 @@ Cost is typically low (under $10-20 USD), making it an economical troubleshootin
 
 ## WinUSB / WebUSB Firmware Update Issues
 
+### Legacy Firmware WebUSB Issue (1.0.16 and older)
+
 **Issue:**
 On **Windows 10/11** with **firmware 1.0.16 and older**, the Rhino may appear correctly in Windows, but **WinUSB fails to operate**, preventing firmware updates through WebUSB. Users may see `network error`s in the WebUSB tool. This problem is fixed in newer firmwares.
 
@@ -108,6 +110,118 @@ You can apply a simple registry fix to restore WebUSB functionality. This requir
 !!! note
     - This workaround only applies to **firmware 1.0.16 and older**. Updating the latest firmware will remove the need for this registry modification.
     - Only run the command exactly as provided; editing the registry incorrectly can cause system issues.
+
+### WinUSB Driver Conflicts and Cleanup
+
+Many Windows systems handle Rhino’s WebUSB interface without any special setup. Others don’t. The difference usually comes down to what Windows has stored from past hardware or software. Windows keeps old USB drivers in its internal driver store, and sometimes it silently reuses those drivers for new devices. If one of those older drivers isn’t compatible with WebUSB, Rhino may get matched to the wrong driver and the browser will show connection or “network” errors even though the device is working correctly in Configurator or game itself. The steps below clear out these leftover drivers so Windows can load the correct Microsoft WinUSB driver that WebUSB needs.
+
+If you encounter WebUSB connection issues, driver conflicts from previous installations (particularly from Zadig or other USB tools) may be preventing proper WinUSB operation. Follow these steps to clean up conflicting drivers and restore proper WebUSB functionality.
+
+#### Quick Reset (try this first)
+
+1. Disconnect Rhino from the PC
+2. Reboot Windows
+3. Connect Rhino directly to a USB port on the PC (not a hub)
+4. Test WebUSB connection
+
+If errors persist, continue with the full driver cleanup procedure below.
+
+#### Full Driver Cleanup Procedure
+
+**Step 1: Remove old Rhino drivers from Device Manager**
+
+1. Open Device Manager (Win + X)
+2. View → Show hidden devices
+3. Expand "Universal Serial Bus devices", "USB devices", "Other devices", and "LibUSB" (if present)
+4. Right-click every entry related to "Rhino DFU" or showing your device's VID/PID → Uninstall device
+5. If Windows shows a checkbox "Delete the driver software for this device", enable it before uninstalling
+
+Leave Device Manager open for now.
+
+**Step 2: Clean driver packages from Windows driver store (optional)**
+
+!!! warning "Advanced Procedure"
+
+    The following driver cleanup steps involve modifying Windows driver store using command-line tools. **This procedure is intended for advanced users** who are comfortable with administrative command-line operations. Incorrectly removing driver packages can affect other USB devices on your system. If you are not confident with these steps, you can skip to step 3.
+
+1. Open Start → type "cmd" → right-click → Run as administrator
+2. List all driver packages:
+
+```
+pnputil /enum-drivers > %temp%\drivers.txt
+```
+
+3. Open the file:
+
+```
+notepad %temp%\drivers.txt
+```
+
+4. In the list, look for driver entries that mention:
+    - Rhino
+    - Your device VID_FFFF / PID_205*x*
+    - WinUSB
+    - libusb
+    - libusbK
+    - libwdi
+
+Each entry shows something like `Published name: oem47.inf`.
+
+5. For each matching driver, run:
+
+```
+pnputil /delete-driver oem47.inf /force /uninstall
+```
+
+Replace `oem47.inf` with the actual name. If Windows says "driver is in use", unplug the device and run the command again.
+
+**Step 3: Remove ghost interfaces**
+
+Back in Device Manager:
+
+1. View → Show hidden devices
+2. Remove any greyed-out duplicates of "Rhino DFU" or anything matching VID/PID
+3. Unplug the device after cleaning
+
+**Step 4: Reboot Windows**
+
+A clean reboot ensures Windows forgets cached bindings.
+
+**Step 5: Reconnect Rhino and verify WinUSB installation**
+
+Plug in Rhino. Windows should now load Microsoft's built-in WinUSB (winusb.sys) automatically.
+
+Verify correct driver:
+
+1. Device Manager → open "Rhino DFU" device → Properties
+2. Driver tab should show:
+    - Provider: Microsoft
+    - Driver file: winusb.sys
+
+#### Forcing Windows to Use WinUSB (if automatic installation fails)
+
+If Windows picks the wrong driver, manually bind WinUSB:
+
+1. Right-click "Rhino DFU" in Device Manager → Update driver
+2. Choose "Browse my computer for drivers"
+3. Choose "Let me pick from a list of available drivers"
+4. Select "Universal Serial Bus devices"
+5. Pick "WinUSB Device" or "USB Device (WinUSB)" depending on Windows version
+6. Install
+
+This uses Microsoft's own signed WinUSB and does **not** require Zadig or third-party tools.
+
+#### Browser Cleanup
+
+After correcting the driver:
+
+1. Chrome/Edge → Settings → Privacy → Site settings → USB devices → Clear permissions for WebUSB tool
+2. Clear site data for the WebUSB domain
+3. Test connection in a fresh tab or Incognito window
+
+!!! warning "Important: Avoid Zadig for Rhino"
+
+    Zadig and similar USB driver replacement tools can cause persistent driver conflicts with the Rhino. These tools leave fingerprints in the Windows driver store that can prevent proper WinUSB operation even after uninstalling. If you previously used Zadig with Rhino, follow the full driver cleanup procedure above to remove all traces.
 
 
 ## Motor faults
