@@ -481,4 +481,49 @@ def on_files(files, config):
     return files
 
 
+def on_page_content(html, page, config, files):
+    """
+    Process HTML content to modify external links.
+    Replaces the mkdocs_external_link_processor plugin functionality.
+    
+    This hook adds a specific class to external links, sets the target attribute
+    for opening links in a new tab/window, and optionally sets the rel attribute
+    for those links. Header anchor links (class="headerlink") are excluded.
+    """
+    from bs4 import BeautifulSoup
+    
+    # Configuration (matching plugin settings from mkdocs.yml)
+    class_name = 'external'
+    target = '_blank'
+    rel = []  # Can be set to ['noopener', 'noreferrer'] if needed
+    additional_protocols = ['https:']
+    default_protocols = ['http://', 'https://', 'ftp://', 'mailto:', 'tel:', 'www']
+    all_protocols = default_protocols + additional_protocols
+    
+    soup = BeautifulSoup(html, 'html.parser')
+    for a_tag in soup.find_all('a', href=True):
+        # Skip header anchor links
+        if 'headerlink' in a_tag.get('class', []):
+            continue
+            
+        href = a_tag['href']
+        if any(href.startswith(protocol) for protocol in all_protocols):
+            # Add external class
+            if class_name and class_name not in a_tag.get('class', []):
+                classes = a_tag.get('class', [])
+                if not isinstance(classes, list):
+                    classes = []
+                a_tag['class'] = classes + [class_name]
+            
+            # Set target attribute
+            if target:
+                a_tag["target"] = target
+            
+            # Set rel attribute if configured
+            if rel:
+                a_tag["rel"] = rel
+    
+    return str(soup)
+
+
 

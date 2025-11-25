@@ -96,12 +96,8 @@ plugins:
         - 3-third-party-vendors/index.md
         
   - img2figv2
-  - mkdocs_external_link_processor:
-      class_name: 'external'                # Class name to add to external links
-      link_target: '_blank'                 # Target attribute for links
-      additional_protocols: ['https:']     # Additional protocols to consider as external
   
-# Hooks for custom processing (image conversion to WebP)
+# Hooks for custom processing (image conversion to WebP, external link processing)
 hooks:
   - hooks.py
   
