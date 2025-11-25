@@ -56,6 +56,7 @@ To inquire about pricing and place an order, you can contact:
 
 !!! tip "VPforce Motor Kit Discount"
 
+    ![](images/SR-F_Winger/image-2.png){ width="200" }
     **10% Discount on VPforce 86BLF04 Motor Kit:**  
     When you purchase a Monster Rhino Kitbase from SR-F_Winger, you will receive an individual VPforce discount code for **10% off the "2x86BLF04+USB" DIY Kit** from VPforce.
 
