@@ -1,5 +1,12 @@
 # Changelog
 
+- **November 15, 2025:**
+
+    - Added **[Understanding Configuration Profiles and Personalization][understanding-configuration-profiles-and-personalization]** section explaining why profile sharing is uncommon in the Rhino community and providing recommended approach for building custom baseline configurations
+    - Reformatted **[Technical Specifications][technical-specifications]** in Getting Started guide with organized subsections (Physical, Motors, Power & Cooling, Safety & Controls, Grip Compatibility)
+    - Expanded **[WinUSB / WebUSB Firmware Update Issues][winusb-webusb-firmware-update-issues]** troubleshooting with comprehensive driver cleanup procedures for resolving Zadig and driver store conflicts
+    - Added **[VPforce Motor Kit Discount][ordering-shipping]** information for Monster Rhino Kitbase customers (10% off 2x86BLF04+USB kit)
+
 - **November 13, 2025:**
 
     - Updated **[Kaltokri DIY FFB Kits availability](3-third-party-vendors/kaltokri-kits/index.md)** - kits now generally in stock with 2-3 working day dispatch after payment
