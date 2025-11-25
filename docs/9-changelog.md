@@ -1,6 +1,6 @@
 # Changelog
 
-- **November 15, 2025:**
+- **November 25, 2025:**
 
     - Added **[Understanding Configuration Profiles and Personalization][understanding-configuration-profiles-and-personalization]** section explaining why profile sharing is uncommon in the Rhino community and providing recommended approach for building custom baseline configurations
     - Reformatted **[Technical Specifications][technical-specifications]** in Getting Started guide with organized subsections (Physical, Motors, Power & Cooling, Safety & Controls, Grip Compatibility)
