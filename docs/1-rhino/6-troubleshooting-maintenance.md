@@ -419,7 +419,15 @@ Aircraft with offset control mechanics (like the F-14 Tomcat, which has forward-
     - Allows autopilot to maintain control despite small trim offset differences
     - Trade-off: Reduces precision for manual control
 
-5. **TelemFFB Dynamic Deadzone** (Aircraft-Specific)
+5. **Disable DCS Input Curves**
+
+    - Open DCS axis settings for the affected aircraft
+    - Check if curves are enabled for pitch/roll axes
+    - Curves cause the physical stick position and in-game trim position to mismatch increasingly as you move away from center
+    - Disable curves by setting the curve to a straight line (linear response)
+    - Linear response ensures physical stick position always matches in-game trim position
+
+6. **TelemFFB Dynamic Deadzone** (Aircraft-Specific)
 
     - TelemFFB supports automatic dynamic deadzone activation when autopilot is engaged for certain aircraft
     - When AP engages, TelemFFB automatically adds deadzone to prevent false override detection
