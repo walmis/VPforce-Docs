@@ -369,4 +369,64 @@ If FFB is not working, follow the below procedure:
 
     - Here you can choose to copy your bindings from the `config/input` folder in your real DCS.backup folder over to the new test folder. Restart DCS after doing so
 
+#### Autopilot Misbehaving or Disengaging Unexpectedly
+
+**Issue:**  
+Autopilot systems (altitude hold, heading hold, or other AP modes) behave erratically, continuously pitch/roll in one direction, or disengage unexpectedly shortly after engagement. This problem occurs frequently but may occasionally work correctly, making diagnosis difficult. Common in the F-14 Tomcat, but can affect any aircraft with autopilot computers.
+
+**Root Cause:**  
+Many aircraft autopilot systems interpret a mismatch between the in-game trim point and the physical stick position as a **hands-on override** — the pilot intentionally taking control. When the physical stick position doesn't match the trimmed neutral point, the autopilot computer detects this as pilot input and either fights the stick position or disengages entirely.  
+
+Aircraft with offset control mechanics (like the F-14 Tomcat, which has forward-offset by design) are particularly susceptible. When autopilot engages or commands trim adjustments, any offset between trim point and stick position causes the autopilot to treat it as active pilot input, leading to erratic behavior or immediate disengagement.
+
+**Diagnostic Steps:**
+
+1. Enable the **Input Overlay** in DCS:
+
+    - Press `RCtrl + Enter` (Right Control + Enter)
+    - This displays stick position and trim offset in real-time
+    - The overlay shows the physical stick position and the current trim point
+
+2. Observe stick position vs. trim point:
+
+    - Watch the input overlay while the issue occurs
+    - Check if the stick closely follows the trimmed point offset
+    - If the stick lags behind the trim point → autopilot interprets the mismatch as pilot override
+    - The autopilot sees this offset as intentional pilot input and either fights it or disengages
+
+**Solutions:**
+
+1. **Enable Adaptive Recentering** (Recommended)
+
+    - Open **VPforce Configurator**
+    - Locate **Adaptive Recentering** feature in the Effects tab
+    - This automatically balances the stick to the current trim point, eliminating offset mismatch
+    - Prevents autopilot from detecting false pilot override
+    - Provides smoother stick behavior overall
+
+2. **Manual Stick Adjustment**
+
+    - Before activating autopilot, manually adjust stick position to match the trimmed point (use Input Overlay to verify alignment)
+    - Once synchronized, activate autopilot
+    - Less convenient but demonstrates the root cause
+
+4. **Configure Input Deadzone**
+
+    - Open **VPforce Configurator** → **Axes** tab
+    - Add a small circular deadzone (e.g., 1-3%)
+    - VPforce uses a circular deadzone that affects both axes simultaneously
+    - Creates a tolerance zone where minor stick position variations won't register as pilot input
+    - Allows autopilot to maintain control despite small trim offset differences
+    - Trade-off: Reduces precision for manual control
+
+5. **TelemFFB Dynamic Deadzone** (Aircraft-Specific)
+
+    - TelemFFB supports automatic dynamic deadzone activation when autopilot is engaged for certain aircraft
+    - When AP engages, TelemFFB automatically adds deadzone to prevent false override detection
+    - Deadzone is removed when AP disengages, restoring full control precision
+    - Check TelemFFB documentation for aircraft-specific AP deadzone support
+
+!!! note "Related Issue"
+    The F-14 also exhibits the **forward stick drift at 50% position** when loading into the aircraft (same as the A-10). This is intentional module design. The forward offset is part of the FFB implementation and is why trim synchronization is important for autopilot functionality.
+
 If the issue still persists, then you either did not complete all of the steps above, or there is something unknown occurring. As you will have already determined TelemFFB not to be the issue, reach out to the **[#support](https://discord.com/channels/965234441511383080/968208779084701716)** channel on the VPforce Discord.
