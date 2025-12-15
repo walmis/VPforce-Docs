@@ -10,6 +10,24 @@ from pathlib import Path
 from PIL import Image
 
 
+# Constants
+NUMBERED_PREFIX_PATTERN = r'^\d+(?:\.\d+)?-'  # Matches patterns like "6-" or "6.5-"
+
+
+def remove_numbered_prefix(text):
+    """
+    Remove numbered prefix from a path segment or filename.
+    Handles both integer (6-) and decimal (6.5-) prefixes.
+    
+    Args:
+        text: String that may contain a numbered prefix
+        
+    Returns:
+        String with numbered prefix removed
+    """
+    return re.sub(NUMBERED_PREFIX_PATTERN, '', text)
+
+
 def on_pre_build(config):
     """Hook called before the build starts."""
     pass
@@ -77,9 +95,9 @@ def fix_html_references(config):
                 attr_name = match.group(1)
                 full_path = match.group(2)
                 
-                # Clean each segment
+                # Clean each segment using the DRY helper function
                 segments = full_path.split('/')
-                cleaned_segments = [re.sub(r'^\d+-', '', seg) for seg in segments]
+                cleaned_segments = [remove_numbered_prefix(seg) for seg in segments]
                 cleaned_path = '/'.join(cleaned_segments)
                 
                 return f'{attr_name}="{cleaned_path}"'
@@ -165,7 +183,7 @@ def rename_output_directories(config):
                      key=lambda x: len(x.parts), reverse=True)
     
     # Count how many have numbered prefixes
-    numbered_dirs = [d for d in all_dirs if re.match(r'^\d+-', d.name)]
+    numbered_dirs = [d for d in all_dirs if re.match(NUMBERED_PREFIX_PATTERN, d.name)]
     
     if numbered_dirs:
         print(f"[Directory Renaming] Found {len(numbered_dirs)} numbered directories to rename")
@@ -173,8 +191,8 @@ def rename_output_directories(config):
         for dir_path in numbered_dirs:
             dir_name = dir_path.name
             
-            # Remove the prefix
-            new_name = re.sub(r'^\d+-', '', dir_name)
+            # Remove the prefix using DRY helper function
+            new_name = remove_numbered_prefix(dir_name)
             new_path = dir_path.parent / new_name
             
             # Rename if target doesn't exist
@@ -415,8 +433,8 @@ def on_files(files, config):
             
             # Process each path segment (folders and filename)
             for part in parts:
-                # Check if this segment starts with digits followed by dash
-                cleaned_part = re.sub(r'^\d+-', '', part)
+                # Remove numbered prefix using DRY helper function
+                cleaned_part = remove_numbered_prefix(part)
                 if cleaned_part != part:
                     changed = True
                 new_parts.append(cleaned_part)
