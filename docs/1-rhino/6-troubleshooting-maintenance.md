@@ -24,6 +24,286 @@ This ensures you're working with known-good baseline settings and eliminates con
     - Before testing new configurations
     - When troubleshooting stability issues
 
+## Power Issues
+
+### Base Does Not Power On At All
+
+**Issue:**  
+The Rhino base shows no signs of life - no LED indicators, no response when connected, and does not appear in Windows Device Manager or VPforce Configurator.
+
+**Understanding Rhino's Power System:**
+
+The Rhino has two separate power systems:
+
+1. **USB Power (5V):** Powers the control electronics, USB communication, and status LEDs
+2. **DC Power (20V):** Powers the motors and drive electronics
+
+If the base does not power on at all, the USB power path is the most likely culprit.
+
+#### Diagnostic Steps
+
+**Step 1: Verify USB Connection**
+
+1. **Check USB cable connection:**
+
+    - Ensure the USB cable is firmly seated in both the Rhino and your PC
+    - Try a different USB cable if available
+    - USB cables can fail internally while appearing physically intact
+
+2. **Test different USB ports:**
+
+    - Try multiple USB ports on your PC (front panel, rear panel, different USB controllers)
+    - If available, test USB 3.0/3.1 ports (blue) and USB 2.0 ports (black)
+    - Some USB ports have better power delivery or signal integrity than others
+
+3. **Eliminate USB hubs:**
+
+    - If currently using a USB hub, disconnect it
+    - Connect the Rhino directly to a motherboard USB port
+    - USB hubs can introduce power delivery and signal integrity issues
+
+**Step 2: Check for Windows Recognition**
+
+1. **Open Device Manager:**
+
+    - Press `Win + X` and select **Device Manager**
+    - Look for the Rhino under "Universal Serial Bus devices" or "Human Interface Devices"
+
+2. **Check for unknown devices:**
+
+    - Look for devices marked with a yellow exclamation mark or listed as "Unknown Device"
+    - These may indicate the Rhino is partially detected but not functioning correctly
+
+3. **Listen for connection sounds:**
+
+    - Windows typically plays a sound when USB devices connect/disconnect
+    - If you hear no sound when plugging in the Rhino, the USB signal path may be faulty
+
+**Step 3: Test USB Cable Independently**
+
+1. **Use the same cable with another USB device** (mouse, keyboard, etc.)
+
+    - If the cable doesn't work with other devices, it's faulty
+    - Replace with a known-good USB cable
+
+2. **Test the Rhino with a known-good cable:**
+
+    - Borrow a cable from another working device
+    - Verify that cable works with the Rhino
+
+#### Common Causes and Solutions
+
+**1. Faulty USB Cable**
+
+USB cables are a frequent point of failure, particularly if subjected to repeated bending or tension:
+
+- **Solution:** Replace with a high-quality USB cable
+- USB 2.0 cables are sufficient for the Rhino's data needs
+- Ensure cable length is reasonable (under 3 meters for reliability)
+
+**2. USB Port Issues**
+
+Some motherboard USB ports have poor power delivery or signal integrity:
+
+- **Solution:** Test multiple USB ports systematically
+- Document which ports are most reliable
+- Prefer motherboard rear-panel USB ports over front-panel ports (front-panel ports often have longer internal cables)
+
+**3. USB Hub Power Delivery**
+
+USB hubs, especially unpowered hubs, can fail to provide adequate power:
+
+- **Solution:** Always connect the Rhino directly to a motherboard USB port
+- If a hub is absolutely necessary, use a powered USB hub with external power supply
+
+**4. Electrical Noise or Ground Loops**
+
+Electrical noise from the PC's USB bus can prevent proper device recognition:
+
+- **Solution:** Use a **USB isolator** (see recommendation below)
+- This is particularly effective if you have many high-power USB devices
+
+**5. Mainboard Damage (Rare)**
+
+In very rare circumstances, the Rhino mainboard can be damaged by:
+
+- Electrostatic discharge (ESD) during handling
+- Ground loops between PC and power supply
+- Voltage transients on the USB bus
+
+**Solution:**
+
+- If all troubleshooting steps fail, and you've verified the USB cable and ports are good, the mainboard may be damaged
+- Contact VPforce support for further diagnostics and potential RMA
+
+!!! tip "USB Isolator Recommendation"
+    If you suspect electrical noise or ground loops are causing recognition issues, consider using a **USB isolator** (see [USB Isolator Recommendation](#usb-isolator-recommendation) section). This device provides electrical isolation that can resolve many obscure USB issues.
+
+---
+
+### Device Powers On But Motors Have No Power
+
+**Issue:**  
+The Rhino appears in Windows and VPforce Configurator shows the device connected, but the motors remain unpowered. The stick feels completely limp, and FFB effects have no effect. Motor status may show `OFFLINE` or `FAULT_UNDERVOLTAGE`.
+
+**Understanding the Problem:**
+
+This scenario indicates the **USB power path is working** (electronics are powered), but the **DC power path (20V) is faulty**. The motors require 20V DC to operate, supplied by an external power supply.
+
+#### Diagnostic Steps
+
+**Step 1: Verify Power Supply Operation**
+
+1. **Check PSU power LED:**
+
+    - Most power supplies have an LED indicator when powered on
+    - Verify the PSU LED is illuminated
+
+2. **Measure PSU output voltage** (if multimeter available):
+
+    - Set multimeter to DC voltage measurement (0-30V range)
+    - Measure voltage at the PSU's DC output connector
+    - Should read approximately 20V (acceptable range: 19V - 21V)
+    - If voltage is below 18V or reads 0V, the PSU is faulty
+
+3. **Test PSU under no load:**
+
+    - Disconnect the PSU from the Rhino
+    - Measure output voltage with nothing connected
+    - If voltage is correct with no load but drops when connected, see "PSU insufficient capacity" below
+
+**Step 2: Inspect DC Power Connections**
+
+1. **Check DC connector on Rhino:**
+
+    - Inspect the DC barrel jack on the back of the Rhino
+    - Ensure the connector is firmly seated and not loose
+    - Wiggle the connector gently - if it moves easily, poor connection may be the issue
+    - Poor DC connections can also cause intermittent operation or ground loops
+
+2. **Inspect DC cable:**
+
+    - Look for visible damage, kinks, or fraying
+    - Check that connectors on both ends are tight and not damaged
+    - If possible, try a different DC cable with the same connector type
+
+3. **Check E-Stop switch (if installed):**
+
+    - If you have an E-Stop switch in the DC power path, ensure it's not engaged
+    - E-Stop switches can develop internal resistance or fail over time
+    - Bypass the E-Stop temporarily to test if it's the culprit
+
+**Step 3: Verify Power Delivery to Rhino**
+
+1. **Measure voltage at Rhino DC input** (if multimeter available):
+
+    - With PSU connected and Rhino powered on, measure voltage at the DC barrel jack
+    - Should read approximately 20V
+    - If voltage is correct at PSU but not at Rhino, cable or connector is faulty
+
+2. **Check for voltage sag under load:**
+
+    - Measure voltage while attempting to activate FFB effects
+    - If voltage drops significantly below 18V under load, PSU is insufficient or failing
+
+#### Common Causes and Solutions
+
+**1. Faulty Power Supply**
+
+Power supplies can fail over time, particularly under sustained high-current loads:
+
+- **Symptoms:**
+
+    - No voltage output
+    - Voltage significantly below 20V
+    - Voltage drops dramatically under load
+
+- **Solution:**
+
+    - Replace with a known-good 20V power supply
+    - Ensure replacement PSU meets minimum current capacity (typically 6-8A recommended)
+
+**2. Poor DC Connector Contact**
+
+The DC barrel jack can become loose or develop poor contact over time:
+
+- **Symptoms:**
+
+    - Intermittent motor power
+    - Motors work sometimes but not others
+    - Vibrations cause power loss
+
+- **Solution:**
+
+    - Ensure DC connector is firmly seated
+    - If connector is loose, consider replacing the DC cable or jack
+    - Apply light pressure to connector while testing to verify if this is the issue
+
+**3. Faulty DC Cable**
+
+DC cables can develop internal breaks or high resistance:
+
+- **Symptoms:**
+
+    - Voltage present at PSU but not at Rhino
+    - Intermittent operation depending on cable position
+
+- **Solution:**
+
+    - Replace DC cable with known-good cable
+    - Ensure cable gauge is adequate for current (typically 18AWG or heavier)
+
+**4. Failing E-Stop Switch**
+
+E-Stop switches can develop high internal resistance or fail to make contact:
+
+- **Symptoms:**
+
+    - `FAULT_UNDERVOLTAGE` errors
+    - Motors intermittently lose power
+    - Voltage sag under load
+
+- **Solution:**
+
+    - Temporarily bypass E-Stop to test
+    - If bypassing resolves issue, replace E-Stop switch
+
+**5. Insufficient PSU Capacity**
+
+Power supply may not provide sufficient current for high-torque operation:
+
+- **Symptoms:**
+
+    - Voltage correct at idle but drops under load
+    - Motors work at low forces but fault at high forces
+    - `FAULT_UNDERVOLTAGE` during intense FFB
+
+- **Solution:**
+
+    - Upgrade to higher-capacity power supply (8A or higher recommended)
+    - Verify PSU can sustain rated current continuously
+
+!!! important "Ground Loops and Electrical Noise"
+    Poor DC connections can introduce ground loops that cause both power delivery issues and USB instability. If you experience both motor power issues and USB connection issues simultaneously, inspect DC connections first - fixing the DC path often resolves USB issues as well.
+
+#### Verification After Repairs
+
+1. **Measure DC voltage at Rhino input:**
+
+    - Should read approximately 20V with no load
+    - Should remain above 18V under typical FFB load
+
+2. **Check motor status in Configurator:**
+
+    - Motor status should show `RUNNING` or `IDLE`
+    - Should not show `OFFLINE` or `FAULT_UNDERVOLTAGE`
+
+3. **Test FFB effects:**
+
+    - Activate test effects in VPforce Configurator
+    - Verify motors respond with appropriate force
+    - Check for consistent operation without intermittent drops
+
 ## USB Connection Issues
 
 **Issue:**
