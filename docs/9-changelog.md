@@ -1,10 +1,12 @@
 # Changelog
 
-- **December 15, 2025:**
+- **December 3, 2025:**
 
     - Added comprehensive **[Power Issues][power-issues]** troubleshooting section with separate diagnostics for USB power path failures and DC motor power failures
     - Added **[Spring Gain Mapping Tab][spring-gain-mapping-tab]** documentation explaining force-versus-displacement mapping and game gain remapping for customizing spring force behavior
     - Added **[Autopilot Misbehaving or Disengaging Unexpectedly][autopilot-misbehaving-or-disengaging-unexpectedly]** troubleshooting for aircraft autopilot systems interpreting trim offset as hands-on override
+    - Added **[How to Get Effective Support][how-to-get-effective-support]** guide with bad/good request examples, required information checklist, and common pitfalls to avoid
+    - Completely rewrote **[Re-tightening the Belts][re-tightening-the-belts]** maintenance section with detailed step-by-step procedures, troubleshooting, and belt realignment instructions
 
 - **November 25, 2025:**
 
