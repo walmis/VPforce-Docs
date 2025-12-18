@@ -1,5 +1,11 @@
 # Changelog
 
+- **December 15, 2025:**
+
+    - Added comprehensive **[Power Issues][power-issues]** troubleshooting section with separate diagnostics for USB power path failures and DC motor power failures
+    - Added **[Spring Gain Mapping Tab][spring-gain-mapping-tab]** documentation explaining force-versus-displacement mapping and game gain remapping for customizing spring force behavior
+    - Added **[Autopilot Misbehaving or Disengaging Unexpectedly][autopilot-misbehaving-or-disengaging-unexpectedly]** troubleshooting for aircraft autopilot systems interpreting trim offset as hands-on override
+
 - **November 25, 2025:**
 
     - Added **[Understanding Configuration Profiles and Personalization][understanding-configuration-profiles-and-personalization]** section explaining why profile sharing is uncommon in the Rhino community and providing recommended approach for building custom baseline configurations
