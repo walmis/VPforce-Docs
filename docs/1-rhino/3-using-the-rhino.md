@@ -300,6 +300,105 @@ The **Button Mapping Tab** allows you to configure how buttons on your grip are 
 - **Assign Button Functions:** Map physical buttons to specific button numbers recognized by games
 - **Test Inputs:** Verify that button presses are being detected correctly
 
+### Spring Gain Mapping Tab
+
+![Spring Gain Mapping Tab View](media/Pictures/placeholder_spring_gain_mapping.png)
+
+**Spring Gain Mapping** is an advanced tuning tool that lets you customize how your stick's spring force behaves. Think of it as creating your own "force curve" - you can make the stick lighter or heavier at different positions, or change how the simulator's force commands translate into actual resistance you feel.
+
+This feature is particularly valuable when working with simulators like DCS that have limitations in how they handle force feedback.
+
+#### Understanding the Basics: What is Dynamic Range?
+
+Imagine your stick's motors are like a dimmer switch that goes from 0% to 100%:
+
+- **At 100% force setting:** The resistance gradually increases as you move the stick. The motors only hit maximum power when you've pushed the stick all the way to the edge. This gives you the full range of feeling - light forces near center, heavy forces at the edges.
+
+- **At 300% force setting:** The motors hit maximum power when you've only pushed the stick one-third of the way. After that point, you can't feel any additional increase in force because the motors are already working at full capacity. This is called "saturation."
+
+**The trade-off:** Higher force settings give you a stiffer stick, but you lose the ability to feel subtle changes in force across the full range of motion.
+
+#### The Simulator Problem
+
+Here's where things get frustrating: Most DCS aircraft send a "set spring to 100%" command very early - often at relatively low airspeeds. From that point on, the stick stiffness doesn't increase anymore, even though real aircraft controls would continue getting heavier as speed increases.
+
+The F-4 Phantom is a rare exception - it lets you reduce its force feedback saturation range in-game, giving you room to compensate using the Rhino's settings. But most aircraft don't offer this option.
+
+**The critical limitation:** Once DCS sends "100%", there's no way to recover the missing information. The simulator isn't sending you data about how much stiffer the controls *should* be getting - it's just telling you "maximum stiffness reached." No amount of tweaking on the Rhino side can create force-versus-airspeed realism that the simulator isn't providing.
+
+**The TelemFFB Solution:** TelemFFB reads telemetry data directly from DCS and can augment or completely replace the native force curves. By monitoring airspeed, G-forces, and other flight parameters, TelemFFB can create realistic force-versus-airspeed relationships even when the simulator's native FFB has already saturated. This bypasses the "100% early" problem entirely by using actual flight data instead of relying solely on DCS's built-in force feedback commands.
+
+#### What Spring Gain Mapping Can Do
+
+Spring Gain Mapping gives you two powerful tools to work around these limitations:
+
+**1. Force vs Displacement Mapping**
+
+![Force vs Displacement Curve Editor](media/Pictures/placeholder_force_vs_displacement.png)
+
+This controls how force increases as you move the stick away from center:
+
+- **Default (linear):** Force increases evenly with distance. Push the stick halfway, feel 50% force. Push it all the way, feel 100% force.
+- **Custom curves:** You can reshape this relationship:
+
+    - Make the stick lighter near center but stronger at the edges
+    - Boost peak force beyond 100% (say, 150-200%) at full deflection
+    - Create a progressive feel that ramps up more aggressively as you approach the limits
+
+**Example:** You want a lighter touch near center for fine control, but stronger resistance at the edges to prevent over-controlling. You'd create a curve that starts shallow and steepens as displacement increases.
+
+**2. Game Gain Remapping**
+
+![Game Gain Remapping Curve Editor](media/Pictures/placeholder_gain_remapping.png)
+
+This changes how the simulator's force commands translate into actual force:
+
+- **Default (linear):** Simulator says "50% force" → you feel 50% force
+- **Custom curves:** You can amplify or compress the simulator's commands:
+
+    - Boost low-force commands so the stick never feels too limp
+    - Compress high-force commands to prevent excessive stiffness
+    - Create your own force progression even when the sim caps out early
+
+**Example:** DCS sends 100% force at 200 knots and never increases. You create a curve that remaps that "100%" command to 70% actual force, leaving room for you to manually increase stiffness as speed builds (though you'd need TelemFFB or manual adjustment for this).
+
+#### How to Use Spring Gain Mapping
+
+1. Open the VPforce Configurator
+2. Navigate to the **Spring Gain Mapping Tab**
+3. Choose which curve you want to edit:
+
+    - **Force vs Displacement** - Changes how force builds with stick position
+    - **Gain Remapping** - Changes how simulator commands map to actual force
+
+4. Click points on the curve to adjust the shape
+5. Test in your simulator and refine until it feels right
+
+#### Practical Tips
+
+**Start Simple**
+
+Don't try to fix everything at once. Start with modest adjustments (120-150% peak force) and test. Small changes often make a big difference.
+
+**Understand the Trade-offs**
+
+- **Higher peak forces:** More satisfying resistance, but less ability to feel subtle force changes
+- **Lower saturation:** More dynamic range, but lighter overall feel
+
+**Know the Limitations**
+
+If DCS is sending "100% force" early and staying there, Spring Gain Mapping can help you redistribute that force in more useful ways, but it can't create information the simulator isn't sending. For truly realistic force-versus-airspeed curves, you'll need TelemFFB or an aircraft (like the F-4) that gives you more control over in-game saturation.
+
+**Monitor Heat**
+
+Sustained high forces generate motor heat. If you're running high gain settings for extended periods, keep an eye on thermal performance.
+
+!!! tip "The F-4 Exception"
+    If you fly the F-4 Phantom in DCS, you're in luck. You can reduce the in-game force feedback saturation range, then use Spring Gain Mapping to boost the output back up. This gives you much more control over how forces scale with airspeed.
+
+!!! warning "Information Loss"
+    Once a simulator sends "100%" and stops increasing, there's no way to recover the missing force-versus-airspeed data. Spring Gain Mapping can reshape *how* that force feels, but it can't create realism the simulator isn't providing. For advanced effects like realistic airspeed-dependent forces, consider using TelemFFB.
+
 ### FFB Axes Setup Tab
 
 ![The FFB Axes Setup tab](images/3-using-the-rhino/image-1.png)
