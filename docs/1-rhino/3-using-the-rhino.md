@@ -238,7 +238,7 @@ TelemFFB can also override individual effects in the same way a simulator does, 
 !!! example "Practical Example"
     You've configured a perfect spring effect at 70% gain in the Effects tab, and set damper at 40%. In the Settings tab, you have Spring at 100% and Damper at 80%.
     
-    - **No simulator running:** You feel 70% spring and 40% damper
+    - **No simulator running:** You feel 70% spring and 32% damper
     - **DCS running with native FFB:** DCS controls the spring (your 70% is ignored), but your 40% damper remains active, limited by the 80% Settings multiplier (= 32% final damper)
     - **Settings adjustment:** Lower Spring slider to 50% in Settings - now any spring force (DCS or local) is halved
 
