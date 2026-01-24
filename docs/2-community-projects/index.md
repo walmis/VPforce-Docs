@@ -47,3 +47,9 @@ Complete conversion guide for Thrustmaster TPR rudder pedals using the 86BLF04 m
 
 Convert MFG Crosswind rudder pedals into a force-feedback system using VPforce motor kits and 3D-printed parts. Features 74T main gear matching the original Rhino reduction ratio. Updated for MFG Crosswind V3 compatibility.
 
+### FFB Trim Wheel
+
+#### [TPR FFB Trim Wheel by Smitty](TPR_FFB_TrimWheel.md)
+
+Make a FFB Trim Wheel that you can either move by hand, sim trim up/down buttons, or by autopilot
+
