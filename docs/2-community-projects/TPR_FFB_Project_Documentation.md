@@ -37,21 +37,21 @@ This is a partial list of components required for the project.
 
 | Qty | Description                                                                                             | Link                                                                                               |
 |-----|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
-| 1   | 86BLF04 x1 DIY Kit                                                                                      | [VPforce Controls](https://vpforcecontrols.com)                                                    |
+| 1   | 86BLF04 x1 DIY Kit           (Motor + USB Board)                                                   | [VPforce Controls](https://vpforcecontrols.com)                                                    |
 | 1   | 24V 350W Power Supply                                                                                   | [Amazon](https://www.amazon.com/gp/product/B013ETVO12)                                             |
-| 2   | Pack of 2 Bearings                                                                                      | [Amazon](https://www.amazon.com/gp/product/B077K7KNX9)                                             |
-| 2   | Pack of 2 Bearings                                                                                      | [Amazon](https://www.amazon.com/gp/product/B000COCQ06)                                             |
-| 2   | McMaster-Carr Part                                                                                      | [McMaster-Carr](https://www.mcmaster.com/catalog/90220A130)                                         |
-| 4   | McMaster-Carr Part                                                                                      | [McMaster-Carr](https://www.mcmaster.com/catalog/91920A710)                                         |
-| 2   | McMaster-Carr Part                                                                                      | [McMaster-Carr](https://www.mcmaster.com/catalog/2705T132)                                         |
-| 4   | McMaster-Carr Part                                                                                      | [McMaster-Carr](https://www.mcmaster.com/catalog/92510A765)                                         |
-| 4   | McMaster-Carr Part                                                                                      | [McMaster-Carr](https://www.mcmaster.com/8920N36/)                                                 |
-| 8   | Box of 100 Screws                                                                                       | [McMaster-Carr](https://www.mcmaster.com/91294A212/)                                                |
-| 4   | Box of 50 Screws                                                                                        | [McMaster-Carr](https://www.mcmaster.com/91290A252/)                                                |
-| 2   | Box of 50 Nuts                                                                                          | [McMaster-Carr](https://www.mcmaster.com/94105A534/)                                                |
-| 2   | Box of 25 Screws                                                                                        | [McMaster-Carr](https://www.mcmaster.com/91294A253/)                                                |
-| 2   | Box of 100 Washers                                                                                      | [McMaster-Carr](https://www.mcmaster.com/94645A205/)                                                |
-| 1   | Stainless Steel Wire Rope Kit                                                                           | [Amazon](https://www.amazon.com/USAMILY-Stainless-Aluminum-Sleeves-Thimbles/dp/B0CKPHJG3F)          |
+| 2   | Pack of 2 Deep U Groove Pulley Bearing                                                                 | [Amazon](https://www.amazon.com/gp/product/B077K7KNX9)                                             |
+| 2   | Pack of 2 Cable Stops                                                                                   | [Amazon](https://www.amazon.com/gp/product/B000COCQ06)                                             |
+| 2   | McMaster-Carr Vented Hex Bolts                                                                          | [McMaster-Carr](https://www.mcmaster.com/catalog/90220A130)                                         |
+| 4   | McMaster-Carr Threaded Hex Standoff, 37 mm Lg, M5                                                  | [McMaster-Carr](https://www.mcmaster.com/catalog/91920A710)                                         |
+| 2   | McMaster-Carr Flanged Sleeve Bearing, 8mm ID, 10mm Lg, 15mm Flange                                    | [McMaster-Carr](https://www.mcmaster.com/catalog/2705T132)                                         |
+| 4   | McMaster-Carr Aluminum Spacer, 1/2" OD, 1/2" Long, for 1/4" Screw                                     | [McMaster-Carr](https://www.mcmaster.com/catalog/92510A765)                                         |
+| 4   | McMaster-Carr Thrust Bearing,  8 mm ID, 15 mm OD, 1.5 mm Thick                                          | [McMaster-Carr](https://www.mcmaster.com/8920N36/)                                                 |
+| 8   | Box of 100 M5x16 Csink Screws                                                                                       | [McMaster-Carr](https://www.mcmaster.com/91294A212/)                                                |
+| 4   | Box of 50 M5x25 SHCS Screws                                                                                        | [McMaster-Carr](https://www.mcmaster.com/91290A252/)                                                |
+| 2   | Box of 50 1/4-20 x 5/16 Lg Setscrew                                                                           | [McMaster-Carr](https://www.mcmaster.com/94105A534/)                                                |
+| 2   | Box of 25 M6x60 Csink Screws                                                                                        | [McMaster-Carr](https://www.mcmaster.com/91294A253/)                                                |
+| 2   | Box of 100 M6 Locknut                                                                                      | [McMaster-Carr](https://www.mcmaster.com/94645A205/)                                                |
+| 1   | Stainless Steel 7x7 Wire Rope Kit                                                                           | [Amazon](https://www.amazon.com/USAMILY-Stainless-Aluminum-Sleeves-Thimbles/dp/B0CKPHJG3F)          |
 
 ---
 
@@ -99,13 +99,9 @@ This is a partial list of components required for the project.
 9. **Cable Wrapping (The Tricky Part):**
 
     -   The cable is thick and resistant to bending. This step may require multiple hands.  
-    -   Clip off the ball on the end of the cable, being careful not to let it unravel.  
     -   Pass the cable through the hole in the motor pulley so half remains on each side.  
     -   With the pulley stationary (power it up or use an Allen key to hold it), wind two wraps toward the motor, then to a pulley, and up through the vented arm bolt. Secure it with a cable stop.  
     -   Repeat on the other side, but wind away from the motor.
-
-    !!! tip "Easier Cable Option"
-        The creator notes that **304 1/16 7x7 wire rope (Part B0CKPHJG3F)** is much easier to work with, as the original brake cable can shred over time.
 
 10. **Center and Tension:**
 
@@ -182,7 +178,7 @@ This information is compiled from a guide and community discussion provided by t
 ### Assembly and Build Process
 
 **Q: What is the most difficult part of the assembly?**  
-**A:** Community members consistently report that wrapping the thick, stiff steel cable around the motor pulley is the trickiest and most frustrating step. It may require multiple hands and patience. Using a zip tie to temporarily hold the cable in place during winding is a helpful tip.
+**A:** Community members consistently report that wrapping the steel cable around the motor pulley is the trickiest and most frustrating step. It may require multiple hands and patience. Using a zip tie to temporarily hold the cable in place during winding is a helpful tip.
 
 **Q: Can I use Dyneema rope instead of steel cable?**  
 **A:** Yes, some users have opted for Dyneema. It is more flexible and may be quieter, but it is also very slippery. This can make it difficult to clamp securely and may require special techniques to prevent it from slipping on the motor pulley, such as pinching it against the motor shaft's flat section. The creator now recommends a specific stainless steel wire rope that is easier to work with than the original brake cable.
@@ -214,7 +210,7 @@ This information is compiled from a guide and community discussion provided by t
 3. Avoiding unpowered or older USB 2.0 hubs, which may not have sufficient bandwidth or power.
 
 **Q: How do I connect the brakes? Do I still use the original TPR electronics?**  
-**A:** Yes. The standard FFB mod only replaces the rudder axis. The toe brakes continue to function through the original Thrustmaster USB connection. This means you will have two separate joystick devices for your pedals: one for the FFB rudder axis (VPforce) and one for the brakes (Thrustmaster). A small internal USB hub can be used to combine these into a single external cable.
+**A:** You can. The standard FFB mod only replaces the rudder axis. The toe brakes continue to function through the original Thrustmaster USB connection. This means you will have two separate joystick devices for your pedals: one for the FFB rudder axis (VPforce) and one for the brakes (Thrustmaster). A small internal USB hub can be used to combine these into a single external cable.  Optionally, you can use the 2 analog inputs on the VPForce USB board and set them as axes in Configurator.
 
 ### Related Mod: Load Cell Brakes
 
