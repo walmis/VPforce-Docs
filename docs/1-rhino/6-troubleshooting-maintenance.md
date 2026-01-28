@@ -43,56 +43,18 @@ The Rhino has two separate power systems:
 
 If the base does not power on at all, the USB power path is the most likely culprit.
 
-#### Diagnostic Steps
+#### Quick Troubleshooting Checklist
 
-**Step 1: Verify USB Connection**
+Before diving into detailed diagnostics, try these essential steps:
 
-1. **Check USB cable connection:**
+1. **Verify USB connection** - Ensure the USB cable is firmly seated and try a different USB cable if available
+2. **Try different USB ports** - Test multiple USB ports (rear panel preferred over front panel)
+3. **Eliminate USB hubs** - Disconnect any USB hubs and connect the Rhino directly to a motherboard USB port
+4. **Check Device Manager** - Press `Win + X` and open **Device Manager** to verify Windows detects the device
+5. **Test DC power connection** - Verify the DC barrel jack is firmly seated on the back of the Rhino
 
-    - Ensure the USB cable is firmly seated in both the Rhino and your PC
-    - Try a different USB cable if available
-    - USB cables can fail internally while appearing physically intact
-
-2. **Test different USB ports:**
-
-    - Try multiple USB ports on your PC (front panel, rear panel, different USB controllers)
-    - If available, test USB 3.0/3.1 ports (blue) and USB 2.0 ports (black)
-    - Some USB ports have better power delivery or signal integrity than others
-
-3. **Eliminate USB hubs:**
-
-    - If currently using a USB hub, disconnect it
-    - Connect the Rhino directly to a motherboard USB port
-    - USB hubs can introduce power delivery and signal integrity issues
-
-**Step 2: Check for Windows Recognition**
-
-1. **Open Device Manager:**
-
-    - Press `Win + X` and select **Device Manager**
-    - Look for the Rhino under "Universal Serial Bus devices" or "Human Interface Devices"
-
-2. **Check for unknown devices:**
-
-    - Look for devices marked with a yellow exclamation mark or listed as "Unknown Device"
-    - These may indicate the Rhino is partially detected but not functioning correctly
-
-3. **Listen for connection sounds:**
-
-    - Windows typically plays a sound when USB devices connect/disconnect
-    - If you hear no sound when plugging in the Rhino, the USB signal path may be faulty
-
-**Step 3: Test USB Cable Independently**
-
-1. **Use the same cable with another USB device** (mouse, keyboard, etc.)
-
-    - If the cable doesn't work with other devices, it's faulty
-    - Replace with a known-good USB cable
-
-2. **Test the Rhino with a known-good cable:**
-
-    - Borrow a cable from another working device
-    - Verify that cable works with the Rhino
+!!! tip
+    For more detailed USB troubleshooting steps and solutions, see the **[USB Connection Issues](#usb-connection-issues)** section below. This section covers comprehensive diagnostic procedures and explains common causes for each symptom.
 
 #### Common Causes and Solutions
 
@@ -100,17 +62,15 @@ If the base does not power on at all, the USB power path is the most likely culp
 
 USB cables are a frequent point of failure, particularly if subjected to repeated bending or tension:
 
-- **Solution:** Replace with a high-quality USB cable
-- USB 2.0 cables are sufficient for the Rhino's data needs
-- Ensure cable length is reasonable (under 3 meters for reliability)
+- **Verification:** Test the cable with another USB device (mouse, keyboard, etc.)
+- **Solution:** Replace with a high-quality USB cable (USB 2.0 is sufficient; keep cable under 3 meters)
 
 **2. USB Port Issues**
 
 Some motherboard USB ports have poor power delivery or signal integrity:
 
-- **Solution:** Test multiple USB ports systematically
-- Document which ports are most reliable
-- Prefer motherboard rear-panel USB ports over front-panel ports (front-panel ports often have longer internal cables)
+- **Solution:** Test multiple USB ports systematically and prefer motherboard rear-panel USB ports over front-panel ports
+- Front-panel ports often have longer internal cables and higher insertion losses
 
 **3. USB Hub Power Delivery**
 
@@ -123,10 +83,17 @@ USB hubs, especially unpowered hubs, can fail to provide adequate power:
 
 Electrical noise from the PC's USB bus can prevent proper device recognition:
 
-- **Solution:** Use a **USB isolator** (see recommendation below)
-- This is particularly effective if you have many high-power USB devices
+- **Solution:** Use a **USB isolator** to eliminate noise (see **[USB Isolator Recommendation](#usb-isolator-recommendation)** section)
+- This is particularly effective in systems with many high-power devices
 
-**5. Mainboard Damage (Rare)**
+**5. DC Power Connection Issue**
+
+Even with USB detection, a loose DC connection can prevent the device from initializing:
+
+- **Solution:** Firmly reseat the DC barrel jack connector on the back of the Rhino
+- Ensure DC power is being supplied to the board (the board should initialize after USB detection)
+
+**6. Mainboard Damage (Rare)**
 
 In very rare circumstances, the Rhino mainboard can be damaged by:
 
@@ -134,13 +101,8 @@ In very rare circumstances, the Rhino mainboard can be damaged by:
 - Ground loops between PC and power supply
 - Voltage transients on the USB bus
 
-**Solution:**
-
-- If all troubleshooting steps fail, and you've verified the USB cable and ports are good, the mainboard may be damaged
+- **Solution:** If all troubleshooting steps fail and you've verified the USB cable, ports, and DC connection are good, the mainboard may be damaged
 - Contact VPforce support for further diagnostics and potential RMA
-
-!!! tip "USB Isolator Recommendation"
-    If you suspect electrical noise or ground loops are causing recognition issues, consider using a **USB isolator** (see [USB Isolator Recommendation](#usb-isolator-recommendation) section). This device provides electrical isolation that can resolve many obscure USB issues.
 
 ---
 
@@ -153,61 +115,13 @@ The Rhino appears in Windows and VPforce Configurator shows the device connected
 
 This scenario indicates the **USB power path is working** (electronics are powered), but the **DC power path (20V) is faulty**. The motors require 20V DC to operate, supplied by an external power supply.
 
-#### Diagnostic Steps
+#### Quick Troubleshooting Checklist
 
-**Step 1: Verify Power Supply Operation**
-
-1. **Check PSU power LED:**
-
-    - Most power supplies have an LED indicator when powered on
-    - Verify the PSU LED is illuminated
-
-2. **Measure PSU output voltage** (if multimeter available):
-
-    - Set multimeter to DC voltage measurement (0-30V range)
-    - Measure voltage at the PSU's DC output connector
-    - Should read approximately 20V (acceptable range: 19V - 21V)
-    - If voltage is below 18V or reads 0V, the PSU is faulty
-
-3. **Test PSU under no load:**
-
-    - Disconnect the PSU from the Rhino
-    - Measure output voltage with nothing connected
-    - If voltage is correct with no load but drops when connected, see "PSU insufficient capacity" below
-
-**Step 2: Inspect DC Power Connections**
-
-1. **Check DC connector on Rhino:**
-
-    - Inspect the DC barrel jack on the back of the Rhino
-    - Ensure the connector is firmly seated and not loose
-    - Wiggle the connector gently - if it moves easily, poor connection may be the issue
-    - Poor DC connections can also cause intermittent operation or ground loops
-
-2. **Inspect DC cable:**
-
-    - Look for visible damage, kinks, or fraying
-    - Check that connectors on both ends are tight and not damaged
-    - If possible, try a different DC cable with the same connector type
-
-3. **Check E-Stop switch (if installed):**
-
-    - If you have an E-Stop switch in the DC power path, ensure it's not engaged
-    - E-Stop switches can develop internal resistance or fail over time
-    - Bypass the E-Stop temporarily to test if it's the culprit
-
-**Step 3: Verify Power Delivery to Rhino**
-
-1. **Measure voltage at Rhino DC input** (if multimeter available):
-
-    - With PSU connected and Rhino powered on, measure voltage at the DC barrel jack
-    - Should read approximately 20V
-    - If voltage is correct at PSU but not at Rhino, cable or connector is faulty
-
-2. **Check for voltage sag under load:**
-
-    - Measure voltage while attempting to activate FFB effects
-    - If voltage drops significantly below 18V under load, PSU is insufficient or failing
+1. **Check power supply LED** - Verify the PSU is powered and LED is illuminated
+2. **Measure PSU output** - Using a multimeter (if available), measure ~20V at the PSU DC connector
+3. **Inspect DC connections** - Ensure the DC barrel jack on the Rhino is firmly seated
+4. **Check DC cable** - Look for visible damage, kinks, or loose connectors
+5. **Test with known-good PSU** - If available, try a different 20V power supply to isolate the problem
 
 #### Common Causes and Solutions
 
@@ -215,102 +129,62 @@ This scenario indicates the **USB power path is working** (electronics are power
 
 Power supplies can fail over time, particularly under sustained high-current loads:
 
-- **Symptoms:**
-
-    - No voltage output
-    - Voltage significantly below 20V
-    - Voltage drops dramatically under load
-
-- **Solution:**
-
-    - Replace with a known-good 20V power supply
-    - Ensure replacement PSU meets minimum current capacity (typically 6-8A recommended)
+- **Symptoms:** No voltage output, voltage significantly below 20V, or voltage drops dramatically under load
+- **Verification:** Measure PSU output with multimeter (should read ~20V DC)
+- **Solution:** Replace with a known-good 20V power supply (6-8A minimum capacity recommended)
 
 **2. Poor DC Connector Contact**
 
 The DC barrel jack can become loose or develop poor contact over time:
 
-- **Symptoms:**
-
-    - Intermittent motor power
-    - Motors work sometimes but not others
-    - Vibrations cause power loss
-
-- **Solution:**
-
-    - Ensure DC connector is firmly seated
-    - If connector is loose, consider replacing the DC cable or jack
-    - Apply light pressure to connector while testing to verify if this is the issue
+- **Symptoms:** Intermittent motor power, motors work sometimes but not others, vibrations cause power loss
+- **Verification:** Ensure connector is firmly seated; wiggle it gently to check for play
+- **Solution:** Reseat the DC connector firmly; if problem persists, replace the DC cable or jack
 
 **3. Faulty DC Cable**
 
 DC cables can develop internal breaks or high resistance:
 
-- **Symptoms:**
-
-    - Voltage present at PSU but not at Rhino
-    - Intermittent operation depending on cable position
-
-- **Solution:**
-
-    - Replace DC cable with known-good cable
-    - Ensure cable gauge is adequate for current (typically 18AWG or heavier)
+- **Symptoms:** Voltage present at PSU but not at Rhino, intermittent operation depending on cable position
+- **Verification:** Measure voltage at both PSU output and Rhino DC input to compare
+- **Solution:** Replace DC cable with a known-good cable (18AWG or heavier recommended)
 
 **4. Failing E-Stop Switch**
 
 E-Stop switches can develop high internal resistance or fail to make contact:
 
-- **Symptoms:**
-
-    - `FAULT_UNDERVOLTAGE` errors
-    - Motors intermittently lose power
-    - Voltage sag under load
-
-- **Solution:**
-
-    - Temporarily bypass E-Stop to test
-    - If bypassing resolves issue, replace E-Stop switch
+- **Symptoms:** `FAULT_UNDERVOLTAGE` errors, motors intermittently lose power, voltage sag under load
+- **Verification:** Check if E-Stop is engaged or bypass it temporarily to test
+- **Solution:** Replace E-Stop switch if bypassing resolves the issue
 
 **5. Insufficient PSU Capacity**
 
-Power supply may not provide sufficient current for high-torque operation:
+Power supply may not provide sufficient current for high-torque FFB operation:
 
-- **Symptoms:**
-
-    - Voltage correct at idle but drops under load
-    - Motors work at low forces but fault at high forces
-    - `FAULT_UNDERVOLTAGE` during intense FFB
-
-- **Solution:**
-
-    - Upgrade to higher-capacity power supply (8A or higher recommended)
-    - Verify PSU can sustain rated current continuously
+- **Symptoms:** Voltage correct at idle but drops under load, motors work at low forces but fault at high forces, `FAULT_UNDERVOLTAGE` during intense FFB
+- **Verification:** Measure voltage while activating test FFB effects in Configurator
+- **Solution:** Upgrade to higher-capacity power supply (8A or higher recommended)
 
 !!! important "Ground Loops and Electrical Noise"
-    Poor DC connections can introduce ground loops that cause both power delivery issues and USB instability. If you experience both motor power issues and USB connection issues simultaneously, inspect DC connections first - fixing the DC path often resolves USB issues as well.
+    Poor DC connections can introduce ground loops that cause both power delivery issues and USB instability. If you experience both motor power issues and USB connection issues simultaneously, inspect DC connections first—fixing the DC path often resolves USB issues as well.
 
 #### Verification After Repairs
 
-1. **Measure DC voltage at Rhino input:**
+After applying a fix, verify the solution:
 
-    - Should read approximately 20V with no load
-    - Should remain above 18V under typical FFB load
+1. **Measure DC voltage** - Should read ~20V with no load, remain above 18V under typical FFB load
+2. **Check motor status in Configurator** - Should show `RUNNING`, not `OFFLINE` or `FAULT_UNDERVOLTAGE`
+3. **Test FFB effects** - Activate test effects and verify motors respond consistently with appropriate force
 
-2. **Check motor status in Configurator:**
-
-    - Motor status should show `RUNNING` or `IDLE`
-    - Should not show `OFFLINE` or `FAULT_UNDERVOLTAGE`
-
-3. **Test FFB effects:**
-
-    - Activate test effects in VPforce Configurator
-    - Verify motors respond with appropriate force
-    - Check for consistent operation without intermittent drops
 
 ## USB Connection Issues
 
 **Issue:**
 The Rhino exhibits intermittent connection problems, instability, or appears to disconnect and reconnect frequently. This typically manifests as effects stuttering, dropping out momentarily, or the device appearing offline in VPforce Configurator.
+
+**Why USB Communication Matters for FFB:**
+
+The Rhino FFB joystick communicates using high-frequency bidirectional data. Unlike a standard joystick that just sends "X and Y" coordinates, an FFB stick is constantly receiving "Force" instructions from the sim while sending "Position" data back. Any interruption in this communication—even brief pauses from USB throttling or power management—can cause jerky motion, lag, freezing, or complete sim lockup. This is why USB connection quality is critical for smooth FFB operation.
 
 **Common Causes & Solutions:**
 
@@ -372,6 +246,40 @@ Search for **AduM3160** isolator boards on AliExpress, Amazon, or other electron
 - Boards with both USB-A connectors or USB-A to USB-C options
 
 Cost is typically low (under $10-20 USD), making it an economical troubleshooting step if you suspect USB noise issues.
+
+### Disable USB Selective Suspend
+
+**Issue:**  
+Windows can automatically suspend USB ports to save power, causing the USB port to be "throttled" and resulting in system performance issues. Symptoms include jerky motion in VPforce Configurator, sim freezes or lockups, and system sluggishness when the Rhino is connected.
+
+**Solution:**
+
+Windows USB Selective Suspend can be disabled through Power Options. Follow these steps:
+
+1. Open **Power Options**:
+    - Right-click the battery/power icon in the taskbar
+    - Select **Power settings** or go to **Settings** → **System** → **Power & battery**
+
+2. Click **Advanced power settings** (or **Power Options** if in classic settings)
+
+3. Click **Change plan settings** for your current power plan
+
+4. Click **Change advanced power settings**
+
+5. Expand **USB settings** in the list
+
+6. Expand **USB selective suspend setting**
+
+7. Set the value to **Disabled** for both "On battery" and "Plugged in"
+
+8. Click **Apply** → **OK**
+
+9. **Restart your PC** for the change to take effect
+
+10. Reconnect the Rhino and verify the issue is resolved
+
+!!! tip
+    If you have multiple power plans (Balanced, High Performance, Power Saver), ensure you disable USB Selective Suspend for all of them, or switch to a plan where it is already disabled.
 
 ## WinUSB / WebUSB Firmware Update Issues
 
@@ -561,11 +469,11 @@ This fault protects motor drivers by halting operation when voltage is insuffici
 4. **Replace or upgrade PSU:** If power supply cannot maintain adequate voltage under load, replace with higher-capacity unit. 
 
 
-## - Game Specific Troubleshooting
+## Game Specific Troubleshooting
 
 Various items can cause issues with FFB depending on the sim in question. This section will cover common issues and basic troubleshooting steps that can be used to identify and fix the problem. This section is a living list that will be updated as new issues/causes/solutions are identified.
 
-### - DCS
+### DCS
 
 By default, the Spring effect, which is the primary 'FFB' effect type, is owned and managed by DCS. The TelemFFB application does not alter the spring effect unless one of the several override options are enabled.
 
@@ -721,6 +629,50 @@ Aircraft with offset control mechanics (like the F-14 Tomcat, which has forward-
     The F-14 also exhibits the **forward stick drift at 50% position** when loading into the aircraft (same as the A-10). This is intentional module design. The forward offset is part of the FFB implementation and is why trim synchronization is important for autopilot functionality.
 
 If the issue still persists, then you either did not complete all of the steps above, or there is something unknown occurring. As you will have already determined TelemFFB not to be the issue, reach out to the **[#support](https://discord.com/channels/965234441511383080/968208779084701716)** channel on the VPforce Discord.
+
+### - HPG H145 Helicopter (FS2024)
+
+The HPG H145 helicopter in Microsoft Flight Simulator 2024 uses the AFCS (Automatic Flight Control System) which requires precise hands-on/hands-off detection for proper operation. Improper configuration can cause the AFCS to oscillate or behave erratically.
+
+**Prerequisites:**
+
+- Use **build 500 or newer** of the H145 (patch available in pinned messages in the HPG Discord)
+- Ensure TelemFFB is configured and running properly with the Rhino
+
+**Required Configuration Steps:**
+
+1. **Configure Tablet Settings for Cyclic**
+
+    - Set tablet cyclic sensitivity according to recommended configuration
+    - In FS2024, reduced cyclic sensitivity is necessary to prevent AFCS overshoot and oscillation
+
+2. **Configure Hands-On Detection**
+
+    You have two options for hands-on detection:
+
+    **Option A: Deadzone-Based Detection (Default)**
+
+    With deadzone-based hands-on detection, the joystick must center properly, regardless of where that center point is:
+
+    - Enable **"Adaptive Recentering"** in VPforce Configurator (required for reliable operation)
+    - Adaptive Recentering ensures the stick tracks the trim point, providing proper centering behavior
+    - Adjust hands-on/hands-off deadzone values in TelemFFB until you get reliable detection results
+    - Test the detection by engaging AFCS and verifying it doesn't disengage unexpectedly
+
+    **Option B: Force-Based Detection (Recommended)**
+
+    Force-based detection is more reliable than deadzone-based detection:
+
+    - Enable **"Axis Control → Force Mode"** setting in TelemFFB
+    - **Disable** Adaptive Recentering when using Force Mode
+    - Adjust the **Force Threshold** setting in TelemFFB (rather than standard deadzone settings) to configure when hands-on is detected
+    - This mode detects pilot input based on force applied to the stick rather than position offset
+
+**Troubleshooting:**
+
+- If AFCS oscillates or overshoots: Reduce cyclic sensitivity in tablet settings
+- If hands-on detection is unreliable: Adjust deadzone (Option A) or Force Threshold (Option B) values
+- If stick doesn't center properly: Verify Adaptive Recentering is enabled (only for Option A)
 
 ---
 
