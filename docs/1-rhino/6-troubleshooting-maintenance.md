@@ -543,12 +543,37 @@ If FFB is not working, follow the below procedure:
 
 1. **vJoy**
 
-    1. vJoy is known to cause issues with FFB, particularly ef the FFB options are enabled, which they typically are by default when vJoy is installed.
+    1. vJoy is known to cause issues with FFB, particularly if the FFB options are enabled, which they typically are by default when vJoy is installed.
     ![](media/Pictures/10000000000001A50000010DF11606F6D888B57D.png){ width="299px" height="191px" }
 
     2. **SimHaptics** by rKApps
 
         - SimHaptics has an '**Auto Start**' feature that is known to break FFB for DCS. The app tries to start at the same time the aircraft in DCS is loading and this somehow interferes with DCS starting the FFB Spring effect.
+
+2. **DCS Force Feedback Fix — dinput8 wrapper**
+
+    A community-developed, open-source DirectInput wrapper DLL that solves two persistent DCS FFB problems:
+
+    - **FFB sent to wrong devices** — DCS can route force feedback commands to unintended devices such as vJoy, pedals, a collective axis, or a steering wheel. The wrapper lets you block FFB for specific devices by name, so only your actual FFB joystick receives forces.
+    - **FFB dies after USB reconnect** — If the FFB joystick disconnects mid-mission (USB replug, firmware update, etc.), DCS re-creates the device but does not restart the force effects. Spring centering and trim forces go dead until the mission is restarted. The wrapper tracks active effects and automatically restores them after reconnect.
+
+    **Setup:**
+
+    1. Download `dinput8.dll` and `dinput8.ini` from the [releases page](https://github.com/walmis/dcs-force-feedback-fix/releases).
+    2. Drop both files into your DCS `bin-mt` folder (next to `DCS.exe`).
+    3. Edit `dinput8.ini` to block unwanted devices.
+    4. Launch DCS — check `dinput8_wrapper.log` for detected device names and details.
+
+    **Example `dinput8.ini` configuration:**
+
+    ```ini
+    [FFBDevices]
+    vJoy=block          ; Block all FFB for any device with "vJoy" in the name
+    Pedals=block        ; Block FFB for any device with "Pedals" in the name
+    Collective=block    ; Block collective FFB for helicopters
+    ```
+
+    Source code and releases: [github.com/walmis/dcs-force-feedback-fix](https://github.com/walmis/dcs-force-feedback-fix)
 
 6.  **The Nuclear Test**
 

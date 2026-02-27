@@ -49,7 +49,19 @@ The thermal advantage of 86 motors is specifically relevant during prolonged agg
 
 ### Peak Torque Comparison
 
-With appropriate gear ratios, 86 motor builds deliver 1.7x to 2.0x the peak torque of standard Rhino configurations. This increased output, combined with superior thermal management, means the system can sustain higher forces throughout your entire flight session rather than backing off when temperatures rise.
+With appropriate gear ratios, 86 motor builds deliver significantly higher peak torque than the standard Rhino (9 N·m per axis), reaching up to 18.3 N·m per axis with the 86BLF04 at the 72T/15T ratio. The table below shows calculated peak torque at the stick for all combinations of motor and gear ratio:
+
+Both motor variants are limited to 30 A drive current. Peak output torque at the stick is calculated from the motor torque constant, drive current limit, and belt gear ratio:
+
+| Configuration | Motor Kt | Drive Current | Motor Torque | Gear Ratio | Peak Torque / Axis |
+|---------------|----------|--------------|--------------|------------|--------------------|
+| Standard Rhino (57BLF03) | — | 30 A | — | — | 9 N·m |
+| 86BLF03, 60T/15T | 0.110 N·m/A | 30 A | 3.3 N·m | 4:1 | ~13.2 N·m |
+| 86BLF03, 72T/15T | 0.110 N·m/A | 30 A | 3.3 N·m | 4.8:1 | ~15.8 N·m |
+| 86BLF04, 60T/15T | 0.127 N·m/A | 30 A | 3.81 N·m | 4:1 | ~15.2 N·m |
+| 86BLF04, 72T/15T | 0.127 N·m/A | 30 A | 3.81 N·m | 4.8:1 | ~18.3 N·m |
+
+This increased output, combined with superior thermal management, means the system can sustain higher forces throughout your entire flight session rather than backing off when temperatures rise.
 
 !!! tip "Thermal Management"
 
@@ -68,12 +80,12 @@ You will need to purchase one of the following motor kits from VPForce:
 
 Choose one of the two gear ratios below. Both options require different belt lengths.
 
-*   **60T/15T Ratio:** 1.7x standard Rhino peak torque
+*   **60T/15T Ratio (4:1):** ~13.2 N·m / axis (86BLF03) or ~15.2 N·m / axis (86BLF04)
 
     - Uses 465mm belt (pitch axis)
     - Uses 380mm belt (roll axis)
 
-*   **72T/15T Ratio:** 2.0x standard Rhino peak torque
+*   **72T/15T Ratio (4.8:1):** ~15.8 N·m / axis (86BLF03) or ~18.3 N·m / axis (86BLF04)
 
     - Uses 500mm belt (pitch axis)
     - Uses 420mm belt (roll axis)

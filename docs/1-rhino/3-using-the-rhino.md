@@ -423,28 +423,34 @@ The center value should read approximately 2048 when the stick is physically at 
 
 #### Force Compensation
 
-**Force Comp. (Force Compensation)** - 
-Force Compensation addresses mechanical flex or compliance that occurs under high force feedback torque loads.
+**Force Comp. (Force Compensation)** —
+Force Compensation corrects for mechanical flex that occurs under high spring force loads.
 
 **The Problem:**
-When strong FFB forces are applied, the mechanical structure of the gimbal may flex slightly. This flex can create a situation where:
 
-- The stick reaches its physical end stop
-- But the logical position sensor reading does not yet show full deflection
+The Rhino uses its motors as position sensors — motor shaft encoders report the logical axis position. Any mechanical flex in the gimbal structure (belts, linkages, frame) that occurs between the grip and the motor shaft is invisible to this measurement. Under high FFB spring forces, the mechanical load causes the system to flex slightly. This means:
+
+- The stick physically reaches or approaches the end of its travel
+- But the motor encoder — measuring at the motor shaft — has not registered full deflection
+- The logical axis value never reaches the calibrated edge value that was recorded during auto-calibration
+
+The result is that the axis appears to fall short of its full range under load, even though mechanically the stick is at the stop.
 
 **The Solution:**
-Force Compensation adds a position offset at axis extremes to correct for this mechanical compliance. The value represents the adjustment applied to the logical position when the stick is at or near its physical limits.
+
+Increasing Force Compensation adds an outward positional offset near the axis extremes, effectively extending the reported range to compensate for the lost travel caused by mechanical compliance. This restores accurate input-to-output mapping throughout the full range of motion, even under high spring forces.
 
 **Configuration:**
 
 - Adjustable independently for each axis (X and Y)
-- Higher values increase the positional correction applied
-- Typical use: Prevent dead zones at axis extremes under high torque
+- Higher values apply a larger correction at the axis extremes
+- Typical starting point: values of 5–10; increase incrementally until axis extremes read correctly under load
 
 !!! note "Not a Gain Parameter"
-    Force Compensation does not adjust force strength. It adjusts positional linearity under torque load to maintain accurate input-to-output mapping throughout the full range of motion.
+    Force Compensation does not adjust force strength. It adjusts the reported position near axis limits to counteract the effect of mechanical flex under load.
 
-#### Axis Control Options
+!!! warning "Excessive Flex May Indicate a Hardware Problem"
+    Some degree of mechanical flex is normal, and compensation values (100-150) are expected in a healthy system. If you need very large values to achieve correct axis range, or if the flex is visibly pronounced, this may point to an underlying hardware issue such as loose or slipping belts, worn/broken gimbal components, or a structural problem. Investigate and resolve the root cause rather than relying solely on software compensation.
 
 **Axis Invert** - Reverses the logical direction of axis input and the corresponding force feedback polarity.
 
@@ -527,7 +533,7 @@ After calibration or configuration changes:
 
 - **Recommended center value:** Approximately 2048 when the stick is physically centered. Deviation of more than ±50 may indicate mechanical issues.
 - **Disable unused axes:** For single-axis configurations, always disable the unused axis.
-- **Force Compensation tuning:** Start with low values (5-10) and increase incrementally if you notice dead zones at axis extremes under high force.
+- **Force Compensation tuning:** Start with low values (5–10) and increase incrementally if the axis does not reach its full calibrated range under high spring forces.
 - **Regular verification:** After firmware updates or mechanical maintenance, verify that calibration remains accurate.
 
 

@@ -1,5 +1,14 @@
 # Changelog
 
+- **February 27, 2026:**
+
+    - Added **Technical Specifications** section to the [Monster Rhino Kitbase](3-third-party-vendors/SR-F_Winger.md) page with motor torque constant (Kt), drive current limit, computed motor shaft torque, and per-gear-ratio peak torque at the stick (~15.2 N·m at 60T/15T, ~18.3 N·m at 72T/15T)
+    - Updated **[TheAmazingGreat's 86 Motor FFB Base](2-community-projects/theamazingreat-rhino.md)** torque section with a full per-motor, per-gear-ratio table including 86BLF03 (Kt 0.110 N·m/A, ~13–16 N·m) and 86BLF04 (Kt 0.127 N·m/A, ~15–18 N·m) calculated from motor specs
+
+- **February 24, 2026:**
+
+    - Added **[DCS Force Feedback Fix (dinput8 wrapper)][dcs-force-feedback-fix-dinput8-wrapper]** section in troubleshooting documenting the community dinput8 wrapper that fixes FFB being sent to wrong devices (vJoy, pedals, collective) and FFB effects dying after a USB reconnect mid-mission
+
 - **February 7, 2026:**
 
     - Updated **[RHINO Maintenance][rhino-maintenance]** with warnings about fragile Molex Picoblade contacts, added gimbal stem screws as a potential source of clicking noise, and included an introduction for the grip mount head replacement section

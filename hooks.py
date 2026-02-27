@@ -94,7 +94,11 @@ def fix_html_references(config):
                 """Remove numeric prefixes from path segments."""
                 attr_name = match.group(1)
                 full_path = match.group(2)
-                
+
+                # Do not touch external URLs
+                if re.match(r'https?://', full_path):
+                    return match.group(0)
+
                 # Clean each segment using the DRY helper function
                 segments = full_path.split('/')
                 cleaned_segments = [remove_numbered_prefix(seg) for seg in segments]

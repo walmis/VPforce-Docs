@@ -11,6 +11,42 @@ This kit is for users who want the strongest Rhino money can currently buy, with
 !!! note "Motor Kit Not Included"
     The VPForce Motor Kit (86BLF04) must be ordered separately from VPForce.
 
+## Technical Specifications
+
+### Motors
+
+| Parameter | Standard Rhino | Monster Rhino |
+|-----------|---------------|---------------|
+| Motor model | 57BLF03 | 86BLF04 |
+| Motor series | 57 mm frame | 86 mm frame |
+| Motor torque constant (Kt) | — | 0.127 N·m/A |
+| Drive current limit | 30 A | 30 A |
+| Motor peak torque | — | 3.81 N·m |
+| Peak torque at stick (60T/15T) | 9 N·m | ~15.2 N·m |
+| Peak torque at stick (72T/15T) | 9 N·m | ~18.3 N·m |
+
+### Torque Output by Gear Ratio
+
+The Monster Rhino base supports two gear ratio options using a 15T motor pulley paired with different gimbal pulleys:
+
+| Belt Ratio | Gimbal Pulley | Gear Reduction | Peak Torque per Axis |
+|------------|--------------|----------------|----------------------|
+| 60T / 15T | 60 tooth | 4:1 | ~15.2 N·m |
+| 72T / 15T | 72 tooth | 4.8:1 | ~18.3 N·m |
+
+!!! tip "Which ratio to choose?"
+    The 72T / 15T ratio delivers the maximum torque output but has a slightly shorter physical stick travel for a given belt length. The 60T / 15T ratio offers a good balance between torque and travel range. Both options significantly exceed the standard Rhino in both peak force and sustained force capability.
+
+### Thermal Performance
+
+The 86BLF04 motor's larger frame provides substantially greater thermal mass and surface area compared to the 57-series motors in a standard Rhino. This means:
+
+- Higher continuous torque rating before thermal throttling activates
+- Longer sustained high-force operation (extended dogfights, sustained G-load scenarios)
+- More headroom before the active cooling system needs to intervene
+
+For a detailed discussion of the thermal advantages of 86-series motors, see [TheAmazingGreat's 86 Motor FFB Base](../2-community-projects/theamazingreat-rhino.md).
+
 ## Kit Variants
 
 SR-F_Winger offers two versions of the Monster Rhino Kitbase:
