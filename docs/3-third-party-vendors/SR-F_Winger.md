@@ -19,11 +19,11 @@ This kit is for users who want the strongest Rhino money can currently buy, with
 |-----------|---------------|---------------|
 | Motor model | 57BLF03 | 86BLF04 |
 | Motor series | 57 mm frame | 86 mm frame |
-| Motor torque constant (Kt) | — | 0.127 N·m/A |
+| Motor torque constant (Kt) | 0.066 N·m/A | 0.127 N·m/A |
 | Drive current limit | 30 A | 30 A |
-| Motor peak torque | — | 3.81 N·m |
-| Peak torque at stick (60T/15T) | 9 N·m | ~15.2 N·m |
-| Peak torque at stick (72T/15T) | 9 N·m | ~18.3 N·m |
+| Motor peak torque | 1.98 N·m | 3.81 N·m |
+| Belt gear ratio | 74T/12T (~6.17:1) | 60T/15T (4:1) or 72T/15T (4.8:1) |
+| Peak torque at stick | ~12.2 N·m | ~15.2 N·m (4:1) / ~18.3 N·m (4.8:1) |
 
 ### Torque Output by Gear Ratio
 
