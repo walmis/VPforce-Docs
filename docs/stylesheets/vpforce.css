@@ -531,11 +531,11 @@ html {
   padding-bottom: 0.22rem;
 }
 
-/* ToC links ── top-level (H2) entries: bold weight for strong hierarchy */
+/* ToC links ── top-level (H2) entries: quieter weight for less distraction */
 .md-nav--secondary > .md-nav__list > .md-nav__item > .md-nav__link {
   font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.65);
   padding-top: 0.22rem;
   padding-bottom: 0.22rem;
   letter-spacing: 0.01em;

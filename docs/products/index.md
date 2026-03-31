@@ -40,3 +40,11 @@ All kits include the VPforce FFB Mainboard, pre-calibrated brushless motors, and
 Compatibility information and setup instructions for WinWing and VKB grip adapters.
 
 [Grip Adapters →](grip-adapters.md){ .md-button }
+
+---
+
+## Throw Limiters
+
+Physical adapter plates that restrict the RHINO's gimbal travel. Available from VPforce or 3D printable from a parametric Onshape model with adjustable throw angles.
+
+[Throw Limiters →](throw-limiters.md){ .md-button }
