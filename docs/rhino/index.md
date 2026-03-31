@@ -1,7 +1,3 @@
-title: Rhino Manual
----
-
-
 # Introduction to the Rhino
 
 ![The VPforce Rhino](images/index/tech-specs.png){width="400"}
