@@ -95,10 +95,10 @@ Even with USB detection, a loose DC connection can prevent the device from initi
 
 **6. Mainboard Damage (Rare)**
 
-In very rare circumstances, the Rhino mainboard can be damaged by:
+In rare circumstances, the Rhino mainboard can be damaged by:
 
 - Electrostatic discharge (ESD) during handling
-- Ground loops between PC and power supply
+- Ground loops between PC and power supply — especially when reconnecting power or if the DC ground connection is unstable (see **[USB Isolator Recommendation](#usb-isolator-recommendation)**)
 - Voltage transients on the USB bus
 
 - **Solution:** If all troubleshooting steps fail and you've verified the USB cable, ports, and DC connection are good, the mainboard may be damaged
@@ -225,17 +225,26 @@ Check the following items in order:
 
 ### USB Isolator Recommendation
 
-As a best practice or if you continue to experience intermittent connection issues after testing the above steps, or if your PC has noisy USB power delivery, consider using a **USB isolator**. A USB isolator is a device that sits between your PC and the Rhino, providing electrical isolation that eliminates ground loop noise and reduces EMI (electromagnetic interference) that can cause connection instability.
+A **USB isolator** is strongly recommended for all RHINO setups. It sits between the PC and the RHINO, physically breaking the electrical ground path between them. This eliminates ground loop noise, reduces EMI, and — critically — **prevents hardware damage** from ground faults.
 
 ![AduM3160 based USB isolator](images/troubleshooting-maintenance/image.png){ width="250" }
 
-Benefits of a USB isolator:
+!!! warning "Ground Loops Can Destroy Boards"
+    Without isolation, the PC and the RHINO share a common ground through the USB cable. If the main DC power ground connection is interrupted — even briefly during a reconnection — high motor currents will attempt to flow through the USB cable, into the PC ground, through the power strip, and back to the PSU. This surge can destroy the TVS protection diodes on the RHINO board, or worse, damage the board itself.
 
-- Eliminates ground loops between the PC and the Rhino
+    In multi-device setups sharing a USB hub, a single ground fault can propagate through the shared USB ground and take out multiple boards simultaneously — even if they use separate power supplies. See [Powering Multiple FFB Devices from a Single PSU](../community-projects/tips-and-tricks.md#powering-multiple-ffb-devices-from-a-single-psu) for detailed wiring guidance.
+
+**Benefits of a USB isolator:**
+
+- **Prevents hardware damage** from ground faults and power surges through the USB path
+- Eliminates ground loops between the PC and the RHINO
 - Protects electronics from voltage spikes and transient faults on the USB bus
-- Can resolve connection issues in systems with high electrical noise (common in gaming rigs with multiple high-power devices)
+- Resolves connection instability in systems with high electrical noise
 
-This is a proven solution for users experiencing persistent USB stability issues, particularly in systems with many power-hungry components.
+!!! tip "Ground Connection Best Practices"
+    Always ensure the DC ground (GND) connection is the **first to make contact** and remains stable at all times. When connecting or reconnecting power, plug in the DC barrel jack firmly before connecting USB. If your ground path is unreliable, all high-current return paths will route through the USB cable — a recipe for board damage.
+
+    An alternative to a USB isolator is using an **ungrounded power strip** to break the ground loop path. However, a USB isolator is the safer and more targeted solution.
 
 **Where to Find USB Isolators:**
 
@@ -245,7 +254,7 @@ Search for **AduM3160** isolator boards on AliExpress, Amazon, or other electron
 - Pre-assembled USB isolator modules (no soldering required)
 - Boards with both USB-A connectors or USB-A to USB-C options
 
-Cost is typically low (under $10-20 USD), making it an economical troubleshooting step if you suspect USB noise issues.
+Cost is typically low (under $10-20 USD), making it a worthwhile investment to protect your hardware.
 
 ### Disable USB Selective Suspend
 

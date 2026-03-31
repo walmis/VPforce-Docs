@@ -176,6 +176,9 @@ Assembly follows protomaker's open-source guide with Kaltokri-specific modificat
 - Multi-device setup: Configure separate device IDs for simultaneous joystick/pedal/collective operation
 - Auto-launch and headless mode for seamless integration
 
+!!! tip "Multi-Device Power Setup"
+    When running multiple FFB devices from a single PSU, USB isolators are strongly recommended on each device. See [Powering Multiple FFB Devices from a Single PSU](../../community-projects/tips-and-tricks.md#powering-multiple-ffb-devices-from-a-single-psu) for wiring guidance.
+
 **Grip-Specific Configuration:**
 
 - Thrustmaster grips: Map buttons via Windows joystick calibration

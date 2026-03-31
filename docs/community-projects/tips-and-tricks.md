@@ -154,3 +154,25 @@ By doing this, you are manually telling the system which of the possible motor r
 
 !!! note "Future Firmware Update"
     A soft homing feature, which will automate this process, is planned for future firmware updates.
+
+## Powering Multiple FFB Devices from a Single PSU
+
+When running multiple VPforce FFB devices (e.g., joystick + pedals + collective) from a single power supply, all devices share the same DC ground. This simplifies wiring, but it introduces a critical risk: if the shared ground path is interrupted, fault current from the motors will seek an alternative path — through the USB cables and the PC.
+
+### Why USB Isolators Are Essential
+
+Without USB isolators, every device shares a common ground through both the DC power supply and the USB connection to the PC. If the PSU ground becomes unstable — a loose barrel jack, a failing e-stop, or a cable break — high motor currents can flow through multiple USB cables simultaneously. A single ground fault can take out multiple boards in one event, even if the boards were otherwise functioning normally.
+
+!!! warning "Use a USB Isolator on Each Device"
+    When powering multiple FFB devices from a single PSU, install a **USB isolator** on **each device's USB connection**. This physically breaks the ground path through USB and prevents a fault on one device from propagating to others or to the PC.
+
+    See the [USB Isolator Recommendation](../rhino/troubleshooting-maintenance.md#usb-isolator-recommendation) section for product guidance.
+
+### Wiring Best Practices
+
+- Use a PSU with adequate current capacity for all devices combined (e.g., Meanwell LRS-350-24 for multi-device setups)
+- Keep DC wiring short and use adequate gauge (18AWG or heavier)
+- Ensure all DC connectors are firmly seated and mechanically secured
+- If using an e-stop switch, place it in the DC power line before the split to all devices
+- **Always connect DC power before USB** — establish the ground path through the PSU first
+- When reconnecting or servicing, power down all devices and disconnect USB cables before touching DC wiring

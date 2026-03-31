@@ -55,6 +55,9 @@ All prices exclude shipping (calculated by destination country via DHL from Germ
 !!! warning "Meanwell LRS-350-24 Assembly Required"
     Meanwell LRS-350-24 requires custom enclosure and DC cable assembly. Suitable for powering multiple devices (Rhino joystick + FFB pedals). See [wiring video](https://www.youtube.com/watch?v=dO298h9jgdc) and [TRC-LRS-350 Enclosure](https://trcelectronics.com/products/enclosure-trc-lrs-350).
 
+!!! important "USB Isolators Required for Multi-Device Setups"
+    When powering multiple FFB devices from a single PSU, USB isolators are essential to prevent ground loop damage. See [Powering Multiple FFB Devices from a Single PSU](../../community-projects/tips-and-tricks.md#powering-multiple-ffb-devices-from-a-single-psu) for detailed wiring guidance.
+
 **DC Connector Quality:**
 
 High-quality DC connectors are critical. Low-quality no-name connectors from Amazon may fail under amperage loads. Invest in quality components.
