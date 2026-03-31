@@ -29,7 +29,7 @@
 
 - **February 27, 2026:**
 
-    - Added **Technical Specifications** section to the [Monster Rhino Kitbase](third-party-vendors/winger-kits/SR-F_Winger.md) page with motor torque constant (Kt), drive current limit, computed motor shaft torque, and per-gear-ratio peak torque at the stick (~15.2 N·m at 60T/15T, ~18.3 N·m at 72T/15T)
+    - Added **Technical Specifications** section to the [Monster Rhino Kitbase](third-party-vendors/winger-kits/monster-rhino.md) page with motor torque constant (Kt), drive current limit, computed motor shaft torque, and per-gear-ratio peak torque at the stick (~15.2 N·m at 60T/15T, ~18.3 N·m at 72T/15T)
     - Updated **[TheAmazinGreat 86 Motor FFB Base](community-projects/theamazingreat-rhino.md)** torque section with a full per-motor, per-gear-ratio table including 86BLF03 (Kt 0.110 N·m/A, ~13–16 N·m) and 86BLF04 (Kt 0.127 N·m/A, ~15–18 N·m) calculated from motor specs
 
 - **February 24, 2026:**
@@ -91,7 +91,7 @@
     - Documented **[Planetary Gearbox DIY][planetary-gearboxes-for-diy-projects]** options for increased torque output with reduced motor speed
     - Added **[Community Rhino Builds](community-projects/community-rhino-builds.md)** overview linking protomaker, mabo, and other community base designs
     - Created **[Third-Party Vendors](third-party-vendors/index.md)** section for commercial FFB kit offerings
-    - Added **[SR-F Winger Monster Rhino Kitbase](third-party-vendors/winger-kits/SR-F_Winger.md)** documentation for 86BLF04-based commercial kit
+    - Added **[SR-F Winger Monster Rhino Kitbase](third-party-vendors/winger-kits/monster-rhino.md)** documentation for 86BLF04-based commercial kit
     - Documented **FAULT_UNDERVOLTAGE** motor fault in **[Troubleshooting & Maintenance](rhino/troubleshooting-maintenance.md)** with voltage threshold details, under-load vs idle diagnostic guidance, and resolution procedures for power supply and connection issues
 
 - **November 6, 2025:**

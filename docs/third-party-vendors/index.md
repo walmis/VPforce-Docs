@@ -18,7 +18,7 @@ This section highlights vendors and projects from the community that have embrac
 
 ### Complete FFB Systems
 
-#### [SR-F Winger - Monster Rhino Kitbase](winger-kits/SR-F_Winger.md)
+#### [SR-F Winger - Monster Rhino Kitbase](winger-kits/monster-rhino.md)
 
 Pre-assembled Rhino FFB base with extended capabilities and professional finishing. Ready-to-use system with comprehensive support.
 
