@@ -25,17 +25,21 @@ nav:
     - Troubleshooting: rhino/troubleshooting-maintenance.md
     - Maintenance: rhino/rhino-maintenance.md
     - Known Issues: rhino/appendix-a-known-issues.md
-    - Legacy TelemFFB Docs: rhino/appendix-b-legacy-telemffb-documentation.md
+    #- Legacy TelemFFB Docs: rhino/appendix-b-legacy-telemffb-documentation.md
   - Community Projects:
     - Introduction: community-projects/index.md
     - Tips and Tricks: community-projects/tips-and-tricks.md
-    - Community Rhino Builds: community-projects/community-rhino-builds.md
-    - FFB Trim Wheel: community-projects/FFB_TrimWheel.md
-    - FFB Yoke: community-projects/ffb-yoke.md
-    - MFG Crosswind FFB Mod: community-projects/MFG_Crosswind_FFB_Mod_Guide.md
-    - TheAmazinGreat 86 Motor Base: community-projects/theamazingreat-rhino.md
-    - Tiger TPR FFB Mod: community-projects/Tiger_TPR_FFB_Mod_Guide.md
-    - TPR FFB Pedal Mod: community-projects/TPR_FFB_Project_Documentation.md
+    - Joysticks:
+      - Community Rhino Builds: community-projects/community-rhino-builds.md
+      - TheAmazinGreat 86 Motor Base: community-projects/theamazingreat-rhino.md
+    - Pedals:
+      - MFG Crosswind FFB Mod: community-projects/MFG_Crosswind_FFB_Mod_Guide.md
+      - Tiger TPR FFB Mod: community-projects/Tiger_TPR_FFB_Mod_Guide.md
+      - TPR FFB Pedal Mod: community-projects/TPR_FFB_Project_Documentation.md
+    - Other:
+      - FFB Trim Wheel: community-projects/FFB_TrimWheel.md
+      - FFB Yoke: community-projects/ffb-yoke.md
+
   - Third-Party Vendors:
     - Introduction: third-party-vendors/index.md
     - Winger Kits:

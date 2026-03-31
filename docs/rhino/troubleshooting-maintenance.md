@@ -27,6 +27,9 @@ This ensures you're working with known-good baseline settings and eliminates con
     - Before testing new configurations
     - When troubleshooting stability issues
 
+!!! note "Simulator-Specific Issues"
+    Some issues are specific to certain simulators. If your problem only occurs in a particular game, check the [Game Specific Troubleshooting](#game-specific-troubleshooting) section and the [Known Issues](appendix-a-known-issues.md) appendix for simulator-specific guidance.
+
 ## Power Issues
 
 ### Base Does Not Power On At All
@@ -180,6 +183,7 @@ After applying a fix, verify the solution:
 ## USB Connection Issues
 
 **Issue:**
+
 The Rhino exhibits intermittent connection problems, instability, or appears to disconnect and reconnect frequently. This typically manifests as effects stuttering, dropping out momentarily, or the device appearing offline in VPforce Configurator.
 
 **Why USB Communication Matters for FFB:**
@@ -225,7 +229,8 @@ Check the following items in order:
 
 ### Disable USB Selective Suspend
 
-**Issue:**  
+**Issue:**
+
 Windows can automatically suspend USB ports to save power, causing the USB port to be "throttled" and resulting in system performance issues. Symptoms include jerky motion in VPforce Configurator, sim freezes or lockups, and system sluggishness when the Rhino is connected.
 
 **Solution:**
@@ -295,6 +300,7 @@ Cost is typically low (under $10-20 USD), making it a worthwhile investment to p
 ### Legacy Firmware WebUSB Issue (1.0.16 and older)
 
 **Issue:**
+
 On **Windows 10/11** with **firmware 1.0.16 and older**, the Rhino may appear correctly in Windows, but **WinUSB fails to operate**, preventing firmware updates through WebUSB. Users may see `network error`s in the WebUSB tool. This problem is fixed in newer firmwares.
 
 You can apply a simple registry fix to restore WebUSB functionality. This requires administrative privileges.
@@ -677,7 +683,7 @@ Aircraft with offset control mechanics (like the F-14 Tomcat, which has forward-
 
 If the issue still persists, then you either did not complete all of the steps above, or there is something unknown occurring. As you will have already determined TelemFFB not to be the issue, reach out to the **[#support](https://discord.com/channels/965234441511383080/968208779084701716)** channel on the VPforce Discord.
 
-### - HPG H145 Helicopter (FS2024)
+### HPG H145 Helicopter (FS2024)
 
 The HPG H145 helicopter in Microsoft Flight Simulator 2024 uses the AFCS (Automatic Flight Control System) which requires precise hands-on/hands-off detection for proper operation. Improper configuration can cause the AFCS to oscillate or behave erratically.
 
@@ -725,172 +731,46 @@ The HPG H145 helicopter in Microsoft Flight Simulator 2024 uses the AFCS (Automa
 
 ## How to Get Effective Support
 
-When experiencing issues with your Rhino, providing complete information up front dramatically speeds up diagnosis and resolution. This section guides you through preparing an effective support request.
+Providing complete information up front dramatically speeds up diagnosis and resolution. Follow this guide to get help as quickly as possible.
 
-### What Makes a Good Support Request?
+### Required Screenshots
 
-#### Examples of Ineffective Requests
+**Always include screenshots of your VPforce Configurator:**
 
-**Bad Example #1: Too Vague**
+1. **Effects Tab** — shows current FFB effect settings and active effects
+2. **Settings Tab** — shows global gain multipliers and force settings
+3. **Debug Tab** — if any errors or warnings are visible
+4. **Button Mapping Tab** — if your issue involves buttons or inputs
 
-> "Sometimes my stick doesn't have spring effect. Any idea what's going on?"
+!!! warning "Screenshots are essential"
+    Without Configurator screenshots, the support team cannot diagnose your issue effectively. These screenshots provide most of the information needed for troubleshooting.
 
-**Problems:**
+### Describe the Problem Clearly
 
-- No screenshots
-- Vague description ("sometimes", "doesn't have")
-- Missing critical details (firmware, aircraft, grip)
-- No troubleshooting steps mentioned
-- No timeline
+Include the following in your support request:
 
----
+- **What exactly happens?** — describe the specific behavior (e.g. "stick goes limp with no centering force" rather than "FFB doesn't work")
+- **When does it occur?** — specific simulator, aircraft, action, or situation
+- **Is it consistent or intermittent?** — every time, or only sometimes?
+- **When did it start?** — new issue, or always been this way?
+- **What have you tried?** — prevents suggesting steps you've already completed
 
-**Bad Example #2: No Context**
-
-> "My FFB isn't working help"
-
-**Problems:**
-
-- No definition of "not working" (limp stick? wrong forces? no vibrations?)
-- No screenshots
-- No system information whatsoever
-- No description of when it occurs
-- No indication of troubleshooting attempts
-
----
-
-**Bad Example #3: Assumes Others Know Your Setup**
-
-> "The buttons stopped responding after I updated. How do I fix this?"
-
-**Problems:**
-
-- Which buttons? (grip buttons, configurator buttons, game bindings?)
-- Updated what? (firmware, configurator, game, Windows?)
-- What grip are you using?
-- No screenshots
-- No error messages mentioned
-
----
-
-**Bad Example #4: Missing Critical Timeline**
-
-> "I have this weird issue where the stick fights me when I trim. Is this normal?"
-
-**Problems:**
-
-- No indication if this is new or always been present
-- Missing aircraft/simulator details
-- No screenshots of Effects or Settings tabs
-- "Fights me" is vague - describe the behavior
-- Could be normal behavior depending on configuration
-
----
-
-**Bad Example #5: Kitchen Sink Problem**
-
-> "My FFB doesn't work, my buttons don't bind, Windows doesn't recognize the device, and I can't update firmware. Also the stick makes a clicking noise. Please help urgently!"
-
-**Problems:**
-
-- Multiple unrelated issues combined (each needs separate diagnosis)
-- No screenshots for any issue
-- No systematic troubleshooting approach
-- "Urgently" doesn't make problems resolve faster
-- Should focus on one problem at a time
-
----
-
-**Effective Request:**
-
-> "My Rhino loses spring centering force when switching DCS multiplayer servers. Here are the details:
->
-> **Problem:** Spring effect stops working after changing servers in DCS multiplayer. Stick feels limp with no centering force.
->
-> **When it occurs:** Only when switching between multiplayer servers mid-session. Does NOT happen on initial DCS startup.
->
-> **What I've tried:** Restarting both DCS and VPforce Configurator fixes it temporarily.
->
-> **Setup:**
-> - Rhino firmware: 1.0.20
-> - DCS World 2.9.8.61234
-> - Grip: Virpil MongoosT-50CM3 with 10cm extension
-> - Started happening after firmware update last week
->
-> **Screenshots attached:**
-> - Configurator Effects tab
-> - Configurator Settings tab"
-
-**Why This Works:**
-
-- Clear, specific problem statement
-- Exact conditions when issue occurs
-- Troubleshooting steps already attempted
-- Complete hardware/software details
-- Timeline (when it started)
-- Includes screenshots
-
-### Required Information Checklist
-
-#### Required Screenshots (Mandatory)
-
-**Always provide screenshots of:**
-
-1. **VPforce Configurator - Effects Tab**
-
-    - Shows your current FFB effect settings (spring, damper, inertia, friction, etc.)
-    - Reveals if effects are disabled or misconfigured
-
-2. **VPforce Configurator - Settings Tab**
-
-    - Shows global gain multipliers and force settings
-    - Essential for diagnosing force output issues
-
-3. **VPforce Configurator - Debug Tab** (if errors visible)
-
-    - Shows device log output and error messages
-    - Critical for diagnosing hardware faults or communication errors
-
-4. **Button Mapping Tab** (if button/input related)
-
-    - Shows button assignments and configurations
-    - Required for input-related issues
-
-!!! warning "Important"
-    Without Configurator screenshots, support team cannot diagnose your issue effectively. These screenshots provide 80% of the information needed for troubleshooting.
-
-#### Problem Description
-
-Provide a clear description including:
-
-- **What exactly happens?** Be specific, not vague
-- **When does it occur?** (specific simulator, aircraft, action, or situation)
-- **What have you already tried?** (prevents suggesting steps you've completed)
-- **When did it start?** (new issue, or always been this way?)
-- **Is it consistent or intermittent?** (happens every time, or only sometimes?)
-
-#### System Information
+### System Information
 
 - **Rhino firmware version** (visible in Configurator)
-- **Simulator name and version** (DCS World 2.9.8, IL-2 v5.201, etc.)
-- **Grip type and extensions** (VKB, Virpil, extension length)
-- **Recent changes to your setup** (firmware updates, new hardware, configuration changes)
+- **Simulator name and version** (e.g. DCS World 2.9.8, IL-2 v5.201)
+- **Grip type and extensions** (e.g. VKB, Virpil, extension length)
+- **Recent changes** (firmware updates, new hardware, configuration changes)
 
-#### Real-Time Troubleshooting
+### Real-Time Troubleshooting
 
-**While the issue is occurring:**
+While the issue is occurring:
 
-1. **Watch Configurator Effects Tab**
+1. **Watch the Effects Tab** — game-created effects appear in real-time and force values change dynamically while flying
+2. **Check the Debug Tab** — look for error messages, connection issues, or motor faults
 
-    - Game-created effects appear in real-time
-    - Force values change dynamically while flying
-    - Verify effects are being sent from the simulator
-
-2. **Check Debug Tab**
-
-    - Look for error messages, connection issues, or motor faults
-    - Screenshot any warnings or errors you see
-    - Note if errors appear when issue occurs
+!!! tip "One problem at a time"
+    If you have multiple issues, describe each one separately. Mixing several unrelated problems in one request makes diagnosis much harder.
 
 3. **TelemFFB Users (if applicable):**
 

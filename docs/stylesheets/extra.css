@@ -53,7 +53,7 @@
 a.external::after {
     font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome", "fontawesome-webfont";
     content: "\f08e";
-    display: inline-block;
+    /* display: inline-block; */
     margin-left: 0.28em;
     font-size: 0.85em;
     line-height: 1;
@@ -62,7 +62,7 @@ a.external::after {
     speak: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: var(--md-default-fg-color--lighter);
+    /* color: var(--md-default-fg-color--lighter); */
 }
 
 a.external code::after,

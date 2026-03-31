@@ -8,36 +8,36 @@ document here, please post in the discord.
 
 ## DCS World
 
-1.  **Axis curves are incompatible with Force Feedback (FFB)**
+-  The SimHaptic application by rkApps has an "auto start" feature that will launch the application when DCS starts. It is unknown whether the issue is on the SimHaptic side or the DCS side, however this auto-start feature will interfere with and stop FFB from working in DCS. Disabling the auto-start feature in this app will resolve the issue (Issue still exists as of April 2025).
 
-    Using axis curves or saturation with an FFB device creates a mismatch between the physical position of your joystick and the logical position the game sees.
+-  vJoy can also cause issues with FFB device detection in DCS. Ultimately, DCS only supports 1 FFB device. If you are experiencing issues with FFB properly working in DCS, check the DCS logs for vJoy starting and see if it indicates support for FFB in the log message. Either uninstall vJoy or disable the FFB capabilities of vJoy to resolve.
 
-    *   **Physical Position:** Where your stick actually is. This is where FFB forces are applied.
-    *   **Logical Position:** What the game sees after the curve is applied.
+###  **Axis curves are incompatible with Force Feedback (FFB)**
 
-    The game sends FFB commands based on the logical position, but your joystick's motors act on the physical position. This disconnect causes several problems:
+Using axis curves or saturation with an FFB device creates a mismatch between the physical position of your joystick and the logical position the game sees.
 
-    *   **Incorrect Trimming:** When you trim, the stick will not stay in the position you released it. It will jump to a different physical spot.
-    *   **Autopilot Errors:** The autopilot will make physical movements that are either too large or too small.
-    *   **Unstable FFB:** The game and the FFB system are effectively fighting each other, leading to unpredictable behavior.
+*   **Physical Position:** Where your stick actually is. This is where FFB forces are applied.
+*   **Logical Position:** What the game sees after the curve is applied.
 
-    !!! important "Solution"
-        Always use linear (straight line) axis curves for your FFB device. If you need to adjust sensitivity, do so using in-game settings that do not affect the FFB data.
+The game sends FFB commands based on the logical position, but your joystick's motors act on the physical position. This disconnect causes several problems:
 
-2.  The SimHaptic application by rkApps has an "auto start" feature that will launch the application when DCS starts. It is unknown whether the issue is on the SimHaptic side or the DCS side, however this auto-start feature will interfere with and stop FFB from working in DCS. Disabling the auto-start feature in this app will resolve the issue (Issue still exists as of April 2025).
+*   **Incorrect Trimming:** When you trim, the stick will not stay in the position you released it. It will jump to a different physical spot.
+*   **Autopilot Errors:** The autopilot will make physical movements that are either too large or too small.
+*   **Unstable FFB:** The game and the FFB system are effectively fighting each other, leading to unpredictable behavior.
 
-3.  vJoy can also cause issues with FFB device detection in DCS. Ultimately, DCS only supports 1 FFB device. If you are experiencing issues with FFB properly working in DCS, check the DCS logs for vJoy starting and see if it indicates support for FFB in the log message. Either uninstall vJoy or disable the FFB capabilities of vJoy to resolve.
+!!! important "Solution"
+    Always use linear (straight line) axis curves for your FFB device. If you need to adjust sensitivity, do so using in-game settings that do not affect the FFB data.
 
-4.  **"set spring autocenter failed" error in DCS.log**
+### "set spring autocenter failed" error in DCS.log
 
-    If your DCS log contains an entry like:
+If your DCS log contains an entry like:
 
-    ```
-    INPUT (Main): created [VPforce Rhino FFB Joystick] with full id [...], ForceFeedBack: yes
-    ERROR INPUT (Main): Joystick VPforce Rhino FFB Joystick {...} set spring autocenter failed! Unspecified error
-    ```
+```
+INPUT (Main): created [VPforce Rhino FFB Joystick] with full id [...], ForceFeedBack: yes
+ERROR INPUT (Main): Joystick VPforce Rhino FFB Joystick {...} set spring autocenter failed! Unspecified error
+```
 
-    This indicates DCS detected the Rhino as an FFB device but failed to set the initial spring effect. This is typically caused by a USB connectivity issue — the device may be dropping out momentarily or the USB path is unreliable. See the [USB Connection Issues](troubleshooting-maintenance.md#usb-connection-issues) troubleshooting section for diagnosis steps.
+This indicates DCS detected the Rhino as an FFB device but failed to set the initial spring effect. This is typically caused by a USB connectivity issue — the device may be dropping out momentarily or the USB path is unreliable. See the [USB Connection Issues](troubleshooting-maintenance.md#usb-connection-issues) troubleshooting section for diagnosis steps.
 
 ## IL-2 Sturmovik: Great Battles
 
