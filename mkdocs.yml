@@ -113,7 +113,6 @@ markdown_extensions:
       separator: "-"
   - tables
   - smarty
-  - fenced_code
   - attr_list
   - md_in_html
   - admonition
