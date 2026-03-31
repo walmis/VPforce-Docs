@@ -29,9 +29,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Show installed packages
+        run: pip freeze | sort
+
       - name: Build documentation
         run: |
           mkdocs build
+
+      - name: Verify code blocks in built HTML
+        run: |
+          echo "=== appendix-a-known-issues ==="
+          grep -A 2 'INPUT (Main)' site/rhino/appendix-a-known-issues/index.html || echo "NOT FOUND"
+          echo "=== troubleshooting-maintenance ==="
+          grep -A 2 'pnputil /enum-drivers' site/rhino/troubleshooting-maintenance/index.html || echo "NOT FOUND"
 
       - name: Upload to server via SSH
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'

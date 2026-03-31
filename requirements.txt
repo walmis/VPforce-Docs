@@ -6,4 +6,6 @@ mkdocs-enumerate-headings-plugin==0.6.2
 mkdocs-img2figv2-plugin==0.0.2
 Markdown==3.10.2
 pymdown-extensions==10.21
+beautifulsoup4==4.14.3
+Pygments==2.19.2
 pillow==12.1.1
