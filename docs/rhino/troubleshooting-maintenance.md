@@ -223,39 +223,6 @@ Check the following items in order:
 !!! important
     Once you have confirmed a stable connection with direct PC connection and a known-good cable/port, the instability is likely resolved. If problems persist, the device itself may have a hardware issue and should be checked by support.
 
-### USB Isolator Recommendation
-
-A **USB isolator** is strongly recommended for all RHINO setups. It sits between the PC and the RHINO, physically breaking the electrical ground path between them. This eliminates ground loop noise, reduces EMI, and — critically — **prevents hardware damage** from ground faults.
-
-![AduM3160 based USB isolator](images/troubleshooting-maintenance/image.png){ width="250" }
-
-!!! warning "Ground Loops Can Destroy Boards"
-    Without isolation, the PC and the RHINO share a common ground through the USB cable. If the main DC power ground connection is interrupted — even briefly during a reconnection — high motor currents will attempt to flow through the USB cable, into the PC ground, through the power strip, and back to the PSU. This surge can destroy the TVS protection diodes on the RHINO board, or worse, damage the board itself.
-
-    In multi-device setups sharing a USB hub, a single ground fault can propagate through the shared USB ground and take out multiple boards simultaneously — even if they use separate power supplies. See [Powering Multiple FFB Devices from a Single PSU](../community-projects/tips-and-tricks.md#powering-multiple-ffb-devices-from-a-single-psu) for detailed wiring guidance.
-
-**Benefits of a USB isolator:**
-
-- **Prevents hardware damage** from ground faults and power surges through the USB path
-- Eliminates ground loops between the PC and the RHINO
-- Protects electronics from voltage spikes and transient faults on the USB bus
-- Resolves connection instability in systems with high electrical noise
-
-!!! tip "Ground Connection Best Practices"
-    Always ensure the DC ground (GND) connection is the **first to make contact** and remains stable at all times. When connecting or reconnecting power, plug in the DC barrel jack firmly before connecting USB. If your ground path is unreliable, all high-current return paths will route through the USB cable — a recipe for board damage.
-
-    An alternative to a USB isolator is using an **ungrounded power strip** to break the ground loop path. However, a USB isolator is the safer and more targeted solution.
-
-**Where to Find USB Isolators:**
-
-Search for **AduM3160** isolator boards on AliExpress, Amazon, or other electronics retailers. The AduM3160 is a popular, affordable USB 2.0 isolator IC commonly available on ready-made isolator boards. When searching, look for:
-
-- "AduM3160 isolator board" or "USB isolator AduM3160"
-- Pre-assembled USB isolator modules (no soldering required)
-- Boards with both USB-A connectors or USB-A to USB-C options
-
-Cost is typically low (under $10-20 USD), making it a worthwhile investment to protect your hardware.
-
 ### Disable USB Selective Suspend
 
 **Issue:**  
@@ -289,6 +256,39 @@ Windows USB Selective Suspend can be disabled through Power Options. Follow thes
 
 !!! tip
     If you have multiple power plans (Balanced, High Performance, Power Saver), ensure you disable USB Selective Suspend for all of them, or switch to a plan where it is already disabled.
+
+### USB Isolator Recommendation
+
+A **USB isolator** is strongly recommended for all RHINO setups. It sits between the PC and the RHINO, physically breaking the electrical ground path between them. This eliminates ground loop noise, reduces EMI, and — critically — **prevents hardware damage** from ground faults.
+
+![AduM3160 based USB isolator](images/troubleshooting-maintenance/image.png){ width="250" }
+
+!!! warning "Ground Loops Can Destroy Boards"
+    Without isolation, the PC and the RHINO share a common ground through the USB cable. If the main DC power ground connection is interrupted — even briefly during a reconnection — high motor currents will attempt to flow through the USB cable, into the PC ground, through the power strip, and back to the PSU. This surge can destroy the TVS protection diodes on the RHINO board, or worse, damage the board itself.
+
+    In multi-device setups sharing a USB hub, a single ground fault can propagate through the shared USB ground and take out multiple boards simultaneously — even if they use separate power supplies. See [Powering Multiple FFB Devices from a Single PSU](../community-projects/tips-and-tricks.md#powering-multiple-ffb-devices-from-a-single-psu) for detailed wiring guidance.
+
+**Benefits of a USB isolator:**
+
+- **Prevents hardware damage** from ground faults and power surges through the USB path
+- Eliminates ground loops between the PC and the RHINO
+- Protects electronics from voltage spikes and transient faults on the USB bus
+- Resolves connection instability in systems with high electrical noise
+
+!!! tip "Ground Connection Best Practices"
+    Always ensure the DC ground (GND) connection is the **first to make contact** and remains stable at all times. When connecting or reconnecting power, plug in the DC barrel jack firmly before connecting USB. If your ground path is unreliable, all high-current return paths will route through the USB cable — a recipe for board damage.
+
+    An alternative to a USB isolator is using an **ungrounded power strip** to break the ground loop path. However, a USB isolator is the safer and more targeted solution.
+
+**Where to Find USB Isolators:**
+
+Search for **AduM3160** isolator boards on AliExpress, Amazon, or other electronics retailers. The AduM3160 is a popular, affordable USB 2.0 isolator IC commonly available on ready-made isolator boards. When searching, look for:
+
+- "AduM3160 isolator board" or "USB isolator AduM3160"
+- Pre-assembled USB isolator modules (no soldering required)
+- Boards with both USB-A connectors or USB-A to USB-C options
+
+Cost is typically low (under $10-20 USD), making it a worthwhile investment to protect your hardware.
 
 ## WinUSB / WebUSB Firmware Update Issues
 
