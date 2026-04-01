@@ -197,7 +197,7 @@ Check the following items in order:
 1. **USB Hub**
 
     - If you are currently using a USB hub, disconnect it and connect the Rhino directly to your PC
-    - USB hubs can introduce latency, power delivery issues, and signal integrity problems
+    - USB hubs can introduce latency, power delivery issues, and signal integrity problems — see **[Why USB Hubs Cause Problems with FFB Devices](#why-usb-hubs-cause-problems-with-ffb-devices)** below for a technical explanation
     - Test the direct connection for stability
 
 2. **USB Port**
@@ -226,6 +226,43 @@ Check the following items in order:
 
 !!! important
     Once you have confirmed a stable connection with direct PC connection and a known-good cable/port, the instability is likely resolved. If problems persist, the device itself may have a hardware issue and should be checked by support.
+
+### Why USB Hubs Cause Problems with FFB Devices
+
+The standard advice is "never plug your FFB joystick into a USB hub" — but rarely does anyone explain why. When you push heavy HID input/output traffic, especially the kind required by a high-refresh-rate FFB device, you start hitting the physical and architectural limits of how USB hubs manage data.
+
+#### The Transaction Translator (TT) Bottleneck
+
+This is the most common culprit. Many FFB devices operate at USB Full-Speed (12 Mbps) rather than High-Speed (480 Mbps), because 12 Mbps is generally plenty of bandwidth for HID data.
+
+When a 12 Mbps device is plugged into a High-Speed USB 2.0 or 3.0 hub, the hub must translate that traffic using a hardware component called a **Transaction Translator (TT)**:
+
+- **Single-TT (STT) hubs** — Most cheap hubs are Single-TT. One 12 Mbps translator is shared across all ports. If you plug in your FFB joystick, a mouse, a keyboard, and a button box, they all fight for that same narrow pipe. FFB data gets delayed or dropped.
+- **Multi-TT (MTT) hubs** — High-end hubs have a dedicated TT per port. Each Full-Speed device gets its own 12 Mbps lane up to the hub's High-Speed uplink. FFB devices perform significantly better on MTT hubs.
+
+#### HID Interrupt Transfers Under Load
+
+USB HID devices use **Interrupt Transfers** — they guarantee a specific polling rate (for example, every 1 ms). When you introduce a hub, scheduling complexity increases. Cheap hub silicon may miss polling windows.
+
+FFB devices are particularly demanding because they rely heavily on **Interrupt OUT** transfers (data from PC to device) to command the motors. Continuous Interrupt OUT traffic at high rates is notoriously hard on cheap hub controllers, causing micro-stutters or completely dropped FFB commands.
+
+#### Buffer Overflows and Dropped Packets
+
+FFB generates bursty traffic. When you hit turbulence or a surface in a sim, the PC sends a rapid sequence of OUT reports while the joystick simultaneously sends back rapid position data.
+
+Cheap hubs have very little internal buffer RAM. If the hub is waiting to send data upstream, packets that overflow the buffer are simply discarded. Unlike bulk transfers (used for storage), **HID Interrupt transfers have no guaranteed retry mechanism** — dropped packets are gone forever. The result is a dead spot or micro-freeze in your FFB.
+
+#### Power Fluctuations and Micro-Disconnects
+
+Even if your FFB joystick has its own external power supply for the motors, the USB logic board still relies on the 5V line from the USB cable to maintain its data connection. An unpowered or poorly powered hub can sag the 5V line under combined load, causing the USB logic to brownout and trigger a re-enumeration. Windows will silently recover, but you will experience a momentary FFB freeze while the device reconnects.
+
+#### Recommendations if You Must Use a Hub
+
+If direct connection to a motherboard port is not possible:
+
+- **Use a Multi-TT (MTT) hub** — This is the single most important factor. Some manufacturers (such as StarTech) and industrial USB hub brands explicitly advertise MTT support.
+- **Use an externally powered hub** — never rely on bus power (from the PC) to run a hub that handles an FFB device.
+- **Isolate high-bandwidth devices** — Put your FFB joystick on a separate physical USB root hub on your motherboard from VR headsets or webcams. VR headsets and cameras use Isochronous transfers, which reserve large, non-negotiable blocks of USB bandwidth and can crowd out FFB data.
 
 ### Disable USB Selective Suspend
 
@@ -309,7 +346,10 @@ You can apply a simple registry fix to restore WebUSB functionality. This requir
 
 - Press **Start**, type PowerShell, right-click **Windows PowerShell**, and select **Run as administrator**.
 - Paste the following command and press **Enter**:
-    `HKLM:\\SYSTEM\\CurrentControlSet\\Enum\\USB\\VID_FFFF&PID_2055&MI_03\\\*\\DeviceParameters\" -Name \"DeviceInterfaceGUID\" -Value`
+
+    ```powershell
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Enum\USB\VID_FFFF&PID_2055&MI_03\*\Device Parameters" -Name "DeviceInterfaceGUID" -Value "{DA10CDEF-26A6-47D9-970E-B3D561A277FA}"
+    ```
 - **Unplug** the Rhino from the USB port and **plug it back in**.
 - Test the connection in the WebUSB tool - firmware updates should now work as expected.
 
@@ -575,6 +615,8 @@ If FFB is not working, follow the below procedure:
 
 1. vJoy is known to cause issues with FFB, particularly if the FFB options are enabled, which they typically are by default when vJoy is installed.
 ![](media/Pictures/10000000000001A50000010DF11606F6D888B57D.png){ width="299px" height="191px" }
+
+For resolution steps, see **[Known Issues — vJoy / DCS World](appendix-a-known-issues.md#dcs-world)**.
 
 ##### SimHaptics by rKApps
 
