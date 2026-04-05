@@ -128,19 +128,18 @@ If the belt has slipped off both pulleys completely, the motor position relative
 #### Method 2: Automatic Motor Recentering (Easier but Less Precise)
 
 1. Open **VPforce Configurator → FFB Axes Setup** tab
-2. Set calibration values:
+1. Set calibration values:
 
     - **Min:** 0
     - **Max:** 4096
-    - **Center:** 2048
 
-3. Click **Store Config**
-4. Navigate to **Effects** tab
-5. Enable **Spring** effect with moderate gain (~50%)
-6. The motor will automatically rotate to center position (2048)
-7. Manually center the stick gimbal physically to match
-8. Reinstall the belt on both pulleys
-9. Run **Auto Calibration** to restore proper calibration
+1. Navigate to **Effects** tab
+1. Enable **Spring** effect with moderate gain (~50%)
+1. Click **Store Config**
+1. The motor will automatically rotate to center position (2048)
+1. Manually center the stick gimbal physically to match
+1. Reinstall the belt on both pulleys
+1. Run **Auto Calibration** to restore proper calibration
 
 !!! tip "Verification"
     After realignment and calibration, the final calibrated center value should read approximately **C:~2000**. Values significantly outside this range (below 1900 or above 2200) indicate misalignment.
