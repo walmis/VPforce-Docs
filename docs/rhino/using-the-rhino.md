@@ -774,3 +774,18 @@ If you find the Rhino is throttling heavily or the fans are running constantly, 
 -   **Balance effect strengths:** Rather than maxing out all force effects, tune them individually to realistic levels. Lighter, more refined effects often feel better than brute force and are easier on the hardware.
 
 The fans are designed to handle normal operation, and you will rarely need to worry about thermal management during typical use. The built-in protection system ensures the device will never damage itself through overheating - but understanding how cooling works helps you get the best performance and longevity from your Rhino.
+
+## Leaving the RHINO Idle
+
+There is no single required shutdown ritual for the Rhino. How you leave the unit between sessions mostly depends on convenience, how your sim rig is powered, and whether you prefer to leave the power supply energized.
+
+For most users, any of the following approaches is perfectly reasonable:
+
+- **Leave USB connected and shut down the PC:** This is the simplest option. When the PC powers down, the Rhino enters power-save mode and de-energizes the motors, so the base does not remain actively driving force feedback.
+- **Use the E-stop button:** If you want the unit connected but want the motors disabled immediately, press the E-stop button to cut motor power.
+- **Switch off the full power strip:** Some users prefer to shut off the entire strip that powers the PC, display, and Rhino PSU. This also removes power from the Rhino's external power supply.
+
+In practice, the best choice is simply the one that matches how you use your rig. If you want the fastest start-up for the next session, leaving USB connected is fine. If you prefer a more deliberate shutdown state, use the E-stop. If you like everything fully off between sessions, switch off the power strip.
+
+!!! tip "Simple rule of thumb"
+    If the PC is off, leaving the Rhino plugged in over USB is generally fine. If you want extra reassurance that the motors cannot energize, press the E-stop. If you want the entire setup electrically off, turn off the power strip.

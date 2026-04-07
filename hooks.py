@@ -187,8 +187,17 @@ def on_post_build(config):
     docs_dir = Path(config['docs_dir'])
     site_dir = Path(config['site_dir'])
     htaccess_src = docs_dir / '.htaccess'
+    htaccess_dst = site_dir / '.htaccess'
     if htaccess_src.is_file():
-        shutil.copy2(str(htaccess_src), str(site_dir / '.htaccess'))
+        # Avoid SameFileError when docs_dir/site_dir paths resolve to the same file.
+        same_file = False
+        try:
+            same_file = htaccess_dst.exists() and htaccess_src.samefile(htaccess_dst)
+        except FileNotFoundError:
+            same_file = False
+
+        if not same_file:
+            shutil.copy2(str(htaccess_src), str(htaccess_dst))
 
     # Skip WebP conversion in serve/livereload mode for performance
     if 'serve' in sys.argv or os.environ.get('MKDOCS_SKIP_WEBP'):
