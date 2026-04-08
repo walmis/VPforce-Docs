@@ -49,20 +49,20 @@ The thermal advantage of 86 motors is specifically relevant during prolonged agg
 
 ### Peak Torque Comparison
 
-With appropriate gear ratios, 86 motor builds deliver significantly higher peak torque than the standard Rhino (~12.2 N·m per axis at the stick with its 74T/12T reduction), reaching up to 18.3 N·m per axis with the 86BLF04 at the 72T/15T ratio. The table below shows calculated peak torque at the stick for all combinations of motor and gear ratio:
+With appropriate gear ratios, 86 motor builds deliver significantly higher peak torque than the standard Rhino (~12.4 N·m per axis at the stick with its official 75T/12T reduction), reaching up to 18.3 N·m per axis with the 86BLF04 at the 72T/15T ratio. The table below shows calculated peak torque at the stick for all combinations of motor and gear ratio:
 
 Both motor variants are limited to 30 A drive current. Peak output torque at the stick is calculated from the motor torque constant, drive current limit, and belt gear ratio:
 
 | Configuration | Motor Kt | Drive Current | Motor Torque | Gear Ratio | Peak Torque / Axis |
 |---------------|----------|--------------|--------------|------------|--------------------|
-| Standard Rhino (57BLF03) | 0.066 N·m/A | 30 A | 1.98 N·m | 74T/12T (~6.17:1) | ~12.2 N·m |
+| Standard Rhino (57BLF03) | 0.066 N·m/A | 30 A | 1.98 N·m | 75T/12T (~6.25:1) | ~12.4 N·m |
 | 86BLF03, 60T/15T | 0.110 N·m/A | 30 A | 3.3 N·m | 4:1 | ~13.2 N·m |
 | 86BLF03, 72T/15T | 0.110 N·m/A | 30 A | 3.3 N·m | 4.8:1 | ~15.8 N·m |
 | 86BLF04, 60T/15T | 0.127 N·m/A | 30 A | 3.81 N·m | 4:1 | ~15.2 N·m |
 | 86BLF04, 72T/15T | 0.127 N·m/A | 30 A | 3.81 N·m | 4.8:1 | ~18.3 N·m |
 
 !!! note "Published vs. theoretical torque"
-    The official VPforce specification lists 9 N·m for the standard Rhino. The ~12.2 N·m above is the theoretical calculated peak (Kt × I_max × gear ratio) before accounting for belt efficiency losses and firmware current limits.
+    The official VPforce specification lists 9 N·m for the standard Rhino. The ~12.4 N·m above is the theoretical calculated peak (Kt × I_max × gear ratio) before accounting for belt efficiency losses and firmware current limits. Many DIY Rhino variants use a 74T pulley instead of the official 75T pulley.
 
 This increased output, combined with superior thermal management, means the system can sustain higher forces throughout your entire flight session rather than backing off when temperatures rise.
 

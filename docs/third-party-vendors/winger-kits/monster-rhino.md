@@ -4,14 +4,17 @@
 
 ![Monster Rhino](images/SR-F_Winger/image.png){ width="400" }
 
-The "Monster" Rhino Kitbase is a third-party offering from SR-F_Winger, based on the work of @TheAmazinGreat. It utilizes the largest available VPForce DIY Motor Kit (86BLF04) to create the most powerful Rhino build possible.
+The "Monster" Rhino Kitbase is a third-party offering from SR-F_Winger, based on the work of @TheAmazinGreat. It uses the largest available VPforce DIY Motor Kit (86BLF04) to create a higher-torque Rhino build with more thermal headroom than the standard Rhino configuration.
 
-This kit is for users who want the strongest Rhino money can currently buy, with more headroom before cooling is needed, but without the hassle of sourcing all the individual screws, cables, and other parts.
+This kit targets users who want more torque and cooling headroom than the standard Rhino, without sourcing all screws, cables, and hardware individually.
 
 !!! note "Motor Kit Not Included"
     The VPForce Motor Kit (86BLF04) must be ordered separately from VPForce.
 
 ## Technical Specifications
+
+!!! note "Published and calculated values"
+    The standard Rhino is officially rated at up to 9 N·m per axis. The ~12.4 N·m value in the comparison table below is the theoretical stick-side peak calculated from motor torque constant, 30 A drive current, and the official 75T/12T belt ratio before drivetrain losses and firmware limits. Many DIY Rhino variants use a 74T pulley instead.
 
 ### Motors
 
@@ -22,8 +25,8 @@ This kit is for users who want the strongest Rhino money can currently buy, with
 | Motor torque constant (Kt) | 0.066 N·m/A | 0.127 N·m/A |
 | Drive current limit | 30 A | 30 A |
 | Motor peak torque | 1.98 N·m | 3.81 N·m |
-| Belt gear ratio | 74T/12T (~6.17:1) | 60T/15T (4:1) or 72T/15T (4.8:1) |
-| Peak torque at stick | ~12.2 N·m | ~15.2 N·m (4:1) / ~18.3 N·m (4.8:1) |
+| Belt gear ratio | 75T/12T (~6.25:1) | 60T/15T (4:1) or 72T/15T (4.8:1) |
+| Peak torque at stick | ~12.4 N·m | ~15.2 N·m (4:1) / ~18.3 N·m (4.8:1) |
 
 ### Torque Output by Gear Ratio
 
@@ -35,15 +38,15 @@ The Monster Rhino base supports two gear ratio options using a 15T motor pulley 
 | 72T / 15T | 72 tooth | 4.8:1 | ~18.3 N·m |
 
 !!! tip "Which ratio to choose?"
-    The 72T / 15T ratio delivers the maximum torque output but has a slightly shorter physical stick travel for a given belt length. The 60T / 15T ratio offers a good balance between torque and travel range. Both options significantly exceed the standard Rhino in both peak force and sustained force capability.
+    The 72T / 15T ratio delivers the maximum calculated peak torque but has slightly shorter physical stick travel for a given belt length. The 60T / 15T ratio offers a more balanced compromise between torque and travel range.
 
 ### Thermal Performance
 
-The 86BLF04 motor's larger frame provides substantially greater thermal mass and surface area compared to the 57-series motors in a standard Rhino. This means:
+The 86BLF04 motor's larger frame provides substantially greater thermal mass and surface area than the 57-series motors in a standard Rhino. In practice, this usually means:
 
-- Higher continuous torque rating before thermal throttling activates
-- Longer sustained high-force operation (extended dogfights, sustained G-load scenarios)
-- More headroom before the active cooling system needs to intervene
+- Higher continuous torque before thermal throttling activates
+- Longer sustained high-force operation in demanding scenarios
+- More headroom before active cooling needs to intervene
 
 For a detailed discussion of the thermal advantages of 86-series motors, see [TheAmazinGreat 86 Motor FFB Base](../../community-projects/theamazingreat-rhino.md).
 
@@ -107,15 +110,15 @@ To inquire about pricing and place an order, you can contact:
 
 | Region | Price | Notes |
 | --- | --- | --- |
-| USA | 47,99€ | Can be higher for express shipping. |
-| Europe | ~20,-€ | |
-| Germany | 6,9€ | |
+| USA | 47.99€ | Can be higher for express shipping. |
+| Europe | ~20€ | |
+| Germany | 6.90€ | |
 
 !!! note "Shipping Note"
     Shipping fees may vary due to weight variances in available packaging materials.
 
 !!! warning "Note on US Shipping"
-    Due to a previous executive order, shipping to the USA may require express shipping at a higher cost (€95). Please confirm with the seller.
+    Shipping to the USA may require express shipping at a higher cost (about 95€). Please confirm current pricing with the seller.
 
 ## Assembly Instructions
 
@@ -148,7 +151,7 @@ The base comes 95% pre-assembled. The following steps describe the final assembl
         The rotation of the motors is critical. Incorrect rotation can cause the cables to hit the outer walls, preventing you from properly tensioning the belts later.
 
 3.  **Connect Electronics:**
-    - Connect all electronic components to the mainboard according to the wiring diagram (see FIG. 3 `(TODO: update fig)` from the original guide).
+    - Connect all electronic components to the mainboard according to the wiring diagram provided by the seller or the original guide.
 
     !!! warning "Danger: Check Polarity"
         **Verify correct polarity when connecting power cables.** Reversing polarity can permanently destroy the mainboard and other electronic components. Plus (+) and minus (-) terminals are clearly labeled with stickers to prevent errors.
@@ -165,13 +168,13 @@ The base comes 95% pre-assembled. The following steps describe the final assembl
 1.  **Test Electronics:** After completing the wiring, perform an initial test to confirm that all electronics function as expected. You can test the fans using the "Debug" tab in the VPForce software.
 2.  **Cable Management:** Tidy up the internal wiring using the included zip ties.
 3.  **Close the Housing:**
-    - Re-install the vertical reinforcers (as shown in FIG. 4 `(TODO: update fig)` of the original guide).
+    - Re-install the vertical reinforcers as shown in the seller's reference guide.
     - Secure the front and bottom lids with all the included case screws.
     - When closing the front cover, double-check that no cables are rubbing against the front intake fan.
 
 ### Attach Motor Pulleys
 
-1.  Attach the included 15T metal pulleys to the motor axles, following the reference diagram (FIG. 2) `(TODO: update fig)`.
+1.  Attach the included 15T metal pulleys to the motor axles, following the seller's reference diagram.
 2.  When placing the pulley onto the motor axle, ensure the grub screws will rest on one of the flattened portions of the axle when tightened. This prevents the pulley from slipping.
 3.  Apply Loctite or a similar thread-locking fluid to the grub screws before tightening them to prevent them from loosening over time.
 
@@ -185,6 +188,26 @@ The base comes 95% pre-assembled. The following steps describe the final assembl
     - In the VPForce configurator, select the grip you are using. Adapters are available for VKB grips (which require a separate Blackbox) and Winwing grips.
     - Configure the two potentiometers with your desired functions.
 3.  **Mount and Fly:** Mount the base to your rig and enjoy!
+
+## Troubleshooting
+
+### Belt Cannot Be Tensioned Correctly
+
+**Symptom:** The belt cannot be tensioned cleanly, or it rubs the housing.  
+**Cause:** The motor is rotated incorrectly, or the pulley position is not aligned.  
+**Resolution:** Re-check motor orientation inside the case and verify pulley placement before closing the housing.
+
+### Fans Do Not Spin During Testing
+
+**Symptom:** The fans do not respond during the initial electronics test.  
+**Cause:** A fan connector is loose, connected incorrectly, or blocked by cabling.  
+**Resolution:** Confirm both fan connectors are fully seated, make sure no cable is obstructing the fan blades, and test again from the VPforce software.
+
+### Motor or Mainboard Does Not Power Up
+
+**Symptom:** The electronics remain unpowered after wiring is complete.  
+**Cause:** Reversed main power polarity, an unseated power connection, or the E-stop button is engaged.  
+**Resolution:** Verify polarity at every main power connection, confirm the E-stop is released, and inspect the XT60 and mainboard power wiring before applying power again.
 
 !!! note "Important Check for Low Throw Limiters"
     In the rare case that you use extremely low throw limiters, ensure the grip cable that runs down the front into the gimbal does not rub against the limiter. If it does, you can raise the limiter a few millimeters using washers to create clearance.

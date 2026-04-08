@@ -1,5 +1,12 @@
 # Changelog
 
+- **April 8, 2026:**
+
+    - Clarified **[Monster Rhino](third-party-vendors/winger-kits/monster-rhino.md)** torque comparisons by distinguishing official Rhino published torque from theoretical calculated stick-side values
+    - Corrected the official Rhino comparison ratio to **75T/12T** in **[Monster Rhino](third-party-vendors/winger-kits/monster-rhino.md)** and **[TheAmazinGreat 86 Motor FFB Base](community-projects/theamazingreat-rhino.md)**, while noting that many DIY Rhino variants use a 74T pulley
+    - Tightened **[Monster Rhino](third-party-vendors/winger-kits/monster-rhino.md)** wording around ratio selection, thermal performance, and US shipping guidance for accuracy and consistency
+    - Replaced unresolved assembly figure placeholders in **[Monster Rhino](third-party-vendors/winger-kits/monster-rhino.md)** and added a short troubleshooting section for common assembly checks
+
 - **April 7, 2026:**
 
     - Added and refined **[Leaving the RHINO Idle](rhino/using-the-rhino.md#leaving-the-rhino-idle)** guidance covering USB power-save behavior, the **USB suspend** requirement for automatic sleep, E-stop use, full PSU power-off, and practical recommendations for how to leave the unit between sessions
