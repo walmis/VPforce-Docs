@@ -59,7 +59,7 @@ Download the STEP files below to use in your CAD system
 
 ### Rhino Motors & PCB
 
-[Rhino PCB](CAD/RhinoPCB.STEP)
+[Rhino PCB](<CAD/Rhino PCB.STEP>)
 
 [57BLF01](CAD/57BLF01.STEP)
 
