@@ -53,3 +53,22 @@ Convert MFG Crosswind rudder pedals into a force-feedback system using VPforce m
 
 Make a FFB Trim Wheel that you can either move by hand, sim trim up/down buttons, or by autopilot
 
+## CAD Files
+
+Download the STEP files below to use in your CAD system
+
+### Rhino Motors & PCB
+
+[Rhino PCB](<CAD/Rhino PCB.STEP>)
+
+[57BLF01](CAD/57BLF01.STEP)
+
+[57BLF03](CAD/57BLF03.STEP)
+
+[86BLF04](CAD/86BLF04.STEP)
+
+### Planetary Gearboxes
+
+[PLG060](PLG060.STEP)
+
+[PLG090](PLG090.STEP)
