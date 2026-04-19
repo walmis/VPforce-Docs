@@ -55,7 +55,21 @@ nav:
       - Pedals > RhinoACE: third-party-vendors/kaltokri-kits/rhinoace.md
       - Pedals > RhinoOrion: third-party-vendors/kaltokri-kits/rhinoorion.md
       - Pedals > RhinoR1: third-party-vendors/kaltokri-kits/rhinor1.md
-  - TelemFFB: telemffb/index.md
+  - TelemFFB:
+    - Overview: telemffb/index.md
+    - What's New in 2.0: telemffb/whats-new.md
+    - Installation: telemffb/installation.md
+    - Configuration: telemffb/configuration.md
+    - UI Overview: telemffb/ui-overview.md
+    - Aircraft Profiles: telemffb/aircraft-profiles.md
+    - Multiple VPforce Devices: telemffb/multi-device.md
+    - VPconf Profiles & Gain Overrides: telemffb/vpconf-profiles.md
+    - Advanced Spring & G-Force Curves: telemffb/spring-curves.md
+    - Sim-Specific Guides:
+      - MSFS & X-Plane: telemffb/sim-msfs-xplane.md
+      - DCS: telemffb/sim-dcs.md
+      - IL-2: telemffb/sim-il2.md
+    - Effects Reference: telemffb/effects-reference.md
   - Products:
     - Overview: products/index.md
     - Rhino FFB Base: products/rhino-ffb-base.md
@@ -152,6 +166,18 @@ plugins:
         - community-projects/index.md
         - third-party-vendors/index.md
         - telemffb/index.md
+        - telemffb/whats-new.md
+        - telemffb/installation.md
+        - telemffb/configuration.md
+        - telemffb/ui-overview.md
+        - telemffb/aircraft-profiles.md
+        - telemffb/multi-device.md
+        - telemffb/vpconf-profiles.md
+        - telemffb/spring-curves.md
+        - telemffb/sim-msfs-xplane.md
+        - telemffb/sim-dcs.md
+        - telemffb/sim-il2.md
+        - telemffb/effects-reference.md
         - products/index.md
         - changelog.md
         
