@@ -72,7 +72,7 @@ RewriteRule ^third-party-vendors/winger-kits/SR-F_Winger(?:/.*)?$ /third-party-v
 RewriteRule ^third-party-vendors/SR-F_Winger(?:/.*)?$ /third-party-vendors/winger-kits/monster-rhino? [R=301,L]
 
 # Force download for .step, .stp, and .stl files
-<FilesMatch "\.(step|stp|stl)$">
+<FilesMatch "(?i)\.(step|stp|stl)$">
     ForceType application/octet-stream
     Header set Content-Disposition "attachment"
 </FilesMatch>
