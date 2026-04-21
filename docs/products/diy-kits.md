@@ -63,10 +63,15 @@ A compact workhorse that balances size and torque for light to medium FFB projec
 | Torque constant | 0.066 Nm/A |
 | Peak torque | ≈ 1.98 Nm |
 | Weight | 1.27 kg per motor |
-| Power | 19–24 V, 30 A per phase |
+| Operating voltage | 19–24 V DC |
+| Max phase current | 30 A (controller-limited) |
+| Recommended PSU | 24 V, 8 A per motor |
 | Shaft input | 8 mm (for third-party gearboxes) |
 | Single kit | 179 EUR |
 | Dual kit | 299 EUR |
+
+!!! note "Phase current vs. PSU current"
+    **30 A per phase** is the peak current the VPforce controller drives through the motor windings — it is **not** the current you need from your power supply. Actual PSU draw (**Ibus**) is approximately 7–8 A per motor under typical load. See [Power Supply Sizing](#power-supply-sizing) below.
 
 ---
 
@@ -84,10 +89,15 @@ Mid-range performance in the larger NEMA34 frame. Suitable for two-axis joystick
 | Torque constant | 0.11 Nm/A |
 | Peak torque | ≈ 3.30 Nm |
 | Weight | 2.5 kg per motor |
-| Power | 19–24 V, 30 A per phase |
+| Operating voltage | 19–24 V DC |
+| Max phase current | 30 A (controller-limited) |
+| Recommended PSU | 24 V, 8 A per motor |
 | Shaft input | 12.7 mm (for third-party gearboxes) |
 | Single kit | 229 EUR |
 | Dual kit | 399 EUR |
+
+!!! note "Phase current vs. PSU current"
+    **30 A per phase** is the peak current the VPforce controller drives through the motor windings — it is **not** the current you need from your power supply. Actual PSU draw (**Ibus**) is approximately 7–8 A per motor under typical load. See [Power Supply Sizing](#power-supply-sizing) below.
 
 ---
 
@@ -105,10 +115,15 @@ The highest-torque configuration in the lineup. The longer motor body provides g
 | Torque constant | 0.127 Nm/A |
 | Peak torque | ≈ 3.81 Nm |
 | Weight | 2.8 kg per motor |
-| Power | 19–24 V, 30 A per phase |
+| Operating voltage | 19–24 V DC |
+| Max phase current | 30 A (controller-limited) |
+| Recommended PSU | 24 V, 8 A per motor |
 | Shaft input | 12.7 mm (for third-party gearboxes) |
 | Single kit | 249 EUR |
 | Dual kit | 429 EUR |
+
+!!! note "Phase current vs. PSU current"
+    **30 A per phase** is the peak current the VPforce controller drives through the motor windings — it is **not** the current you need from your power supply. Actual PSU draw (**Ibus**) is approximately 7–8 A per motor under typical load. See [Power Supply Sizing](#power-supply-sizing) below.
 
 ---
 
@@ -125,6 +140,23 @@ Custom builds typically use 3D-printed (PETG or PA12) or CNC-machined frames. Th
 - Select a model rated at **< 3 arcmin backlash**. Higher backlash (25+ arcmin) creates a noticeable mechanical deadzone at center.
 - Gearboxes add inertia that can make controls feel sluggish. The **Natural Damping Compensation** setting in the VPforce Configurator can cancel this effect out entirely.
 - Shaft compatibility: 57BLF motors require an **8 mm** gearbox input shaft; 86BLF motors require a **12.7 mm** input shaft.
+
+### Power Supply Sizing
+
+All VPforce kits operate at **19–24 V DC**. Use 24 V when possible — the higher bus voltage reduces peak current draw and minimises voltage sag under load.
+
+**Motor phase current vs. PSU current**  
+The motor spec tables list **30 A per phase** (the peak current the VPforce controller drives through each motor winding). This is *not* the current your power supply needs to deliver. The actual bus current draw (**Ibus**, visible in the Configurator Debug tab) is approximately **7–8 A per motor** under typical load, and this is similar across all motor variants (57BLF03, 86BLF03, 86BLF04) despite their different torque constants.
+
+| Build | Recommended PSU |
+|-------|----------------|
+| Single-axis (any motor) | 24 V, 8 A |
+| Dual-axis (any motor) | 24 V, 15 A |
+
+**Diagonal movement and the PSU current limit**  
+When both axes are deflected simultaneously (diagonal inputs), total Ibus can briefly approach the sum of both motors. Set the **Max PSU Current** in the Configurator Settings tab to your PSU's rated output — the firmware will cap total Ibus at that value, spreading demand across both axes and preventing a lower-rated PSU from tripping. A correctly configured 10–12 A PSU can therefore work for a dual-axis build with this limit set appropriately.
+
+Always monitor **Ibus** under real load in the Debug tab. If **Vbus** sags below ~20 V during peak demand, raise the Max PSU Current setting is not the fix — upgrade the PSU or reduce spring/gain settings.
 
 ### Frame Materials
 
