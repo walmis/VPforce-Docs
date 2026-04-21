@@ -37,9 +37,9 @@ The WinWing adapter converts WinWing's proprietary protocol to the Thrustmaster 
 
 ## VKB Adapter
 
-![VKB Adapter](../rhino/media/Pictures/1000020100000727000008001DBCB6BB2E3883E3.png){ width="200px" }
+![VKB Adapter (revB)](../rhino/media/Pictures/1000020100000727000008001DBCB6BB2E3883E3.png){ width="200px" }
 
-This adapter mounts any socket rev. B or rev. C style VKB grip to the Rhino or DIY base.
+This page covers separate VKB adapter variants for socket rev. B and rev. C grips. Choose the adapter revision that matches your grip socket.
 
 **Requirements:**
 
@@ -59,7 +59,7 @@ If the connector is tight, do not apply force to the rotating lower part only. R
 
 **Using VKB buttons in VPforce software:**
 
-To use VKB grip buttons for VPforce functions (e.g., force trim), the **RhinoLoopback** companion app is required. See the [Configurator Settings](../rhino/using-the-rhino.md#grip-type-selection-and-calibration) section in the Rhino manual for setup details.
+To use VKB grip buttons in the Rhino software, run the **RhinoLoopback** companion app and set **Grip Type** to **Loopback** so the Black Box buttons are forwarded to the Rhino. See the [Configurator Settings](../rhino/using-the-rhino.md#grip-type-selection-and-calibration) section in the Rhino manual for setup details.
 
 ---
 
@@ -79,9 +79,9 @@ This allows DIY builders to wire their own button matrices using shift registers
 **Cause:** Incorrect grip type selected in the VPforce Configurator or loose adapter connection.  
 **Resolution:** Verify that **"WinWing adapter"** is selected in the **Settings** tab and ensure the locking collar is fully tightened.
 
-**Symptom:** VKB buttons do not respond in simulators.  
-**Cause:** RhinoLoopback application is not running or the grip type is not set to **"Loopback"**.  
-**Resolution:** Ensure the **RhinoLoopback** app is active and the Grip Type is set to **"Loopback"** in the VPforce Configurator.
+**Symptom:** VKB grip buttons do not trigger Rhino functions.  
+**Cause:** RhinoLoopback is not running, so the VKB Black Box buttons are not being forwarded to the Rhino.  
+**Resolution:** Start the **RhinoLoopback** app and set the Grip Type to **"Loopback"** in the VPforce Configurator.
 
 **Symptom:** Button 32 is permanently active on a WinWing grip.  
 **Cause:** The grip is disconnected or the adapter firmware is a newer revision.  

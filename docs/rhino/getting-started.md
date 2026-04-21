@@ -84,7 +84,7 @@ The Rhino supports Thrustmaster (Cougar, Warthog, F/A-18C) and Virpil grips dire
 
 ![The VKB Adapter](media/Pictures/1000020100000727000008001DBCB6BB2E3883E3.png){ width="300px" }
 
-The VKB Adapter allows for the mounting of any socket rev. B and C style VKB grips. In addition to the Adapter, you will need a VKB main controller (black box) to operate VKB grips with the Rhino. 
+The VKB Adapter is available in separate rev. B and rev. C variants. Choose the adapter that matches your grip socket. In addition to the Adapter, you will need a VKB main controller (black box) to operate VKB grips with the Rhino.
 
 !!! note
     The adapter has an external cable that attaches to the black box (see picture).
@@ -99,7 +99,7 @@ There is no electrical connection between the adapter and the Rhino, so you can 
 !!! note
     The black box will blink a red light, because it doesn't see any axis (only the grip connects to the black box). This is normal and will not hamper the operation of the device.
 
-To use a VKB grip's buttons for force trim or other functions in the Rhino software, you need to use the included RhinoLoopback app. See details in the relevant section.
+To use a VKB grip's buttons for force trim or other functions in the Rhino software, run the included RhinoLoopback app and set Grip Type to Loopback. See details in the relevant section.
 
 
 ###  The WinWing Adapter
