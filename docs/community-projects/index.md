@@ -61,15 +61,19 @@ Make a FFB Trim Wheel that you can either move by hand, sim trim up/down buttons
 
 Download the STEP files below for your CAD system.
 
-### Rhino Motors & PCB
-
-[Rhino PCB STEP file](CAD/Rhino PCB.STEP)
+### Rhino Motors
 
 [57BLF01 motor STEP file](CAD/57BLF01.STEP)
 
 [57BLF03 motor STEP file](CAD/57BLF03.STEP)
 
 [86BLF04 motor STEP file](CAD/86BLF04.STEP)
+
+### Electronics
+
+[Rhino PCB STEP file](<CAD/Rhino PCB.STEP>)
+
+[USB Type B Receptacle STEP file](<CAD/USB TYPE-B.STEP>)
 
 ### Planetary Gearboxes
 
