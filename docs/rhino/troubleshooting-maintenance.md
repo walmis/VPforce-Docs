@@ -476,8 +476,8 @@ Each motor has an integrated driver with a status LED that provides diagnostic i
 
 - **Green flashes** — indicate the assigned **motor ID**:
 
-    - **1 flash** = Motor ID 0 (pitch / X-axis)
-    - **2 flashes** = Motor ID 1 (roll / Y-axis)
+    - **1 flash** = Motor ID 0 (pitch / Y-axis)
+    - **2 flashes** = Motor ID 1 (roll / X-axis)
 
 - **Red flashes** — indicate a **fault condition**. Check the Configurator status bar for the specific fault code (see [Motor Faults](#motor-faults) below).
 
