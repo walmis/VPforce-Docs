@@ -1,4 +1,8 @@
 # Changelog
+- **May 1, 2026:**
+
+    - Split **[Game Specific Troubleshooting](rhino/game-specific-troubleshooting.md)** into its own dedicated page, separated from the hardware **[Troubleshooting](rhino/troubleshooting-maintenance.md)** page
+    - Expanded game-specific troubleshooting with new sections for DCS telemetry setup, DCS joystick Y-axis offset, MSFS SimConnect limitations, IL-2 and X-Plane telemetry setup, and Falcon BMS beta status
 
 - **April 21, 2026:**
 

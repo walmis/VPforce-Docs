@@ -23,6 +23,7 @@ nav:
     - Using the Rhino: rhino/using-the-rhino.md
     - Game-Specific FFB Settings: rhino/game-specific-ffb-settings-tips-and-tricks.md
     - Troubleshooting: rhino/troubleshooting-maintenance.md
+    - Game-Specific Troubleshooting: rhino/game-specific-troubleshooting.md
     - Maintenance: rhino/rhino-maintenance.md
     - Known Issues: rhino/appendix-a-known-issues.md
     #- Legacy TelemFFB Docs: rhino/appendix-b-legacy-telemffb-documentation.md
