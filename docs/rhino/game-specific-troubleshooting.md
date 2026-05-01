@@ -310,6 +310,31 @@ Some aircraft, such as those by **PMDG**, do not expose their internal data thro
 
 ---
 
+#### Controls Not Responding Correctly / Axis Flutter
+
+**Background:**
+
+For certain features — such as trim-following — TelemFFB needs to send axis position data directly to MSFS via SimConnect as part of how it manages the relationship between the physical stick position and what the simulator sees. This is a deliberate design approach, not a fault.
+
+SimConnect does not provide any mechanism for an external application to override a physical device binding — there is no "take priority" or "exclusive source" option. When TelemFFB sends an axis value via SimConnect, MSFS receives it alongside the physical device input at the same time.
+
+If the physical axis is still bound in MSFS's control settings, the simulator will see two conflicting inputs simultaneously — the physical stick position and the value TelemFFB is sending — resulting in flutter, fighting, or unresponsive behavior on that axis. This is a SimConnect design limitation, not a bug in TelemFFB or the Rhino.
+
+**Required Setup:**
+
+For any axis that TelemFFB is actively managing, the physical binding for that axis must be removed from MSFS's control settings so that TelemFFB's SimConnect input is the sole source.
+
+1. Open **MSFS Options → Controls**.
+2. Select your joystick (or pedals/collective) profile.
+3. Locate the binding for the affected axis (e.g. Aileron Axis, Elevator Axis, Rudder Axis, Collective Axis).
+4. Clear/delete the binding so the physical device is no longer assigned to that axis.
+5. TelemFFB will continue to send the correct axis position to the sim via SimConnect.
+
+!!! note
+    This only applies to axes where TelemFFB is actively managing the position (typically pitch, roll, and any axis with trim-following or Force Mode enabled). Axes that TelemFFB is not managing should remain bound as normal.
+
+---
+
 #### HPG H145 Helicopter (FS2024)
 
 The HPG H145 helicopter in Microsoft Flight Simulator 2024 uses the AFCS (Automatic Flight Control System) which requires precise hands-on/hands-off detection for proper operation. Improper configuration can cause the AFCS to oscillate or behave erratically.
