@@ -34,6 +34,7 @@ nav:
       - Community Rhino Builds: community-projects/community-rhino-builds.md
       - TheAmazinGreat 86 Motor Base: community-projects/theamazingreat-rhino.md
     - Pedals:
+      - Virpil ACE Pedal FFB Mod: community-projects/VirpilACE_FFB_Mod_Guide.md
       - MFG Crosswind FFB Mod: community-projects/MFG_Crosswind_FFB_Mod_Guide.md
       - Tiger TPR FFB Mod: community-projects/Tiger_TPR_FFB_Mod_Guide.md
       - TPR FFB Pedal Mod: community-projects/TPR_FFB_Project_Documentation.md
@@ -42,7 +43,7 @@ nav:
     - Other:
       - FFB Trim Wheel: community-projects/FFB_TrimWheel.md
       - FFB Yoke: community-projects/ffb-yoke.md
-      
+
   - Third-Party Vendors:
     - Introduction: third-party-vendors/index.md
     - Winger Kits:
