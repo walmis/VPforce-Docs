@@ -57,6 +57,12 @@ Add force feedback to Virpil ACE rudder pedals using the VPforce 86BLF-03 motor 
 
 Make a FFB Trim Wheel that you can either move by hand, sim trim up/down buttons, or by autopilot
 
+### FFB Collectives
+
+#### [Force-Enabled Collective by Number481](Number481_Force_Enabled_Collective.md)
+
+A chair-mounted DIY helicopter collective featuring a 57BLF03 motor with a 10:1 planetary gearbox. Designed for smooth damping and stiction-free feel rather than game-driven force feedback. Supports commercial helicopter grips via the Rhino USB board.
+
 ## CAD Files
 
 Download the STEP files below for your CAD system.

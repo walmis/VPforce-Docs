@@ -37,10 +37,12 @@ nav:
       - MFG Crosswind FFB Mod: community-projects/MFG_Crosswind_FFB_Mod_Guide.md
       - Tiger TPR FFB Mod: community-projects/Tiger_TPR_FFB_Mod_Guide.md
       - TPR FFB Pedal Mod: community-projects/TPR_FFB_Project_Documentation.md
+    - Collectives:
+      - Force-Enabled Collective: community-projects/Number481_Force_Enabled_Collective.md
     - Other:
       - FFB Trim Wheel: community-projects/FFB_TrimWheel.md
       - FFB Yoke: community-projects/ffb-yoke.md
-
+      
   - Third-Party Vendors:
     - Introduction: third-party-vendors/index.md
     - Winger Kits:
