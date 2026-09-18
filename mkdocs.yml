@@ -46,7 +46,9 @@ nav:
       - UI Overview: telemffb/ui-overview.md
       - System Settings: telemffb/configuration.md
       - Aircraft Profiles: telemffb/aircraft-profiles.md
+      - Effect Preview: telemffb/effect-preview.md
       - VPforce Configurator Integration: telemffb/vpconf-profiles.md
+    - DirectInput Tap (DCS, IL-2, BMS): telemffb/dinput-tap.md
     - Simulator Guides:
       - MSFS & X-Plane:
         - Overview: telemffb/sim-msfs-xplane.md
@@ -57,6 +59,7 @@ nav:
         - Helicopters: telemffb/msfs-xp-helicopters.md
         - Special Aircraft: telemffb/msfs-xp-special-aircraft.md
         - Telemetry Overrides: telemffb/telem-overrides.md
+        - In-Sim Toolbar Panel: telemffb/msfs-toolbar-panel.md
       - DCS: telemffb/sim-dcs.md
       - IL-2: telemffb/sim-il2.md
       - Falcon BMS: telemffb/sim-bms.md
@@ -200,6 +203,7 @@ markdown_extensions:
 
 # Plugins
 plugins:
+  - glightbox
   - autorefs:
       link_titles: true
   - search
@@ -225,6 +229,7 @@ plugins:
         - telemffb/msfs-xp-trim-manual.md
         - telemffb/msfs-xp-helicopters.md
         - telemffb/telem-overrides.md
+        - telemffb/msfs-toolbar-panel.md
         - telemffb/sim-dcs.md
         - telemffb/sim-il2.md
         - telemffb/sim-bms.md

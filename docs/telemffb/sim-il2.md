@@ -3,6 +3,13 @@
 !!! info inline end ""
     [All settings available in IL-2](effects-sim-il2.md)
 
+## The DirectInput Tap
+
+Both IL-2 titles compute their own force feedback: dynamic stick forces and shake effects. The [DirectInput Tap](dinput-tap.md) captures those effects and renders them through TelemFFB, where each effect type gets an enable toggle and a gain, and the game's spring gets per-axis corrections. To render the captured spring, select the **Game Managed (DirectInput Tap)** joystick spring mode.
+
+### FFB pedals in IL-2 Korea
+
+IL-2 Korea is the only supported simulator that renders force feedback to pedals. With the tap capturing the pedals, the pedals instance offers the **Game Managed (DirectInput Tap, Korea Only)** pedal spring mode, the game's own pedal forces rendered by TelemFFB. The label notes Korea because IL-2 Great Battles has no pedal FFB.
 
 ## Duplicate 'Shake' effects
 

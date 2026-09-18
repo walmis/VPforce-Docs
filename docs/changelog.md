@@ -1,7 +1,31 @@
 # Changelog
+- **September 17, 2026:**
+
+    - Rewrote **[Aircraft Profiles](telemffb/aircraft-profiles.md)** for the new profile matching: [how an aircraft is matched](telemffb/aircraft-profiles.md#how-telemffb-matches-an-aircraft), the [Multiple matching profiles](telemffb/aircraft-profiles.md#when-your-profile-and-a-built-in-both-match) prompt and merge, and the [split button](telemffb/aircraft-profiles.md#giving-the-loaded-aircraft-its-own-profile). Updated the New Aircraft Wizard steps and screenshots.
+    - Updated **[Telemetry Overrides](telemffb/telem-overrides.md)** with the [Class, Default and User tiers](telemffb/telem-overrides.md#where-an-aircrafts-overrides-come-from), the editor's Source column, and [input events](telemffb/telem-overrides.md#input-events-b-variables) (`B:` variables).
+    - Corrected the cloning guidance in **[Aircraft with Special Treatment](telemffb/msfs-xp-special-aircraft.md)**: only some of these aircraft need a cloned profile, and the roster now says which.
+    - Added **[Device recovery](telemffb/devices-instances.md#device-recovery)** and updated the [device status indications](telemffb/ui-overview.md#deviceinstance-status-indications).
+    - Added **Device problems** and **[Reading the log](telemffb/troubleshooting.md#reading-the-log)** to Troubleshooting.
+    - Updated [UI Overview](telemffb/ui-overview.md), [How Settings Work](telemffb/settings-model.md) and the [helicopter force trim](telemffb/msfs-xp-helicopters.md#helicopter-force-trim) notes to match.
+
+- **September 13, 2026:**
+
+    - Added **[Effect Preview](telemffb/effect-preview.md)** - a new page on playing an effect on the device from the offline editor with no simulator running: the two ways into the editor (the Profiles menu and the **Offline/Preview Mode** button for a loaded aircraft), the **▶** and **▶▶** buttons, the tooltip that states what each preview represents, the confirmation for constant-force previews, and a table of every effect that can be previewed with what its preview plays
+    - Updated the [Profiles menu](telemffb/ui-overview.md#profiles-menu) and [Settings tab](telemffb/ui-overview.md#settings-tab) descriptions and the [offline editor](telemffb/settings-model.md#offlineglobal-simclass-configuration) section for the renamed **Offline Editor/Effect Preview** entry and the new corner button
+    - Restored the missing **AoA/Stall Buffeting** heading in the [Aerodynamics](telemffb/effects-aerodynamics.md#aoastall-buffeting) reference, so the entry no longer appears under Blade Slap and links to it resolve
+
 - **September 9, 2026:**
 
     - Added **[Black Box Not Reading the Grip](products/grip-adapters.md#black-box-not-reading-the-grip)** to the [Grip Adapters](products/grip-adapters.md) page - community-sourced fixes for when a VKB grip is not detected or its buttons do not reach the Rhino: flashing the correct Black Box firmware and pressing Default, running the Black Box in standalone mode, the Gunfighter Mk4 firmware-before-v2.20 requirement, and a continuity check of the connector's three contacts (with a pinout photo) to isolate wiring faults
+
+- **August 27, 2026:**
+
+    - Added **[The DirectInput Tap](telemffb/dinput-tap.md)** - a new page covering the game-side capture wrapper for DCS, IL-2, and Falcon BMS: what it does, per-sim setup from System Settings, the **Game Managed (DirectInput Tap)** spring modes (including IL-2 Korea's FFB pedals), per-effect-type toggles and gains for the game's own effects, the start-order rule, misconfiguration warnings, the configuration file, and updates/removal
+    - Documented **[multiple joysticks and per-aircraft device selection](telemffb/devices-instances.md#multiple-joysticks-msfs-x-plane)** for MSFS and X-Plane: alternate device rows on the joystick card, the primary marker, live switching at save, and the per-aircraft **Device** section
+    - Updated [System Settings](telemffb/configuration.md) for the reduced restart requirements (most changes now apply live; a restart is prompted only for master-device, auto-launch, or theme changes) and the DirectLink integration toggle with its status line
+    - Added DirectInput Tap cross-references and the tap spring mode to the [DCS](telemffb/sim-dcs.md), [IL-2](telemffb/sim-il2.md) (including Korea pedal FFB), and [BMS](telemffb/sim-bms.md) guides
+    - Documented the System Settings [File menu](telemffb/configuration.md#import-export-and-reset) - settings export/import for backup and machine migration, and Reset to Defaults, none of which commit until Save
+    - Rewrote [System Settings](telemffb/configuration.md) for the reorganized dialog - three tabs (Devices / System / Simulator Setup), the per-device Device Settings panels that replace the retired Startup Behavior page, the now-global update prompt setting, and the master-only dialog that configures every instance - with matching updates to [Devices & Instances](telemffb/devices-instances.md) (device cards carry the launch controls), the Quick Start, and [Connecting Your Simulator](telemffb/sim-setup.md)
 
 - **August 16, 2026:**
 

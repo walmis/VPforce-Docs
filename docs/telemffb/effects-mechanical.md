@@ -1,12 +1,14 @@
 # Mechanical & Airframe Effects
 
-Effects driven by the mechanical state of the aircraft - engine vibration, moving surfaces and doors, damage, hydraulics - in the order they appear under the **Mechanical\Airframe** section of the Settings tab. The badge lines and sub-setting tables are generated from the application's settings catalog, so they always match the app.
+Effects driven by the mechanical state of the aircraft (engine vibration, moving surfaces and doors, damage, hydraulics) in the order they appear under the **Mechanical\Airframe** section of the Settings tab. The badge lines and sub-setting tables are generated from the application's settings catalog, so they always match the app.
 
 ## Controls Lock
 
 <!-- telemffb-effect name=controls_lock_enable part=badges -->
 
 For aircraft with a control lock (gust lock): while the configured sim variable reports the lock engaged, TelemFFB holds the controls firmly in place.
+
+The variable can be an `L:Var`, a SimVar, or an MSFS 2024 input event written as `B:EVENT_NAME`. See [Input events](telem-overrides.md#input-events-b-variables) for how to find the name of a cockpit control.
 
 <!-- telemffb-effect name=controls_lock_enable part=table -->
 
@@ -30,7 +32,7 @@ Rumble while the afterburner is lit, scaled by afterburner stage where the telem
 
 <!-- telemffb-effect name=il2_prop_eng_shake_enabled part=badges -->
 
-IL-2 exports its physics engine's own computed engine-shake amplitude and frequency. These effects (one for props, one for jets) render that telemetry directly - startup lope, roughness, and damage arrive in the shake automatically. They are an alternative to the RPM-based rumble effects below: enable one or the other, not both.
+IL-2 exports its physics engine's own computed engine-shake amplitude and frequency. These effects (one for props, one for jets) render that telemetry directly: startup lope, roughness, and damage arrive in the shake automatically. They are an alternative to the RPM-based rumble effects below: enable one or the other, not both.
 
 <!-- telemffb-effect name=il2_prop_eng_shake_enabled part=table -->
 
@@ -40,7 +42,7 @@ IL-2 exports its physics engine's own computed engine-shake amplitude and freque
 
 <!-- telemffb-effect name=engine_prop_rumble_enabled part=badges -->
 
-RPM-driven piston-engine and propeller vibration. The two RPM/intensity pairs work together: at the *Low RPM* value the effect plays at *Low Intensity*, ramping toward *High Intensity* at the *High RPM* value. These are not floor values - below *Low RPM* (engine start, shutdown) the intensity keeps increasing above *Low Intensity*.
+RPM-driven piston-engine and propeller vibration. The two RPM/intensity pairs work together: at the *Low RPM* value the effect plays at *Low Intensity*, ramping toward *High Intensity* at the *High RPM* value. These are not floor values: below *Low RPM* (engine start, shutdown) the intensity keeps increasing above *Low Intensity*.
 
 !!! tip
     High-frequency vibration feels stronger than low-frequency vibration at equal intensity, so the *High RPM* intensity should be set **lower** than the *Low RPM* intensity.
@@ -67,7 +69,7 @@ Vibration while the canopy is opening or closing.
 
 <!-- telemffb-effect name=damage_effect_enabled part=badges -->
 
-A short bump in a random direction, at randomized intensity, each time the aircraft takes damage - some hits land harder than others by design.
+A short bump in a random direction, at randomized intensity, each time the aircraft takes damage; some hits land harder than others by design.
 
 <!-- telemffb-effect name=damage_effect_enabled part=table -->
 
@@ -127,7 +129,7 @@ Buffet while spoilers are deployed, and vibration while they move (motion effect
 
 <!-- telemffb-effect name=enable_stick_shaker part=badges -->
 
-A stall-warning stick shaker - the distinct high-frequency square-wave shake of the real device, separate from the aerodynamic [AoA/Stall Buffeting](effects-aerodynamics.md#aoastall-buffeting). In MSFS it triggers from the sim's stall warning; DCS/BMS use the configurable AoA threshold.
+A stall-warning stick shaker: the distinct high-frequency square-wave shake of the real device, separate from the aerodynamic [AoA/Stall Buffeting](effects-aerodynamics.md#aoastall-buffeting). In MSFS it triggers from the sim's stall warning; DCS/BMS use the configurable AoA threshold.
 
 <!-- telemffb-effect name=enable_stick_shaker part=table -->
 
@@ -150,10 +152,10 @@ Simulates the heavy, sluggish controls of a failing hydraulic system: as the *Hy
 <!-- telemffb-effect name=enable_hydraulic_loss_effect part=table -->
 
 !!! note
-    Requires the damper/inertia/friction [overrides](effects-ffb.md) to be enabled, and headroom left in them - if your base forces already sit at 100%, there is no room to increase them. To set the threshold for a new aircraft, observe the normal *HydSys* value in the Monitor tab and set the threshold below it.
+    Requires the damper/inertia/friction [overrides](effects-ffb.md) to be enabled, and headroom left in them; if your base forces already sit at 100%, there is no room to increase them. To set the threshold for a new aircraft, observe the normal *HydSys* value in the Monitor tab and set the threshold below it.
 
 !!! warning
-    Increase these forces carefully - too much inertia or friction can cause motor instability and a protective shutdown.
+    Increase these forces carefully; too much inertia or friction can cause motor instability and a protective shutdown.
 
 ## Vibration from Telemetry (FlyInside)
 

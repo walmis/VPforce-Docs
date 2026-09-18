@@ -6,7 +6,7 @@ Non-effect settings that can be configured per aircraft, in the order they appea
 
 <!-- telemffb-effect name=telemffb_profile -->
 
-Selects a named TelemFFB settings profile to activate for this aircraft - see [Aircraft Profiles](aircraft-profiles.md).
+Selects a named TelemFFB settings profile to activate for this aircraft; see [Aircraft Profiles](aircraft-profiles.md).
 
 ## Configurator File
 
@@ -18,7 +18,7 @@ Pushes a specific `.vpconf` file (created with VPforce Configurator) to the devi
 
 <!-- telemffb-effect name=configurator_override_enabled part=badges -->
 
-Directly modifies the per-effect-type gain sliders on the device when this aircraft loads - a lighter-weight alternative to pushing a whole `.vpconf` file. See [VPconf Profiles & Gain Overrides](vpconf-profiles.md#dynamic-configurator-gain-overrides).
+Directly modifies the per-effect-type gain sliders on the device when this aircraft loads, a lighter-weight alternative to pushing a whole `.vpconf` file. See [VPconf Profiles & Gain Overrides](vpconf-profiles.md#dynamic-configurator-gain-overrides).
 
 <!-- telemffb-effect name=configurator_override_enabled part=table -->
 
@@ -26,7 +26,7 @@ Directly modifies the per-effect-type gain sliders on the device when this aircr
 
 <!-- telemffb-effect name=command_runner_enabled part=badges -->
 
-Executes a shell command when the aircraft loads - start a companion utility, run a batch script, or any other action executable from a command line.
+Executes a shell command when the aircraft loads: start a companion utility, run a batch script, or any other action executable from a command line.
 
 !!! warning
     The command runs exactly as entered, with no validation. Treat it with the same care as anything you would type into a terminal.

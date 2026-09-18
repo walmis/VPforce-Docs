@@ -3,7 +3,7 @@
 Manual tuning of the elevator trim gain is slow and error prone. The **Elevator Trim Calibration** tool automates it: TelemFFB flies the aircraft briefly, sweeps the elevator trim through its range while holding the aircraft level, measures the stick input for each trim setting, and computes the correct *Y Trim Gain Virtual* value — or a full response **curve** for aircraft that need one.
 
 !!! warning
-    While a calibration is running, **TelemFFB is actively flying your aircraft** - it manipulates the trim and the elevator/aileron axes to hold the aircraft level. Keep your **hands off the controls**, keep the **autopilot off**, and be **ready to take over** and press **Abort** at any time. Only run it with safe altitude and airspace.
+    While a calibration is running, **TelemFFB is actively flying your aircraft**: it manipulates the trim and the elevator/aileron axes to hold the aircraft level. Keep your **hands off the controls**, keep the **autopilot off**, and be **ready to take over** and press **Abort** at any time. Only run it with safe altitude and airspace.
 
 !!! note
     Calibration applies to the **elevator (Y) axis of a joystick** only, and is run from the master TelemFFB instance.
@@ -23,13 +23,13 @@ Open the calibration tool from the **Trim Curve Calibration → Calibrate…** b
 
 The window shows:
 
-- **Instructions** and a **live status** panel - airspeed, pitch, vertical speed, bank, current trim, and the engine's current state. A **status light** turns green when the aircraft meets the preconditions and the run is ready to begin.
-- A **result graph** - plotting the elevator axis required to hold level (vertical) against elevator trim (horizontal). It fills in as the sweep progresses.
+- **Instructions** and a **live status** panel: airspeed, pitch, vertical speed, bank, current trim, and the engine's current state. A **status light** turns green when the aircraft meets the preconditions and the run is ready to begin.
+- A **result graph**, plotting the elevator axis required to hold level (vertical) against elevator trim (horizontal). It fills in as the sweep progresses.
 - **Start / Abort** and, once a result is available, **Apply / Save**.
 
 ## Running a Calibration
 
-With the aircraft trimmed, level and stable - and the readiness light green - press **Start**. TelemFFB takes over: it makes a few small control inputs to learn the aircraft's response, settles it into level flight, finds the natural trim point, then sweeps the trim while recording the stick input needed at each step. A red banner reminds you it is in control, and the status line reports the current phase.
+With the aircraft trimmed, level and stable, with the readiness light green, press **Start**. TelemFFB takes over: it makes a few small control inputs to learn the aircraft's response, settles it into level flight, finds the natural trim point, then sweeps the trim while recording the stick input needed at each step. A red banner reminds you it is in control, and the status line reports the current phase.
 
 ![A calibration in progress, showing the red "TelemFFB is controlling your aircraft" banner, live telemetry, the SWEEP status, and a data point being plotted](images/msfs-xp-trim-following/calibration_in_progress.png){ width="480px" }
 
@@ -46,12 +46,12 @@ When the sweep finishes, the graph shows the measured data points and the fit. T
 - **Linearity (R²)** - how straight the measured response is. A value close to 1.00 means the aircraft responds almost linearly and the static value alone will work well; a lower value means the response is curved and the calibrated curve is worth using.
 - **Use calibrated curve (recommended)** - the checkbox that decides which is applied and saved. It defaults to the recommendation.
 
-The tool may also note things worth knowing - for example that the trim response is **asymmetric** (stronger on one side of neutral than the other), or that the **airspeed drifted** during the sweep and the run should be repeated with steadier power.
+The tool may also note things worth knowing, for example that the trim response is **asymmetric** (stronger on one side of neutral than the other), or that the **airspeed drifted** during the sweep and the run should be repeated with steadier power.
 
 ## Applying and Saving
 
-- **Apply (test in sim)** loads the result live **without saving it**, so you can fly-test it immediately. To test: fly straight and level, **hold the stick still**, and slowly run the trim nose-up then nose-down through its range. With a good value the **nose stays level** as you trim - the stick relieves under force feedback but the aircraft does not pitch. If the nose drifts, re-run the calibration or toggle the curve on/off to compare.
-- **Save** writes the result to the current aircraft's profile - the static *Y Trim Gain Virtual* value, the calibrated curve, and the **Use Calibrated Trim Curve** setting all together - so you can switch between the curve and the static value at any time from the settings.
+- **Apply (test in sim)** loads the result live **without saving it**, so you can fly-test it immediately. To test: fly straight and level, **hold the stick still**, and slowly run the trim nose-up then nose-down through its range. With a good value the **nose stays level** as you trim: the stick relieves under force feedback but the aircraft does not pitch. If the nose drifts, re-run the calibration or toggle the curve on/off to compare.
+- **Save** writes the result to the current aircraft's profile: the static *Y Trim Gain Virtual* value, the calibrated curve, and the **Use Calibrated Trim Curve** setting all together, so you can switch between the curve and the static value at any time from the settings.
 
 A saved curve is shown (read-only, with its capture date and airspeed) whenever you re-open the calibration tool for that aircraft.
 
