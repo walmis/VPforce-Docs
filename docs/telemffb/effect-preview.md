@@ -105,6 +105,7 @@ Each effect links to its entry in the [Effects Reference](effects-overview.md).
 | [Fuel Boom/Door Motion](effects-mechanical.md#fuel-boomdoor-motion) | DCS | the boom or door extending over 3 s, with the clunk |
 | [Gear Buffet](effects-mechanical.md#gear-buffet) | DCS, BMS, MSFS, XP | gear down at the top of the buffet speed band, 5 s |
 | [Gear Motion](effects-mechanical.md#gear-motion) | DCS, IL2, BMS, MSFS, XP | one gear cycle, up to down, with the clunk as it locks |
+| [Low Hydraulic Pressure Effect](effects-mechanical.md#low-hydraulic-pressure-effect-experimental) | DCS, BMS, MSFS | a full hydraulic failure and recovery: damper and friction rise from the Damper and Friction Override values to the loss values over 2.5 s, hold 3 s, and fall back over 2.5 s. Both overrides must be enabled; a custom hydraulic variable is not read |
 | [Speedbrake Buffet](effects-mechanical.md#speedbrake-buffet-speedbrake-motion) | DCS, BMS, XP | the speedbrake fully deployed at 100 m/s for 5 s |
 | [Speedbrake Motion](effects-mechanical.md#speedbrake-buffet-speedbrake-motion) | DCS, BMS, XP | the speedbrake traveling from retracted to deployed over 3 s |
 | [Spoiler Buffet](effects-mechanical.md#spoiler-buffet-spoiler-motion) | DCS, BMS, MSFS, XP | spoilers fully deployed at the profile's upper speed threshold for 5 s |

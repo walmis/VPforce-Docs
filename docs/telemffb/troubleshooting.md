@@ -4,20 +4,21 @@ Most real-world problems are simulator connection issues, and the detailed check
 
 ## Read the status area first
 
-The main window's status area narrows the problem immediately:
+The main window's **Application Status** box narrows the problem immediately:
 
 - **Running** - the sim is connected and telemetry is flowing. If something feels wrong, it is configuration, not connectivity; check the loaded settings via **Current Aircraft**, **Matched Model**, and **Active Profile**.
 - **Paused** - telemetry stopped arriving, or the sim is paused.
-- **Error** - a configuration problem. The error message shown alongside describes the condition and how to resolve it.
+- **Error** - a configuration problem. The error message below **Active Profile** names the device, and describes the condition and how to resolve it. If there are several errors, the box shows one at a time, and the [exception viewer](#exception-tracking-reporting) lists all of them. A corrected error clears only while the sim is running and not paused. See [Configuration errors](ui-overview.md#configuration-errors).
 
-See [Device/Instance Status Indications](ui-overview.md#deviceinstance-status-indications) for details. The **Monitor tab** shows the raw telemetry and every active effect in real time, useful for confirming what TelemFFB is actually receiving and playing.
+See [Device/Instance Status Indications](ui-overview.md#deviceinstance-status-indications) for details. The **Monitor tab** shows the raw telemetry and every active effect in real time, with the current intensity of each effect. Use it to confirm what TelemFFB is actually receiving and playing. See [Monitor Tab](ui-overview.md#monitor-tab).
 
 ## Device problems
 
-The icons in the **Active Devices** area show the state of each device:
+The device icons show the state of each device, in the **Active Devices** panel or wherever you [chose to show them](ui-overview.md#where-the-devices-are-shown):
 
 - **Yellow** - the device dropped off. TelemFFB retries on its own and recovers when the device returns, on the same USB port or a different one.
 - **Red** - the configured device was not found at startup, or the instance has an error. Check the USB connection and the device's power. TelemFFB picks the device up as soon as it appears; a restart is not needed.
+- **Grey** - no device is configured for that role. See [Devices and Instances](devices-instances.md).
 
 After a power cycle the firmware has lost everything it held in memory. TelemFFB sends the active VPforce Configurator profile, the gain overrides and the deadzone again. See [Device recovery](devices-instances.md#device-recovery).
 
@@ -64,7 +65,7 @@ The dialog has two optional fields:
 **Log → Open Console Log** shows the live log. Two kinds of entries help with specific problems:
 
 - **`Main thread stalled`** - the main window stopped responding for three seconds. TelemFFB writes what every part of the application was doing at that moment, once per stall, and notes when the window recovers. Include the log in a support request; these entries name the cause. Dragging a window or holding a title-bar button does not trigger them.
-- **`axis contention`** (MSFS) - with [Axis Control](msfs-xp-axis-spring.md) enabled, TelemFFB checks whether something else is also moving the axis it drives. A line marked `CONTENDED` names an axis that a second source is writing, which is usually a control binding left mapped inside MSFS, or an external tool. A line marked `clean` means no second source was seen. An `unverified` line asks you to move the control through its range first.
+- **`axis contention`** (MSFS) - with [Axis Control](msfs-xp-axis-spring.md) enabled, TelemFFB checks whether something else is also moving the axis it drives. A line marked `CONTENDED` names an axis that a second source is writing, which is usually a control binding left mapped inside MSFS, or an external tool; it is logged when the control keeps jumping in ways TelemFFB did not command, which you would also see as the control flopping in the cockpit. A line marked `clean` means no second source was seen. An `unverified` line names an axis TelemFFB watches but does not judge yet.
 
 ## Getting help
 

@@ -141,6 +141,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.footer
     - toc.integrate
   palette:
     scheme: default

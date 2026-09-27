@@ -88,7 +88,9 @@ Changing a device on the Devices tab also takes effect at once. See [System Sett
 
 ## Working with child instances
 
-After starting TelemFFB with auto-launch enabled, all of the device icons appear in the master instance's **Active Devices** area. From there you can monitor each device's status and switch between devices to configure their settings; each device has its own settings for every aircraft, so your pedals and joystick are tuned independently. See [Active Devices Area](ui-overview.md#active-devices-area) for details.
+After starting TelemFFB with auto-launch enabled, all of the device icons appear in the master instance's **Active Devices** area. From there you can monitor each device's status and switch between devices to configure their settings; each device has its own settings for every aircraft, so your pedals and joystick are tuned independently. See [Active Devices Area](ui-overview.md#active-devices-area) for details. You can also show the device icons in a compact strip, in one of several places; see [Where the Devices Are Shown](ui-overview.md#where-the-devices-are-shown).
+
+When you switch the master to a child device, the master's **Monitor** tab shows that device's telemetry and active effects. The child instance sends its telemetry to the master while you look at it. See [Child device data](ui-overview.md#child-device-data).
 
 To bring up the window of a minimized or headless child instance:
 

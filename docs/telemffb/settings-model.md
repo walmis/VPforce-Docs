@@ -40,6 +40,7 @@ The Settings tab shows the *resolved* value of every setting for the loaded airc
 
 - A setting you changed for this aircraft shows an **x** icon. Click it to remove your override and fall back to the inherited value.
 - **Right-click the x** icon to promote your value to the **class** or **sim** level, so it applies to every aircraft of that class or sim. An information icon then marks the setting; hover it to see which level the override lives at.
+- **Right-click the information icon** to remove the class or sim override. Every aircraft that used it goes back to the value below it. You can do this from a loaded aircraft; you do not have to open the offline editor.
 
 See [Modifying settings in real time](ui-overview.md#modifying-settings-in-real-time) for a visual walkthrough of these controls.
 
@@ -50,7 +51,7 @@ The offline editor edits sim defaults, class defaults, or a specific aircraft an
 
 In the offline editor, most effects can be played on the device at their configured strength. See [Effect Preview](effect-preview.md).
 
-![](images/aircraft-profiles/offline-editor.png){ width="467px" height="581px" }
+![The main window in offline editing mode, with the Offline Editor Setup area above the tabs](images/aircraft-profiles/offline-editor.png){ width="600px" }
 
 Use the selection boxes in the Offline Editor Setup area to select a sim, class, aircraft or user profile to modify.
 

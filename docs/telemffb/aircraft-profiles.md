@@ -93,88 +93,31 @@ After accessing the wizard via one of the two methods above, simply follow the s
 
 ## When Your Profile and a Built-In Both Match
 
-TelemFFB updates ship new built-in profiles. One of them may cover an aircraft that you already made a profile for. Both then match the aircraft, and TelemFFB asks you what to do.
-
-The main window shows a **Multiple matching profiles detected** prompt. If the window is hidden or minimized, a tray notification appears as well. Click the prompt to open the dialog.
+A TelemFFB update can ship a built-in profile for an aircraft you already made a profile for. When both match the loaded aircraft, the main window shows a **Multiple matching profiles detected** prompt, and a tray notification if the window is hidden. Click the prompt to decide what to do.
 
 ![The Multiple matching profiles prompt on the main window](images/aircraft-profiles/multi-match-prompt.png){ width="650px" }
 
-The more specific of the two match strings names the aircraft, and the built-in wins a tie. The dialog says which one matched and why.
+The more specific match string names the aircraft, and the built-in wins a tie. The dialog says which side applies today, and lists the settings and telemetry overrides of both next to the result of a merge. **Bold** rows would change if you merge. Amber rows are values the two sides set differently; yours wins. Hover a button to see exactly what it does.
 
 ![The Multiple matching profiles dialog, showing the built-in, your profile and the merged result side by side](images/aircraft-profiles/multi-match-dialog.png){ width="760px" }
 
-### Reading the dialog
+- **Merge into the built-in** - your profiles and telemetry overrides move to the built-in as user profiles, and your active profile stays active. **User Default** becomes **Auto User**. Nothing you set is lost. If your match string was broader than the built-in's, it stays for the other aircraft it names, and your profiles are copied instead of moved.
+- **Keep mine** / **Don't ask again** - leave everything as it is. Offered only while your settings still apply: when your match string is the more specific one, or identical to the built-in's.
+- **Not now** - decide later. The prompt stays until you answer.
 
-The table lists every setting and telemetry override that either profile holds. It has three value columns:
-
-- **Built-in** - what the built-in profile sets.
-- **Yours** - what your active profile sets.
-- **Post Merge** - what would be in effect after a merge.
-
-Each column heading names its match string and profile. The heading also says whether that side is applied today.
-
-- Rows that a merge would change are shown in bold.
-- A row where the two profiles set the same thing to different values is a conflict, shown in amber. Your value stands after a merge, as it does on any built-in profile.
-- Values are compared by meaning. `0.5` and `0.50` are the same value, and so are `10kt` and `5.1444m/s`.
-- If the built-in profile ships with notes, they appear above the table.
-
-Hover any button to see exactly what it does.
-
-### Your choices
-
-| Which profile names the aircraft | Your settings today | Buttons offered |
-|---|---|---|
-| Yours, because it is more specific | In effect | Merge, Keep mine, Not now |
-| The built-in, with the identical match string | In effect, on top of the built-in | Merge, Don't ask again, Not now |
-| The built-in, in every other case | Not in effect | Merge, Not now |
-
-- **Merge into the built-in** - your profiles become user profiles of the built-in, which then names the aircraft. Nothing you set is lost.
-- **Keep mine** and **Don't ask again** - leave everything as it is. TelemFFB remembers the answer.
-- **Not now** - close without deciding. The prompt returns the next time the aircraft loads. Closing the dialog window does the same.
-
-![The dialog when your profile is the more specific one, offering Keep mine](images/aircraft-profiles/multi-match-yours-wins.png){ width="700px" }
-
-![The dialog when both profiles use the identical match string, offering Don't ask again](images/aircraft-profiles/multi-match-same-string.png){ width="700px" }
-
-A permanent "no" is offered only while your settings still reach the aircraft. In the last row of the table they reach nothing, so a permanent "no" would hide that. The prompt stays until you merge.
-
-### What a merge does
-
-- Every profile under your match string moves to the built-in, not only the active one.
-- **User Default**, the base profile of an aircraft you added, becomes **Auto User**. That is the profile a slider change on a built-in aircraft creates. Your other profiles keep their names. If the built-in already has a profile of the same name, the incoming one gets a suffix that says where it came from.
-- Your telemetry overrides move with the profiles.
-- Each moved profile's notes record the match string it came from.
-- The profile that was active stays active.
-
-What happens to your old match string depends on how much it covered:
-
-- If it covered exactly what the built-in covers, it is removed. `AH-6J` and `AH-6J.*` are such a pair.
-- If it was broader, it stays in place. It may be the only profile that names your other aircraft, so the merge copies from it.
-- If it was the identical string, nothing moves. Your separate aircraft entry is dropped and its settings become a user profile of the built-in. The values in effect do not change.
-
-### Changing your mind
-
-TelemFFB remembers an answer for the pair of match strings, not for one aircraft. The answer covers every aircraft that both match strings fit.
-
-- A "Keep mine" or "Don't ask again" answer lapses when a later release changes what the built-in profile does. TelemFFB then asks again, so a built-in that gains something useful is not hidden by an old answer. A change to the built-in's notes alone does not count.
-- To be asked again now, choose **Profiles → Reset Dismissed Profile Prompts**. The prompt returns at once for the loaded aircraft, and on the next load for the others. Your configuration does not change. The item is greyed out when there is nothing to reset.
-- A merge cannot be reset, because it changed your configuration. The moved profiles stay where they are.
-
-![The Reset Dismissed Profile Prompts item in the Profiles menu](images/aircraft-profiles/reset-dismissed-prompts.png){ width="400px" }
-
-The answers are kept in `match_history.json`, beside your user configuration in `%LOCALAPPDATA%\VPForce-TelemFFB`. The file is not part of an exported profile. A configuration reset clears it.
+A **Keep mine** or **Don't ask again** answer lapses when a later release changes the built-in profile, and TelemFFB asks again. To be asked again now, use **Profiles → Reset Dismissed Profile Prompts**. A merge is permanent.
 
 ## Giving the Loaded Aircraft Its Own Profile
 
-A broad profile can cover many liveries or variants of an aircraft. Sometimes one of them needs settings of its own. The **split button** beside **Matched Model** in the status area does this without any hand-editing.
+A broad profile can cover many liveries or variants of an aircraft. Sometimes one of them needs settings of its own. The **fork button** beside **Matched Model** in the status area does this without any hand-editing: it forks the loaded aircraft off its current match onto a new, more specific one.
 
-![The status area, with the split button beside the Matched Model row](images/aircraft-profiles/split-button.png){ width="400px" }
+![The status area, with the fork button beside the Matched Model row](images/aircraft-profiles/split-button.png){ width="450px" }
 
 The button is available once a profile names the loaded aircraft. It is disabled on child instances and in the offline editor. When nothing matches, the **No Profile Found for** prompt takes its place.
 
 Click the button to open the New Aircraft Wizard, already filled in for the loaded aircraft:
 
-![The New Aircraft Wizard opened from the split button](images/aircraft-profiles/split-wizard.png){ width="600px" }
+![The New Aircraft Wizard opened from the fork button](images/aircraft-profiles/split-wizard.png){ width="600px" }
 
 1. Check the aircraft class. It is preselected from the profile in effect now. Click **Next**.
 
@@ -188,7 +131,7 @@ Click the button to open the New Aircraft Wizard, already filled in for the load
     - **Inherit settings from the current match / profile** copies the settings and telemetry overrides of the profile in effect now. Use this when the aircraft is close to its neighbors and needs a few changes. The **Clone From** list shows the profile it copies.
     - **Create a new model with no inherited settings** starts with the aircraft class and nothing else. Use this when the aircraft matched the wrong profile. This choice is not available for classes that must be cloned.
 
-![The match string page when opened from the split button, with the choice between inheriting and starting new](images/aircraft-profiles/split-wizard-choice.png){ width="600px" }
+![The match string page when opened from the fork button, with the choice between inheriting and starting new](images/aircraft-profiles/split-wizard-choice.png){ width="600px" }
 
 After you finish, the new profile names the aircraft at once. The other aircraft that the broader profile covers are not affected.
 

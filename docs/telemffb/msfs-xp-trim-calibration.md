@@ -6,7 +6,7 @@ Manual tuning of the elevator trim gain is slow and error prone. The **Elevator 
     While a calibration is running, **TelemFFB is actively flying your aircraft**: it manipulates the trim and the elevator/aileron axes to hold the aircraft level. Keep your **hands off the controls**, keep the **autopilot off**, and be **ready to take over** and press **Abort** at any time. Only run it with safe altitude and airspace.
 
 !!! note
-    Calibration applies to the **elevator (Y) axis of a joystick** only, and is run from the master TelemFFB instance.
+    Calibration applies to the **elevator (Y) axis of a joystick** only, and is run from the master TelemFFB instance. It is available for **fixed-wing aircraft in MSFS and X-Plane** only. For a helicopter, or an aircraft in a different simulator, TelemFFB tells you why the tool cannot open.
 
 ## Before You Start
 
@@ -18,6 +18,10 @@ Manual tuning of the elevator trim gain is slow and error prone. The **Elevator 
 ## Opening the Tool
 
 Open the calibration tool from the **Trim Curve Calibration → Calibrate…** button in the Trim Following settings, or from the **Utilities** menu (*Elevator Trim Calibration…*).
+
+When you load a fixed-wing aircraft that has no stored calibration, the amber prompt **No Trim Calibration Found for this Aircraft** appears above the tabs. Click it to open the tool. The prompt also shows when Trim Following is not enabled yet; the tool then tells you how to enable it. The prompt goes away when you save a calibration for the aircraft. See [Prompts](ui-overview.md#prompts).
+
+![The amber No Trim Calibration Found prompt above the tabs](images/msfs-xp-trim-following/trim-cal-prompt.png){ width="600px" }
 
 ![The Elevator Trim Calibration window before a run, showing the instructions, a live status panel, an empty result graph, and the Start/Abort/Apply/Save/Close buttons](images/msfs-xp-trim-following/calibration_dialog.png){ width="480px" }
 

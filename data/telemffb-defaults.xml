@@ -6,6 +6,31 @@
 -->
 <TelemFFB>
 	<defaults>
+		<grouping>Device</grouping>
+		<order>40.0</order>
+		<displayname>Device</displayname>
+		<MSFS>true</MSFS>
+		<XPLANE>true</XPLANE>
+		<joystick>true</joystick>
+		<value>true</value>
+		<datatype>group</datatype>
+		<name>device_group</name>
+	</defaults>
+	<defaults>
+		<grouping>Device</grouping>
+		<parentgroup>device</parentgroup>
+		<order>41</order>
+		<displayname>Joystick Device</displayname>
+		<prereq>device_group</prereq>
+		<info>Which of the configured joystick devices this aircraft uses.&lt;br&gt;&lt;br&gt;'Primary (default)' is the device marked in System Settings; the * in the list marks which named device that currently is.  Picking another configured device switches to it while this aircraft is loaded and back to the primary afterward - nothing changes in System Settings.&lt;br&gt;&lt;br&gt;If the referenced device is later replaced in System Settings, TelemFFB offers to update the aircraft settings that reference it.</info>
+		<MSFS>true</MSFS>
+		<XPLANE>true</XPLANE>
+		<joystick>true</joystick>
+		<value>primary</value>
+		<datatype>devicelist</datatype>
+		<name>joystick_device</name>
+	</defaults>
+	<defaults>
 		<grouping>Basic</grouping>
 		<order>50.0</order>
 		<datatype>group</datatype>
@@ -15,6 +40,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -66,6 +92,7 @@
 		<info>Aircraft Type</info>
 		<any>true</any>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -86,7 +113,7 @@
 		<pedals>true</pedals>
 		<collective>true</collective>
 		<trimwheel>true</trimwheel>
-		<validvalues>PropellerAircraft,TurbopropAircraft,JetAircraft,GliderAircraft,Helicopter,HPGHelicopter,SASHelicopter,FlyInsideHelicopter,CowanSimHelicopter,TaogH500Helicopter</validvalues>
+		<validvalues>PropellerAircraft,TurbopropAircraft,JetAircraft,GliderAircraft,Helicopter,HPGHelicopter,SASHelicopter,FlyInsideHelicopter,CowanSimHelicopter,TaogH500Helicopter,FFBApiHelicopter</validvalues>
 	</defaults>
 	<defaults>
 		<grouping>Basic</grouping>
@@ -418,6 +445,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<collective>true</collective>
 		<validvalues>DCS_HELI_COLLECTIVE_SPRING_MODE</validvalues>
 	</defaults>
@@ -439,10 +467,34 @@
 		<parentgroup>basic</parentgroup>
 		<order>700.0</order>
 		<name>spring_mode</name>
+		<displayname>Joystick Spring Mode</displayname>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<validvalues>IL2K_JOYSTICK_SPRING_MODE</validvalues>
+		<datatype>enumlist</datatype>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>700.0</order>
+		<name>spring_mode</name>
 		<displayname>Pedal Spring Mode</displayname>
 		<IL2>true</IL2>
 		<pedals>true</pedals>
 		<validvalues>IL2_PEDAL_SPRING_MODE</validvalues>
+		<datatype>enumlist</datatype>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>700.0</order>
+		<name>spring_mode</name>
+		<displayname>Pedal Spring Mode</displayname>
+		<IL2K>true</IL2K>
+		<pedals>true</pedals>
+		<validvalues>IL2K_PEDAL_SPRING_MODE</validvalues>
 		<datatype>enumlist</datatype>
 	</defaults>
 	<defaults>
@@ -458,6 +510,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<pedals>true</pedals>
 		<validvalues>0,100</validvalues>
 		<value>.75</value>
@@ -476,6 +529,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<pedals>true</pedals>
 		<validvalues>m/s,kt,mph,kph</validvalues>
 		<value>87</value>
@@ -494,6 +548,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<pedals>true</pedals>
 		<validvalues>0,100</validvalues>
 		<value>0.25</value>
@@ -512,6 +567,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<pedals>true</pedals>
 		<validvalues>m/s,kt,mph,kph</validvalues>
 		<value>438</value>
@@ -530,6 +586,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<pedals>true</pedals>
 		<validvalues>0,100</validvalues>
 		<value>1.0</value>
@@ -546,6 +603,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<value>none</value>
@@ -563,6 +621,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<value>false</value>
@@ -576,6 +635,7 @@
 		<displayname>Trim Reset</displayname>
 		<prereq>adv_spr_use_hardware_trim</prereq>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<value>0</value>
@@ -587,6 +647,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>770.34</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_down</name>
 		<displayname>&lt;html&gt;&lt;body&gt;&lt;table cellpadding="0" cellspacing="0" border="0"&gt;&lt;tr&gt;&lt;td style="vertical-align: middle;"&gt;Trim&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td style="font-size: 24px; vertical-align: middle; font-weight: bold;"&gt;&#x21E7;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</displayname>
@@ -602,6 +663,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>770.36</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_up</name>
 		<displayname>&lt;html&gt;&lt;body&gt;&lt;table cellpadding="0" cellspacing="0" border="0"&gt;&lt;tr&gt;&lt;td style="vertical-align: middle;"&gt;Trim&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td style="font-size: 24px; vertical-align: middle; font-weight: bold;"&gt;&#x21E9;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</displayname>
@@ -617,6 +679,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>770.38</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_left</name>
 		<displayname>&lt;html&gt;&lt;body&gt;&lt;table cellpadding="0" cellspacing="0" border="0"&gt;&lt;tr&gt;&lt;td style="vertical-align: middle;"&gt;Trim&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td style="font-size: 24px; vertical-align: middle; font-weight: bold;"&gt;&#x21E6;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</displayname>
@@ -633,6 +696,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>770.40</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_right</name>
 		<displayname>&lt;html&gt;&lt;body&gt;&lt;table cellpadding="0" cellspacing="0" border="0"&gt;&lt;tr&gt;&lt;td style="vertical-align: middle;"&gt;Trim&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td style="font-size: 24px; vertical-align: middle; font-weight: bold;"&gt;&#x21E8;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</displayname>
@@ -649,6 +713,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>770.42</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>d_int</datatype>
 		<name>override_spring_trim_rate</name>
 		<displayname>Trim Slew Rate</displayname>
@@ -682,6 +747,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>800.2</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>float</datatype>
 		<name>override_spring_gain</name>
 		<displayname>Override Spring Gain</displayname>
@@ -694,10 +760,346 @@
 	</defaults>
 	<defaults>
 		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.2</order>
+		<displayname>Tap: Axis Corrections</displayname>
+		<prereq>spring_mode.DINPUT_TAP.ADVANCED</prereq>
+		<info>Orientation corrections applied to the game spring and effects received via the DirectInput tap.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>true</value>
+		<datatype>group</datatype>
+		<name>tap_axis_group</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.22</order>
+		<displayname>Tap: Swap X/Y FFB Axes</displayname>
+		<prereq>tap_axis_group</prereq>
+		<info>Swap the X and Y axes of the game spring received via the DirectInput tap.&lt;br&gt;&lt;br&gt;Counterpart to in-game FFB tuning settings (e.g. DCS FFTune 'Swap Axes'): those alter the FFB the game emits and distort the tapped spring, so leave them at neutral in the game and apply any needed correction here instead.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<value>false</value>
+		<datatype>bool</datatype>
+		<name>tap_spring_swap_axes</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.23</order>
+		<displayname>Tap: Invert X Axis FFB</displayname>
+		<prereq>tap_axis_group</prereq>
+		<info>Invert the X (roll) direction of the game spring received via the DirectInput tap.&lt;br&gt;&lt;br&gt;Counterpart to in-game FFB tuning settings (e.g. DCS FFTune 'Invert X'): those alter the FFB the game emits and distort the tapped spring, so leave them at neutral in the game and apply any needed correction here instead.&lt;br&gt;&lt;br&gt;Use if the spring center moves the wrong way left/right when trimming.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>false</value>
+		<datatype>bool</datatype>
+		<name>tap_spring_invert_x</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.24</order>
+		<displayname>Tap: Invert Y Axis FFB</displayname>
+		<prereq>tap_axis_group</prereq>
+		<info>Invert the Y (pitch) direction of the game spring received via the DirectInput tap.&lt;br&gt;&lt;br&gt;Counterpart to in-game FFB tuning settings (e.g. DCS FFTune 'Invert Y'): those alter the FFB the game emits and distort the tapped spring, so leave them at neutral in the game and apply any needed correction here instead.&lt;br&gt;&lt;br&gt;Use if the spring center moves the wrong way fore/aft when trimming.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<value>false</value>
+		<datatype>bool</datatype>
+		<name>tap_spring_invert_y</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.25</order>
+		<displayname>Tap: Spring Gain</displayname>
+		<prereq>spring_mode.DINPUT_TAP</prereq>
+		<info>Per-axis force gain on the game spring received via the DirectInput tap.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>true</value>
+		<datatype>group</datatype>
+		<name>tap_gain_group</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.252</order>
+		<displayname>Tap: X Axis Spring Gain</displayname>
+		<prereq>tap_gain_group</prereq>
+		<info>Force gain on the X (roll) axis of the game spring received via the DirectInput tap.  100% renders the spring exactly as the game commanded; raise it if the game's native forces feel weak.&lt;br&gt;&lt;br&gt;Applies to the axis as rendered on the device: with 'Swap X/Y FFB Axes' enabled, this scales whichever game axis ends up on X.  Spring centering positions are unaffected - only the force gradient scales.&lt;br&gt;&lt;br&gt;The % shown on the slider handle is the current rendered spring force - pinned at 100% means the gain is clipping at the device's maximum.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>1.0</value>
+		<datatype>n_float</datatype>
+		<sliderfactor>1</sliderfactor>
+		<validvalues>0,200</validvalues>
+		<name>tap_spring_gain_x</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.253</order>
+		<displayname>Tap: Y Axis Spring Gain</displayname>
+		<prereq>tap_gain_group</prereq>
+		<info>Force gain on the Y (pitch) axis of the game spring received via the DirectInput tap.  100% renders the spring exactly as the game commanded; raise it if the game's native forces feel weak.&lt;br&gt;&lt;br&gt;Applies to the axis as rendered on the device: with 'Swap X/Y FFB Axes' enabled, this scales whichever game axis ends up on Y.  Spring centering positions are unaffected - only the force gradient scales.&lt;br&gt;&lt;br&gt;The % shown on the slider handle is the current rendered spring force - pinned at 100% means the gain is clipping at the device's maximum.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<value>1.0</value>
+		<datatype>n_float</datatype>
+		<sliderfactor>1</sliderfactor>
+		<validvalues>0,200</validvalues>
+		<name>tap_spring_gain_y</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.3</order>
+		<displayname>Tap: Additional Game Effects</displayname>
+		<prereq>spring_mode.DINPUT_TAP.ADVANCED</prereq>
+		<info>The DirectInput tap mirrors everything the game plays, not just the spring.  Each type of additional game effect can be rendered or dropped independently, with its own gain.  The axis corrections above apply to these effects as well.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>true</value>
+		<datatype>group</datatype>
+		<name>tap_effects_group</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.32</order>
+		<displayname>Tap: Constant Forces</displayname>
+		<prereq>tap_effects_group</prereq>
+		<info>Render the game's constant-force effects received via the DirectInput tap - stick kicks, gun recoil, control impulses.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>true</value>
+		<datatype>bool</datatype>
+		<name>tap_effect_constant</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.321</order>
+		<displayname>Tap: Constant Force Gain</displayname>
+		<prereq>tap_effect_constant</prereq>
+		<info>Force gain on the game's constant-force effects.  100% renders them exactly as the game commanded; raise it if the game's native forces feel weak.&lt;br&gt;&lt;br&gt;The % shown on the slider handle is the current rendered force - pinned at 100% means the gain is clipping at the device's maximum.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>1.0</value>
+		<datatype>n_float</datatype>
+		<sliderfactor>1</sliderfactor>
+		<validvalues>0,200</validvalues>
+		<name>tap_effect_constant_gain</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.33</order>
+		<displayname>Tap: Periodic Vibrations</displayname>
+		<prereq>tap_effects_group</prereq>
+		<info>Render the game's periodic vibration effects received via the DirectInput tap - engine rumble, buffet, shaking.&lt;br&gt;&lt;br&gt;If a vibration doubles up with a TelemFFB telemetry-driven effect (e.g. both rendering engine rumble), disable one of the two.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>true</value>
+		<datatype>bool</datatype>
+		<name>tap_effect_periodic</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.331</order>
+		<displayname>Tap: Periodic Vibration Gain</displayname>
+		<prereq>tap_effect_periodic</prereq>
+		<info>Force gain on the game's periodic vibration effects.  100% renders them exactly as the game commanded; raise it if the game's native forces feel weak.&lt;br&gt;&lt;br&gt;The % shown on the slider handle is the current rendered force - pinned at 100% means the gain is clipping at the device's maximum.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>1.0</value>
+		<datatype>n_float</datatype>
+		<sliderfactor>1</sliderfactor>
+		<validvalues>0,200</validvalues>
+		<name>tap_effect_periodic_gain</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.34</order>
+		<displayname>Tap: Damper Effects</displayname>
+		<prereq>tap_effects_group</prereq>
+		<info>Render the game's damper effects received via the DirectInput tap - velocity-based resistance to stick motion.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>true</value>
+		<datatype>bool</datatype>
+		<name>tap_effect_damper</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.341</order>
+		<displayname>Tap: Damper Gain</displayname>
+		<prereq>tap_effect_damper</prereq>
+		<info>Force gain on the game's damper effects.  100% renders them exactly as the game commanded; raise it if the game's native resistance feels weak.&lt;br&gt;&lt;br&gt;The % shown on the slider handle is the current rendered force - pinned at 100% means the gain is clipping at the device's maximum.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>1.0</value>
+		<datatype>n_float</datatype>
+		<sliderfactor>1</sliderfactor>
+		<validvalues>0,200</validvalues>
+		<name>tap_effect_damper_gain</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.35</order>
+		<displayname>Tap: Inertia Effects</displayname>
+		<prereq>tap_effects_group</prereq>
+		<info>Render the game's inertia effects received via the DirectInput tap - acceleration-based resistance simulating control mass.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>true</value>
+		<datatype>bool</datatype>
+		<name>tap_effect_inertia</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.351</order>
+		<displayname>Tap: Inertia Gain</displayname>
+		<prereq>tap_effect_inertia</prereq>
+		<info>Force gain on the game's inertia effects.  100% renders them exactly as the game commanded; raise it if the game's native resistance feels weak.&lt;br&gt;&lt;br&gt;The % shown on the slider handle is the current rendered force - pinned at 100% means the gain is clipping at the device's maximum.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>1.0</value>
+		<datatype>n_float</datatype>
+		<sliderfactor>1</sliderfactor>
+		<validvalues>0,200</validvalues>
+		<name>tap_effect_inertia_gain</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.36</order>
+		<displayname>Tap: Friction Effects</displayname>
+		<prereq>tap_effects_group</prereq>
+		<info>Render the game's friction effects received via the DirectInput tap - constant drag resisting stick motion.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>true</value>
+		<datatype>bool</datatype>
+		<name>tap_effect_friction</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Spring Mode</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>850.361</order>
+		<displayname>Tap: Friction Gain</displayname>
+		<prereq>tap_effect_friction</prereq>
+		<info>Force gain on the game's friction effects.  100% renders them exactly as the game commanded; raise it if the game's native resistance feels weak.&lt;br&gt;&lt;br&gt;The % shown on the slider handle is the current rendered force - pinned at 100% means the gain is clipping at the device's maximum.</info>
+		<DCS>true</DCS>
+		<BMS>true</BMS>
+		<IL2>true</IL2>
+		<IL2K>true</IL2K>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>1.0</value>
+		<datatype>n_float</datatype>
+		<sliderfactor>1</sliderfactor>
+		<validvalues>0,200</validvalues>
+		<name>tap_effect_friction_gain</name>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
 		<grouping>Spring Override</grouping>
 		<parentgroup>basic</parentgroup>
 		<order>900</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>bool</datatype>
 		<name>override_spring_ft_enabled</name>
 		<displayname>Hardware Force Trim</displayname>
@@ -744,6 +1146,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>900.4</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_reset</name>
 		<displayname>Trim Reset</displayname>
@@ -759,6 +1162,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>900.5</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_down</name>
 		<displayname>&lt;html&gt;&lt;body&gt;&lt;table cellpadding="0" cellspacing="0" border="0"&gt;&lt;tr&gt;&lt;td style="vertical-align: middle;"&gt;Trim&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td style="font-size: 24px; vertical-align: middle; font-weight: bold;"&gt;&#x21E7;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</displayname>
@@ -774,6 +1178,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>900.6</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_up</name>
 		<displayname>&lt;html&gt;&lt;body&gt;&lt;table cellpadding="0" cellspacing="0" border="0"&gt;&lt;tr&gt;&lt;td style="vertical-align: middle;"&gt;Trim&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td style="font-size: 24px; vertical-align: middle; font-weight: bold;"&gt;&#x21E9;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</displayname>
@@ -789,6 +1194,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>900.7</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_left</name>
 		<displayname>&lt;html&gt;&lt;body&gt;&lt;table cellpadding="0" cellspacing="0" border="0"&gt;&lt;tr&gt;&lt;td style="vertical-align: middle;"&gt;Trim&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td style="font-size: 24px; vertical-align: middle; font-weight: bold;"&gt;&#x21E6;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</displayname>
@@ -804,6 +1210,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>900.8</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>button</datatype>
 		<name>override_spring_trim_right</name>
 		<displayname>&lt;html&gt;&lt;body&gt;&lt;table cellpadding="0" cellspacing="0" border="0"&gt;&lt;tr&gt;&lt;td style="vertical-align: middle;"&gt;Trim&lt;/td&gt;&lt;td&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td style="font-size: 24px; vertical-align: middle; font-weight: bold;"&gt;&#x21E8;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;</displayname>
@@ -819,6 +1226,7 @@
 		<parentgroup>basic</parentgroup>
 		<order>900.9</order>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<datatype>d_int</datatype>
 		<name>override_spring_trim_rate</name>
 		<displayname>Trim Slew Rate</displayname>
@@ -1037,6 +1445,150 @@
 		<joystick>true</joystick>
 		<collective>true</collective>
 		<validvalues>0,100</validvalues>
+	</defaults>
+	<defaults>
+		<datatype>float</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1231</order>
+		<name>ffb_api_cyclic_spring_gain</name>
+		<displayname>FFB API Cyclic Spring Gain</displayname>
+		<prereq>basic_group</prereq>
+		<info>Spring gain for the cyclic while the FFB API is driving it.&lt;br&gt;&lt;br&gt;The spring centre follows the trim actuator position the aircraft publishes; this sets how firmly it holds.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<validvalues>0,100</validvalues>
+	</defaults>
+	<defaults>
+		<datatype>float</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1233</order>
+		<name>ffb_api_collective_spring_gain</name>
+		<displayname>FFB API Collective Spring Gain</displayname>
+		<prereq>basic_group</prereq>
+		<info>Spring gain for the collective while the FFB API is driving it.&lt;br&gt;&lt;br&gt;Also used to hold the lever when the aircraft advertises no collective trim system.</info>
+		<MSFS>true</MSFS>
+		<collective>true</collective>
+		<validvalues>0,100</validvalues>
+	</defaults>
+	<defaults>
+		<datatype>float</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1234</order>
+		<name>ffb_api_pedal_spring_gain</name>
+		<displayname>FFB API Pedal Spring Gain</displayname>
+		<prereq>basic_group</prereq>
+		<info>Spring gain for the pedals while the FFB API is driving them.&lt;br&gt;&lt;br&gt;Defaults to 0 (no pedal spring), matching the stock MSFS helicopter setting - raise it to follow published pedal trim.</info>
+		<MSFS>true</MSFS>
+		<pedals>true</pedals>
+		<validvalues>0,100</validvalues>
+	</defaults>
+	<defaults>
+		<datatype>float</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1236</order>
+		<name>ffb_api_tr_spring_gain</name>
+		<displayname>FFB API Trim Release Damper</displayname>
+		<prereq>basic_group</prereq>
+		<info>Spring gain while the aircraft reports its trim actuator unclutched (L:FFB_&lt;CONTROL&gt;_TR_ON).&lt;br&gt;&lt;br&gt;Acts as a dampening force while the control is free to reposition.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<collective>true</collective>
+		<pedals>true</pedals>
+		<validvalues>0,100</validvalues>
+	</defaults>
+	<defaults>
+		<datatype>float</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1237</order>
+		<name>ffb_api_fly_through_deadzone</name>
+		<displayname>FFB API Fly Through Deadzone</displayname>
+		<prereq>basic_group</prereq>
+		<info>Deviation from the published trim position required to report a fly-through condition to the aircraft.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<collective>true</collective>
+		<pedals>true</pedals>
+		<validvalues>0,100</validvalues>
+	</defaults>
+	<defaults>
+		<datatype>float</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1238</order>
+		<name>ffb_api_fly_through_release_deadzone</name>
+		<displayname>FFB API Fly Through Release Deadzone</displayname>
+		<prereq>basic_group</prereq>
+		<info>Deviation below which an active fly-through condition is cleared.&lt;br&gt;&lt;br&gt;Smaller than the trigger deadzone, giving hysteresis so a control resting near the threshold does not chatter.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<collective>true</collective>
+		<pedals>true</pedals>
+		<validvalues>0,100</validvalues>
+	</defaults>
+	<defaults>
+		<datatype>bool</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1239</order>
+		<name>ffb_api_individual_fly_through</name>
+		<displayname>FFB API Per-Axis Fly Through</displayname>
+		<prereq>basic_group</prereq>
+		<info>Detect fly-through separately for cyclic pitch and roll.&lt;br&gt;&lt;br&gt;Disable on hardware that cannot cleanly separate the two axes - detection is then per control and mirrored onto both axis variables.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+	</defaults>
+	<defaults>
+		<datatype>bool</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1241</order>
+		<name>ffb_api_invert_cyclic_pitch</name>
+		<displayname>FFB API Invert Cyclic Pitch Trim</displayname>
+		<prereq>basic_group</prereq>
+		<info>Invert the sign of the published cyclic pitch trim position.&lt;br&gt;&lt;br&gt;The API convention is positive = nose-up; use this if the spring centre moves the wrong way.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+	</defaults>
+	<defaults>
+		<datatype>bool</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1242</order>
+		<name>ffb_api_invert_cyclic_roll</name>
+		<displayname>FFB API Invert Cyclic Roll Trim</displayname>
+		<prereq>basic_group</prereq>
+		<info>Invert the sign of the published cyclic roll trim position.&lt;br&gt;&lt;br&gt;The API convention is positive = roll right.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+	</defaults>
+	<defaults>
+		<datatype>bool</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1243</order>
+		<name>ffb_api_invert_collective</name>
+		<displayname>FFB API Invert Collective Trim</displayname>
+		<prereq>basic_group</prereq>
+		<info>Invert the sign of the published collective trim position.&lt;br&gt;&lt;br&gt;Enabled by default: the API convention is positive = collective up, while TelemFFB's device axis reads +1 at full down.</info>
+		<MSFS>true</MSFS>
+		<collective>true</collective>
+	</defaults>
+	<defaults>
+		<datatype>bool</datatype>
+		<grouping>FFB API</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>1244</order>
+		<name>ffb_api_invert_pedals</name>
+		<displayname>FFB API Invert Pedal Trim</displayname>
+		<prereq>basic_group</prereq>
+		<info>Invert the sign of the published pedal trim position.&lt;br&gt;&lt;br&gt;The API convention is positive = right pedal (yaw right).</info>
+		<MSFS>true</MSFS>
+		<pedals>true</pedals>
 	</defaults>
 	<defaults>
 		<effecttype>spring</effecttype>
@@ -1484,6 +2036,7 @@
 		<prereq>basic_group</prereq>
 		<info>These effects are duplicates of effects that are implemented by IL2 natively.  Recommend to disable the "shake" in IL2 FFB settings if you enable these.</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1500,6 +2053,7 @@
 		<prereq>il2_shake_master</prereq>
 		<info>These effects are duplicates of IL-2 native effects&lt;br&gt;&lt;br&gt;.  Recommend to disable 'shake' in IL-2 FFB settings when using these effects.</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1516,6 +2070,7 @@
 		<prereq>il2_enable_buffet</prereq>
 		<info>common setting for all buffeting (stall, gear, etc)  - IL2 limitation</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1532,6 +2087,7 @@
 		<displayname>Runway Rumble</displayname>
 		<prereq>il2_shake_master</prereq>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1547,6 +2103,7 @@
 		<displayname>Runway Rumble</displayname>
 		<prereq>il2_enable_runway_rumble</prereq>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1564,6 +2121,7 @@
 		<displayname>Weapon Effects</displayname>
 		<prereq>il2_shake_master</prereq>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1580,6 +2138,7 @@
 		<prereq>il2_enable_weapons</prereq>
 		<info>Reads gun data (mass, velocity) from telemetry and plays a stonger/weaker, faster/slower effect based on the data</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1595,6 +2154,7 @@
 		<displayname>Gunfire</displayname>
 		<prereq>il2_enable_weapons</prereq>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1612,6 +2172,7 @@
 		<displayname>Bombs</displayname>
 		<prereq>il2_enable_weapons</prereq>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1629,6 +2190,7 @@
 		<displayname>Rockets</displayname>
 		<prereq>il2_enable_weapons</prereq>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -1880,6 +2442,35 @@
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<trimwheel>true</trimwheel>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Axis Control</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>2100.86</order>
+		<datatype>bool</datatype>
+		<name>custom_ap_var_enabled</name>
+		<displayname>Custom Autopilot Variable</displayname>
+		<prereq>telemffb_controls_axes</prereq>
+		<info>Read the autopilot state from a variable of your choice instead of AUTOPILOT MASTER, for an aircraft whose autopilot does not set it</info>
+		<MSFS>true</MSFS>
+		<trimwheel>true</trimwheel>
+		<value>false</value>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Axis Control</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>2100.861</order>
+		<datatype>anylist</datatype>
+		<name>custom_ap_var</name>
+		<displayname>Custom Autopilot Variable</displayname>
+		<prereq>custom_ap_var_enabled</prereq>
+		<info>A SimVar, an L:Var or an input event (B:) that shows whether the autopilot is engaged: 0 is off, anything else is on.&lt;br&gt;&lt;br&gt;Set it on each device that follows the autopilot. A variable that needs converting belongs in the SimConnect Overrides Editor as APMaster instead. Turn this setting off for that entry to be used: while it is on, this variable is the one read.</info>
+		<MSFS>true</MSFS>
+		<trimwheel>true</trimwheel>
+		<validvalues>AUTOPILOT MASTER</validvalues>
+		<value>AUTOPILOT MASTER</value>
 	</defaults>
 	<defaults>
 		<grouping>Axis Control</grouping>
@@ -2325,6 +2916,37 @@
 	</defaults>
 	<defaults>
 		<effecttype>spring</effecttype>
+		<grouping>Axis Control</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>2450.92</order>
+		<datatype>bool</datatype>
+		<name>custom_ap_var_enabled</name>
+		<displayname>    Custom Autopilot Variable</displayname>
+		<prereq>ap_following</prereq>
+		<info>Read the autopilot state from a variable of your choice instead of AUTOPILOT MASTER, for an aircraft whose autopilot does not set it</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<value>false</value>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
+		<grouping>Axis Control</grouping>
+		<parentgroup>basic</parentgroup>
+		<order>2450.921</order>
+		<datatype>anylist</datatype>
+		<name>custom_ap_var</name>
+		<displayname>    Custom Autopilot Variable</displayname>
+		<prereq>custom_ap_var_enabled</prereq>
+		<info>A SimVar, an L:Var or an input event (B:) that shows whether the autopilot is engaged: 0 is off, anything else is on.&lt;br&gt;&lt;br&gt;Set it on each device that follows the autopilot. A variable that needs converting belongs in the SimConnect Overrides Editor as APMaster instead. Turn this setting off for that entry to be used: while it is on, this variable is the one read.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<validvalues>AUTOPILOT MASTER</validvalues>
+		<value>AUTOPILOT MASTER</value>
+	</defaults>
+	<defaults>
+		<effecttype>spring</effecttype>
 		<grouping>SpringCenter</grouping>
 		<parentgroup>basic</parentgroup>
 		<order>2600</order>
@@ -2475,6 +3097,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -2600,6 +3223,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 	</defaults>
 	<defaults>
@@ -2615,6 +3239,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<sliderfactor>0.5</sliderfactor>
 		<validvalues>0,100</validvalues>
@@ -3304,6 +3929,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3338,6 +3964,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<validvalues>DCS_IL2_G_EFFECT_MODE</validvalues>
 		<value>LEGACY</value>
@@ -3355,6 +3982,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<validvalues>0,100</validvalues>
 		<value>1.0</value>
@@ -3372,6 +4000,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<sliderfactor>0.1</sliderfactor>
 		<validvalues>10,30</validvalues>
@@ -3390,6 +4019,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<sliderfactor>0.1</sliderfactor>
 		<validvalues>10,30</validvalues>
@@ -3408,10 +4038,78 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<sliderfactor>0.1</sliderfactor>
 		<validvalues>40,100</validvalues>
 		<value>7.0</value>
+	</defaults>
+	<defaults>
+		<effecttype>constant</effecttype>
+		<grouping>Acceleration</grouping>
+		<parentgroup>inertial</parentgroup>
+		<order>20110.22</order>
+		<datatype>float</datatype>
+		<name>gforce_effect_max_intensity</name>
+		<displayname>Max Intensity</displayname>
+		<prereq>gforce_effect_mode.LEGACY</prereq>
+		<info>Max force to apply during effect (% of VPf Conf 'constant')</info>
+		<MSFS>true</MSFS>
+		<XPLANE>true</XPLANE>
+		<joystick>true</joystick>
+		<validvalues>0,100</validvalues>
+		<value>1.0</value>
+	</defaults>
+	<defaults>
+		<effecttype>constant</effecttype>
+		<grouping>Acceleration</grouping>
+		<parentgroup>inertial</parentgroup>
+		<order>20110.23</order>
+		<datatype>d_float</datatype>
+		<name>gforce_effect_curvature</name>
+		<displayname>G Force Curvature</displayname>
+		<prereq>gforce_effect_mode.LEGACY</prereq>
+		<info>&lt;html&gt;&lt;body&gt;Affects the onset characteristics of the overall effect&lt;br&gt;&lt;img src=":/image/g-force-curve.png"&gt;&lt;/&gt;&lt;/body&gt;&lt;/html&gt;</info>
+		<MSFS>true</MSFS>
+		<XPLANE>true</XPLANE>
+		<joystick>true</joystick>
+		<sliderfactor>0.1</sliderfactor>
+		<validvalues>10,30</validvalues>
+		<value>2.2</value>
+	</defaults>
+	<defaults>
+		<effecttype>constant</effecttype>
+		<grouping>Acceleration</grouping>
+		<parentgroup>inertial</parentgroup>
+		<order>20110.24</order>
+		<datatype>d_float</datatype>
+		<name>gforce_min_gs</name>
+		<displayname>Minimum Gs</displayname>
+		<prereq>gforce_effect_mode.LEGACY</prereq>
+		<info>G loading where effect will start</info>
+		<MSFS>true</MSFS>
+		<XPLANE>true</XPLANE>
+		<joystick>true</joystick>
+		<sliderfactor>0.1</sliderfactor>
+		<validvalues>10,30</validvalues>
+		<value>1.5</value>
+	</defaults>
+	<defaults>
+		<effecttype>constant</effecttype>
+		<grouping>Acceleration</grouping>
+		<parentgroup>inertial</parentgroup>
+		<order>20110.25</order>
+		<datatype>d_float</datatype>
+		<name>gforce_max_gs</name>
+		<displayname>Maximum Gs</displayname>
+		<prereq>gforce_effect_mode.LEGACY</prereq>
+		<info>G loading where effect will max out</info>
+		<MSFS>true</MSFS>
+		<XPLANE>true</XPLANE>
+		<joystick>true</joystick>
+		<sliderfactor>0.1</sliderfactor>
+		<validvalues>40,100</validvalues>
+		<value>5.0</value>
 	</defaults>
 	<defaults>
 		<effecttype>constant</effecttype>
@@ -3426,6 +4124,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3445,6 +4144,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3465,6 +4165,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3485,6 +4186,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3503,6 +4205,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3521,6 +4224,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3539,6 +4243,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3558,6 +4263,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3578,6 +4284,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3598,6 +4305,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3617,6 +4325,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3634,6 +4343,7 @@
 		<info>Deceleration effect pulls the stick forward when on the ground and decelerating</info>
 		<DCS>true</DCS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3652,6 +4362,7 @@
 		<info>Artificially increase the G forces in the direction of deceleration</info>
 		<DCS>true</DCS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3671,6 +4382,7 @@
 		<info>Invert the frame of reference (direction of force) for the effect.  I.e. stick moving away from pilot vs. pilot moving towards stick.</info>
 		<DCS>true</DCS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3688,6 +4400,7 @@
 		<info>Disable effect while airborne</info>
 		<DCS>true</DCS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3735,6 +4448,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -3972,6 +4686,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4134,6 +4849,7 @@
 		<prereq>mechanical_group</prereq>
 		<info>Separate engine rumble effect using "Engine Shake Amp/Freq" from game telemetry rather than RPM</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -4149,6 +4865,7 @@
 		<prereq>il2_prop_eng_shake_enabled</prereq>
 		<info>Factor applied to "Engine Shake Amplitude" from game telemetry</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -4167,6 +4884,7 @@
 		<prereq>mechanical_group</prereq>
 		<info>Enable Propeller Rumble</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -4203,6 +4921,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4225,6 +4944,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4247,6 +4967,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4269,6 +4990,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4289,6 +5011,7 @@
 		<prereq>mechanical_group</prereq>
 		<info>Separate engine rumble effect using "Engine Shake Amp/Freq" from game telemetry rather than RPM</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -4304,6 +5027,7 @@
 		<prereq>il2_jet_eng_shake_enabled</prereq>
 		<info>Factor applied to "Engine Shake Amplitude" from game telemetry</info>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -4324,6 +5048,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4343,6 +5068,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4364,6 +5090,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4420,6 +5147,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -4438,6 +5166,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<joystick>true</joystick>
 		<pedals>true</pedals>
 		<collective>true</collective>
@@ -4456,6 +5185,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4475,6 +5205,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4621,6 +5352,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4641,6 +5373,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -4973,7 +5706,7 @@
 		<name>enable_hydraulic_loss_effect</name>
 		<displayname>Low Hydraulic Pressure Effect&lt;br&gt;( &lt;b&gt;Experimental&lt;/b&gt; )</displayname>
 		<prereq>mechanical_group</prereq>
-		<info>Simulate high damper forces when hydraulic pressure is low/0&lt;br&gt;** REQUIRES damper/inertia/friction overrides to be enabled **</info>
+		<info>Raise damper and friction as hydraulic pressure is lost.&lt;br&gt;Below the threshold they rise from the Damper Override and Friction Override values to the values set here at zero pressure.&lt;br&gt;&lt;br&gt;** Requires the Damper Override and Friction Override under Basic FFB Effects **</info>
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<MSFS>true</MSFS>
@@ -4986,12 +5719,61 @@
 		<effecttype>damper</effecttype>
 		<grouping>FFB Overrides</grouping>
 		<parentgroup>mechanical</parentgroup>
+		<order>41800.12</order>
+		<datatype>bool</datatype>
+		<name>hydraulic_source_var_enabled</name>
+		<displayname>Custom Hydraulic Variable</displayname>
+		<prereq>enable_hydraulic_loss_effect</prereq>
+		<info>Read HydSys from a variable of your choice instead of HYDRAULIC SYSTEM INTEGRITY</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<collective>true</collective>
+		<value>false</value>
+	</defaults>
+	<defaults>
+		<effecttype>damper</effecttype>
+		<grouping>FFB Overrides</grouping>
+		<parentgroup>mechanical</parentgroup>
+		<order>41800.14</order>
+		<datatype>anylist</datatype>
+		<name>hydraulic_source_var</name>
+		<displayname>Hydraulic Variable</displayname>
+		<prereq>hydraulic_source_var_enabled</prereq>
+		<info>A SimVar, an L:Var or an input event (B:) that shows the aircraft's hydraulic state.&lt;br&gt;A switch works as it is. A pressure or other value needs a transform below.</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<collective>true</collective>
+		<validvalues>HYDRAULIC PRESSURE:1,HYDRAULIC SWITCH,HYDRAULIC SYSTEM INTEGRITY</validvalues>
+		<value>HYDRAULIC SYSTEM INTEGRITY</value>
+	</defaults>
+	<defaults>
+		<effecttype>damper</effecttype>
+		<grouping>FFB Overrides</grouping>
+		<parentgroup>mechanical</parentgroup>
+		<order>41800.16</order>
+		<datatype>text</datatype>
+		<name>hydraulic_source_transform</name>
+		<displayname>Transform to 0-1</displayname>
+		<prereq>hydraulic_source_var_enabled</prereq>
+		<info>Turns the variable's value into 0 (no hydraulics) to 1 (normal), with x standing for the value. The syntax is the same as the Scale field in the overrides editor.&lt;br&gt;&lt;br&gt;Blank: a switch, or a value that already reads 0 to 1&lt;br&gt;x/3000: a pressure that reads 3000 when normal&lt;br&gt;x/100: a percentage&lt;br&gt;1-x: a failure flag that reads 1 when failed&lt;br&gt;&lt;br&gt;The Monitor tab shows the raw value as HydSys and the result as _hyd_health</info>
+		<MSFS>true</MSFS>
+		<joystick>true</joystick>
+		<pedals>true</pedals>
+		<collective>true</collective>
+		<value></value>
+	</defaults>
+	<defaults>
+		<effecttype>damper</effecttype>
+		<grouping>FFB Overrides</grouping>
+		<parentgroup>mechanical</parentgroup>
 		<order>41800.2</order>
 		<datatype>float</datatype>
 		<name>hydraulic_loss_threshold</name>
 		<displayname>Hydraulic System Threshold</displayname>
 		<prereq>enable_hydraulic_loss_effect</prereq>
-		<info>"Hydraulic System Integrity" (HydSys in monitor)  value to consider "low".  Forces will start increasing below this value</info>
+		<info>Hydraulic health (_hyd_health in the Monitor, 0 to 1) below which the forces start to rise</info>
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<MSFS>true</MSFS>
@@ -5019,25 +5801,6 @@
 		<collective>true</collective>
 		<validvalues>0,100</validvalues>
 		<value>0.8</value>
-	</defaults>
-	<defaults>
-		<effecttype>damper</effecttype>
-		<grouping>FFB Overrides</grouping>
-		<parentgroup>mechanical</parentgroup>
-		<order>41800.4</order>
-		<datatype>float</datatype>
-		<name>hydraulic_loss_inertia</name>
-		<displayname>Inertia</displayname>
-		<prereq>enable_hydraulic_loss_effect</prereq>
-		<info>Inertia  force when hydraulic system pressure reaches 0</info>
-		<DCS>true</DCS>
-		<BMS>true</BMS>
-		<MSFS>true</MSFS>
-		<joystick>true</joystick>
-		<pedals>true</pedals>
-		<collective>true</collective>
-		<validvalues>0,100</validvalues>
-		<value>0.0</value>
 	</defaults>
 	<defaults>
 		<effecttype>damper</effecttype>
@@ -5271,6 +6034,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5292,6 +6056,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5313,6 +6078,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5335,6 +6101,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5356,6 +6123,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5378,6 +6146,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5399,6 +6168,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5419,6 +6189,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5439,6 +6210,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5461,6 +6233,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5481,6 +6254,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5500,6 +6274,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5519,6 +6294,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5539,6 +6315,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5560,6 +6337,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5579,6 +6357,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5615,6 +6394,7 @@
 		<DCS>true</DCS>
 		<BMS>true</BMS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5658,6 +6438,7 @@
 		<info>See manual for details</info>
 		<DCS>true</DCS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5673,6 +6454,7 @@
 		<info>Alternate G Force Effec - Enabling will override legacy G Force Effect&lt;br&gt;&lt;br&gt;See manual for details</info>
 		<DCS>true</DCS>
 		<IL2>true</IL2>
+		<IL2K>true</IL2K>
 		<MSFS>true</MSFS>
 		<XPLANE>true</XPLANE>
 		<joystick>true</joystick>
@@ -5806,134 +6588,71 @@
 		<datatype>bool</datatype>
 	</defaults>
 <sc_overrides>
-		<name>EngRPM</name>
-		<model>FlyInside B206.*</model>
-		<var>L:Aircraft.Engine.1.Turbine.N2.Smooth</var>
-		<sc_unit>Percent Over 100</sc_unit>
-	</sc_overrides>
+	<name>EngRPM</name>
+	<class>FlyInsideHelicopter</class>
+	<sim>MSFS</sim>
+	<var>L:Aircraft.Engine.1.Turbine.N2.Smooth</var>
+	<sc_unit>Percent Over 100</sc_unit>
+</sc_overrides>
+<sc_overrides>
+	<name>FI_VibX</name>
+	<class>FlyInsideHelicopter</class>
+	<sim>MSFS</sim>
+	<var>L:Aircraft.Vibrations.X</var>
+	<sc_unit>number</sc_unit>
+	<scale>5000</scale>
+</sc_overrides>
+<sc_overrides>
+	<name>FI_VibY</name>
+	<class>FlyInsideHelicopter</class>
+	<sim>MSFS</sim>
+	<var>L:Aircraft.Vibrations.Y</var>
+	<sc_unit>number</sc_unit>
+	<scale>5000</scale>
+</sc_overrides>
+<sc_overrides>
+	<name>FI_VibZ</name>
+	<class>FlyInsideHelicopter</class>
+	<sim>MSFS</sim>
+	<var>L:Aircraft.Vibrations.Z</var>
+	<sc_unit>number</sc_unit>
+	<scale>5000</scale>
+</sc_overrides>
 	<sc_overrides>
 		<name>RotorRPM</name>
 		<model>FlyInside B206.*</model>
+		<sim>MSFS</sim>
 		<var>L:Aircraft.Rotor.RPM.Percent</var>
 		<sc_unit>Percent Over 100</sc_unit>
 		<scale>3.95</scale>
 	</sc_overrides>
 	<sc_overrides>
-		<name>HydSys</name>
-		<model>FlyInside B206.*</model>
-		<var>L:Aircraft.Hydraulics.Enabled</var>
-		<sc_unit>bool</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>EngRPM</name>
-		<model>FlyInside - B206.*</model>
-		<var>L:Aircraft.Engine.1.Turbine.N2.Smooth</var>
-		<sc_unit>Percent Over 100</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
 		<name>RotorRPM</name>
-		<model>FlyInside - B206.*</model>
+		<model>FlyInside - B206</model>
+		<sim>MSFS</sim>
 		<var>L:Aircraft.Rotor.RPM.Percent</var>
 		<sc_unit>Percent Over 100</sc_unit>
 		<scale>3.95</scale>
 	</sc_overrides>
 	<sc_overrides>
-		<name>HydSys</name>
-		<model>FlyInside - B206.*</model>
-		<var>L:Aircraft.Hydraulics.Enabled</var>
-		<sc_unit>bool</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibX</name>
-		<model>FlyInside B206.*</model>
-		<var>L:Aircraft.Vibrations.X</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibY</name>
-		<model>FlyInside B206.*</model>
-		<var>L:Aircraft.Vibrations.Y</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibZ</name>
-		<model>FlyInside B206.*</model>
-		<var>L:Aircraft.Vibrations.Z</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibX</name>
-		<model>FlyInside - B206.*</model>
-		<var>L:Aircraft.Vibrations.X</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibY</name>
-		<model>FlyInside - B206.*</model>
-		<var>L:Aircraft.Vibrations.Y</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibZ</name>
-		<model>FlyInside - B206.*</model>
-		<var>L:Aircraft.Vibrations.Z</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibX</name>
-		<model>FlyInside B47.*</model>
-		<var>L:Aircraft.Vibrations.X</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibY</name>
-		<model>FlyInside B47.*</model>
-		<var>L:Aircraft.Vibrations.Y</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>FI_VibZ</name>
-		<model>FlyInside B47.*</model>
-		<var>L:Aircraft.Vibrations.Z</var>
-		<sc_unit>number</sc_unit>
-		<scale>5000</scale>
-	</sc_overrides>
-	<sc_overrides>
-		<name>EngRPM</name>
-		<model>FlyInside B47.*</model>
-		<var>L:Aircraft.Engine.1.Turbine.N2.Smooth</var>
-		<sc_unit>Percent Over 100</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
 		<name>RotorRPM</name>
 		<model>FlyInside B47.*</model>
+		<sim>MSFS</sim>
 		<var>L:Aircraft.Rotor.RPM.Percent</var>
 		<sc_unit>Percent Over 100</sc_unit>
 		<scale>3.6</scale>
 	</sc_overrides>
 	<sc_overrides>
-		<name>APMaster</name>
-		<model>A2A Piper PA-24.*</model>
-		<var>L:ApDisableAileron</var>
-		<sc_unit>Enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
 		<name>PropRPM</name>
 		<model>A2A Piper PA-24.*</model>
+		<sim>MSFS</sim>
 		<var>L:Eng1_PropRPM</var>
 		<sc_unit>number</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>PropThrust</name>
 		<model>A2A Piper PA-24.*</model>
+		<sim>MSFS</sim>
 		<var>L:Eng1_ForceZ</var>
 		<sc_unit>number</sc_unit>
 		<scale>4.45</scale>
@@ -5941,6 +6660,7 @@
 	<sc_overrides>
 		<name>AccBody:0</name>
 		<model>A2A Piper PA-24.*</model>
+		<sim>MSFS</sim>
 		<var>L:FM_BodyAccelerationX</var>
 		<sc_unit>number</sc_unit>
 		<scale>0.102</scale>
@@ -5948,6 +6668,7 @@
 	<sc_overrides>
 		<name>AccBody:1</name>
 		<model>A2A Piper PA-24.*</model>
+		<sim>MSFS</sim>
 		<var>L:FM_BodyAccelerationY</var>
 		<sc_unit>number</sc_unit>
 		<scale>0.102</scale>
@@ -5955,422 +6676,383 @@
 	<sc_overrides>
 		<name>AccBody:2</name>
 		<model>A2A Piper PA-24.*</model>
+		<sim>MSFS</sim>
 		<var>L:FM_BodyAccelerationZ</var>
 		<sc_unit>number</sc_unit>
 		<scale>0.102</scale>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgSEMAx</name>
-		<model>Airbus H145.*</model>
+		<class>HPGHelicopter</class>
+		<sim>MSFS</sim>
 		<var>L:DEBUG_SEMA_PCT_X</var>
 		<sc_unit>Percent Over 100</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgSEMAy</name>
-		<model>Airbus H145.*</model>
+		<class>HPGHelicopter</class>
+		<sim>MSFS</sim>
 		<var>L:DEBUG_SEMA_PCT_Y</var>
 		<sc_unit>Percent Over 100</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgSEMAyaw</name>
-		<model>Airbus H145.*</model>
+		<class>HPGHelicopter</class>
+		<sim>MSFS</sim>
 		<var>L:DEBUG_SEMA_PCT_YAW</var>
 		<sc_unit>Percent Over 100</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
+		<name>hpgFeetOnPedals</name>
+		<class>HPGHelicopter</class>
+		<sim>MSFS</sim>
+		<var>L:FFB_FEET_ON_PEDALS</var>
+		<sc_unit>enum</sc_unit>
+	</sc_overrides>
+	<sc_overrides>
+		<name>hpgVRSDatum</name>
+		<class>HPGHelicopter</class>
+		<sim>MSFS</sim>
+		<var>L:DEBUG_VRS2_DATUM</var>
+		<sc_unit>enum</sc_unit>
+	</sc_overrides>
+	<sc_overrides>
+		<name>hpgVRSIsInVRS</name>
+		<class>HPGHelicopter</class>
+		<sim>MSFS</sim>
+		<var>L:DEBUG_VRS2_IS_IN_VRS</var>
+		<sc_unit>enum</sc_unit>
+	</sc_overrides>
+	<sc_overrides>
 		<name>hpgAfcsMaster</name>
 		<model>Airbus H145.*</model>
+		<sim>MSFS</sim>
 		<var>L:H145_SDK_AFCS_MASTER</var>
 		<sc_unit>number</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgTrimRelease</name>
 		<model>Airbus H145.*</model>
+		<sim>MSFS</sim>
 		<var>L:H145_SDK_AFCS_CYCLIC_TRIM_IS_RELEASED</var>
 		<sc_unit>bool</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgCollectiveRelease</name>
 		<model>Airbus H145.*</model>
+		<sim>MSFS</sim>
 		<var>L:H145_SDK_AFCS_COLLECTIVE_TRIM_IS_RELEASED</var>
 		<sc_unit>bool</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgCollectiveAfcsMode</name>
 		<model>Airbus H145.*</model>
+		<sim>MSFS</sim>
 		<var>L:H145_SDK_AFCS_MODE_COLLECTIVE</var>
 		<sc_unit>enum</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgHandsOnCyclic</name>
 		<model>Airbus H145.*</model>
-		<var>L:FFB_HANDS_ON_CYCLIC</var>
-		<sc_unit>enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgFeetOnPedals</name>
-		<model>Airbus H145.*</model>
-		<var>L:FFB_FEET_ON_PEDALS</var>
-		<sc_unit>enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgHandsOnCyclic</name>
-		<model>Airbus H145.*</model>
+		<sim>MSFS</sim>
 		<var>L:H145_SDK_AFCS_CYCLIC_USER_PUSHING_ON_SPRINGS</var>
 		<sc_unit>enum</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgFollowupTrimMode</name>
 		<model>Airbus H145.*</model>
+		<sim>MSFS</sim>
 		<var>L:H145_PERSIST_ATT_FOLLOWUP_MODE_V2</var>
 		<sc_unit>enum</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
-		<name>hpgVRSDatum</name>
-		<model>Airbus H145.*</model>
-		<var>L:DEBUG_VRS2_DATUM</var>
-		<sc_unit>enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgVRSIsInVRS</name>
-		<model>Airbus H145.*</model>
-		<var>L:DEBUG_VRS2_IS_IN_VRS</var>
-		<sc_unit>enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgSEMAx</name>
-		<model>Airbus H160.*</model>
-		<var>L:DEBUG_SEMA_PCT_X</var>
-		<sc_unit>Percent Over 100</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgSEMAy</name>
-		<model>Airbus H160.*</model>
-		<var>L:DEBUG_SEMA_PCT_Y</var>
-		<sc_unit>Percent Over 100</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgSEMAyaw</name>
-		<model>Airbus H160.*</model>
-		<var>L:DEBUG_SEMA_PCT_YAW</var>
-		<sc_unit>Percent Over 100</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
 		<name>hpgAfcsMaster</name>
 		<model>Airbus H160.*</model>
+		<sim>MSFS</sim>
 		<var>L:H160_SDK_AFCS_MASTER</var>
 		<sc_unit>number</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgTrimRelease</name>
 		<model>Airbus H160.*</model>
+		<sim>MSFS</sim>
 		<var>L:H160_SDK_AFCS_CYCLIC_TRIM_IS_RELEASED</var>
 		<sc_unit>bool</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgCollectiveRelease</name>
 		<model>Airbus H160.*</model>
+		<sim>MSFS</sim>
 		<var>L:H160_SDK_AFCS_COLLECTIVE_TRIM_IS_RELEASED</var>
 		<sc_unit>bool</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgCollectiveAfcsMode</name>
 		<model>Airbus H160.*</model>
+		<sim>MSFS</sim>
 		<var>L:H160_SDK_AFCS_MODE_COLLECTIVE</var>
 		<sc_unit>enum</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgHandsOnCyclic</name>
 		<model>Airbus H160.*</model>
-		<var>L:FFB_HANDS_ON_CYCLIC</var>
-		<sc_unit>enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgFeetOnPedals</name>
-		<model>Airbus H160.*</model>
-		<var>L:FFB_FEET_ON_PEDALS</var>
-		<sc_unit>enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgHandsOnCyclic</name>
-		<model>Airbus H160.*</model>
+		<sim>MSFS</sim>
 		<var>L:H160_SDK_AFCS_CYCLIC_USER_PUSHING_ON_SPRINGS</var>
 		<sc_unit>enum</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>hpgFollowupTrimMode</name>
 		<model>Airbus H160.*</model>
+		<sim>MSFS</sim>
 		<var>L:H160_PERSIST_ATT_FOLLOWUP_MODE_V2</var>
 		<sc_unit>enum</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
-		<name>hpgVRSDatum</name>
-		<model>Airbus H160.*</model>
-		<var>L:DEBUG_VRS2_DATUM</var>
-		<sc_unit>enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
-		<name>hpgVRSIsInVRS</name>
-		<model>Airbus H160.*</model>
-		<var>L:DEBUG_VRS2_IS_IN_VRS</var>
-		<sc_unit>enum</sc_unit>
-	</sc_overrides>
-	<sc_overrides>
 		<name>SEMAx</name>
-		<model>Simfocus B407.*</model>
+		<class>SASHelicopter</class>
+		<sim>MSFS</sim>
 		<var>L:FFB_SEMA_PCT_X</var>
 		<sc_unit>Percent Over 100</sc_unit>
 	</sc_overrides>
 	<sc_overrides>
 		<name>SEMAy</name>
-		<model>Simfocus B407.*</model>
+		<class>SASHelicopter</class>
+		<sim>MSFS</sim>
 		<var>L:FFB_SEMA_PCT_Y</var>
 		<sc_unit>Percent Over 100</sc_unit>
 	</sc_overrides>
-	<sc_overrides>
-		<name>ForceTrimSW</name>
-		<model>UH-1H.*</model>
-		<var>L:switchForceTrim</var>
-		<sc_unit>bool</sc_unit>
-	</sc_overrides>
-		<sc_overrides>
-		<name>ForceTrimSW</name>
-		<model>205-A1B.*</model>
-		<var>L:switchForceTrim</var>
-		<sc_unit>bool</sc_unit>
-	</sc_overrides>
-		<sc_overrides>
-			<name>HydSwitch</name>
-			<model>R66(?! Turbine).*</model>
-			<var>L:CSR66_Hyd_Switch</var>
-			<sc_unit>bool</sc_unit>
-		</sc_overrides>
 		<sc_overrides>
 			<name>TaogH500CyclicFriction</name>
-			<model>H500C.*</model>
+			<class>TaogH500Helicopter</class>
+			<sim>MSFS</sim>
 			<var>L:cyclic_friction</var>
 			<sc_unit>bool</sc_unit>
 		</sc_overrides>
 		<sc_overrides>
 			<name>TaogH500CollectiveFriction</name>
-			<model>H500C.*</model>
+			<class>TaogH500Helicopter</class>
+			<sim>MSFS</sim>
 			<var>L:collective_friction</var>
 			<sc_unit>bool</sc_unit>
 		</sc_overrides>
 		<sc_overrides>
 			<name>TaogH500TRDamaged</name>
-			<model>H500C.*</model>
+			<class>TaogH500Helicopter</class>
+			<sim>MSFS</sim>
 			<var>L:TR_damaged</var>
 			<sc_unit>bool</sc_unit>
 		</sc_overrides>
 		<sc_overrides>
 			<name>TaogH500PedalLock</name>
-			<model>H500C.*</model>
-			<var>L:pedal_lock</var>
-			<sc_unit>bool</sc_unit>
-		</sc_overrides>
-		<sc_overrides>
-			<name>TaogH500CyclicFriction</name>
-			<model>OH6A.*</model>
-			<var>L:cyclic_friction</var>
-			<sc_unit>bool</sc_unit>
-		</sc_overrides>
-		<sc_overrides>
-			<name>TaogH500CollectiveFriction</name>
-			<model>OH6A.*</model>
-			<var>L:collective_friction</var>
-			<sc_unit>bool</sc_unit>
-		</sc_overrides>
-		<sc_overrides>
-			<name>TaogH500TRDamaged</name>
-			<model>OH6A.*</model>
-			<var>L:TR_damaged</var>
-			<sc_unit>bool</sc_unit>
-		</sc_overrides>
-		<sc_overrides>
-			<name>TaogH500PedalLock</name>
-			<model>OH6A.*</model>
+			<class>TaogH500Helicopter</class>
+			<sim>MSFS</sim>
 			<var>L:pedal_lock</var>
 			<sc_unit>bool</sc_unit>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rud_trim_thresh_hi</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/rudder_trim_threshold_high</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rud_trim_thresh_lo</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/rudder_trim_threshold_low</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rud_trim_zero</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/rudder_trim_zero</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rud_trim_coarse</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/rudder_trim_auto_coord_coarse</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rud_trim_fine</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/rudder_trim_auto_coord_fine</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rud_sim_trim_left</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>sim/flight_controls/rudder_trim_left</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rud_sim_trim_right</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>sim/flight_controls/rudder_trim_right</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_aileron_trim_req</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/aileron_trim_req</var>
 			<sc_unit>float</sc_unit>
 			<scale>100</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_elevator_trim_req</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/elevator_trim_req</var>
 			<sc_unit>float</sc_unit>
 			<scale>100</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rudder_trim_req</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/rudder_trim_req</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_hdg_on</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/cockpit/capsule/apms/hdg_on</var>
 			<sc_unit>int</sc_unit>
 			<scale>1.0</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_cyc_force_trim_release_pressed</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/autopilot/cyc_force_trim_release_pressed</var>
 			<sc_unit>int</sc_unit>
 			<scale>1.0</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_ped_force_trim_release_pressed</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/autopilot/ped_force_trim_release_pressed</var>
 			<sc_unit>int</sc_unit>
 			<scale>1.0</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_col_force_trim_release_pressed</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/autopilot/col_force_trim_release_pressed</var>
 			<sc_unit>int</sc_unit>
 			<scale>1.0</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_rudder_trim_rate</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/servo/rudder_trim_rate</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_aileron_trim_rate</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/servo/aileron_trim_rate</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_elevator_trim_rate</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/servo/elevator_trim_rate</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_collective_trim_rate</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>000/joy_collective_rate</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_collective_mode</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/autopilot/vvi_engaged</var>
 			<sc_unit>int</sc_unit>
 			<scale>1.0</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_collective_ratio</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>000/joy_collective_ratio</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_collective_input_ratio</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>000/joy_collective_input_ratio</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_target_pitch</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/servo/pitch_ratio_target</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_target_roll</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/servo/roll_ratio_target</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_target_yaw</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/servo/rudder_ratio_target</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_yaw_damper</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/controls/rudder_trim_yaw_damper</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
 		</sc_overrides>
 		<sc_overrides>
 			<name>AW109_target_collective</name>
-			<model>AW109SP</model>
+			<class>XAW109Helicopter</class>
+			<sim>XPLANE</sim>
 			<var>aw109/servo/collective_ratio_target</var>
 			<sc_unit>float</sc_unit>
 			<scale>1</scale>
@@ -7370,6 +8052,12 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>aoa_effect_enabled</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>aoa_effect_enabled</name>
 			<type>!HPGHelicopter</type>
 			<sim>MSFS</sim>
 			<device>any</device>
@@ -7633,7 +8321,21 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>controls_lock_enable</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>controls_lock_enable</name>
 			<type>Helicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>controls_lock_enable</name>
+			<type>FFBApiHelicopter</type>
 			<value>false</value>
 			<sim>MSFS</sim>
 			<device>pedals</device>
@@ -7726,6 +8428,13 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>custom_ft_sw_var</name>
+			<type>FFBApiHelicopter</type>
+			<value>L:TelemFFBHeliFT</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>custom_ft_sw_var</name>
 			<type>Helicopter</type>
 			<value>L:TelemFFBHeliFT</value>
 			<sim>MSFS</sim>
@@ -7733,7 +8442,21 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>custom_ft_sw_var</name>
+			<type>FFBApiHelicopter</type>
+			<value>L:TelemFFBHeliFT</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>custom_ft_sw_var</name>
 			<type>Helicopter</type>
+			<value>L:TelemFFBHeliFT</value>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>custom_ft_sw_var</name>
+			<type>FFBApiHelicopter</type>
 			<value>L:TelemFFBHeliFT</value>
 			<sim>MSFS</sim>
 			<device>collective</device>
@@ -7795,6 +8518,13 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>custom_ft_sw_var_enabled</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>custom_ft_sw_var_enabled</name>
 			<type>Helicopter</type>
 			<value>false</value>
 			<sim>MSFS</sim>
@@ -7802,7 +8532,21 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>custom_ft_sw_var_enabled</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>custom_ft_sw_var_enabled</name>
 			<type>Helicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>custom_ft_sw_var_enabled</name>
+			<type>FFBApiHelicopter</type>
 			<value>false</value>
 			<sim>MSFS</sim>
 			<device>collective</device>
@@ -7851,6 +8595,13 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>cyclic_spring_gain</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.8</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>cyclic_spring_gain</name>
 			<type>HPGHelicopter</type>
 			<value>0.8</value>
 			<sim>MSFS</sim>
@@ -7880,6 +8631,13 @@
 		<classdefaults_MSFS>
 			<name>deceleration_effect_enable</name>
 			<type>Helicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>deceleration_effect_enable</name>
+			<type>FFBApiHelicopter</type>
 			<value>false</value>
 			<sim>MSFS</sim>
 			<device>any</device>
@@ -8060,6 +8818,13 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>engine_jet_rumble_enabled</name>
+			<type>FFBApiHelicopter</type>
+			<value>true</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>engine_jet_rumble_enabled</name>
 			<type>HPGHelicopter</type>
 			<value>true</value>
 			<sim>MSFS</sim>
@@ -8096,6 +8861,13 @@
 		<classdefaults_MSFS>
 			<name>engine_rotor_rumble_enabled</name>
 			<type>Helicopter</type>
+			<value>true</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>engine_rotor_rumble_enabled</name>
+			<type>FFBApiHelicopter</type>
 			<value>true</value>
 			<sim>MSFS</sim>
 			<device>any</device>
@@ -8143,6 +8915,13 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>etl_effect_enable</name>
+			<type>FFBApiHelicopter</type>
+			<value>true</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>etl_effect_enable</name>
 			<type>HPGHelicopter</type>
 			<value>true</value>
 			<sim>MSFS</sim>
@@ -8165,6 +8944,13 @@
 		<classdefaults_MSFS>
 			<name>blade_slap_enable</name>
 			<type>Helicopter</type>
+			<value>true</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>blade_slap_enable</name>
+			<type>FFBApiHelicopter</type>
 			<value>true</value>
 			<sim>MSFS</sim>
 			<device>any</device>
@@ -8220,6 +9006,13 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>etl_effect_intensity</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.25</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>etl_effect_intensity</name>
 			<type>HPGHelicopter</type>
 			<value>0.15</value>
 			<sim>MSFS</sim>
@@ -8250,6 +9043,14 @@
 		<classdefaults_MSFS>
 			<name>etl_start_speed</name>
 			<type>Helicopter</type>
+			<value>16</value>
+			<unit>kt</unit>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>etl_start_speed</name>
+			<type>FFBApiHelicopter</type>
 			<value>16</value>
 			<unit>kt</unit>
 			<sim>MSFS</sim>
@@ -8290,6 +9091,14 @@
 		<classdefaults_MSFS>
 			<name>etl_stop_speed</name>
 			<type>Helicopter</type>
+			<value>31</value>
+			<unit>kt</unit>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>etl_stop_speed</name>
+			<type>FFBApiHelicopter</type>
 			<value>31</value>
 			<unit>kt</unit>
 			<sim>MSFS</sim>
@@ -8355,6 +9164,113 @@
 			<device>any</device>
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
+			<name>ffb_api_cyclic_spring_gain</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.8</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_collective_spring_gain</name>
+			<type>FFBApiHelicopter</type>
+			<value>1.0</value>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_pedal_spring_gain</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.0</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>spring_mode</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>spring_mode</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>spring_mode</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>aircraft_is_spring_centered</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>aircraft_is_spring_centered</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_fly_through_deadzone</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.1</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_fly_through_release_deadzone</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.05</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_individual_fly_through</name>
+			<type>FFBApiHelicopter</type>
+			<value>true</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_invert_collective</name>
+			<type>FFBApiHelicopter</type>
+			<value>true</value>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_invert_cyclic_pitch</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_invert_cyclic_roll</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_invert_pedals</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>ffb_api_tr_spring_gain</name>
+			<type>FFBApiHelicopter</type>
+			<value>0</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
 			<name>force_disable_collective_gain</name>
 			<type>GliderAircraft</type>
 			<value>true</value>
@@ -8390,6 +9306,12 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>force_trim_button</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>force_trim_button</name>
 			<type>GliderAircraft</type>
 			<value>0</value>
 			<sim>MSFS</sim>
@@ -8398,6 +9320,13 @@
 		<classdefaults_MSFS>
 			<name>force_trim_button</name>
 			<type>Helicopter</type>
+			<value>0</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>force_trim_button</name>
+			<type>FFBApiHelicopter</type>
 			<value>0</value>
 			<sim>MSFS</sim>
 			<device>joystick</device>
@@ -8440,6 +9369,13 @@
 		<classdefaults_MSFS>
 			<name>force_trim_enabled</name>
 			<type>Helicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>force_trim_enabled</name>
+			<type>FFBApiHelicopter</type>
 			<value>false</value>
 			<sim>MSFS</sim>
 			<device>joystick</device>
@@ -8495,7 +9431,21 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>force_trim_reset_button</name>
+			<type>FFBApiHelicopter</type>
+			<value>0</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>force_trim_reset_button</name>
 			<type>Helicopter</type>
+			<value>0</value>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>force_trim_reset_button</name>
+			<type>FFBApiHelicopter</type>
 			<value>0</value>
 			<sim>MSFS</sim>
 			<device>collective</device>
@@ -8626,6 +9576,13 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>jet_engine_rumble_intensity</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.01</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>jet_engine_rumble_intensity</name>
 			<type>HPGHelicopter</type>
 			<value>0.01</value>
 			<sim>MSFS</sim>
@@ -8724,6 +9681,13 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>joystick_trim_follow_gain_physical_x</name>
+			<type>FFBApiHelicopter</type>
+			<value>1.0</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>joystick_trim_follow_gain_physical_x</name>
 			<type>HPGHelicopter</type>
 			<value>0.4</value>
 			<sim>MSFS</sim>
@@ -8767,6 +9731,13 @@
 		<classdefaults_MSFS>
 			<name>joystick_trim_follow_gain_physical_y</name>
 			<type>Helicopter</type>
+			<value>1.0</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>joystick_trim_follow_gain_physical_y</name>
+			<type>FFBApiHelicopter</type>
 			<value>1.0</value>
 			<sim>MSFS</sim>
 			<device>joystick</device>
@@ -8816,6 +9787,13 @@
 		<classdefaults_MSFS>
 			<name>joystick_trim_follow_gain_virtual_x</name>
 			<type>Helicopter</type>
+			<value>0.2</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>joystick_trim_follow_gain_virtual_x</name>
+			<type>FFBApiHelicopter</type>
 			<value>0.2</value>
 			<sim>MSFS</sim>
 			<device>joystick</device>
@@ -8865,6 +9843,13 @@
 		<classdefaults_MSFS>
 			<name>joystick_trim_follow_gain_virtual_y</name>
 			<type>Helicopter</type>
+			<value>0.2</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>joystick_trim_follow_gain_virtual_y</name>
+			<type>FFBApiHelicopter</type>
 			<value>0.2</value>
 			<sim>MSFS</sim>
 			<device>joystick</device>
@@ -8978,14 +9963,32 @@
 			<device>joystick</device>
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
+			<name>joystick_trim_follow_curve_y</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
 			<name>joystick_trim_follow_use_curve_y</name>
 			<type>!Helicopter</type>
 			<sim>MSFS</sim>
 			<device>joystick</device>
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
+			<name>joystick_trim_follow_use_curve_y</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
 			<name>joystick_trim_follow_stick_position</name>
 			<type>!Helicopter</type>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>joystick_trim_follow_stick_position</name>
+			<type>!FFBApiHelicopter</type>
 			<sim>MSFS</sim>
 			<device>joystick</device>
 		</classdefaults_MSFS>
@@ -9245,6 +10248,14 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>overspeed_shake_start</name>
+			<type>FFBApiHelicopter</type>
+			<value>120</value>
+			<unit>kt</unit>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>overspeed_shake_start</name>
 			<type>HPGHelicopter</type>
 			<value>155</value>
 			<unit>kt</unit>
@@ -9267,6 +10278,13 @@
 			<device>pedals</device>
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
+			<name>pedal_force_trim_enabled</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
 			<name>pedal_ft_reset_button</name>
 			<type>!HPGHelicopter</type>
 			<sim>MSFS</sim>
@@ -9282,6 +10300,13 @@
 		<classdefaults_MSFS>
 			<name>pedal_spring_gain</name>
 			<type>Helicopter</type>
+			<value>0.0</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>pedal_spring_gain</name>
+			<type>FFBApiHelicopter</type>
 			<value>0.0</value>
 			<sim>MSFS</sim>
 			<device>pedals</device>
@@ -9317,6 +10342,13 @@
 		<classdefaults_MSFS>
 			<name>pedal_spring_mode</name>
 			<type>Helicopter</type>
+			<value>NOSPRING</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>pedal_spring_mode</name>
+			<type>FFBApiHelicopter</type>
 			<value>NOSPRING</value>
 			<sim>MSFS</sim>
 			<device>pedals</device>
@@ -9395,6 +10427,13 @@
 		<classdefaults_MSFS>
 			<name>rotor_blade_count</name>
 			<type>Helicopter</type>
+			<value>2</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>rotor_blade_count</name>
+			<type>FFBApiHelicopter</type>
 			<value>2</value>
 			<sim>MSFS</sim>
 			<device>any</device>
@@ -9740,6 +10779,12 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>telemffb_controls_axes</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>trimwheel</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>telemffb_controls_axes</name>
 			<type>!HPGHelicopter</type>
 			<sim>MSFS</sim>
 			<device>trimwheel</device>
@@ -9771,6 +10816,12 @@
 		<classdefaults_MSFS>
 			<name>trim_following</name>
 			<type>!Helicopter</type>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>trim_following</name>
+			<type>!FFBApiHelicopter</type>
 			<sim>MSFS</sim>
 			<device>pedals</device>
 		</classdefaults_MSFS>
@@ -9899,6 +10950,12 @@
 		<classdefaults_MSFS>
 			<name>trim_release_spring_gain</name>
 			<type>!Helicopter</type>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>trim_release_spring_gain</name>
+			<type>!FFBApiHelicopter</type>
 			<sim>MSFS</sim>
 			<device>collective</device>
 		</classdefaults_MSFS>
@@ -10060,6 +11117,27 @@
 			<name>type</name>
 			<type>CowanSimHelicopter</type>
 			<value>CowanSimHelicopter</value>
+			<sim>MSFS</sim>
+			<device>collective</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>type</name>
+			<type>FFBApiHelicopter</type>
+			<value>FFBApiHelicopter</value>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>type</name>
+			<type>FFBApiHelicopter</type>
+			<value>FFBApiHelicopter</value>
+			<sim>MSFS</sim>
+			<device>pedals</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>type</name>
+			<type>FFBApiHelicopter</type>
+			<value>FFBApiHelicopter</value>
 			<sim>MSFS</sim>
 			<device>collective</device>
 		</classdefaults_MSFS>
@@ -10246,6 +11324,13 @@
 			<device>any</device>
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
+			<name>use_legacy_bindings</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
 			<name>vne_override</name>
 			<type>GliderAircraft</type>
 			<unit>kt</unit>
@@ -10332,6 +11417,73 @@
 			<name>vrs_effect_intensity</name>
 			<type>TaogH500Helicopter</type>
 			<value>0.12</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>adv_spr_override_enabled</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>trim_following</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>joystick</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>aoa_buffeting_enabled</name>
+			<type>!FFBApiHelicopter</type>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>overspeed_effect_enable</name>
+			<type>FFBApiHelicopter</type>
+			<value>True</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>overspeed_shake_intensity</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.2</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>vrs_effect_enable</name>
+			<type>FFBApiHelicopter</type>
+			<value>false</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>vrs_effect_intensity</name>
+			<type>FFBApiHelicopter</type>
+			<value>0.12</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>vrs_threshold_speed</name>
+			<type>FFBApiHelicopter</type>
+			<value>20</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>vrs_vs_max</name>
+			<type>FFBApiHelicopter</type>
+			<value>500</value>
+			<sim>MSFS</sim>
+			<device>any</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>vrs_vs_onset</name>
+			<type>FFBApiHelicopter</type>
+			<value>350</value>
 			<sim>MSFS</sim>
 			<device>any</device>
 		</classdefaults_MSFS>
@@ -12225,6 +13377,223 @@
 			<sim>IL2</sim>
 			<device>pedals</device>
 		</classdefaults_IL2>
+		<classdefaults_IL2K>
+			<name>il2_dynamic_gunfire_mode</name>
+			<type>JetAircraft</type>
+			<value>true</value>
+			<sim>IL2K</sim>
+			<device>any</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>il2_dynamic_gunfire_mode</name>
+			<type>PropellerAircraft</type>
+			<value>true</value>
+			<sim>IL2K</sim>
+			<device>any</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>elevator_droop_enabled</name>
+			<type>JetAircraft</type>
+			<value>false</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>elevator_droop_enabled</name>
+			<type>PropellerAircraft</type>
+			<value>true</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_effect_curvature</name>
+			<type>JetAircraft</type>
+			<value>2.5</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_effect_curvature</name>
+			<type>PropellerAircraft</type>
+			<value>2.5</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_effect_mode</name>
+			<type>JetAircraft</type>
+			<value>LEGACY</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_effect_mode</name>
+			<type>JetAircraft</type>
+			<value>LEGACY</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_effect_max_intensity</name>
+			<type>JetAircraft</type>
+			<value>0.8</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_effect_max_intensity</name>
+			<type>PropellerAircraft</type>
+			<value>0.8</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_max_gs</name>
+			<type>JetAircraft</type>
+			<value>7.0</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_max_gs</name>
+			<type>PropellerAircraft</type>
+			<value>7.0</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_min_gs</name>
+			<type>JetAircraft</type>
+			<value>1.1</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>gforce_min_gs</name>
+			<type>PropellerAircraft</type>
+			<value>1.4</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>il2_prop_eng_shake_enabled</name>
+			<type>PropellerAircraft</type>
+			<value>false</value>
+			<sim>IL2K</sim>
+			<device>any</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>il2_prop_eng_shake_factor</name>
+			<type>PropellerAircraft</type>
+			<value>1.5</value>
+			<sim>IL2K</sim>
+			<device>any</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>il2_jet_eng_shake_enabled</name>
+			<type>JetAircraft</type>
+			<value>false</value>
+			<sim>IL2K</sim>
+			<device>any</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>il2_jet_eng_shake_factor</name>
+			<type>JetAircraft</type>
+			<value>2.0</value>
+			<sim>IL2K</sim>
+			<device>any</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>jet_engine_rumble_intensity</name>
+			<type>JetAircraft</type>
+			<value>0.05</value>
+			<sim>IL2K</sim>
+			<device>any</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>new_gforce_enable_neg_gs</name>
+			<type>JetAircraft</type>
+			<value>false</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>new_gforce_enable_neg_gs</name>
+			<type>PropellerAircraft</type>
+			<value>false</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>new_gforce_max_gs</name>
+			<type>JetAircraft</type>
+			<value>7.0</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>new_gforce_max_gs</name>
+			<type>PropellerAircraft</type>
+			<value>5.0</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>new_gforce_max_gs_neg</name>
+			<type>JetAircraft</type>
+			<value>-4.0</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>new_gforce_max_gs_neg</name>
+			<type>PropellerAircraft</type>
+			<value>-3.0</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>spring_mode</name>
+			<type>JetAircraft</type>
+			<value>NONE</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>spring_mode</name>
+			<type>PropellerAircraft</type>
+			<value>NONE</value>
+			<sim>IL2K</sim>
+			<device>joystick</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>spring_mode</name>
+			<type>JetAircraft</type>
+			<value>DYNAMIC</value>
+			<sim>IL2K</sim>
+			<device>pedals</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>spring_mode</name>
+			<type>PropellerAircraft</type>
+			<value>DYNAMIC</value>
+			<sim>IL2K</sim>
+			<device>pedals</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>pedal_spring_gain</name>
+			<type>JetAircraft</type>
+			<value>1.0</value>
+			<sim>IL2K</sim>
+			<device>pedals</device>
+		</classdefaults_IL2K>
+		<classdefaults_IL2K>
+			<name>pedal_spring_gain</name>
+			<type>PropellerAircraft</type>
+			<value>1.0</value>
+			<sim>IL2K</sim>
+			<device>pedals</device>
+		</classdefaults_IL2K>
 <classdefaults_BMS>
 			<name>afterburner_effect_enabled</name>
 			<type>JetAircraft</type>
@@ -14912,7 +16281,7 @@
 	</models>
 	<models>
 		<name>runway_rumble_intensity</name>
-		<model>MB-399.*</model>
+		<model>MB-339.*</model>
 		<value>2.0</value>
 		<sim>DCS</sim>
 		<device>joystick</device>
@@ -14974,13 +16343,6 @@
 		<value>0.12</value>
 		<sim>DCS</sim>
 		<device>joystick</device>
-	</models>
-	<models>
-		<name>hydraulic_loss_threshold</name>
-		<model>Mi-24P</model>
-		<value>0.7</value>
-		<sim>DCS</sim>
-		<device>any</device>
 	</models>
 	<models>
 		<name>hydraulic_loss_threshold</name>
@@ -15466,29 +16828,6 @@
 		<sim>DCS</sim>
 		<device>joystick</device>
 		</models>
-	<models>
-		<name>overspeed_shake_intensity</name>
-		<model>Shrike.*</model>
-		<value>0.3</value>
-		<sim>DCS</sim>
-		<device>any</device>
-	</models>
-	<models>
-		<name>aircraft_vne_speed</name>
-		<model>Spitfire Mk.*</model>
-		<value>390</value>
-		<unit>kt</unit>
-		<sim>DCS</sim>
-		<device>pedals</device>
-	</models>
-	<models>
-		<name>aircraft_vs_speed</name>
-		<model>Spitfire Mk.*</model>
-		<value>70</value>
-		<unit>kt</unit>
-		<sim>DCS</sim>
-		<device>pedals</device>
-	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>SpitfireLFMkIX</model>
@@ -16334,7 +17673,7 @@
 		<model>F-51D.*</model>
 		<value>439</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
@@ -16342,42 +17681,42 @@
 		<model>F-51D.*</model>
 		<value>87</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>F-51D.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 488, "points": [{"x": 0.0, "y": 0.0}, {"x": 43.5, "y": 7.0}, {"x": 72.5, "y": 16.0}, {"x": 87.0, "y": 25.0}, {"x": 235.6, "y": 38.0}, {"x": 354.3, "y": 62.0}, {"x": 439.0, "y": 90.0}, {"x": 488.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 488, "points": [{"x": 0.0, "y": 0.0}, {"x": 43.5, "y": 7.0}, {"x": 72.5, "y": 16.0}, {"x": 87.0, "y": 25.0}, {"x": 235.6, "y": 48.0}, {"x": 354.3, "y": 71.0}, {"x": 439.0, "y": 90.0}, {"x": 488.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 488}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>joystick</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>F-51D.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 488, "points": [{"x": 0.0, "y": 0.0}, {"x": 43.5, "y": 7.0}, {"x": 72.5, "y": 16.0}, {"x": 87.0, "y": 25.0}, {"x": 235.6, "y": 48.0}, {"x": 354.3, "y": 71.0}, {"x": 439.0, "y": 90.0}, {"x": 488.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 488, "points": [{"x": 0.0, "y": 0.0}, {"x": 488.0, "y": 100.0}], "smooth_curve_enabled": false, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 488}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>pedals</device>
 	</models>
 	<models>
 		<name>engine_prop_rumble_enabled</name>
 		<model>F-51D.*</model>
 		<value>false</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>il2_prop_eng_shake_enabled</name>
 		<model>F-51D.*</model>
 		<value>true</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
 		<model>F-51D.*</model>
 		<value>PropellerAircraft</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 		<notes>Engine rumble is disabled by default for IL-2 Korea aircraft: the sim does not provide engine RPM telemetry, so this profile uses the EngineShake telemetry effect instead.</notes>
 	</models>
@@ -16386,7 +17725,7 @@
 		<model>F-80C-10.*</model>
 		<value>505</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
@@ -16394,42 +17733,42 @@
 		<model>F-80C-10.*</model>
 		<value>100</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>F-80C-10.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 561, "points": [{"x": 0.0, "y": 0.0}, {"x": 50.0, "y": 7.0}, {"x": 83.3, "y": 16.0}, {"x": 100.0, "y": 25.0}, {"x": 271.0, "y": 38.0}, {"x": 407.5, "y": 62.0}, {"x": 505.0, "y": 90.0}, {"x": 561.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 561, "points": [{"x": 0.0, "y": 0.0}, {"x": 50.0, "y": 7.0}, {"x": 83.3, "y": 16.0}, {"x": 100.0, "y": 25.0}, {"x": 271.0, "y": 48.0}, {"x": 407.5, "y": 71.0}, {"x": 505.0, "y": 90.0}, {"x": 561.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 561}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>joystick</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>F-80C-10.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 561, "points": [{"x": 0.0, "y": 0.0}, {"x": 50.0, "y": 7.0}, {"x": 83.3, "y": 16.0}, {"x": 100.0, "y": 25.0}, {"x": 271.0, "y": 48.0}, {"x": 407.5, "y": 71.0}, {"x": 505.0, "y": 90.0}, {"x": 561.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 561, "points": [{"x": 0.0, "y": 0.0}, {"x": 561.0, "y": 100.0}], "smooth_curve_enabled": false, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 561}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>pedals</device>
 	</models>
 	<models>
 		<name>engine_jet_rumble_enabled</name>
 		<model>F-80C-10.*</model>
 		<value>false</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>il2_jet_eng_shake_enabled</name>
 		<model>F-80C-10.*</model>
 		<value>true</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
 		<model>F-80C-10.*</model>
 		<value>JetAircraft</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 		<notes>Engine rumble is disabled by default for IL-2 Korea aircraft: the sim does not provide engine RPM telemetry, so this profile uses the EngineShake telemetry effect instead.</notes>
 	</models>
@@ -16438,7 +17777,7 @@
 		<model>F-84E.*</model>
 		<value>540</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
@@ -16446,42 +17785,42 @@
 		<model>F-84E.*</model>
 		<value>115</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>F-84E.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 600, "points": [{"x": 0.0, "y": 0.0}, {"x": 57.5, "y": 7.0}, {"x": 95.8, "y": 16.0}, {"x": 115.0, "y": 25.0}, {"x": 295.35, "y": 48.0}, {"x": 438.1, "y": 71.0}, {"x": 540.0, "y": 90.0}, {"x": 600.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 600, "points": [{"x": 0.0, "y": 0.0}, {"x": 57.5, "y": 7.0}, {"x": 95.8, "y": 16.0}, {"x": 115.0, "y": 25.0}, {"x": 295.35, "y": 38.0}, {"x": 438.1, "y": 62.0}, {"x": 540.0, "y": 90.0}, {"x": 600.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 600}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>joystick</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>F-84E.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 600, "points": [{"x": 0.0, "y": 0.0}, {"x": 57.5, "y": 7.0}, {"x": 95.8, "y": 16.0}, {"x": 115.0, "y": 25.0}, {"x": 295.35, "y": 48.0}, {"x": 438.1, "y": 71.0}, {"x": 540.0, "y": 90.0}, {"x": 600.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 600, "points": [{"x": 0.0, "y": 0.0}, {"x": 600.0, "y": 100.0}], "smooth_curve_enabled": false, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 600}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>pedals</device>
 	</models>
 	<models>
 		<name>engine_jet_rumble_enabled</name>
 		<model>F-84E.*</model>
 		<value>false</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>il2_jet_eng_shake_enabled</name>
 		<model>F-84E.*</model>
 		<value>true</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
 		<model>F-84E.*</model>
 		<value>JetAircraft</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 		<notes>Engine rumble is disabled by default for IL-2 Korea aircraft: the sim does not provide engine RPM telemetry, so this profile uses the EngineShake telemetry effect instead.</notes>
 	</models>
@@ -16490,7 +17829,7 @@
 		<model>F-86A-5.*</model>
 		<value>550</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
@@ -16498,42 +17837,42 @@
 		<model>F-86A-5.*</model>
 		<value>108</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>F-86A-5.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 611, "points": [{"x": 0.0, "y": 0.0}, {"x": 54.0, "y": 7.0}, {"x": 90.0, "y": 16.0}, {"x": 108.0, "y": 25.0}, {"x": 294.5, "y": 38.0}, {"x": 443.6, "y": 62.0}, {"x": 550.0, "y": 90.0}, {"x": 611.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 611, "points": [{"x": 0.0, "y": 0.0}, {"x": 54.0, "y": 7.0}, {"x": 90.0, "y": 16.0}, {"x": 108.0, "y": 25.0}, {"x": 294.5, "y": 48.0}, {"x": 443.6, "y": 71.0}, {"x": 550.0, "y": 90.0}, {"x": 611.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 611}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>joystick</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>F-86A-5.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 611, "points": [{"x": 0.0, "y": 0.0}, {"x": 54.0, "y": 7.0}, {"x": 90.0, "y": 16.0}, {"x": 108.0, "y": 25.0}, {"x": 294.5, "y": 48.0}, {"x": 443.6, "y": 71.0}, {"x": 550.0, "y": 90.0}, {"x": 611.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 611, "points": [{"x": 0.0, "y": 0.0}, {"x": 611.0, "y": 100.0}], "smooth_curve_enabled": false, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 611}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>pedals</device>
 	</models>
 	<models>
 		<name>engine_jet_rumble_enabled</name>
 		<model>F-86A-5.*</model>
 		<value>false</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>il2_jet_eng_shake_enabled</name>
 		<model>F-86A-5.*</model>
 		<value>true</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
 		<model>F-86A-5.*</model>
 		<value>JetAircraft</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 		<notes>Engine rumble is disabled by default for IL-2 Korea aircraft: the sim does not provide engine RPM telemetry, so this profile uses the EngineShake telemetry effect instead.</notes>
 	</models>
@@ -16542,7 +17881,7 @@
 		<model>IL-10.*</model>
 		<value>340</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
@@ -16550,42 +17889,42 @@
 		<model>IL-10.*</model>
 		<value>90</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>IL-10.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 378, "points": [{"x": 0.0, "y": 0.0}, {"x": 45.0, "y": 7.0}, {"x": 75.0, "y": 16.0}, {"x": 90.0, "y": 25.0}, {"x": 198.1, "y": 48.0}, {"x": 280.9, "y": 71.0}, {"x": 340.0, "y": 90.0}, {"x": 378.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 378, "points": [{"x": 0.0, "y": 0.0}, {"x": 45.0, "y": 7.0}, {"x": 75.0, "y": 16.0}, {"x": 90.0, "y": 25.0}, {"x": 198.1, "y": 48.0}, {"x": 280.9, "y": 71.0}, {"x": 340.0, "y": 90.0}, {"x": 378.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 378}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>joystick</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>IL-10.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 378, "points": [{"x": 0.0, "y": 0.0}, {"x": 45.0, "y": 7.0}, {"x": 75.0, "y": 16.0}, {"x": 90.0, "y": 25.0}, {"x": 198.1, "y": 48.0}, {"x": 280.9, "y": 71.0}, {"x": 340.0, "y": 90.0}, {"x": 378.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 378, "points": [{"x": 0.0, "y": 0.0}, {"x": 378.0, "y": 100.0}], "smooth_curve_enabled": false, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 378}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>pedals</device>
 	</models>
 	<models>
 		<name>engine_prop_rumble_enabled</name>
 		<model>IL-10.*</model>
 		<value>false</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>il2_prop_eng_shake_enabled</name>
 		<model>IL-10.*</model>
 		<value>true</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
 		<model>IL-10.*</model>
 		<value>PropellerAircraft</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 		<notes>Engine rumble is disabled by default for IL-2 Korea aircraft: the sim does not provide engine RPM telemetry, so this profile uses the EngineShake telemetry effect instead.</notes>
 	</models>
@@ -16594,7 +17933,7 @@
 		<model>La-11.*</model>
 		<value>420</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
@@ -16602,42 +17941,42 @@
 		<model>La-11.*</model>
 		<value>85</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>La-11.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 467, "points": [{"x": 0.0, "y": 0.0}, {"x": 42.5, "y": 7.0}, {"x": 70.8, "y": 16.0}, {"x": 85.0, "y": 25.0}, {"x": 226.65, "y": 38.0}, {"x": 339.4, "y": 62.0}, {"x": 420.0, "y": 90.0}, {"x": 467.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 467, "points": [{"x": 0.0, "y": 0.0}, {"x": 42.5, "y": 7.0}, {"x": 70.8, "y": 16.0}, {"x": 85.0, "y": 25.0}, {"x": 226.65, "y": 48.0}, {"x": 339.4, "y": 71.0}, {"x": 420.0, "y": 90.0}, {"x": 467.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 467}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>joystick</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>La-11.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 467, "points": [{"x": 0.0, "y": 0.0}, {"x": 42.5, "y": 7.0}, {"x": 70.8, "y": 16.0}, {"x": 85.0, "y": 25.0}, {"x": 226.65, "y": 48.0}, {"x": 339.4, "y": 71.0}, {"x": 420.0, "y": 90.0}, {"x": 467.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 467, "points": [{"x": 0.0, "y": 0.0}, {"x": 467.0, "y": 100.0}], "smooth_curve_enabled": false, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 467}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>pedals</device>
 	</models>
 	<models>
 		<name>engine_prop_rumble_enabled</name>
 		<model>La-11.*</model>
 		<value>false</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>il2_prop_eng_shake_enabled</name>
 		<model>La-11.*</model>
 		<value>true</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
 		<model>La-11.*</model>
 		<value>PropellerAircraft</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 		<notes>Engine rumble is disabled by default for IL-2 Korea aircraft: the sim does not provide engine RPM telemetry, so this profile uses the EngineShake telemetry effect instead.</notes>
 	</models>
@@ -16646,7 +17985,7 @@
 		<model>MiG-15bis.*</model>
 		<value>594</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
@@ -16654,42 +17993,42 @@
 		<model>MiG-15bis.*</model>
 		<value>120</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>MiG-15bis.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 660, "points": [{"x": 0.0, "y": 0.0}, {"x": 60.0, "y": 7.0}, {"x": 100.0, "y": 16.0}, {"x": 120.0, "y": 25.0}, {"x": 320.4, "y": 48.0}, {"x": 480.0, "y": 71.0}, {"x": 594.0, "y": 90.0}, {"x": 660.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 660, "points": [{"x": 0.0, "y": 0.0}, {"x": 60.0, "y": 7.0}, {"x": 100.0, "y": 16.0}, {"x": 120.0, "y": 25.0}, {"x": 320.4, "y": 38.0}, {"x": 480.0, "y": 62.0}, {"x": 594.0, "y": 90.0}, {"x": 660.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 660}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>joystick</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>MiG-15bis.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 660, "points": [{"x": 0.0, "y": 0.0}, {"x": 60.0, "y": 7.0}, {"x": 100.0, "y": 16.0}, {"x": 120.0, "y": 25.0}, {"x": 320.4, "y": 48.0}, {"x": 480.0, "y": 71.0}, {"x": 594.0, "y": 90.0}, {"x": 660.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 660, "points": [{"x": 0.0, "y": 0.0}, {"x": 660.0, "y": 100.0}], "smooth_curve_enabled": false, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 660}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>pedals</device>
 	</models>
 	<models>
 		<name>engine_jet_rumble_enabled</name>
 		<model>MiG-15bis.*</model>
 		<value>false</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>il2_jet_eng_shake_enabled</name>
 		<model>MiG-15bis.*</model>
 		<value>true</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
 		<model>MiG-15bis.*</model>
 		<value>JetAircraft</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 		<notes>Engine rumble is disabled by default for IL-2 Korea aircraft: the sim does not provide engine RPM telemetry, so this profile uses the EngineShake telemetry effect instead.</notes>
 	</models>
@@ -16698,7 +18037,7 @@
 		<model>Yak-9P.*</model>
 		<value>405</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
@@ -16706,42 +18045,42 @@
 		<model>Yak-9P.*</model>
 		<value>85</value>
 		<unit>kt</unit>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>Yak-9P.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 450, "points": [{"x": 0.0, "y": 0.0}, {"x": 42.5, "y": 7.0}, {"x": 70.8, "y": 16.0}, {"x": 85.0, "y": 25.0}, {"x": 220.65, "y": 38.0}, {"x": 328.2, "y": 62.0}, {"x": 405.0, "y": 90.0}, {"x": 450.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 450, "points": [{"x": 0.0, "y": 0.0}, {"x": 42.5, "y": 7.0}, {"x": 70.8, "y": 16.0}, {"x": 85.0, "y": 25.0}, {"x": 220.65, "y": 48.0}, {"x": 328.2, "y": 71.0}, {"x": 405.0, "y": 90.0}, {"x": 450.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 450}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>joystick</device>
 	</models>
 	<models>
 		<name>adv_spr_gains</name>
 		<model>Yak-9P.*</model>
 		<value>{"curve_x": {"x_min": 0, "x_max": 450, "points": [{"x": 0.0, "y": 0.0}, {"x": 42.5, "y": 7.0}, {"x": 70.8, "y": 16.0}, {"x": 85.0, "y": 25.0}, {"x": 220.65, "y": 48.0}, {"x": 328.2, "y": 71.0}, {"x": 405.0, "y": 90.0}, {"x": 450.0, "y": 100.0}], "smooth_curve_enabled": true, "current_unit": "kt"}, "gain_x": 100, "curve_y": {"x_min": 0, "x_max": 450, "points": [{"x": 0.0, "y": 0.0}, {"x": 450.0, "y": 100.0}], "smooth_curve_enabled": false, "current_unit": "kt"}, "gain_y": 100, "units": "kt", "scale": 450}</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>pedals</device>
 	</models>
 	<models>
 		<name>engine_prop_rumble_enabled</name>
 		<model>Yak-9P.*</model>
 		<value>false</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>il2_prop_eng_shake_enabled</name>
 		<model>Yak-9P.*</model>
 		<value>true</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
 		<model>Yak-9P.*</model>
 		<value>PropellerAircraft</value>
-		<sim>IL2</sim>
+		<sim>IL2K</sim>
 		<device>any</device>
 		<notes>Engine rumble is disabled by default for IL-2 Korea aircraft: the sim does not provide engine RPM telemetry, so this profile uses the EngineShake telemetry effect instead.</notes>
 	</models>
@@ -16749,13 +18088,6 @@
 		<name>type</name>
 		<model>.*103 Solo.*</model>
 		<value>PropellerAircraft</value>
-		<sim>MSFS</sim>
-		<device>any</device>
-	</models>
-	<models>
-		<name>type</name>
-		<model>.*C-17.*</model>
-		<value>JetAircraft</value>
 		<sim>MSFS</sim>
 		<device>any</device>
 	</models>
@@ -16860,7 +18192,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>type</name>
@@ -16868,7 +18200,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>etl_effect_intensity</name>
@@ -16921,7 +18253,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>etl_effect_intensity</name>
@@ -16974,7 +18306,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>type</name>
@@ -17089,7 +18421,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 		</models>
 	<models>
 		<name>type</name>
@@ -17182,6 +18514,48 @@
 		<value>L:ControlLock2</value>
 		<sim>MSFS</sim>
 		<device>any</device>
+	</models>
+	<models>
+		<name>custom_ap_var_enabled</name>
+		<model>A2A Piper PA-24.*</model>
+		<value>true</value>
+		<sim>MSFS</sim>
+		<device>joystick</device>
+	</models>
+	<models>
+		<name>custom_ap_var</name>
+		<model>A2A Piper PA-24.*</model>
+		<value>L:ApDisableAileron</value>
+		<sim>MSFS</sim>
+		<device>joystick</device>
+	</models>
+	<models>
+		<name>custom_ap_var_enabled</name>
+		<model>A2A Piper PA-24.*</model>
+		<value>true</value>
+		<sim>MSFS</sim>
+		<device>pedals</device>
+	</models>
+	<models>
+		<name>custom_ap_var</name>
+		<model>A2A Piper PA-24.*</model>
+		<value>L:ApDisableAileron</value>
+		<sim>MSFS</sim>
+		<device>pedals</device>
+	</models>
+	<models>
+		<name>custom_ap_var_enabled</name>
+		<model>A2A Piper PA-24.*</model>
+		<value>true</value>
+		<sim>MSFS</sim>
+		<device>trimwheel</device>
+	</models>
+	<models>
+		<name>custom_ap_var</name>
+		<model>A2A Piper PA-24.*</model>
+		<value>L:ApDisableAileron</value>
+		<sim>MSFS</sim>
+		<device>trimwheel</device>
 	</models>
 	<models>
 		<name>type</name>
@@ -17326,7 +18700,7 @@
 		<value>HPGHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom HPGHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the HPGHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom HPGHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this profile for the new livery rather than create a new one. The SDK variables this class reads are specific to each aircraft and only a clone carries them, so the New Aircraft Wizard requires the clone for this class.</notes>
 		</models>
 	<models>
 		<name>cyclic_spring_gain</name>
@@ -17378,7 +18752,7 @@
 		<value>HPGHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom HPGHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the HPGHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom HPGHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this profile for the new livery rather than create a new one. The SDK variables this class reads are specific to each aircraft and only a clone carries them, so the New Aircraft Wizard requires the clone for this class.</notes>
 	</models>
 	<models>
 		<name>joystick_trim_follow_gain_physical_x</name>
@@ -17408,6 +18782,22 @@
 		<value>0.05</value>
 		<sim>MSFS</sim>
 		<device>joystick</device>
+	</models>
+	<models>
+		<name>type</name>
+		<model>AS365 N2.*</model>
+		<value>FFBApiHelicopter</value>
+		<sim>MSFS</sim>
+		<device>any</device>
+		<notes>This aircraft uses the FFBApiHelicopter class, which drives the cyclic spring from the standardized L:FFB_* variables the aircraft publishes. It needs version 1.2.0 or later of the AS365 Dauphin / HH65 Dolphin package. That version publishes the API for the cyclic only: the collective and pedals get no trim reference from the aircraft, so the collective gets a damping force set by FFB API Collective Spring Gain, and the pedals have no spring until FFB API Pedal Spring Gain is raised. If you load a livery whose title does not automatically match this profile, create a profile for it and select the FFBApiHelicopter class: everything the class needs comes with the class. To opt out, set the class to Helicopter.</notes>
+	</models>
+	<models>
+		<name>type</name>
+		<model>AS365 F/N.*</model>
+		<value>FFBApiHelicopter</value>
+		<sim>MSFS</sim>
+		<device>any</device>
+		<notes>This aircraft uses the FFBApiHelicopter class, which drives the cyclic spring from the standardized L:FFB_* variables the aircraft publishes. It needs version 1.2.0 or later of the AS365 Dauphin / HH65 Dolphin package. That version publishes the API for the cyclic only: the collective and pedals get no trim reference from the aircraft, so the collective gets a damping force set by FFB API Collective Spring Gain, and the pedals have no spring until FFB API Pedal Spring Gain is raised. If you load a livery whose title does not automatically match this profile, create a profile for it and select the FFBApiHelicopter class: everything the class needs comes with the class. To opt out, set the class to Helicopter.</notes>
 	</models>
 	<models>
 		<name>etl_effect_intensity</name>
@@ -17828,13 +19218,6 @@
 		<value>0.6</value>
 		<sim>MSFS</sim>
 		<device>joystick</device>
-	</models>
-	<models>
-		<name>etl_effect_intensity</name>
-		<model>Bell 429.*</model>
-		<value>0.15</value>
-		<sim>MSFS</sim>
-		<device>any</device>
 	</models>
 	<models>
 		<name>etl_effect_intensity</name>
@@ -18777,13 +20160,6 @@
 		<value>0.65</value>
 		<sim>MSFS</sim>
 		<device>joystick</device>
-	</models>
-	<models>
-		<name>type</name>
-		<model>CGS Hawk Arrow II.*</model>
-		<value>PropellerAircraft</value>
-		<sim>MSFS</sim>
-		<device>any</device>
 	</models>
 	<models>
 		<name>type</name>
@@ -19931,13 +21307,6 @@
 		<device>joystick</device>
 	</models>
 	<models>
-		<name>hydraulic_loss_inertia</name>
-		<model>FlyInside - B206</model>
-		<value>0.0</value>
-		<sim>MSFS</sim>
-		<device>joystick</device>
-	</models>
-	<models>
 		<name>FI_vibration_intensity</name>
 		<model>FlyInside - B206</model>
 		<value>0.2</value>
@@ -19966,6 +21335,20 @@
 		<device>joystick</device>
 	</models>
 	<models>
+		<name>hydraulic_source_var_enabled</name>
+		<model>FlyInside - B206</model>
+		<value>true</value>
+		<sim>MSFS</sim>
+		<device>joystick</device>
+	</models>
+	<models>
+		<name>hydraulic_source_var</name>
+		<model>FlyInside - B206</model>
+		<value>L:Aircraft.Hydraulics.Enabled</value>
+		<sim>MSFS</sim>
+		<device>joystick</device>
+	</models>
+	<models>
 		<name>enable_inertia_ovd</name>
 		<model>FlyInside - B206</model>
 		<value>true</value>
@@ -19994,6 +21377,20 @@
 		<device>pedals</device>
 	</models>
 	<models>
+		<name>hydraulic_source_var_enabled</name>
+		<model>FlyInside - B206</model>
+		<value>true</value>
+		<sim>MSFS</sim>
+		<device>pedals</device>
+	</models>
+	<models>
+		<name>hydraulic_source_var</name>
+		<model>FlyInside - B206</model>
+		<value>L:Aircraft.Hydraulics.Enabled</value>
+		<sim>MSFS</sim>
+		<device>pedals</device>
+	</models>
+	<models>
 		<name>enable_inertia_ovd</name>
 		<model>FlyInside - B206</model>
 		<value>true</value>
@@ -20006,7 +21403,7 @@
 		<value>FlyInsideHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom FlyInsideHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the FlyInsideHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom FlyInsideHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this profile for the new livery rather than create a new one. The rotor RPM source this class reads is specific to each aircraft and only a clone carries it, so the New Aircraft Wizard requires the clone for this class.</notes>
 	</models>
 	<models>
 		<name>enable_custom_x_axis</name>
@@ -20051,13 +21448,6 @@
 		<device>joystick</device>
 	</models>
 	<models>
-		<name>hydraulic_loss_inertia</name>
-		<model>FlyInside B206.*</model>
-		<value>0.0</value>
-		<sim>MSFS</sim>
-		<device>joystick</device>
-	</models>
-	<models>
 		<name>FI_vibration_intensity</name>
 		<model>FlyInside B206.*</model>
 		<value>0.2</value>
@@ -20086,6 +21476,20 @@
 		<device>joystick</device>
 	</models>
 	<models>
+		<name>hydraulic_source_var_enabled</name>
+		<model>FlyInside B206.*</model>
+		<value>true</value>
+		<sim>MSFS</sim>
+		<device>joystick</device>
+	</models>
+	<models>
+		<name>hydraulic_source_var</name>
+		<model>FlyInside B206.*</model>
+		<value>L:Aircraft.Hydraulics.Enabled</value>
+		<sim>MSFS</sim>
+		<device>joystick</device>
+	</models>
+	<models>
 		<name>enable_inertia_ovd</name>
 		<model>FlyInside B206.*</model>
 		<value>true</value>
@@ -20114,6 +21518,20 @@
 		<device>pedals</device>
 	</models>
 	<models>
+		<name>hydraulic_source_var_enabled</name>
+		<model>FlyInside B206.*</model>
+		<value>true</value>
+		<sim>MSFS</sim>
+		<device>pedals</device>
+	</models>
+	<models>
+		<name>hydraulic_source_var</name>
+		<model>FlyInside B206.*</model>
+		<value>L:Aircraft.Hydraulics.Enabled</value>
+		<sim>MSFS</sim>
+		<device>pedals</device>
+	</models>
+	<models>
 		<name>enable_inertia_ovd</name>
 		<model>FlyInside B206.*</model>
 		<value>true</value>
@@ -20126,7 +21544,7 @@
 		<value>FlyInsideHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom FlyInsideHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the FlyInsideHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom FlyInsideHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this profile for the new livery rather than create a new one. The rotor RPM source this class reads is specific to each aircraft and only a clone carries it, so the New Aircraft Wizard requires the clone for this class.</notes>
 	</models>
 	<models>
 		<name>enable_custom_x_axis</name>
@@ -20162,7 +21580,7 @@
 		<value>FlyInsideHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom FlyInsideHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the FlyInsideHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom FlyInsideHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this profile for the new livery rather than create a new one. The rotor RPM source this class reads is specific to each aircraft and only a clone carries it, so the New Aircraft Wizard requires the clone for this class.</notes>
 	</models>
 	<models>
 		<name>max_aileron_coeff</name>
@@ -20297,7 +21715,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>type</name>
@@ -20305,7 +21723,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>type</name>
@@ -20320,7 +21738,7 @@
 		<value>TaogH500Helicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom TaogH500Helicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the TaogH500Helicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom TaogH500Helicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the TaogH500Helicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>spring_mode</name>
@@ -20370,6 +21788,22 @@
 		<value>L:pedal_lock</value>
 		<sim>MSFS</sim>
 		<device>pedals</device>
+	</models>
+	<models>
+		<name>type</name>
+		<model>HH65A Dolphin.*</model>
+		<value>FFBApiHelicopter</value>
+		<sim>MSFS</sim>
+		<device>any</device>
+		<notes>This aircraft uses the FFBApiHelicopter class, which drives the cyclic spring from the standardized L:FFB_* variables the aircraft publishes. It needs version 1.2.0 or later of the AS365 Dauphin / HH65 Dolphin package. That version publishes the API for the cyclic only: the collective and pedals get no trim reference from the aircraft, so the collective gets a damping force set by FFB API Collective Spring Gain, and the pedals have no spring until FFB API Pedal Spring Gain is raised. If you load a livery whose title does not automatically match this profile, create a profile for it and select the FFBApiHelicopter class: everything the class needs comes with the class. To opt out, set the class to Helicopter.</notes>
+	</models>
+	<models>
+		<name>type</name>
+		<model>HH65B Dolphin.*</model>
+		<value>FFBApiHelicopter</value>
+		<sim>MSFS</sim>
+		<device>any</device>
+		<notes>This aircraft uses the FFBApiHelicopter class, which drives the cyclic spring from the standardized L:FFB_* variables the aircraft publishes. It needs version 1.2.0 or later of the AS365 Dauphin / HH65 Dolphin package. That version publishes the API for the cyclic only: the collective and pedals get no trim reference from the aircraft, so the collective gets a damping force set by FFB API Collective Spring Gain, and the pedals have no spring until FFB API Pedal Spring Gain is raised. If you load a livery whose title does not automatically match this profile, create a profile for it and select the FFBApiHelicopter class: everything the class needs comes with the class. To opt out, set the class to Helicopter.</notes>
 	</models>
 	<models>
 		<name>aileron_expo</name>
@@ -20711,7 +22145,7 @@
 		<value>TaogH500Helicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom TaogH500Helicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the TaogH500Helicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom TaogH500Helicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the TaogH500Helicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>spring_mode</name>
@@ -21186,7 +22620,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>type</name>
@@ -21194,7 +22628,21 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this profile for the new livery rather than create a new one. The hydraulic switch source is specific to the R66 and a clone carries it; in a new profile, turn on Custom Hydraulic Variable under Low Hydraulic Pressure Effect and set it to L:CSR66_Hyd_Switch.</notes>
+	</models>
+	<models>
+		<name>hydraulic_source_var_enabled</name>
+		<model>R66(?! Turbine).*</model>
+		<value>true</value>
+		<sim>MSFS</sim>
+		<device>any</device>
+	</models>
+	<models>
+		<name>hydraulic_source_var</name>
+		<model>R66(?! Turbine).*</model>
+		<value>L:CSR66_Hyd_Switch</value>
+		<sim>MSFS</sim>
+		<device>any</device>
 	</models>
 	<models>
 		<name>spring_mode</name>
@@ -21238,7 +22686,7 @@
 		<value>CowanSimHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the CowanSimHelicopter class, and the custom simvar subscriptions required for this aircraft will not work. The force trim reset command is disabled by default because it conflicts with CowanSim's force trim implementation on this model.</notes>
+		<notes>This aircraft uses the custom CowanSimHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the CowanSimHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings. The force trim reset command is disabled by default because it conflicts with CowanSim's force trim implementation on this model.</notes>
 	</models>
 	<models>
 		<name>force_trim_send_reset</name>
@@ -21378,7 +22826,7 @@
 		<value>SASHelicopter</value>
 		<sim>MSFS</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom SASHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the SASHelicopter class, and the custom simvar subscriptions required for this aircraft will not work.</notes>
+		<notes>This aircraft uses the custom SASHelicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the SASHelicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.</notes>
 	</models>
 	<models>
 		<name>type</name>
@@ -21730,7 +23178,7 @@
 		<value>XAW109Helicopter</value>
 		<sim>XPLANE</sim>
 		<device>any</device>
-		<notes>This aircraft uses the custom XAW109Helicopter aircraft class. If you load a livery whose title does not automatically match this profile, you must CLONE this default profile for the new livery rather than create a new profile. A newly created profile will not use the XAW109Helicopter class, and the custom simvar subscriptions required for this aircraft will not work.&lt;br&gt;&lt;br&gt;The profile has axis control disabled because the aircraft does not honor the dataref write.  You will need to bind your controls in the sim to use this Aircraft.</notes>
+		<notes>This aircraft uses the custom XAW109Helicopter aircraft class. If you load a livery whose title does not automatically match this profile, create a profile for it and select the XAW109Helicopter class: the telemetry sources the class needs come with the class. Cloning this profile instead also carries over its tuned settings.&lt;br&gt;&lt;br&gt;The profile has axis control disabled because the aircraft does not honor the dataref write.  You will need to bind your controls in the sim to use this Aircraft.</notes>
 	</models>
 	<models>
 		<name>force_trim_enabled</name>
@@ -22787,6 +24235,14 @@
 		<class_name>JetAircraft</class_name>
 	</classes>
 	<classes>
+		<sim>IL2K</sim>
+		<class_name>PropellerAircraft</class_name>
+	</classes>
+	<classes>
+		<sim>IL2K</sim>
+		<class_name>JetAircraft</class_name>
+	</classes>
+	<classes>
 		<sim>MSFS</sim>
 		<class_name>PropellerAircraft</class_name>
 	</classes>
@@ -22809,6 +24265,10 @@
 	<classes>
 		<sim>MSFS</sim>
 		<class_name>HPGHelicopter</class_name>
+	</classes>
+	<classes>
+		<sim>MSFS</sim>
+		<class_name>FFBApiHelicopter</class_name>
 	</classes>
 	<classes>
 		<sim>MSFS</sim>
@@ -22858,6 +24318,9 @@
 	</sims>
 	<sims>
 		<sim>IL2</sim>
+	</sims>
+	<sims>
+		<sim>IL2K</sim>
 	</sims>
 	<sims>
 		<sim>MSFS</sim>

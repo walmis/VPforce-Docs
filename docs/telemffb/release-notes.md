@@ -13,7 +13,136 @@ New, improved, and changed functionality for each TelemFFB release, newest first
     Version names match the release tag on the `wip` branch. The most recent release is expanded below; click any older version to expand it.
 
 <details class="release release--latest" id="latest" markdown="1" open>
-<summary>2.1.260815 &mdash; August 15, 2026 <span class="latest-badge">latest</span></summary>
+<summary>DRAFT - September 2026 <span class="latest-badge">latest</span></summary>
+
+**Platform**
+
+- **NEW: DirectLink - force feedback devices from any manufacturer**
+    - An optional integration that lets TelemFFB drive any device exposing force feedback through DirectInput
+    - Usable in any role
+    - Enabled in System Settings > Integrations; DirectLink is a separate free download. VPforce-only features (Configurator, firmware effects, force telemetry) degrade cleanly
+- **NEW: Multiple joystick devices, with per-aircraft switching (MSFS / X-Plane)**
+    - Configure more than one joystick - a stick and a yoke, for example.  Switch between them by changing the primary device in the settings
+    - MSFS/X-Plane (where we externally provide the control input) get dynamic, per class/aircraft switching of the active joystick device
+- **NEW: DirectInput Tap (DCS / IL-2 / Falcon BMS)**
+    - REQUIRED for 3rd party DirectInput devices.  OPTIONAL for VPforce devices
+    - Based on the "dcs-force-feedback-fix" wrapper project
+    - "The tap" intercepts the games own FFB effects and lets TelemFFB render them locally.  The game is unaware
+    - New **Game Managed (DirectInput Tap)** spring mode re-renders the game's spring: trim center follow and force-trim collapse reproduce exactly. IL-2 Korea gets the matching pedal spring mode
+        - Per-axis spring and the other five effect types a game may generate get an enable and a gain slider, with the live output strength shown on the slider bar
+    - Per-sim setup in System Settings finds your sims, installs the wrapper and keeps its config in step with your devices. An existing community ffb-fix install is recognized and upgraded in place; DCS can also run the wrapper in **FFB-Fix only mode**, without the tap
+    - At startup TelemFFB offers to update a game folder's wrapper when a newer one ships, and to reinstall the wrapper files when a game update or repair has removed them.  Your dinput8.ini is preserved either way
+    - Also offers "DCS FFB Fix" only automatic installation if you do not want the full DirectInput Tap features (VPforce Only)
+
+- **NEW: The most specific matching profile now names your aircraft**
+    - Previously the first profile that matched in file order won.  A broad match string could take an aircraft that a more specific one was written for, and which one you got depended on where each entry happened to sit in the file
+    - Now the most specific match wins. When two match equally the built-in profile wins, so a curated profile that ships for an aircraft you already had covered gets noticed instead of being quietly shadowed
+    - Settings come from the profile that matched, and no longer blend together from every match string that happens to fit the aircraft's name.  What the settings page shows is what is in effect.  SimConnect and dataref overrides follow the same rule
+    - The New Aircraft Wizard no longer suggests a bare name as a match string, since a bare name and that name followed by anything are the same match.  Its match strings are ordered by how specific they are
+- **NEW: TelemFFB tells you when one of your own profiles and a built-in both match**
+    - The main window shows "Multiple matching profiles detected".  This happens when a curated profile ships for an aircraft you had already made a profile for
+    - The dialog names which profile matched and why, then shows every setting and override either one holds, what is in effect now, and what would be after merging.  The built-in's own notes are shown alongside, so you can see what it was written to do
+    - Merging turns everything you have into user profiles of the built-in.  Your other profiles come across under their own names, your notes travel with them and record where they came from, and the profile that was active stays active.  Nothing you have set is lost
+    - If your match string is broader than the built-in's it stays in place afterward, since it may be the only thing naming your other aircraft.  If it claimed exactly what the built-in claims it is removed, because it has nothing left to name
+    - You can keep your own profile when it is the one naming the aircraft, and TelemFFB remembers that answer.  It asks again only if the built-in profile changes in a later release, so a curated profile that gains something important is not buried by an old answer.  Profiles > Reset Dismissed Profile Prompts makes it ask again about every aircraft you answered that way, as each one loads
+- **NEW: Profile Fork button - give the loaded aircraft a profile of its own**
+    - A new button sits beside the Matched Model row.  It forks the aircraft you are flying off whatever profile claimed it and onto a more specific match string of its own
+    - Until now the New Aircraft Wizard only appeared when nothing matched at all.  An aircraft that rode in on a broader profile had no way to be separated from it without hand-editing the config
+    - The wizard opens already filled in for the loaded aircraft, suggesting match strings built from its name so you can decide how much of the name to keep.  Leaving part of it off keeps a family of liveries or variants together on one profile
+    - Then it asks what the new profile should start from.  Inherit copies the settings and overrides of the profile that matched, which is what you want when the aircraft is close to its neighbors and needs a few changes.  New model starts with nothing but its class, for an aircraft that was matched by the wrong profile in the first place
+    - The button is available only once a profile actually names the aircraft.  With no match there is nothing to fork, and the wizard fires on its own
+- **NEW: Effect previews - feel an effect at your configured strength without flying**
+    - Accessible via Offline Editor only - use the new Offline/Preview mode button to quickly enter offline mode for an actively loaded aircraft.
+    - A play button (>) next to each effect's intensity slider in the offline editor plays that effect on the device from synthesized telemetry. Tune most effects in isolation, without needing to replicate flying conditions where they occur.
+    - A play-all button (>>) appears when more than one running device carries the setting and plays the effect on all of them (joystick, pedals, collective) together
+    - 42 effects are covered across all sims.  Each preview is built so the strengths you tune are the ones you feel: prop rumble sweeps idle to redline and dwells at each end, stall buffet builds to a full stall and holds, motion effects run the full travel and land the end clunk, weapon and countermeasure effects fire a short burst
+    - Hover the mouse over the play button for a description of the preview conditions, reference speeds, RPM, rotor blade count, and how long each phase lasts
+    - The telemetry required to preview the effect is synthesized based on the settings when the effect is started.  Adjusting the effects during playback is not supported.
+    - Constant-force effects (touchdown, deceleration, runway rumble, elevator droop, turbulence / wind, lateral force, AoA reduction) can move the axes unexpectedly, so they confirm you are ready for them to run with a dialog.
+    - Previews use their own effect table, so they can run while a sim sits paused in the background with an aircraft loaded; only live streaming telemetry or a missing device blocks them
+- **NEW: "Offline/Preview Mode" button** in the corner of the Settings tab opens the offline editor on the aircraft currently loaded in the sim, so its effects can be previewed and tuned without leaving the flight
+- **NEW: Device recovery - unplug, replug or power-cycle a device without restarting TelemFFB**
+    - A device that drops off is found again by its USB identity rather than by the port it was on, so plugging it back into a different port or hub recovers.  Retries back off instead of repeating every second
+    - A configured device that was missing when TelemFFB started is picked up automatically when it appears
+    - After a power cycle TelemFFB re-sends what the firmware holds only in memory (VPforce only): the active VPforce Configurator profile, the gain overrides and the configured deadzone
+    - Effects requested while a device is offline no longer raise errors, and the effects that were running are replayed when it comes back
+- **NEW: A changed device selection takes effect without a restart** - saving System Settings with a different device switches the running instance onto it live
+
+**UI**
+
+- **NEW: Device configuration UI re-work**
+    - Device cards with pull-down selection of detected devices
+    - More logical integration of the old "auto launch" configuration options
+- **NEW: All settings (master and child instances) are now configurable through the master instance system settings**
+    - The master's System Settings now carries a panel for each configured device (joystick, pedals, collective, trim wheel) - per-device options are set there and written to that device's settings directly
+    - Child instances no longer need (or have) a settings page of their own; they exist to drive their device and process telemetry
+    - VPforce Configurator (.vpconf) profiles are validated against the device they are selected for, not against whichever instance you happened to open the dialog from
+    - The USB Product ID column is gone; the device selector is the source. A slot with no device assigned can no longer be made the master or given launch options
+- **NEW: Backup and restore system settings**, from a new File menu on the System Settings dialog
+- The settings controls are disabled while an unknown aircraft is loaded.  It has no profile to write to, so every change was silently going nowhere; create a profile with the New Aircraft Wizard and they unlock
+- **NEW: Main window redesign**
+    - The Application Status box takes the full width above the tabs, and the logo moves to the top-right corner of the window
+    - The Active Profile field is now the profile dropdown itself - the selected profile is the active one.  **Add New...** at the bottom of the list creates a profile
+    - The prompts (no profile found, multiple matching profiles, no trim calibration) are one stack of cards between the status box and the tabs
+- **NEW: Choose where the device icons are shown**
+    - Seven places: the Active Devices side panel (the default), a compact side panel, the menu bar, the Application Status box, the Monitor/Settings page header, a row at the bottom of the window, or a floating strip
+    - Change it from Window > Devices, by right-clicking the icons, or with the small view glyph beside them.  Drag the glyph to float the strip, and drop the strip on a highlighted area to dock it there
+    - Side panels can sit on the left or the right edge of the window
+    - All four device roles are always shown; a role with no device configured shows a grey icon
+- **NEW: Monitor tab reworked**
+    - Telemetry and active effects are now tables; select rows and press Ctrl+C to copy
+    - Star a telemetry item to make it a favorite, and tick **Favorites** to show only those.  Favorites are shared by all devices and kept between sessions
+    - Active effects are grouped by type, each with a badge - a waveform for periodic effects, a letter for the others
+    - A new **Intensity** column shows how strong each effect is right now: a bar and percentage for periodic and constant-force effects (hover for the percentage of your setting), and the gain per axis for spring, damper, inertia and friction effects
+    - Values that can go negative always show their sign, so the numbers no longer jump sideways as they cross zero
+    - On the master, selecting a child device shows that device's own telemetry and effects, including values only the child calculates
+- **NEW: Remove a class or sim override from a loaded aircraft** - right-click the information icon beside the setting.  Before, this needed the offline editor
+- **Utilities** menu: **Download Other Versions** and **Force Reload Aircraft** are removed (Ctrl+Shift+R still reloads the aircraft).  **DirectInput Tap Monitor...** shows what a game sends through the tap, with a log you can save for support
+
+**General fixes**
+
+- Fix: exiting TelemFFB could take up to ten seconds before its processes actually closed, and a restart in that window was refused as "already running"
+- Fix: effects are now properly freed when the sim exits and when TelemFFB exits preventing scenarios that may result in hung effects on the device
+- Fix: resetting the device's effects no longer strands the effects that were running on it
+- Fix: the gear, flaps, speedbrake, canopy, tailhook, fuel boom and wing fold motion effects and the stick shakers had all been rendering as a plain sine wave - their intended square and sawtooth waveforms were silently dropped on the way to the device.  They now play as designed.  This changes the feel of those effects; retune their intensity if they come across harsher than before
+- Fix: the fuel boom and wing fold end-of-travel clunks never played
+- Fix: the first setting changed right after creating a new aircraft profile could be written to no profile at all (it never took effect, and later tripped up profile import).  The new profile is now active the moment the wizard closes
+- Fix: an unknown setting value in a profile no longer blocks the aircraft from loading
+- Fix: when several configuration errors were present at once, only one reached the exception viewer, and correcting it could leave its message in the status box.  All of them are now listed in the exception viewer, and the status box shows the next one as each is corrected
+
+**MSFS / X-Plane**
+
+- Fix: the trim calibration dialog could be taller than a small screen, pushing its buttons out of reach.  The help text now scrolls and the result area collapses
+- Fix: the trim calibration prompt and tool no longer offer themselves for helicopters.  Calibration is for fixed-wing aircraft only
+- Fix: the Advanced G-Force 'offset' mode never actually ran on MSFS or X-Plane (it worked on DCS and IL-2) - the dispatch was swallowed on the way to the effect. It runs now
+- Fix: the offset-mode G effect's spring adjuster is back on its original, field-proven parameters - the spring no longer collapses when the offset kicks in
+
+**X-Plane**
+
+- Fix: the axis override is released when the FFB device disconnects, and a per-device axis disable is honored
+
+**MSFS**
+
+- **NEW: In-sim settings panel (toolbar window)**
+    - View and change the current aircraft's TelemFFB settings from a toolbar window inside MSFS - toggles, choice pills, and sliders sized for VR laser-pointer/controller use, so you don't have to leave the cockpit or pull up the desktop app
+    - System Settings > MSFS now detects your installed MSFS 2020/2024 copies (Microsoft Store or Steam) and installs or updates the panel into the right Community folder with one click, showing the installed version alongside what's available
+    - If a Community folder is not found, or is somewhere unusual, type or browse to it in that copy's path field
+    - Backed by a local HTTP server that only runs while MSFS is the active sim; can be turned off in System Settings > MSFS > Options if you don't use the panel
+- **NEW: "B:" input event variables**
+    - Anywhere TelemFFB takes a SimConnect variable - a telemetry override, the Force Trim Switch Simvar, the Controls Lock variable - it now also takes an input event written as `B:EVENT_NAME`, and can write to one
+    - Many MSFS 2024 cockpit switches exist only as input events.  The names are listed in the sim's developer mode under Behaviors > InputEvents
+    - Several TelemFFB settings can read the same input event
+- Diagnostics: TelemFFB logs when something else - a control binding left mapped in the sim, or an external tool - is writing the same control axis it is driving.  Log only for now; look for "axis contention" in the log
+- Fix (helicopters): Force Trim spring mode with no release button bound left the cyclic with no control at all.  It now falls back to the no-spring behavior until a button is bound
+- Fix (helicopters): the collective axis was still sent to the sim with axis control disabled for that device
+
+**IL-2**
+
+- Fix: the runway rumble effect never played - its enable toggle was not being honored.  It now runs when enabled, so expect a rumble on the ground if you have it switched on
+</details>
+
+<details class="release" markdown="1">
+<summary>2.1.260815 &mdash; August 15, 2026</summary>
 
 **Platform**
 
@@ -62,7 +191,7 @@ New, improved, and changed functionality for each TelemFFB release, newest first
 **MSFS / X-Plane**
 
 - **NEW: Automated Elevator Trim-Following Calibration** (fixed wing)
-    - See a full demo/walkthrough of the calibration feature here:  https://www.youtube.com/watch?v=otveS5mgbu0 
+    - See a full demo/walkthrough of the calibration feature here: https://www.youtube.com/watch?v=otveS5mgbu0
     - Trim following has always assumed a 1:1 relationship between trim position and elevator - many aircraft (especially 3rd party) are far from 1:1, causing the nose to wander when trimming with the stick held
     - A wizard-style assistant flies a short automated routine, measures your aircraft's real trim response, and produces a calibrated trim-following curve you can apply and test live in the sim before saving
     - Run it at multiple airspeeds and the results blend into a single speed-aware curve; review, delete, export, and import stored calibrations from the dialog

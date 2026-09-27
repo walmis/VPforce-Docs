@@ -1,7 +1,21 @@
 # Changelog
+- **September 27, 2026:**
+
+    - Added site navigation: a **Previous** / **Next** bar at the foot of each page leads to the neighboring pages in the menu
+    - Updated the **[UI Overview](telemffb/ui-overview.md)** for the redesigned main window: the menus, the [Application Status](telemffb/ui-overview.md#application-status-area) box with its profile dropdown, and the [prompts](telemffb/ui-overview.md#prompts) above the tabs, with new screenshots throughout the TelemFFB pages
+    - Added **[Where the Devices Are Shown](telemffb/ui-overview.md#where-the-devices-are-shown)** - the seven places for the device icons, how to change between them, and how to float and dock the device strip
+    - Rewrote the **[Monitor Tab](telemffb/ui-overview.md#monitor-tab)** section: favorites, the effect-type badges, the intensity column, a child device's data on the master, and detaching the tab
+    - Added **[Configuration errors](telemffb/ui-overview.md#configuration-errors)**, and documented removing a class or sim override from a loaded aircraft in [How Settings Work](telemffb/settings-model.md#reading-the-settings-tab)
+    - Shortened **[When Your Profile and a Built-In Both Match](telemffb/aircraft-profiles.md#when-your-profile-and-a-built-in-both-match)** to what you need in the dialog, and renamed the split button to the **fork button**, as the app calls it
+    - Documented the trim calibration prompt and the fixed-wing limit in [Automatic Trim Calibration](telemffb/msfs-xp-trim-calibration.md#opening-the-tool)
+    - Documented [Advanced Dynamic through the DirectInput Tap](telemffb/dinput-tap.md#advanced-dynamic-through-the-tap), the split of the tap settings into Axis Corrections and Spring Gain groups, and the DirectInput Tap Monitor
+    - Updated the effects reference tables: the DirectInput Tap settings now appear under Joystick Spring Mode, IL-2 Korea has its own badge, and the G-Force Effect modes use their current names
+    - Added the **[Custom hydraulic variable](telemffb/effects-mechanical.md#custom-hydraulic-variable-msfs)** and **[Custom autopilot variable](telemffb/msfs-xp-trim-following.md#custom-autopilot-variable-msfs)** settings for MSFS
+    - Updated the [MSFS toolbar panel](telemffb/msfs-toolbar-panel.md) install steps for the editable Community folder path, and added a screenshot of the [panel in MSFS](telemffb/msfs-toolbar-panel.md#using-the-panel-in-msfs) with its device buttons, reset icons and size control
+
 - **September 17, 2026:**
 
-    - Rewrote **[Aircraft Profiles](telemffb/aircraft-profiles.md)** for the new profile matching: [how an aircraft is matched](telemffb/aircraft-profiles.md#how-telemffb-matches-an-aircraft), the [Multiple matching profiles](telemffb/aircraft-profiles.md#when-your-profile-and-a-built-in-both-match) prompt and merge, and the [split button](telemffb/aircraft-profiles.md#giving-the-loaded-aircraft-its-own-profile). Updated the New Aircraft Wizard steps and screenshots.
+    - Rewrote **[Aircraft Profiles](telemffb/aircraft-profiles.md)** for the new profile matching: [how an aircraft is matched](telemffb/aircraft-profiles.md#how-telemffb-matches-an-aircraft), the [Multiple matching profiles](telemffb/aircraft-profiles.md#when-your-profile-and-a-built-in-both-match) prompt and merge, and the [fork button](telemffb/aircraft-profiles.md#giving-the-loaded-aircraft-its-own-profile). Updated the New Aircraft Wizard steps and screenshots.
     - Updated **[Telemetry Overrides](telemffb/telem-overrides.md)** with the [Class, Default and User tiers](telemffb/telem-overrides.md#where-an-aircrafts-overrides-come-from), the editor's Source column, and [input events](telemffb/telem-overrides.md#input-events-b-variables) (`B:` variables).
     - Corrected the cloning guidance in **[Aircraft with Special Treatment](telemffb/msfs-xp-special-aircraft.md)**: only some of these aircraft need a cloned profile, and the roster now says which.
     - Added **[Device recovery](telemffb/devices-instances.md#device-recovery)** and updated the [device status indications](telemffb/ui-overview.md#deviceinstance-status-indications).

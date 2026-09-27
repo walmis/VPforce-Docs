@@ -74,5 +74,12 @@ Two settings govern how your hands and the autopilot share the controls:
 !!! note
     If an aircraft becomes unstable with autopilot following engaged and tries to roll inverted, enable the *Invert Aileron Autopilot Axis* option.
 
+### Custom autopilot variable (MSFS)
+
+Autopilot following uses **AUTOPILOT MASTER** to know when the autopilot is engaged. Some aircraft have an autopilot that never sets it. For those, enable **Custom Autopilot Variable** and enter a variable that shows whether the autopilot is engaged: a SimVar, an L:Var or an input event (`B:`). A value of 0 means off; any other value means on.
+
+- Set it on each device that follows the autopilot.
+- If the variable needs converting first, turn this setting off and use the [SimConnect/Dataref Overrides Editor](telem-overrides.md) instead: override **APMaster** with the variable and a scale. While this setting is on, its variable is the one TelemFFB reads.
+
 !!! note "Legacy manual tuning"
     Before automatic calibration existed, users tuned the gains manually. The procedure and suggested starting values appear in [Manual Trim Tuning (Legacy)](msfs-xp-trim-manual.md).

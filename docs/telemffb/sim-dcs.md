@@ -204,7 +204,7 @@ The behavior and button configuration are identical to the MSFS/X-Plane implemen
 
 ## Low Hydraulic Pressure Effect
 
-See the [Low Hydraulic Pressure Effect documentation](effects-mechanical.md#low-hydraulic-pressure-effect). The effect works largely the same way for DCS.
+See the [Low Hydraulic Pressure Effect documentation](effects-mechanical.md#low-hydraulic-pressure-effect-experimental). The effect works largely the same way for DCS.
 
 Support is currently limited to:
 

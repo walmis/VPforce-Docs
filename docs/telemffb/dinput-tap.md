@@ -131,11 +131,18 @@ For IL-2 Korea pedals, the pedals instance offers the same mode as **Game Manage
 
 You do not have to select the mode aircraft by aircraft. Set it at the **simulator or aircraft-class level** with the [offline settings editor](settings-model.md#offlineglobal-simclass-configuration), and it becomes the default spring mode for every aircraft in that simulator or class. Individual aircraft can still override it. Setting a class or sim-wide value also works from a loaded aircraft: right-click the **x** icon on the setting and promote it, as described in [How Settings Work](settings-model.md#reading-the-settings-tab).
 
-Selecting the mode reveals the **Tap: Axis Corrections and Gain** group:
+Selecting the mode reveals two groups:
 
-- **Tap: Swap X/Y FFB Axes** - swap which game axis lands on which device axis.
-- **Tap: Invert X Axis FFB** / **Tap: Invert Y Axis FFB** - reverse an axis whose forces push the wrong way.
-- **Tap: X Axis Spring Gain** / **Tap: Y Axis Spring Gain** - scale the game's spring force. 100% renders it exactly as the game commanded. The percentage on the slider handle is the current rendered force; pinned at 100% means the gain is clipping at the device's maximum.
+- **Tap: Axis Corrections** - **Swap X/Y FFB Axes** swaps which game axis lands on which device axis; **Invert X Axis FFB** and **Invert Y Axis FFB** reverse an axis whose forces push the wrong way.
+- **Tap: Spring Gain** - **X Axis Spring Gain** and **Y Axis Spring Gain** scale the game's spring force. 100% renders it exactly as the game commanded. The percentage on the slider handle is the current rendered force; pinned at 100% means the gain is clipping at the device's maximum.
+
+The tap groups, like the tap spring mode itself, are only offered while the tap is enabled for the sim in System Settings, and on DCS not in FFB-Fix only mode. Values set while a group was shown are kept.
+
+### Advanced Dynamic through the tap
+
+**Advanced Dynamic** (see [Advanced Spring & G-Force Curves](spring-curves.md)) also renders through the tap when the game's spring cannot reach the device directly: always on a DirectLink device, and on a VPforce device while the tap is capturing it. The airspeed curve sets the spring force, the game's own center movements come through the tap as usual, and the mode's hardware trim and G-force offset shift that center. The game's other effects are rendered exactly as in **Game Managed (DirectInput Tap)**, and the **Tap: Axis Corrections** and **Tap: Additional Game Effects** groups apply in this mode too. The spring gain group is not offered, since the curve sets the force.
+
+![The Settings tab with Advanced Dynamic selected on a tap-captured device: the Tap: Axis Corrections and Tap: Additional Game Effects groups, with no Tap: Spring Gain group](images/dinput-tap/advanced-dynamic-tap.png){ width="650px" }
 
 ## The game's other effects
 
@@ -145,9 +152,11 @@ The **Tap: Additional Game Effects** group controls everything else the game sen
 - **Tap: Periodic Vibrations** - rumble, buffet, and other oscillations.
 - **Tap: Damper Effects**, **Tap: Inertia Effects**, **Tap: Friction Effects** - the game's condition effects.
 
-![](images/dinput-tap/tap-settings.png){ width="650px" }
+![The Settings tab with Game Managed (DirectInput Tap) selected: the Tap: Axis Corrections, Tap: Spring Gain and Tap: Additional Game Effects groups](images/dinput-tap/tap-settings.png){ width="650px" }
 
-Captured effects appear in the effects monitor as **Game Spring (DirectInput Tap)**, **Game Periodic (DirectInput Tap)**, and so on, alongside TelemFFB's own effects.
+Captured effects appear in the effects monitor as **Game Spring (DirectInput Tap)**, **Game Periodic (DirectInput Tap)**, and so on, alongside TelemFFB's own effects. Like TelemFFB's own effects, they show their current intensity, or their gain per axis. See [Active effects](ui-overview.md#active-effects).
+
+For a wire-level view of what the game sends, open **Utilities → DirectInput Tap Monitor...**. It shows whether the game is publishing through the tap, which devices the wrapper captured, and the raw DirectInput values (±10000) of each effect slot. It keeps a time-stamped log of each change; click **Save Log...** to save it for support.
 
 ![](images/dinput-tap/effects-monitor.png){ width="650px" }
 

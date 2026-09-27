@@ -147,15 +147,29 @@ Vibration while the tailhook or wing-fold mechanism is deploying or retracting.
 
 <!-- telemffb-effect name=enable_hydraulic_loss_effect part=badges -->
 
-Simulates the heavy, sluggish controls of a failing hydraulic system: as the *HydSys* telemetry value falls from the configured threshold toward zero, the damper, inertia, and friction forces ramp from their normal values toward the levels configured here.
+Simulates the heavy, sluggish controls of a failing hydraulic system: as the aircraft's hydraulic state falls from the configured threshold toward zero, the damper and friction forces ramp from their normal values toward the levels configured here.
 
 <!-- telemffb-effect name=enable_hydraulic_loss_effect part=table -->
 
 !!! note
-    Requires the damper/inertia/friction [overrides](effects-ffb.md) to be enabled, and headroom left in them; if your base forces already sit at 100%, there is no room to increase them. To set the threshold for a new aircraft, observe the normal *HydSys* value in the Monitor tab and set the threshold below it.
+    Requires the damper and friction [overrides](effects-ffb.md) to be enabled, and headroom left in them; if your base forces already sit at 100%, there is no room to increase them. To set the threshold for a new aircraft, observe the normal *HydSys* value in the Monitor tab and set the threshold below it.
 
 !!! warning
-    Increase these forces carefully; too much inertia or friction can cause motor instability and a protective shutdown.
+    Increase these forces carefully; too much damper or friction can cause motor instability and a protective shutdown.
+
+### Custom hydraulic variable (MSFS)
+
+TelemFFB reads the aircraft's hydraulic state from **HYDRAULIC SYSTEM INTEGRITY**. Some aircraft model their hydraulics in their own variables and never change it. For those, enable **Custom Hydraulic Variable** and enter the variable that shows the hydraulic state: a SimVar, an L:Var or an input event (`B:`).
+
+The effect needs a value from 0 (no hydraulics) to 1 (normal). A switch, or a value that already reads 0 to 1, works as it is. For anything else, enter a **Transform to 0-1**, with `x` standing for the variable's value. The syntax is the same as the Scale field in the [overrides editor](telem-overrides.md):
+
+| The variable reads | Transform |
+|---|---|
+| A pressure, 3000 when normal | `x/3000` |
+| A percentage | `x/100` |
+| A failure flag, 1 when failed | `1-x` |
+
+The Monitor tab shows the raw value as *HydSys* and the result as *_hyd_health*. A transform TelemFFB cannot read is reported as a configuration error. The built-in profiles for the FlyInside Bell 206 and the CowanSim R66 already set this variable.
 
 ## Vibration from Telemetry (FlyInside)
 
