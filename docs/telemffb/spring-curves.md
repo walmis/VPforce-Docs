@@ -2,9 +2,11 @@
 
 ## Advanced Dynamic Spring Curve Dialog
 
-The advanced spring setting is new in TelemFFB 2.0 and supported across all simulators in some form or fashion. It allows users to define the spring gain mapping via visual curve/slope across a custom airspeed envelope.
+The advanced spring setting is supported across all simulators in some form. It defines the spring gain mapping as a visual curve across a custom airspeed envelope.
 
-To enable the Advance Spring mode, change the **Joystick Spring Mode** for the desired aircraft to the "**Advanced Dynamic**" mode. Then choose the **Edit Settings** button to open the configuration dialog.
+To enable the Advance Spring mode, change the **Joystick Spring Mode** for the desired aircraft to the "**Advanced Dynamic**" mode. Then click the **Configure Settings** button (**Edit Settings** once a curve has been saved) to open the configuration dialog.
+
+On DCS, IL-2 and Falcon BMS the curve reshapes the game's own spring, so the game's trim and center movements keep working underneath it. A VPforce device does this in firmware. A [DirectLink](devices-instances.md) device, or any device the [DirectInput Tap](dinput-tap.md) is capturing, needs the tap: TelemFFB then renders the game's captured spring itself with the curve applied. Without a tap capturing that device, the mode reports that no game spring is available to render.
 
 ![](images/spring-curves/adv-spring-entry.png){ width="401px" height="105px" }
 ![](images/spring-curves/adv-spring-dialog.png){ width="413px" height="462px" }
@@ -96,9 +98,9 @@ The curve controls are as follows:
 
 ## Advanced Custom Curve G-Force Effect Dialog
 
-Also new in TelemFFB 2.0 is a new way of configuring the G-Force effect. Many aircraft do not have a linear, or even similar g-loading response and as such, the legacy exponential curve g-force effect produces lackluster or erratic behavior.
+The G-Force effect can also be configured through a custom curve. Many aircraft do not have a linear, or even similar, g-loading response, and the standard exponential-curve g-force effect can produce lackluster or erratic behavior on them.
 
-To enable, select "Custom Curve" as the G-Force Effect and select the Edit Settings button
+To enable, select "Custom Curve" as the G-Force Effect and click the **Configure Settings** button (**Edit Settings** once a curve has been saved)
 
 ![](images/spring-curves/gforce-curve-dialog.png){ width="456px" height="76px" }
 

@@ -12,7 +12,7 @@ Physical & virtual gains should be configured per aircraft. Reasonable starting 
 | Elevator (Y) | 100% | 20% |
 | Rudder | 50% | 20% |
 
-Aileron (X) and rudder gains can usually be left at their defaults - many aircraft have no cockpit trim on those axes, and where they do it is a set-and-forget adjustment. The **elevator (Y)** trim is used constantly, so *Y Trim Gain Virtual* is the value most worth tuning per aircraft.
+Aileron (X) and rudder gains can usually be left at their defaults; many aircraft have no cockpit trim on those axes, and where they do it is a set-and-forget adjustment. The **elevator (Y)** trim is used constantly, so *Y Trim Gain Virtual* is the value most worth tuning per aircraft.
 
 ## Tuning the Elevator Trim by Hand
 

@@ -25,10 +25,12 @@ from PIL import Image
 # ---------------------------------------------------------------------------
 
 TELEMFFB_DEFAULTS_XML = Path(__file__).parent / "data" / "telemffb-defaults.xml"
-_SIMS = ("DCS", "IL2", "BMS", "MSFS", "XPLANE")
-_SIM_LABEL = {"XPLANE": "XP"}
+_SIMS = ("DCS", "IL2", "IL2K", "BMS", "MSFS", "XPLANE")
+_SIM_LABEL = {"XPLANE": "XP", "IL2K": "IL2 Korea"}
 _DEVICES = ("joystick", "pedals", "collective", "trimwheel")
 _SKIP_DATATYPES = {"group", "convert"}
+# Settings that exist in defaults.xml but are not yet exposed to users.
+_UNRELEASED_PREFIXES = ("ffb_api_",)
 
 _telemffb_settings_cache = None
 
@@ -40,6 +42,24 @@ def _load_telemffb_settings():
         return _telemffb_settings_cache
 
     tree = ET.parse(TELEMFFB_DEFAULTS_XML)
+    # A collapsible group row inside a section (e.g. "Tap: Axis Corrections",
+    # shown under Joystick Spring Mode) is not a setting, but its members
+    # belong under whatever the group hangs off. Section groups such as
+    # basic_group have no prereq of their own and are left alone.
+    group_prereqs = {}
+    for d in tree.getroot().iter("defaults"):
+        if (d.findtext("datatype") or "").strip() == "group":
+            gp = (d.findtext("prereq") or "").strip()
+            if d.findtext("name") and gp:
+                group_prereqs[d.findtext("name")] = gp
+
+    def resolve_prereq(prereq):
+        seen = set()
+        while prereq.split(".")[0] in group_prereqs and prereq not in seen:
+            seen.add(prereq)
+            prereq = group_prereqs[prereq.split(".")[0]]
+        return prereq
+
     settings = {}
     for d in tree.getroot().iter("defaults"):
         name = d.findtext("name")
@@ -47,13 +67,15 @@ def _load_telemffb_settings():
         displayname = (d.findtext("displayname") or "").strip()
         if not name or not displayname or datatype in _SKIP_DATATYPES:
             continue
+        if name.startswith(_UNRELEASED_PREFIXES):
+            continue
         try:
             order = float(d.findtext("order") or 0)
         except ValueError:
             order = 0.0
         sims = {s for s in _SIMS if d.findtext(s) == "true"}
         devices = {v for v in _DEVICES if d.findtext(v) == "true"}
-        prereq_raw = (d.findtext("prereq") or "").strip()
+        prereq_raw = resolve_prereq((d.findtext("prereq") or "").strip())
         rec = settings.get(name)
         if rec is None:
             settings[name] = {
@@ -173,7 +195,7 @@ def _effect_block(name, part="both"):
 
         for modes, members in groups:
             if modes:
-                label = " / ".join(_MODE_LABELS.get(m, m.title()) for m in modes)
+                label = " / ".join(_mode_label(name, m) for m in modes)
                 parts.append(f"**In mode: {label}**")
             parts.append(rows_for(members))
 
@@ -182,6 +204,13 @@ def _effect_block(name, part="both"):
 
 # Human labels for spring-mode / g-effect enum values used in value-scoped
 # prereqs (matches the labels in TelemFFB's SettingsManager enum dicts).
+# A token that means different things under different selectors is keyed
+# by (selector, token) in _SELECTOR_MODE_LABELS, which is checked first.
+_SELECTOR_MODE_LABELS = {
+    ("gforce_effect_mode", "LEGACY"): "Exponential Curve",
+    ("gforce_effect_mode", "NEW"): "Linear + Deflection Based",
+    ("gforce_effect_mode", "ADVANCED"): "Custom Curve",
+}
 _MODE_LABELS = {
     "BASIC": "Basic Dynamic",
     "CENTER": "Basic Dynamic with Spring Centering",
@@ -194,9 +223,13 @@ _MODE_LABELS = {
     "NOSPRING": "No Spring",
     "NONE": "None (Game Managed)",
     "CUSTOM": "Custom",
-    "LEGACY": "Exponential Curve (legacy)",
-    "NEW": "Custom Curve",
+    "DINPUT_TAP": "Game Managed (DirectInput Tap)",
 }
+
+
+def _mode_label(selector, token):
+    return (_SELECTOR_MODE_LABELS.get((selector, token))
+            or _MODE_LABELS.get(token, token.title()))
 
 
 # Settings-tab sections in app order: (parentgroup, user-facing name).
@@ -219,7 +252,18 @@ def _toc_slug(heading):
     text = _strip_tags(heading)
     text = re.sub(r"[*_`]", "", text)
     text = re.sub(r"[^\w\s-]", "", text.lower())
-    return re.sub(r"[\s]+", "-", text.strip())
+    return re.sub(r"[-\s]+", "-", text.strip())
+
+
+def _heading_anchor(heading):
+    """A heading's anchor: its explicit `{ #id }` when it has one, else the toc slug."""
+    attrs = re.search(r"\{([^}]*)\}\s*$", heading)
+    if attrs:
+        explicit = re.search(r"#([\w-]+)", attrs.group(1))
+        if explicit:
+            return explicit.group(1)
+        heading = heading[:attrs.start()]
+    return _toc_slug(heading)
 
 
 def _effect_anchor_map():
@@ -239,7 +283,7 @@ def _effect_anchor_map():
             if m and heading:
                 am = re.search(r"name=(\S+)", m.group(1))
                 if am and am.group(1) not in mapping:
-                    mapping[am.group(1)] = (path.name, _toc_slug(heading))
+                    mapping[am.group(1)] = (path.name, _heading_anchor(heading))
     _effect_anchor_cache = mapping
     return mapping
 

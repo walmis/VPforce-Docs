@@ -1,7 +1,58 @@
 # Changelog
+- **October 3, 2026:**
+
+    - Rewrote **[Automatic Trim Calibration](telemffb/msfs-xp-trim-calibration.md)** for the current tool: the [two-stage run](telemffb/msfs-xp-trim-calibration.md#running-a-calibration) with the test-speed hold and the auto-start option, the [live status](telemffb/msfs-xp-trim-calibration.md#live-status) indicators and step lamps, [control response](telemffb/msfs-xp-trim-calibration.md#control-response) and [gliders](telemffb/msfs-xp-trim-calibration.md#gliders), [stored calibrations](telemffb/msfs-xp-trim-calibration.md#stored-calibrations) at several airspeeds, and the trimmed stick position, with new screenshots
+    - Rewrote the IL-2 part of **[Connecting Your Simulator](telemffb/sim-setup.md#il-2-sturmovik-and-il-2-korea)** for the separate IL-2 Sturmovik and IL-2 Korea blocks: each game's switch, telemetry port and install path, what Auto Telemetry setup checks, and Telemetry Forwarding for both games
+    - Added the **[FFB Telemetry spring mode](telemffb/sim-il2.md#ffb-telemetry-spring-mode-il-2-korea)** for IL-2 Korea, and corrected the name of the Korea pedal tap mode in [IL-2](telemffb/sim-il2.md#ffb-pedals-in-il-2-korea) and [The DirectInput Tap](telemffb/dinput-tap.md#rendering-the-games-spring)
+    - Fixed broken section links across the TelemFFB manual, and gave sections with a slash in their name, such as [AoA/Stall Buffeting](telemffb/effects-aerodynamics.md#aoa-stall-buffeting), readable link addresses. The old MSFS toolbar panel address now forwards to the [In-Sim Settings Panel](telemffb/in-sim-panel.md) page
+    - Gave TelemFFB manual sections shorter names, such as [Overlapping Profiles](telemffb/aircraft-profiles.md#overlapping-profiles), [Forking a Profile](telemffb/aircraft-profiles.md#forking-a-profile) and [Offline Editor](telemffb/settings-model.md#offline-editor), and set all section headings in Title Case
+    - Updated **[Controls Lock](telemffb/effects-mechanical.md#controls-lock)** for the new **Controls Lock Force** and **Controls Lock Damper** settings: how the lock pulls the controls in and holds them, the spring-only lock on devices without detents, and the aircraft whose profiles include a lock. The effects reference tables now also show the current names of the **+/- Range X/Y Scaling** settings
+    - The MSFS and X-Plane **A Feature Doesn't Work With a Specific Aircraft** sections of [Game-Specific Troubleshooting](rhino/game-specific-troubleshooting.md) now point to [Telemetry Overrides](telemffb/telem-overrides.md) for reading an aircraft's own L:Vars, input events or datarefs
+    - [Telemetry Overrides](telemffb/telem-overrides.md) now sends an MSFS addon's autopilot state to the [Custom Autopilot Variable](telemffb/msfs-xp-trim-following.md#custom-autopilot-variable-msfs) setting, and the A2A Comanche [worked example](telemffb/telem-overrides.md#a-worked-example) and [special aircraft entry](telemffb/msfs-xp-special-aircraft.md#a2a-comanche-pa-24) match its current profile
+
+- **September 27, 2026:**
+
+    - Added X-Plane to the in-sim panel page, now **[In-Sim Settings Panel](telemffb/in-sim-panel.md)**: [installing the X-Plane panel](telemffb/in-sim-panel.md#install-the-panel-in-x-plane), opening it from the Plugins menu or a bound command, and the [Monitor view](telemffb/in-sim-panel.md#monitor-view), button binding and configuration errors in both sims
+    - Documented the **[X-Plane installs](telemffb/sim-setup.md#x-plane-installs)** list in Connecting Your Simulator: each install with its telemetry and panel plugins, adding a folder, and removing an install from the list
+    - Added site navigation: a **Previous** / **Next** bar at the foot of each page leads to the neighboring pages in the menu
+    - Updated the **[UI Overview](telemffb/ui-overview.md)** for the redesigned main window: the menus, the [Application Status](telemffb/ui-overview.md#application-status-area) box with its profile dropdown, and the [prompts](telemffb/ui-overview.md#prompts) above the tabs, with new screenshots throughout the TelemFFB pages
+    - Added **[Where the Devices Are Shown](telemffb/ui-overview.md#device-panel)** - the seven places for the device icons, how to change between them, and how to float and dock the device strip
+    - Rewrote the **[Monitor Tab](telemffb/ui-overview.md#monitor-tab)** section: favorites, the effect-type badges, the intensity column, a child device's data on the master, and detaching the tab
+    - Added **[Configuration errors](telemffb/ui-overview.md#configuration-errors)**, and documented removing a class or sim override from a loaded aircraft in [How Settings Work](telemffb/settings-model.md#reading-the-settings-tab)
+    - Shortened **[When Your Profile and a Built-In Both Match](telemffb/aircraft-profiles.md#overlapping-profiles)** to what you need in the dialog, and renamed the split button to the **fork button**, as the app calls it
+    - Documented the trim calibration prompt and the fixed-wing limit in [Automatic Trim Calibration](telemffb/msfs-xp-trim-calibration.md#opening-the-tool)
+    - Documented [Advanced Dynamic through the DirectInput Tap](telemffb/dinput-tap.md#advanced-dynamic-through-the-tap), the split of the tap settings into Axis Corrections and Spring Gain groups, and the DirectInput Tap Monitor
+    - Updated the effects reference tables: the DirectInput Tap settings now appear under Joystick Spring Mode, IL-2 Korea has its own badge, and the G-Force Effect modes use their current names
+    - Added the **[Custom hydraulic variable](telemffb/effects-mechanical.md#custom-hydraulic-variable-msfs)** and **[Custom autopilot variable](telemffb/msfs-xp-trim-following.md#custom-autopilot-variable-msfs)** settings for MSFS
+    - Updated the [MSFS toolbar panel](telemffb/in-sim-panel.md#install-the-panel-in-msfs) install steps for the editable Community folder path, and added a screenshot of the [panel in MSFS](telemffb/in-sim-panel.md#open-the-panel) with its device buttons, reset icons and size control
+
+- **September 17, 2026:**
+
+    - Rewrote **[Aircraft Profiles](telemffb/aircraft-profiles.md)** for the new profile matching: [how an aircraft is matched](telemffb/aircraft-profiles.md#how-telemffb-matches-an-aircraft), the [Multiple matching profiles](telemffb/aircraft-profiles.md#overlapping-profiles) prompt and merge, and the [fork button](telemffb/aircraft-profiles.md#forking-a-profile). Updated the New Aircraft Wizard steps and screenshots.
+    - Updated **[Telemetry Overrides](telemffb/telem-overrides.md)** with the [Class, Default and User tiers](telemffb/telem-overrides.md#where-an-aircrafts-overrides-come-from), the editor's Source column, and [input events](telemffb/telem-overrides.md#input-events-b-variables) (`B:` variables).
+    - Corrected the cloning guidance in **[Aircraft with Special Treatment](telemffb/msfs-xp-special-aircraft.md)**: only some of these aircraft need a cloned profile, and the roster now says which.
+    - Added **[Device recovery](telemffb/devices-instances.md#device-recovery)** and updated the [device status indications](telemffb/ui-overview.md#device-status).
+    - Added **Device problems** and **[Reading the log](telemffb/troubleshooting.md#reading-the-log)** to Troubleshooting.
+    - Updated [UI Overview](telemffb/ui-overview.md), [How Settings Work](telemffb/settings-model.md) and the [helicopter force trim](telemffb/msfs-xp-helicopters.md#helicopter-force-trim) notes to match.
+
+- **September 13, 2026:**
+
+    - Added **[Effect Preview](telemffb/effect-preview.md)** - a new page on playing an effect on the device from the offline editor with no simulator running: the two ways into the editor (the Profiles menu and the **Offline/Preview Mode** button for a loaded aircraft), the **▶** and **▶▶** buttons, the tooltip that states what each preview represents, the confirmation for constant-force previews, and a table of every effect that can be previewed with what its preview plays
+    - Updated the [Profiles menu](telemffb/ui-overview.md#profiles-menu) and [Settings tab](telemffb/ui-overview.md#settings-tab) descriptions and the [offline editor](telemffb/settings-model.md#offline-editor) section for the renamed **Offline Editor/Effect Preview** entry and the new corner button
+    - Restored the missing **AoA/Stall Buffeting** heading in the [Aerodynamics](telemffb/effects-aerodynamics.md#aoa-stall-buffeting) reference, so the entry no longer appears under Blade Slap and links to it resolve
+
 - **September 9, 2026:**
 
     - Added **[Black Box Not Reading the Grip](products/grip-adapters.md#black-box-not-reading-the-grip)** to the [Grip Adapters](products/grip-adapters.md) page - community-sourced fixes for when a VKB grip is not detected or its buttons do not reach the Rhino: flashing the correct Black Box firmware and pressing Default, running the Black Box in standalone mode, the Gunfighter Mk4 firmware-before-v2.20 requirement, and a continuity check of the connector's three contacts (with a pinout photo) to isolate wiring faults
+
+- **August 27, 2026:**
+
+    - Added **[The DirectInput Tap](telemffb/dinput-tap.md)** - a new page covering the game-side capture wrapper for DCS, IL-2, and Falcon BMS: what it does, per-sim setup from System Settings, the **Game Managed (DirectInput Tap)** spring modes (including IL-2 Korea's FFB pedals), per-effect-type toggles and gains for the game's own effects, the start-order rule, misconfiguration warnings, the configuration file, and updates/removal
+    - Documented **[multiple joysticks and per-aircraft device selection](telemffb/devices-instances.md#multiple-joysticks-msfs-x-plane)** for MSFS and X-Plane: alternate device rows on the joystick card, the primary marker, live switching at save, and the per-aircraft **Device** section
+    - Updated [System Settings](telemffb/configuration.md) for the reduced restart requirements (most changes now apply live; a restart is prompted only for master-device, auto-launch, or theme changes) and the DirectLink integration toggle with its status line
+    - Added DirectInput Tap cross-references and the tap spring mode to the [DCS](telemffb/sim-dcs.md), [IL-2](telemffb/sim-il2.md) (including Korea pedal FFB), and [BMS](telemffb/sim-bms.md) guides
+    - Documented the System Settings [File menu](telemffb/configuration.md#import-export-and-reset) - settings export/import for backup and machine migration, and Reset to Defaults, none of which commit until Save
+    - Rewrote [System Settings](telemffb/configuration.md) for the reorganized dialog - three tabs (Devices / System / Simulator Setup), the per-device Device Settings panels that replace the retired Startup Behavior page, the now-global update prompt setting, and the master-only dialog that configures every instance - with matching updates to [Devices & Instances](telemffb/devices-instances.md) (device cards carry the launch controls), the Quick Start, and [Connecting Your Simulator](telemffb/sim-setup.md)
 
 - **August 16, 2026:**
 
@@ -14,7 +65,7 @@
 
     - Added **[Aircraft with Special Treatment](telemffb/msfs-xp-special-aircraft.md)** - a dedicated page cataloguing every MSFS/X-Plane addon aircraft with a dedicated class or curated default profile (HPG H145/H160, FlyInside B206/B47, the ten-model CowanSim fleet, Taog's Hangar H500C/OH6A and UH-1H/205-A1B, Simfocus Bell 407, A2A Comanche, X-Trident AW109SP), what each integration does, and why additional profiles for these aircraft must be cloned from the default rather than created from scratch
     - Renamed the SimConnect/Dataref Overrides page to **[Telemetry Overrides](telemffb/telem-overrides.md)** to match the application, and documented the status-area **Telem Ovd** indicator with its Default/User tier counts
-    - Added **[How the Axis Positions Reach the Sim](telemffb/msfs-xp-axis-spring.md#how-the-axis-positions-reach-the-sim)** to Axis Control & Spring Modes - the default SimConnect axis events per aircraft class, the input range and sensitivity notes, and the X-Plane plugin's override and position datarefs (including the sim's designated prop-ratio collective mapping)
+    - Added **[How the Axis Positions Reach the Sim](telemffb/msfs-xp-axis-spring.md#axis-output)** to Axis Control & Spring Modes - the default SimConnect axis events per aircraft class, the input range and sensitivity notes, and the X-Plane plugin's override and position datarefs (including the sim's designated prop-ratio collective mapping)
     - Added **[Exception Tracking & Reporting](telemffb/troubleshooting.md#exception-tracking-reporting)** - the status-bar Errors counter, the Logged Exceptions viewer with deduplication and child-instance forwarding, and the Report Exceptions upload flow - plus a [Status Bar](telemffb/ui-overview.md#status-bar) section in the UI overview
     - Updated **[Exception Tracking & Reporting](telemffb/troubleshooting.md#exception-tracking-reporting)** for the new report dialog: the optional Discord username (session-only, shown in the uploaded file name) and the additional-information field, with a refreshed screenshot
 
@@ -36,7 +87,7 @@
     - Moved **Understanding Native DCS FFB, TelemFFB, and VPforce Configurator** from the overview into the **[DCS guide](telemffb/sim-dcs.md)**, keeping the overview focused on what TelemFFB does per simulator
     - Repaired heading hierarchy on the simulator guide pages so section numbering and the table of contents render correctly
     - Clarified in **[Running TelemFFB from Source](telemffb/installation.md#running-telemffb-from-source)** that Python 3.12 is required - newer versions are incompatible with the pinned numpy release
-    - Updated **[IL-2 setup](telemffb/sim-setup.md#il-2-sturmovik)** for the current System Settings layout: discrete configuration groups for IL-2 Great Battles and IL-2 Korea, the telemetry port setting, and the new Telemetry Forwarding feature for sending Telemetry/Motion/FFB streams to additional destinations; removed the retired "Pause IL-2 Effects on Focus Loss" setting
+    - Updated **[IL-2 setup](telemffb/sim-setup.md#il-2-sturmovik-and-il-2-korea)** for the current System Settings layout: discrete configuration groups for IL-2 Great Battles and IL-2 Korea, the telemetry port setting, and the new Telemetry Forwarding feature for sending Telemetry/Motion/FFB streams to additional destinations; removed the retired "Pause IL-2 Effects on Focus Loss" setting
     - Added a **[Quick Start](telemffb/quick-start.md)** walkthrough covering install, first launch, simulator connection, verifying telemetry, and live tuning
     - Rewrote **[How Settings Work](telemffb/settings-model.md)** to explain the layered defaults model - application defaults, class defaults, shipped aircraft profiles, and user overrides - and how the Settings tab shows where each value comes from
     - Split the **[MSFS & X-Plane guide](telemffb/sim-msfs-xplane.md)** into ordered chapters: [Axis Control & Spring Modes](telemffb/msfs-xp-axis-spring.md), [Trim & Autopilot Following](telemffb/msfs-xp-trim-following.md), [Automatic Trim Calibration](telemffb/msfs-xp-trim-calibration.md), and [Helicopters](telemffb/msfs-xp-helicopters.md)
