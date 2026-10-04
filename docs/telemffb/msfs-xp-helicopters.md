@@ -81,7 +81,7 @@ If you fly with a VPforce-powered collective, the **Collective Spring Mode** set
 !!! note
     Aircraft that model a cockpit force-trim switch can drive the hold via the force trim switch variable: while the switch is off, the spring follows the collective without locking.
 
-## HPG Airbus Helicopters (MSFS only)
+## HPG Airbus Helicopters (MSFS Only)
 
 In collaboration with HPG, this implementation in TelemFFB was developed as a true-to-life representation of piloting the Airbus H145 and H160 aircraft.
 
@@ -170,12 +170,13 @@ Newer versions of the HPG helicopters have more options that assist with FFB imp
 
 ### Force Mode (Experimental)
 
-New in version 2.0, along with the latest v1.0.18 Rhino firmware is an experimental version of the hands on/off detection that is used in the HPG Class aircraft.
+Force Mode is an experimental hands on/off detection for the HPG Class aircraft. It needs Rhino firmware v1.0.18 or later.
+
 ![](images/msfs-xp-helicopters/force-mode.png){ width="488px" height="263px" }
 
-The latest firmware allows us to track the force output for the axis in % of max, which can give a much more granular indication of user hands-on controls as compared to a pure deflection based calculation.
+Force Mode reads the axis force output as a percentage of maximum. That shows whether your hands are on the controls more precisely than stick deflection alone.
 
-Because the configurator Adaptive Recentering feature "forces" the stick as close to the exact center as possible, having it enabled typically results in a higher "standing force" reading. Because of this, it is recommended to **disable **the **Adaptive Recentering** figure in configurator when flying the HPG helicopters in Force Mode
+Because the configurator Adaptive Recentering feature "forces" the stick as close to the exact center as possible, having it enabled typically results in a higher "standing force" reading. Because of this, it is recommended to **disable** the **Adaptive Recentering** feature in configurator when flying the HPG helicopters in Force Mode.
 
 ![](images/msfs-xp-helicopters/configurator-adaptive-recentering.png){ width="232px" height="180px" }
 
@@ -195,13 +196,13 @@ Rather than a hard hands-off threshold, it uses a time based hysteresis. This pr
 
     - Logs the hands on/off state on every simulation frame. Useful when fine tuning the threshold value
 
-## FlyInside Helicopters (MSFS only)
+## FlyInside Helicopters (MSFS Only)
 
 In collaboration with FlyInside, TelemFFB uses vibration variables from the flight model. ETL, VRS, and other buffeting and engine vibrations are not used. Instead there is a Vibration control under Mechanical/Airframe:
 
 ![](images/msfs-xp-helicopters/flyinside-vibration.png){ width="652px" height="67px" }
 
-## X-Trident AW109 (X-Plane only)
+## X-Trident AW109 (X-Plane Only)
 
 Developed in collaboration with X-Trident, this implementation integrates all four axes with the AW109's AFCS. The cyclic follows the autopilot's trim commands, the collective follows the AFCS in the vertical modes, and the pedals actively track the anti-torque requirement as power and airspeed change, tuned against flight-test observations from a real-world AW109 pilot. Force trim release is supported on all three controls.
 

@@ -43,7 +43,7 @@ TelemFFB currently requires **Python 3.12**. It is the version used to compile t
 !!! tip "More than one Python version installed?"
     You do not need a version manager on Windows; the `py` launcher that installs with Python selects versions directly. Verify 3.12 is available with `py -3.12 --version`, and if plain `python` reports a different version, substitute `py -3.12` for `python` (and `py -3.12 -m pip` for `pip`) in every command below.
 
-### Clone the repository
+### Clone the Repository
 
 If you don't already have Git installed, download and install it from [git-scm.com](https://git-scm.com/downloads). The default options in the installer are appropriate for most users.
 
@@ -57,7 +57,7 @@ cd VPforce-TelemFFB
 !!! note
     All of the remaining steps must be run from inside the `VPforce-TelemFFB` folder created by the clone. If you open a new terminal window or session, make sure to `cd` into that folder first before continuing.
 
-### (Optional) Check out a specific branch
+### (Optional) Check Out a Specific Branch
 
 By default, the clone checks out the `wip` branch. To work with a different branch (for example, to test an in-progress feature), make sure you're in the `VPforce-TelemFFB` folder, then list the available branches and check out the one you need:
 
@@ -69,7 +69,7 @@ git checkout <branch-name>
 
 Replace `<branch-name>` with the name of the branch you want to use.
 
-### Install dependencies
+### Install Dependencies
 
 From the `VPforce-TelemFFB` folder, run:
 
@@ -90,7 +90,7 @@ python main.py
 
 The first time you run the program, it may prompt you to install an export script in your `Saved Games\DCS` folder for telemetry data collection; accept this if you intend to use TelemFFB with DCS.
 
-### Updating your source checkout
+### Updating Your Source Checkout
 
 To pull the latest changes on your current branch:
 

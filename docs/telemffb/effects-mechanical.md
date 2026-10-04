@@ -6,13 +6,22 @@ Effects driven by the mechanical state of the aircraft (engine vibration, moving
 
 <!-- telemffb-effect name=controls_lock_enable part=badges -->
 
-For aircraft with a control lock (gust lock): while the configured sim variable reports the lock engaged, TelemFFB holds the controls firmly in place.
+For aircraft with a control lock (gust lock). While the configured sim variable reports the lock engaged, TelemFFB holds the controls in the locked position. The stick and pedals lock at center, and the collective locks fully down.
+
+When the lock engages, a centering spring pulls the control to the locked position. Once the control is there, TelemFFB holds it with detents and stops the spring. On a device without detent support, the spring stays on and holds the control by itself. A damper also runs for as long as the lock is engaged. When the lock releases, TelemFFB returns the controls to their normal forces.
+
+- **Controls Lock Force** sets the strength of the detents and the centering spring.
+- **Controls Lock Damper** adds damping while the controls are locked. Very strong detents can make the stick bounce or oscillate; the damper settles it.
+
+Changes to either setting apply at once, even while the controls are locked. The **Monitor** tab lists the lock's effects as **Controls Lock Spring**, **Controls Lock Lower Bound**, **Controls Lock Upper Bound** and **Controls Lock Damper**.
 
 The variable can be an `L:Var`, a SimVar, or an MSFS 2024 input event written as `B:EVENT_NAME`. See [Input events](telem-overrides.md#input-events-b-variables) for how to find the name of a cockpit control.
 
+The built-in profiles for these MSFS aircraft include a control lock: the Saab 340, A2A Piper PA-24, Black Square A36 and B36TP Bonanza, Baron 58, Duke, Grand Duke, Turbine Duke and Commander 114TC, Flysimware C414AW, Pilatus PC-6, Wilga, and Taog's Hangar H500C and OH-6A.
+
 <!-- telemffb-effect name=controls_lock_enable part=table -->
 
-## Heli Engine/Rotor Rumble
+## Heli Engine/Rotor Rumble { #heli-engine-rotor-rumble }
 
 <!-- telemffb-effect name=engine_rotor_rumble_enabled part=badges -->
 
@@ -81,7 +90,7 @@ Vibration while the flaps are in motion.
 
 <!-- telemffb-effect name=flaps_motion_effect_enabled part=table -->
 
-## Fuel Boom/Door Motion
+## Fuel Boom/Door Motion { #fuel-boom-door-motion }
 
 <!-- telemffb-effect name=fuelboom_motion_effect_enabled part=badges -->
 
@@ -129,7 +138,7 @@ Buffet while spoilers are deployed, and vibration while they move (motion effect
 
 <!-- telemffb-effect name=enable_stick_shaker part=badges -->
 
-A stall-warning stick shaker: the distinct high-frequency square-wave shake of the real device, separate from the aerodynamic [AoA/Stall Buffeting](effects-aerodynamics.md#aoastall-buffeting). In MSFS it triggers from the sim's stall warning; DCS/BMS use the configurable AoA threshold.
+A stall-warning stick shaker: the distinct high-frequency square-wave shake of the real device, separate from the aerodynamic [AoA/Stall Buffeting](effects-aerodynamics.md#aoa-stall-buffeting). In MSFS it triggers from the sim's stall warning; DCS/BMS use the configurable AoA threshold.
 
 <!-- telemffb-effect name=enable_stick_shaker part=table -->
 
@@ -157,7 +166,7 @@ Simulates the heavy, sluggish controls of a failing hydraulic system: as the air
 !!! warning
     Increase these forces carefully; too much damper or friction can cause motor instability and a protective shutdown.
 
-### Custom hydraulic variable (MSFS)
+### Custom Hydraulic Variable (MSFS)
 
 TelemFFB reads the aircraft's hydraulic state from **HYDRAULIC SYSTEM INTEGRITY**. Some aircraft model their hydraulics in their own variables and never change it. For those, enable **Custom Hydraulic Variable** and enter the variable that shows the hydraulic state: a SimVar, an L:Var or an input event (`B:`).
 

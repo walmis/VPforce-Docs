@@ -4,7 +4,7 @@ DCS, IL-2, and Falcon BMS compute their own force feedback and send it to the st
 
 The **DirectInput Tap** captures the effects the game computes and sends them to TelemFFB, which renders them on the device. The game cannot detect the difference: it continues to compute its effects, and everything it exports continues to work.
 
-## Why use it
+## Why Use the Tap
 
 With the tap active, the game's own effects become visible and adjustable in TelemFFB:
 
@@ -12,7 +12,7 @@ With the tap active, the game's own effects become visible and adjustable in Tel
 - The game's spring can be corrected per axis: swap axes, invert, and scale, with a live force readout on the sliders.
 - The game's effects appear in the effects monitor by name, so you can see exactly what the game is sending at any moment.
 
-## Supported simulators
+## Supported Simulators
 
 | Simulator | Joystick | Pedals |
 |---|---|---|
@@ -23,7 +23,7 @@ With the tap active, the game's own effects become visible and adjustable in Tel
 
 IL-2 Korea is the only simulator in this group that renders force feedback to pedals.
 
-## How it works
+## How It Works
 
 TelemFFB places a small wrapper library (`dinput8.dll`) in the game's folder, and the game loads it in place of the system DirectInput library. The wrapper passes everything through unchanged, with one exception: the force-feedback effects of the devices you choose to capture. Those effects go to TelemFFB instead of the device.
 
@@ -34,7 +34,7 @@ TelemFFB places a small wrapper library (`dinput8.dll`) in the game's folder, an
 
     Setting it to `false` removes the start-order requirement, at exactly that risk: whenever the game runs without TelemFFB, the captured devices' forces are swallowed with nothing re-rendering them, and nothing on screen says why. Leave it `true` unless you accept that trade.
 
-## Setting it up
+## Setting It Up
 
 1. Open **System → System Settings** and go to the simulator's page on the **Simulator Setup** tab.
 2. Enable the **DirectInput Tap** toggle. A status panel appears below it. The panel locates the game install automatically (from the configured path, the registry, or a Steam library scan) and shows the wrapper state for each of the game's executable folders.
@@ -55,7 +55,7 @@ TelemFFB places a small wrapper library (`dinput8.dll`) in the game's folder, an
 !!! note "Games installed under Program Files"
     Windows may deny writes to the game's folder for a game installed under `Program Files`. TelemFFB tells you when this is the cause. Run TelemFFB as administrator once to install, or grant the folder write access.
 
-### If a dinput8.dll is already installed
+### If a dinput8.dll Is Already Installed
 
 Some game folders already carry a `dinput8.dll` wrapper. TelemFFB recognizes the common case, the community **dcs-force-feedback-fix** wrapper that the tap is built from: the panel reports it as an ffb-fix wrapper, and Install offers an upgrade.
 
@@ -69,7 +69,7 @@ A `dinput8.dll` that TelemFFB cannot identify is reported as "another dinput8.dl
 
 ![](images/dinput-tap/another-dll.png){ width="620px" }
 
-### Fresh install or existing configuration
+### Fresh Install or Existing Configuration
 
 Which path Install takes depends on whether the game's folders already hold a `dinput8.ini`:
 
@@ -80,7 +80,7 @@ Which path Install takes depends on whether the game's folders already hold a `d
 
 ![](images/dinput-tap/diff-preview.png){ width="650px" }
 
-## FFB-Fix only mode (DCS)
+## FFB-Fix Only Mode (DCS)
 
 DCS hands force feedback to the devices it enumerates **first**, and Windows caches that order. A vJoy device or a set of FFB pedals reported ahead of your stick can take the effects the stick should have received - the game creates them on the wrong device, and your stick stays quiet. This is the problem the community **dcs-force-feedback-fix** wrapper was written to solve, and TelemFFB's wrapper is built from it.
 
@@ -92,7 +92,7 @@ Choose it if you want your stick's force feedback fixed while leaving the game's
 
 Only DCS offers this. IL-2 and Falcon BMS identify devices by their configured position rather than by enumeration order, so there is nothing for the fix to do there and no toggle appears.
 
-### What you give up
+### Limitations
 
 FFB-Fix only mode installs no capture rules, so everything the tap makes possible is unavailable:
 
@@ -103,7 +103,7 @@ FFB-Fix only mode installs no capture rules, so everything the tap makes possibl
 
 TelemFFB's own telemetry-driven effects are unaffected and continue to work.
 
-### Choosing and changing the mode
+### Choosing and Changing the Mode
 
 Set the toggle **before** installing: it decides which configuration **Install** writes.
 
@@ -121,15 +121,15 @@ Moving the other way, back to the tap, the dialog offers capture rules as usual.
 
 What the panel reports is read back from `dinput8.ini` itself, not from the toggle. A file you hand-edited, or one left behind by an earlier choice, is described as it actually is.
 
-## Rendering the game's spring
+## Rendering the Game's Spring
 
 The tap relays the game's spring, but rendering it is a per-aircraft choice. On the **Settings** tab, set **Joystick Spring Mode** to **Game Managed (DirectInput Tap)**.
 
 ![](images/dinput-tap/spring-mode.png){ width="450px" }
 
-For IL-2 Korea pedals, the pedals instance offers the same mode as **Game Managed (DirectInput Tap, Korea Only)**.
+For IL-2 Korea pedals, set **Pedal Spring Mode** to the same mode on the pedals instance. IL-2 Sturmovik's pedal list does not offer it, because Great Battles has no pedal force feedback.
 
-You do not have to select the mode aircraft by aircraft. Set it at the **simulator or aircraft-class level** with the [offline settings editor](settings-model.md#offlineglobal-simclass-configuration), and it becomes the default spring mode for every aircraft in that simulator or class. Individual aircraft can still override it. Setting a class or sim-wide value also works from a loaded aircraft: right-click the **x** icon on the setting and promote it, as described in [How Settings Work](settings-model.md#reading-the-settings-tab).
+You do not have to select the mode aircraft by aircraft. Set it at the **simulator or aircraft-class level** with the [offline settings editor](settings-model.md#offline-editor), and it becomes the default spring mode for every aircraft in that simulator or class. Individual aircraft can still override it. Setting a class or sim-wide value also works from a loaded aircraft: right-click the **x** icon on the setting and promote it, as described in [How Settings Work](settings-model.md#reading-the-settings-tab).
 
 Selecting the mode reveals two groups:
 
@@ -138,13 +138,13 @@ Selecting the mode reveals two groups:
 
 The tap groups, like the tap spring mode itself, are only offered while the tap is enabled for the sim in System Settings, and on DCS not in FFB-Fix only mode. Values set while a group was shown are kept.
 
-### Advanced Dynamic through the tap
+### Advanced Dynamic Through the Tap
 
 **Advanced Dynamic** (see [Advanced Spring & G-Force Curves](spring-curves.md)) also renders through the tap when the game's spring cannot reach the device directly: always on a DirectLink device, and on a VPforce device while the tap is capturing it. The airspeed curve sets the spring force, the game's own center movements come through the tap as usual, and the mode's hardware trim and G-force offset shift that center. The game's other effects are rendered exactly as in **Game Managed (DirectInput Tap)**, and the **Tap: Axis Corrections** and **Tap: Additional Game Effects** groups apply in this mode too. The spring gain group is not offered, since the curve sets the force.
 
 ![The Settings tab with Advanced Dynamic selected on a tap-captured device: the Tap: Axis Corrections and Tap: Additional Game Effects groups, with no Tap: Spring Gain group](images/dinput-tap/advanced-dynamic-tap.png){ width="650px" }
 
-## The game's other effects
+## Other Game Effects
 
 The **Tap: Additional Game Effects** group controls everything else the game sends, each type with its own enable toggle and gain:
 
@@ -163,7 +163,7 @@ For a wire-level view of what the game sends, open **Utilities → DirectInput T
 !!! warning "Doubled effects"
     A game effect and the equivalent TelemFFB telemetry effect can both be enabled at once (the game's gunfire rumble plus TelemFFB's gunfire effect, for example). If an effect feels doubled, disable one of the pair.
 
-## When something is misconfigured
+## Misconfiguration Warnings
 
 TelemFFB reports tap misconfigurations on the error line of the effects area while you fly, with the cause and the fix:
 
@@ -172,14 +172,14 @@ TelemFFB reports tap misconfigurations on the error line of the effects area whi
 
 The System Settings dialog also warns at configuration time when a selected device needs a tap rule that no enabled simulator provides.
 
-## The configuration file
+## The Configuration File
 
 TelemFFB writes a `dinput8.ini` configuration beside the wrapper in each game folder. It generates the file once, in the wrapper's own documented format, and afterwards only **adds** to it (when your device selection changes, for example). It never rewrites existing content, so you can edit the file freely.
 
 - Device rules are keyed by USB ids (`FFFF:2054=tap`), so they survive device renames.
 - The wrapper writes a log for each game to `%LOCALAPPDATA%\VPForce-TelemFFB\log\tap`, one file per game executable.
 
-## Updates and removal
+## Updates and Removal
 
 TelemFFB ships the wrapper and knows which version each game folder holds:
 

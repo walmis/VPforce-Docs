@@ -12,7 +12,7 @@ Download the latest release zip from the [GitHub Releases](https://github.com/wa
 !!! note
     If your antivirus flags the executable, see [TelemFFB and Antivirus Software](installation.md#telemffb-and-antivirus-software). This is a known false-positive pattern with PyInstaller-packaged applications.
 
-## First launch: System Settings
+## First Launch: System Settings
 
 The first time you start TelemFFB, a notice reports the result of automatic device assignment. If a connected device's name matches the role (Joystick, Pedals, Collective), TelemFFB assigns it and says so; otherwise the notice asks you to assign one yourself.
 
@@ -47,7 +47,7 @@ Open the **Settings tab** while flying. Every change applies immediately: no res
 - Toggle an effect off and on to isolate it.
 - Made a mess? Click the **x** icon next to any modified setting to return it to the default. See [How Settings Work](settings-model.md).
 
-## Go deeper
+## Next Steps
 
 - **MSFS or X-Plane**: TelemFFB provides your entire force feedback implementation: spring forces, trim, autopilot. Read the [MSFS & X-Plane guide](sim-msfs-xplane.md) next; it is the most important page for these sims.
 - **DCS**: the sim provides native FFB; TelemFFB layers additional effects on top. The [DCS guide](sim-dcs.md) explains how the two interact.

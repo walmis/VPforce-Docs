@@ -1,6 +1,6 @@
 # System Settings
 
-In the System Menu, choose System Settings. The dialog opens from the **master instance** and configures everything, including the settings of every device instance. Child instances no longer carry their own settings dialog.
+In the System Menu, choose System Settings. The dialog opens from the **master instance** and configures everything, including the settings of every device instance. Child instances have no settings dialog of their own.
 
 The dialog has three tabs:
 

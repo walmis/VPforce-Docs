@@ -88,7 +88,7 @@ HPG helicopters: the spring strength applied to the collective while the AFCS/au
 
 HPG helicopters: the pedal spring gain used by the AFCS integration, as a percent of the Configurator spring value.
 
-## Co-Pilot/RIO Spring Override
+## Co-Pilot/RIO Spring Override { #co-pilot-rio-spring-override }
 
 <!-- telemffb-effect name=cp_spr_override_enabled part=badges -->
 

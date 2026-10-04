@@ -30,7 +30,7 @@ Trim following is tuned with two gains per axis (X = aileron, Y = elevator):
 !!! tip "Let TelemFFB measure it"
     Do not tune the elevator values manually — run the **[Automatic Trim Calibration](msfs-xp-trim-calibration.md)**. TelemFFB flies the aircraft briefly, measures its actual trim response, and computes the correct elevator gain — or a full calibrated curve where the response is not linear. The aileron and rudder gains can usually stay at their defaults.
 
-## Calibrated Trim Curve *(elevator only)*
+## Calibrated Trim Curve *(Elevator Only)*
 
 Some aircraft do not respond to trim in a simple, straight-line fashion, and a single *Y Trim Gain Virtual* value cannot hold the nose steady across the whole trim range. For these, TelemFFB can measure the aircraft's actual trim response and store a **curve** instead of a single value.
 
@@ -74,7 +74,7 @@ Two settings govern how your hands and the autopilot share the controls:
 !!! note
     If an aircraft becomes unstable with autopilot following engaged and tries to roll inverted, enable the *Invert Aileron Autopilot Axis* option.
 
-### Custom autopilot variable (MSFS)
+### Custom Autopilot Variable (MSFS)
 
 Autopilot following uses **AUTOPILOT MASTER** to know when the autopilot is engaged. Some aircraft have an autopilot that never sets it. For those, enable **Custom Autopilot Variable** and enter a variable that shows whether the autopilot is engaged: a SimVar, an L:Var or an input event (`B:`). A value of 0 means off; any other value means on.
 

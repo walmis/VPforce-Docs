@@ -2,7 +2,7 @@
 
 TelemFFB separates **system settings** (how the application runs) from **aircraft settings** (how each aircraft feels). Understanding how aircraft settings are resolved makes the rest of the manual, and the Settings tab, much easier to follow.
 
-## Where settings are stored
+## Where Settings Are Stored
 
 **System settings** are stored in the registry at:
 
@@ -16,7 +16,7 @@ Everything configured in the System→[System Settings](configuration.md) dialog
 
 The user configuration file here holds only your changes. The full catalog of settings and their default values ships inside the application as a defaults file.
 
-## The layers
+## The Layers
 
 When an aircraft loads, every setting is resolved through layers. The most specific layer that defines a value wins:
 
@@ -34,7 +34,7 @@ Your configuration file is a **delta**: it stores only the settings you changed,
 !!! tip "Updates preserve your changes"
     Unmodified settings follow the application defaults, so a TelemFFB update brings improved default values and newly added settings without touching anything you tuned. Any override can be reverted to the inherited value with one click.
 
-## Reading the Settings tab
+## Reading the Settings Tab
 
 The Settings tab shows the *resolved* value of every setting for the loaded aircraft, whichever layer it came from. The interface tells you where a value comes from:
 
@@ -45,7 +45,7 @@ The Settings tab shows the *resolved* value of every setting for the loaded airc
 See [Modifying settings in real time](ui-overview.md#modifying-settings-in-real-time) for a visual walkthrough of these controls.
 
 
-## Offline/Global Sim/Class Configuration
+## Offline Editor
 
 The offline editor edits sim defaults, class defaults, or a specific aircraft and profile without that aircraft being loaded, using the same main-window settings interface as real-time per-aircraft configuration. To open it, choose **Offline Editor/Effect Preview** from the **Profiles** menu. With an aircraft loaded, the **Offline/Preview Mode** button on the Settings tab opens the editor on that aircraft directly.
 
@@ -70,7 +70,7 @@ An aircraft can have more than one settings profile. The **Active Profile** fiel
 
 Profile creation, selection, import and export are covered in [Aircraft Profiles](aircraft-profiles.md).
 
-## Adding an aircraft that has no profile
+## Adding an Aircraft That Has No Profile
 
 If TelemFFB does not recognize a loaded aircraft, it gets only default settings, which is rarely a good effect setup. The aircraft class decides which spring model, effect set, and class defaults apply. MSFS reports a basic aircraft type, so an unknown MSFS aircraft starts with the defaults of that class; a helicopter gets the Helicopter class defaults, for example. In the other simulators TelemFFB cannot know the class until you choose it.
 

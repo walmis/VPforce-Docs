@@ -10,7 +10,7 @@ The TelemFFB main window has these parts, from top to bottom:
 - The **Monitor**, **Settings** and **Hide** tabs.
 - The **status bar**.
 
-The device icons are in the **Active Devices** side panel along the left edge of the window. You can move them to one of several other places; see [Where the Devices Are Shown](#where-the-devices-are-shown). Refer to the sections below for details on each part.
+The device icons are in the **Active Devices** side panel along the left edge of the window. You can move them to one of several other places; see [Where the Devices Are Shown](#device-panel). Refer to the sections below for details on each part.
 
 ![The main window on the Settings tab, with the Active Devices side panel on the left](images/ui-overview/main-window.png){ width="600px" }
 
@@ -38,13 +38,13 @@ The device icons are in the **Active Devices** side panel along the left edge of
 
     - Puts the application into offline editing mode. While in offline editing mode, telemetry is paused.
 
-    - Edits sim defaults, class defaults, or a specific aircraft and profile without that aircraft being loaded. See [Offline/Global Sim/Class Configuration](settings-model.md#offlineglobal-simclass-configuration).
+    - Edits sim defaults, class defaults, or a specific aircraft and profile without that aircraft being loaded. See [Offline Editor](settings-model.md#offline-editor).
 
     - Effects can be played on the device from here. See [Effect Preview](effect-preview.md).
 
 - **Reset Dismissed Profile Prompts**
 
-    - Brings back every **Multiple matching profiles** prompt that you answered with "Keep mine" or "Don't ask again". Your configuration does not change. The item is greyed out when there is nothing to reset. See [When Your Profile and a Built-In Both Match](aircraft-profiles.md#when-your-profile-and-a-built-in-both-match).
+    - Brings back every **Multiple matching profiles** prompt that you answered with "Keep mine" or "Don't ask again". Your configuration does not change. The item is greyed out when there is nothing to reset. See [Overlapping Profiles](aircraft-profiles.md#overlapping-profiles).
 
 
 ### Utilities Menu
@@ -69,7 +69,7 @@ The device icons are in the **Active Devices** side panel along the left edge of
 
 ### Window Menu
 
-- **Devices** (master instance) - chooses where the device icons are shown. See [Where the Devices Are Shown](#where-the-devices-are-shown).
+- **Devices** (master instance) - chooses where the device icons are shown. See [Where the Devices Are Shown](#device-panel).
 
 - **Show Child Instance Windows** (master instance, with other VPforce devices in use)
 
@@ -113,7 +113,7 @@ The **Active Devices** side panel always shows all four device roles: joystick, 
 
 The label under each icon names the hardware that holds the role. In the other places the devices can be shown, the icons are smaller and have no label; hover an icon to see its name.
 
-### Where the Devices Are Shown
+### Detachable/Dockable Device Panel { #device-panel }
 
 The device icons can be shown in one of seven places. Everywhere except the **Side panel**, they appear as the **device strip**: a compact row of small icons.
 
@@ -138,7 +138,7 @@ To change the place, do one of these steps:
 
 **Side panels on the right** (in the **Devices** menu and in the right-click menu) moves both side panels to the right edge of the window.
 
-#### Moving and docking the floating strip
+#### Moving and Docking the Floating Strip
 
 Drag the floating strip by its grip or its edges. A click on an icon still selects that device.
 
@@ -160,7 +160,7 @@ To switch between devices for configuration, click the device icon, wherever the
 
 ![Switching the configuration between devices](images/ui-overview/device-switching.gif){ width="600px" }
 
-### Device/Instance Status Indications
+### Device/Instance Status Indications { #device-status }
 
 The device icons serve the dual purpose of displaying the status of both the device connection as well as the individual TelemFFB instances which are ultimately controlling the multiple devices. The small icons of the device strip use the same colors.
 
@@ -211,7 +211,7 @@ The **Application Status** box has two columns. The left column shows what the s
         - **Error **- A configuration error condition is present.
             Generally, there will be an error status message displayed indicating what the error is and how to resolve it. See [Configuration errors](#configuration-errors).
 
-        - **Offline **- The offline editor is open. See [Offline/Global Sim/Class Configuration](settings-model.md#offlineglobal-simclass-configuration).
+        - **Offline **- The offline editor is open. See [Offline Editor](settings-model.md#offline-editor).
 
 - **Current Aircraft**
 
@@ -221,7 +221,7 @@ The **Application Status** box has two columns. The left column shows what the s
 
     - Displays the match string of the aircraft profile that matched the detected aircraft. When several match strings fit, the most specific one wins; see [How TelemFFB Matches an Aircraft](aircraft-profiles.md#how-telemffb-matches-an-aircraft).
 
-    - The **fork button** beside it gives the loaded aircraft a more specific profile of its own. See [Giving the Loaded Aircraft Its Own Profile](aircraft-profiles.md#giving-the-loaded-aircraft-its-own-profile).
+    - The **fork button** beside it gives the loaded aircraft a more specific profile of its own. See [Forking a Profile](aircraft-profiles.md#forking-a-profile).
 
 - **Active Profile**
 
@@ -245,7 +245,7 @@ The **Application Status** box has two columns. The left column shows what the s
 
 In the offline editor, the fields show **Offline**, and an orange banner below them says that telemetry is paused.
 
-#### Configuration errors
+#### Configuration Errors
 
 When a configuration error is present, **Sim Status** shows **Error**, and a red message area opens below **Active Profile**. The message names the device it applies to, for example **Joystick:**, then says what is wrong and how to correct it.
 
@@ -274,7 +274,7 @@ A prompt appears below the **Application Status** box when TelemFFB needs you to
 ![The No Trim Calibration prompt](images/ui-overview/prompt-trim-cal.png){ width="519px" }
 
 - **No Profile Found for *aircraft*** (red) - the loaded aircraft matches no profile. The controls on the Settings tab are disabled until you create one, because there is no profile to store a change in. Click the prompt to open the [New Aircraft Wizard](aircraft-profiles.md#adding-new-aircraft-support).
-- **Multiple matching profiles detected** (teal) - one of your own profiles and a built-in profile both match the aircraft. Click the prompt to [choose what to do](aircraft-profiles.md#when-your-profile-and-a-built-in-both-match).
+- **Multiple matching profiles detected** (teal) - one of your own profiles and a built-in profile both match the aircraft. Click the prompt to [choose what to do](aircraft-profiles.md#overlapping-profiles).
 - **No Trim Calibration Found for this Aircraft** (amber) - the loaded MSFS or X-Plane fixed-wing aircraft has no stored trim calibration. Click the prompt to open the [Elevator Trim Calibration](msfs-xp-trim-calibration.md) tool. This prompt shows on the master instance, when it drives a joystick.
 
 Prompts show only on the master instance.
@@ -304,7 +304,7 @@ To copy telemetry, select cells or rows and press **Ctrl+C**.
 
 ![The telemetry table with Favorites ticked, showing only the starred items](images/ui-overview/monitor-favorites.png){ width="398px" }
 
-#### Active effects
+#### Active Effects
 
 The **Active Effects** table lists each effect that plays on the device, grouped by type:
 
@@ -327,13 +327,13 @@ The **Intensity** column shows how strong each effect is now:
 
 ![The hover text of an intensity cell](images/ui-overview/monitor-intensity-tooltip.png){ width="427px" }
 
-#### Child device data
+#### Child Device Data
 
 On the master instance, click the icon of a child device to see the data of that device. While you look at a child device, the child instance sends its telemetry to the master, and the Monitor tab shows it. This includes items that only the child calculates.
 
 If the child does not send its telemetry, the **Device:** indicator shows **(no data)** after the device name, and the telemetry table shows the master's own telemetry.
 
-#### Detaching the Monitor tab
+#### Detaching the Monitor Tab
 
 You can detach the Monitor tab from the main window and show it beside the main TelemFFB window. This is useful to watch the active effects while you change settings on the Settings tab.
 
@@ -397,7 +397,7 @@ The effects setting page has multiple sections with settings grouped together by
 
     - The system section has non-effect based configurations such as configurator gain overrides, dynamic vpconf profile selection and other settings that can be configured per-aircraft.
 
-### Modifying settings in real time
+### Modifying Settings in Real Time
 
 Effect sliders have a toggle to enable or disable that effect. You can quickly toggle on/off an effect. When the setting is off, your intensity setting is retained. **The handle will also turn green when that effect is active**.
 

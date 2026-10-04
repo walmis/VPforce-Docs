@@ -2,7 +2,7 @@
 
 Most real-world problems are simulator connection issues, and the detailed checklists for those live in [Game-Specific Troubleshooting](../rhino/game-specific-troubleshooting.md). This page is the map: how to tell what kind of problem you have, where the diagnostics are, and how to get help.
 
-## Read the status area first
+## Status Area
 
 The main window's **Application Status** box narrows the problem immediately:
 
@@ -10,11 +10,11 @@ The main window's **Application Status** box narrows the problem immediately:
 - **Paused** - telemetry stopped arriving, or the sim is paused.
 - **Error** - a configuration problem. The error message below **Active Profile** names the device, and describes the condition and how to resolve it. If there are several errors, the box shows one at a time, and the [exception viewer](#exception-tracking-reporting) lists all of them. A corrected error clears only while the sim is running and not paused. See [Configuration errors](ui-overview.md#configuration-errors).
 
-See [Device/Instance Status Indications](ui-overview.md#deviceinstance-status-indications) for details. The **Monitor tab** shows the raw telemetry and every active effect in real time, with the current intensity of each effect. Use it to confirm what TelemFFB is actually receiving and playing. See [Monitor Tab](ui-overview.md#monitor-tab).
+See [Device/Instance Status Indications](ui-overview.md#device-status) for details. The **Monitor tab** shows the raw telemetry and every active effect in real time, with the current intensity of each effect. Use it to confirm what TelemFFB is actually receiving and playing. See [Monitor Tab](ui-overview.md#monitor-tab).
 
-## Device problems
+## Device Problems
 
-The device icons show the state of each device, in the **Active Devices** panel or wherever you [chose to show them](ui-overview.md#where-the-devices-are-shown):
+The device icons show the state of each device, in the **Active Devices** panel or wherever you [chose to show them](ui-overview.md#device-panel):
 
 - **Yellow** - the device dropped off. TelemFFB retries on its own and recovers when the device returns, on the same USB port or a different one.
 - **Red** - the configured device was not found at startup, or the instance has an error. Check the USB connection and the device's power. TelemFFB picks the device up as soon as it appears; a restart is not needed.
@@ -24,7 +24,7 @@ After a power cycle the firmware has lost everything it held in memory. TelemFFB
 
 If another VPforce device is connected while the configured one is missing, TelemFFB asks once whether to use that device instead.
 
-## Simulator connection problems
+## Simulator Connection Problems
 
 Verify the sim is enabled in [Connecting Your Simulator](sim-setup.md), then use the detailed per-sim checklists:
 
@@ -60,14 +60,14 @@ The dialog has two optional fields:
 
 **Report Exceptions** builds a support bundle (the exception details and tracebacks, your system configuration, the application logs, and anything you entered above) and uploads it to VPforce support. After the upload, a verification page opens in your browser; the report is only submitted once you complete the challenge there.
 
-## Reading the log
+## Reading the Log
 
 **Log → Open Console Log** shows the live log. Two kinds of entries help with specific problems:
 
 - **`Main thread stalled`** - the main window stopped responding for three seconds. TelemFFB writes what every part of the application was doing at that moment, once per stall, and notes when the window recovers. Include the log in a support request; these entries name the cause. Dragging a window or holding a title-bar button does not trigger them.
 - **`axis contention`** (MSFS) - with [Axis Control](msfs-xp-axis-spring.md) enabled, TelemFFB checks whether something else is also moving the axis it drives. A line marked `CONTENDED` names an axis that a second source is writing, which is usually a control binding left mapped inside MSFS, or an external tool; it is logged when the control keeps jumping in ways TelemFFB did not command, which you would also see as the control flopping in the cockpit. A line marked `clean` means no second source was seen. An `unverified` line names an axis TelemFFB watches but does not judge yet.
 
-## Getting help
+## Getting Help
 
 The single most important factor in getting your problem solved quickly is **how you ask**. Read **[How to Get Effective Support](../rhino/troubleshooting-maintenance.md#how-to-get-effective-support)**; it is short, and following it usually turns a multi-day back-and-forth into a single exchange. The essentials:
 

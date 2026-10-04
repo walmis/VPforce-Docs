@@ -60,7 +60,7 @@ The `SASHelicopter` class provides an SAS/AFCS integration in the HPG style: the
 
 ## A2A Comanche (PA-24)
 
-A standard `PropellerAircraft`; the special treatment is entirely in the default profile's telemetry overrides, which re-source the autopilot state, prop RPM, prop thrust, and body accelerations from A2A's Accu-Sim variables (the standard simvars read stale on this aircraft). This is the [worked example](telem-overrides.md#reading-the-example) on the Telemetry Overrides page.
+A standard `PropellerAircraft`; the special treatment is entirely in the default profile. Its telemetry overrides re-source prop RPM, prop thrust and body accelerations from A2A's Accu-Sim variables, because the standard simvars read stale on this aircraft. The profile also reads the autopilot state from A2A's own variable through the [Custom Autopilot Variable](msfs-xp-trim-following.md#custom-autopilot-variable-msfs) setting. This is the [worked example](telem-overrides.md#a-worked-example) on the Telemetry Overrides page.
 
 ## X-Trident AW109SP
 

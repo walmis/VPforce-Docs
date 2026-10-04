@@ -2,16 +2,16 @@
 
 TelemFFB runs **one instance per FFB device**. If you fly with a single VPforce joystick base, one instance is all there is and you can mostly ignore this page. If you also have VPforce-powered pedals or a collective, a separate instance drives each device, and TelemFFB manages them for you.
 
-## Master and child instances
+## Master and Child Instances
 
 The instance you launch is the **master**. It owns everything global:
 
-- The System Settings dialog opens from the master and configures everything, including each child instance's own settings; child instances no longer carry a settings dialog of their own.
+- The System Settings dialog opens from the master and configures everything, including each child instance's own settings. Child instances have no settings dialog of their own.
 - Auto-launching, monitoring, and revealing the **child** instances that drive your additional devices.
 
 Child instances each connect to their own device and render effects for it, driven by the same simulator telemetry. They can run with a normal window, minimized, or headless (no window at all).
 
-## How TelemFFB finds your devices
+## Device Detection
 
 In most cases, you do not need to configure anything: on startup, the master instance enumerates the connected VPforce devices and **auto-assigns** any unassigned device role.
 
@@ -21,7 +21,7 @@ In most cases, you do not need to configure anything: on startup, the master ins
 
 To assign devices manually, or fix an auto-assignment, each device role has a **selector pulldown** on its card on the **Devices** tab, listing the connected VPforce devices. Pick the device for each role directly. If you pick a device that is already assigned to another role, TelemFFB asks whether to override the other assignment or cancel.
 
-## The Devices tab
+## The Devices Tab
 
 These settings are found on the **Devices** tab of **System → System Settings**. They control which device each instance connects to and which instances start automatically.
 
@@ -47,11 +47,11 @@ The tab holds one **card per device role**: joystick, pedals, collective, trim w
 
 Below the cards, the **Device Settings** area holds each device's per-instance settings: logging level, telemetry timeout, window restore options, and Configurator profiles. See [System Settings](configuration.md#device-settings).
 
-## Multiple joysticks (MSFS & X-Plane)
+## Multiple Joysticks (MSFS & X-Plane)
 
 If you fly with more than one stick (a center stick, a yoke, and a side stick, for example), the joystick slot can hold up to three configured devices, and each aircraft can choose which one it uses.
 
-### Configuring alternate devices
+### Configuring Alternate Devices
 
 On the **Devices** tab, the joystick card has a **+ add device** button. Each added row gets its own device selector and icon.
 
@@ -61,7 +61,7 @@ On the **Devices** tab, the joystick card has a **+ add device** button. Each ad
 - Selecting the marker on another row makes that device the primary when you save. The switch applies immediately; no restart is required.
 - The **x** button removes an alternate row. The primary row cannot be removed, only replaced.
 
-### Choosing a device per aircraft
+### Choosing a Device per Aircraft
 
 With more than one joystick configured, aircraft settings gain a **Device** section with a **Joystick Device** selector.
 
@@ -75,7 +75,7 @@ With more than one joystick configured, aircraft settings gain a **Device** sect
 
 If you later replace a configured device in System Settings, TelemFFB offers to update the aircraft settings that reference the old one.
 
-## Device recovery
+## Device Recovery
 
 A device can drop off while TelemFFB runs: a cable gets pulled, a hub resets, or the device is power cycled. TelemFFB recovers without a restart.
 
@@ -86,9 +86,9 @@ A device can drop off while TelemFFB runs: a cable gets pulled, a hub resets, or
 
 Changing a device on the Devices tab also takes effect at once. See [System Settings](configuration.md).
 
-## Working with child instances
+## Working with Child Instances
 
-After starting TelemFFB with auto-launch enabled, all of the device icons appear in the master instance's **Active Devices** area. From there you can monitor each device's status and switch between devices to configure their settings; each device has its own settings for every aircraft, so your pedals and joystick are tuned independently. See [Active Devices Area](ui-overview.md#active-devices-area) for details. You can also show the device icons in a compact strip, in one of several places; see [Where the Devices Are Shown](ui-overview.md#where-the-devices-are-shown).
+After starting TelemFFB with auto-launch enabled, all of the device icons appear in the master instance's **Active Devices** area. From there you can monitor each device's status and switch between devices to configure their settings; each device has its own settings for every aircraft, so your pedals and joystick are tuned independently. See [Active Devices Area](ui-overview.md#active-devices-area) for details. You can also show the device icons in a compact strip, in one of several places; see [Where the Devices Are Shown](ui-overview.md#device-panel).
 
 When you switch the master to a child device, the master's **Monitor** tab shows that device's telemetry and active effects. The child instance sends its telemetry to the master while you look at it. See [Child device data](ui-overview.md#child-device-data).
 

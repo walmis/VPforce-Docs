@@ -33,13 +33,13 @@ Executes a shell command when the aircraft loads: start a companion utility, run
 
 <!-- telemffb-effect name=command_runner_enabled part=table -->
 
-## Center on Pause/Slew
+## Center on Pause/Slew { #center-on-pause-slew }
 
 <!-- telemffb-effect name=center_spring_on_pause -->
 
 Forces spring centering while the simulator is paused or in slew mode. When disabled, you will need to bring the axis close to center to re-establish axis control after unpausing.
 
-## Keep Forces on Pause/Slew
+## Keep Forces on Pause/Slew { #keep-forces-on-pause-slew }
 
 <!-- telemffb-effect name=keep_forces_on_pause -->
 

@@ -255,6 +255,17 @@ def _toc_slug(heading):
     return re.sub(r"[-\s]+", "-", text.strip())
 
 
+def _heading_anchor(heading):
+    """A heading's anchor: its explicit `{ #id }` when it has one, else the toc slug."""
+    attrs = re.search(r"\{([^}]*)\}\s*$", heading)
+    if attrs:
+        explicit = re.search(r"#([\w-]+)", attrs.group(1))
+        if explicit:
+            return explicit.group(1)
+        heading = heading[:attrs.start()]
+    return _toc_slug(heading)
+
+
 def _effect_anchor_map():
     """Scan the TelemFFB pages for effect markers: setting -> (page, anchor)."""
     global _effect_anchor_cache
@@ -272,7 +283,7 @@ def _effect_anchor_map():
             if m and heading:
                 am = re.search(r"name=(\S+)", m.group(1))
                 if am and am.group(1) not in mapping:
-                    mapping[am.group(1)] = (path.name, _toc_slug(heading))
+                    mapping[am.group(1)] = (path.name, _heading_anchor(heading))
     _effect_anchor_cache = mapping
     return mapping
 

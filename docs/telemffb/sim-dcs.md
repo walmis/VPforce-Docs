@@ -87,7 +87,7 @@ To experience and evaluate native DCS FFB effects without any TelemFFB customiza
 
 This baseline understanding of native DCS behavior will help you make informed decisions about which TelemFFB customizations are useful for your preferences.
 
-### When TelemFFB is Running
+### When TelemFFB Is Running
 
 When TelemFFB is running and connected to a loaded aircraft:
 
@@ -239,7 +239,7 @@ This behavior is a DCS-side limitation in how the simulator's autopilot interact
 - For supported aircraft, TelemFFB's **Dynamic Deadzone** automatically activates a deadzone when the autopilot engages, preventing the stick from feeding small position errors back into the AP control loop. The deadzone is removed when the AP disengages, restoring full precision
 - Not all aircraft are affected equally; the behavior depends on how each module implements autopilot control surfaces
 
-For detailed troubleshooting steps including input deadzone configuration and manual stick synchronization, see [Autopilot Misbehaving or Disengaging Unexpectedly](../rhino/troubleshooting-maintenance.md#autopilot-misbehaving-or-disengaging-unexpectedly).
+For detailed troubleshooting steps including input deadzone configuration and manual stick synchronization, see [Autopilot Misbehaving or Disengaging Unexpectedly](../rhino/game-specific-troubleshooting.md#autopilot-misbehaving-or-disengaging-unexpectedly).
 
 !!! note
     TelemFFB's **Autopilot Following** feature (axis control + trim/AP tracking) is available for MSFS and X-Plane only. It does not apply to DCS. However, TelemFFB's **Dynamic Deadzone** feature does work in DCS for supported aircraft.

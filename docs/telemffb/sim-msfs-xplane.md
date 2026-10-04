@@ -4,7 +4,7 @@ Neither Microsoft Flight Simulator nor X-Plane has native force feedback support
 
 !!! important "Key points"
     - **MSFS**: when Axis Control is enabled, you must **unbind your joystick and pedal axes in MSFS**. See [Axis Control & Spring Modes](msfs-xp-axis-spring.md).
-    - **X-Plane**: no unbinding is needed, but the **TelemFFB X-Plane plugin** must be installed. Enable *Auto X-Plane Setup* in [Connecting Your Simulator](sim-setup.md#x-plane-1112).
+    - **X-Plane**: no unbinding is needed, but the **TelemFFB X-Plane plugin** must be installed. Enable *Auto X-Plane Setup* in [Connecting Your Simulator](sim-setup.md#x-plane).
     - Per-aircraft tuning matters most for the **elevator trim response**; the [Automatic Trim Calibration](msfs-xp-trim-calibration.md) tool measures it for you.
 
 This guide is split into chapters. For a first-time setup, read them in order:
@@ -19,5 +19,5 @@ Sim-specific effect settings (buffeting, turbulence, engine rumble, and the rest
 
 For advanced per-aircraft integration (re-sourcing a telemetry item from an addon's custom variables, or subscribing to additional ones), see [Telemetry Overrides](telem-overrides.md).
 
-**MSFS only**: TelemFFB also offers an [In-Sim Toolbar Panel](msfs-toolbar-panel.md) that shows and edits the current aircraft's settings from inside the cockpit, without switching to the desktop app.
+TelemFFB also offers an [In-Sim Settings Panel](in-sim-panel.md) for both sims. It shows and edits the current aircraft's settings from inside the cockpit, without switching to the desktop app.
 

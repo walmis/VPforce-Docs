@@ -21,7 +21,7 @@ These sliders scale the axis value sent to the sim. A value of 50% produces 50% 
 
 Some aircraft do not use the standard SimConnect axis events, or use custom `L:` variables. Use these checkboxes to override the default variable sent, or to enter a custom one. Enter `VARNAME` for a SimVar or `L:VARNAME` for an `L:Var`.
 
-## How the Axis Positions Reach the Sim
+## Axis Output
 
 ### MSFS
 

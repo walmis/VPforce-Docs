@@ -76,7 +76,7 @@ Helicopters: the signature 'wop-wop' of blade-vortex interaction, rendered as sh
 !!! note "Per-sim behavior"
     **X-Plane** computes blade slap natively, and by default the effect is driven exclusively by that signal (including tail rotor slap). Disabling *Use Native Slap Telemetry* switches to the inferred method and activates the tuning sliders. **MSFS** and **DCS** have no native signal, so the effect infers slap from flight state: an airspeed band centered on *Blade Slap Band Center* (higher for heavily disc-loaded helicopters, lower for light rotors), a descent-gradient gate that matches wake re-entry geometry, and a G-loading term weighted by the *G-Induced Slap Factor* (set it to 0 for slap from descent geometry only). Per-model tuning ships for the default helicopter profiles.
 
-## AoA/Stall Buffeting
+## AoA/Stall Buffeting { #aoa-stall-buffeting }
 
 <!-- telemffb-effect name=aoa_buffeting_enabled part=badges -->
 

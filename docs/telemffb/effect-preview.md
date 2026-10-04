@@ -8,15 +8,15 @@ Previews are available in the offline editor mode only. A **▶** button sits ne
 
 ![](images/effect-preview/play-buttons.png){ width="650px" }
 
-## Accessing the offline editor / preview mode
+## Opening Preview Mode
 
-### From the Profiles menu
+### From the Profiles Menu
 
 When no aircraft is loaded, the offline editor can be accessed via the **Profiles → Offline Editor/Effect Preview** menu item or from the button in the unpopulated settings area.  Once opened, select the sim, class, aircraft and profile you want to target in the **Offline Editor Setup** area.
 
 ![](images/effect-preview/access-menu.png){ width="650px" }
 
-### From a loaded aircraft
+### From a Loaded Aircraft
 
 With an aircraft loaded in the sim, there is an **Offline/Preview Mode** button above the settings area that will open the offline editor already set to that aircraft and profile.  From there you can directly access the previews for the effects and adjust your settings as desired.
 
@@ -25,7 +25,7 @@ With an aircraft loaded in the sim, there is an **Offline/Preview Mode** button 
 !!! note "Telemetry pauses in offline mode"
     While the offline editor is open, TelemFFB pauses telemetry. Previews use their own effect table, so a paused sim session in the background is not disturbed. Click **Exit Offline Mode** to resume.
 
-## Play a preview
+## Play a Preview
 
 1. Click **▶** next to an effect's intensity slider. The slider handle turns green and the effect controls are disabled while the preview plays.
 2. The button reads **■** while the preview plays. Click it to stop early.
@@ -41,20 +41,20 @@ Hover over the **▶** button for a description of what the preview does: the fl
 !!! note "Effect controls are disabled while running"
     A preview reads its settings once when it starts and composes the synthesized telemetry. While it plays, the slider, its **-**/**+** buttons and its reset button are locked until it ends.
 
-### Play on every device
+### Play on Every Device
 
 When two or more of your devices are running and carry the same setting, a **▶▶** button appears next to **▶**. It plays the preview on all of those devices together. Hover over it to see which devices it plays on.
 
 To adjust the effect for a given device, use the Active Device selector to switch to the desired device and adjust or preview again from there.
 
-## Constant-force previews
+## Constant-Force Previews
 
 Constant force effects have the potential to fling the stick around and move in unexpected ways.  As a safety measure, there is an additional guard in place when previewing these effects to ensure you are ready for them to start.  It is advised to maintain a firm grip on the controls when running the effects.
 
 !!! warning "Hold the controls"
     A constant-force preview asks you to confirm before it starts. Grasp the controls firmly before you click **OK**. The preview adds a light centering spring so the axis has something to push against, and no other spring.
 
-## What can be previewed
+## What Can Be Previewed
 
 Each preview is scripted to reach the effect's configured intensity and stay there long enough to judge it: sweeps hold at each end, holds run at the peak, motion effects run the full travel and land the end clunk, and weapon effects fire short bursts or single releases. Rotor effects assume a rotor turning at 300 rpm with the profile's **Rotor Blade Count**.
 
@@ -64,7 +64,7 @@ Each effect links to its entry in the [Effects Reference](effects-overview.md).
 
 | Effect | Sims | The preview plays |
 |---|---|---|
-| [AoA/Stall Buffeting](effects-aerodynamics.md#aoastall-buffeting) | DCS, BMS, MSFS, XP | AoA rising from the buffet onset to the stall over 3 s, 4 s held at the stall, 1 s recovering |
+| [AoA/Stall Buffeting](effects-aerodynamics.md#aoa-stall-buffeting) | DCS, BMS, MSFS, XP | AoA rising from the buffet onset to the stall over 3 s, 4 s held at the stall, 1 s recovering |
 | [ETL Effect](effects-aerodynamics.md#etl-effect) | DCS, BMS, MSFS, XP | one acceleration through the ETL speed band |
 | [VRS Effect](effects-aerodynamics.md#vrs-effect) | DCS, BMS, MSFS | a descent steepening from the VRS onset to its maximum over 3 s, then held 3 s |
 | [Blade Slap](effects-aerodynamics.md#blade-slap) | DCS, MSFS, XP | blade-vortex interaction at its worst: the band-center speed on a shallow descent, 5 s |
@@ -90,11 +90,11 @@ Each effect links to its entry in the [Effects Reference](effects-overview.md).
 | [Touch-Down Effect](effects-ground.md#touch-down-effect) | DCS, BMS, MSFS, XP | one firm landing at the profile's maximum G (constant force) |
 | [Nosewheel Shimmy](effects-ground.md#nosewheel-shimmy) | MSFS | full brakes at twice the shimmy onset speed, 5 s |
 
-### Mechanical\Airframe
+### Mechanical\Airframe { #mechanical-airframe }
 
 | Effect | Sims | The preview plays |
 |---|---|---|
-| [Heli Engine/Rotor Rumble](effects-mechanical.md#heli-enginerotor-rumble) | DCS, BMS, MSFS, XP | rotor turning at 300 rpm with the engine running, 5 s |
+| [Heli Engine/Rotor Rumble](effects-mechanical.md#heli-engine-rotor-rumble) | DCS, BMS, MSFS, XP | rotor turning at 300 rpm with the engine running, 5 s |
 | [Afterburner Rumble](effects-mechanical.md#afterburner-rumble) | DCS, BMS, MSFS, XP | afterburner lit for 5 s |
 | [Engine Rumble - Shake Telemetry (IL-2)](effects-mechanical.md#engine-rumble-shake-telemetry-il-2) | IL2 | the sim's propeller or jet engine shake at full amplitude, 5 s; one preview per effect |
 | [Propeller Rumble](effects-mechanical.md#propeller-rumble) | DCS, IL2, MSFS, XP | a sweep from the profile's low to high RPM, holding 4 s at each end (14 s) |
@@ -102,7 +102,7 @@ Each effect links to its entry in the [Effects Reference](effects-overview.md).
 | [Canopy Motion](effects-mechanical.md#canopy-motion) | DCS, XP | the canopy closing over 3 s, with the clunk as it seats |
 | [Damage Effect](effects-mechanical.md#damage-effect) | DCS, IL2, BMS | an irregular stream of hits over 5 s, different every press |
 | [Flaps Motion](effects-mechanical.md#flaps-motion) | DCS, IL2, BMS, MSFS, XP | flaps traveling from up to full over 3 s |
-| [Fuel Boom/Door Motion](effects-mechanical.md#fuel-boomdoor-motion) | DCS | the boom or door extending over 3 s, with the clunk |
+| [Fuel Boom/Door Motion](effects-mechanical.md#fuel-boom-door-motion) | DCS | the boom or door extending over 3 s, with the clunk |
 | [Gear Buffet](effects-mechanical.md#gear-buffet) | DCS, BMS, MSFS, XP | gear down at the top of the buffet speed band, 5 s |
 | [Gear Motion](effects-mechanical.md#gear-motion) | DCS, IL2, BMS, MSFS, XP | one gear cycle, up to down, with the clunk as it locks |
 | [Low Hydraulic Pressure Effect](effects-mechanical.md#low-hydraulic-pressure-effect-experimental) | DCS, BMS, MSFS | a full hydraulic failure and recovery: damper and friction rise from the Damper and Friction Override values to the loss values over 2.5 s, hold 3 s, and fall back over 2.5 s. Both overrides must be enabled; a custom hydraulic variable is not read |
@@ -134,7 +134,7 @@ IL-2's replacement shake effects live under [IL2 Shake Master](effects-basic.md#
 | Weapons: bomb release | IL2 | one bomb release |
 | Weapons: rocket launch | IL2 | one rocket launch |
 
-## What cannot be previewed
+## What Cannot Be Previewed
 
 Effects that only make sense against live flight have no preview, and you tune them in the sim:
 

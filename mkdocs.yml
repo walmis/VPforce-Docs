@@ -18,6 +18,7 @@ not_in_nav: |
   telemffb/multi-device.md
   telemffb/effects-reference.md
   telemffb/whats-new.md
+  telemffb/msfs-toolbar-panel.md
 
 # Navigation structure (ordered by relevance)
 nav:
@@ -59,7 +60,7 @@ nav:
         - Helicopters: telemffb/msfs-xp-helicopters.md
         - Special Aircraft: telemffb/msfs-xp-special-aircraft.md
         - Telemetry Overrides: telemffb/telem-overrides.md
-        - In-Sim Toolbar Panel: telemffb/msfs-toolbar-panel.md
+        - In-Sim Settings Panel: telemffb/in-sim-panel.md
       - DCS: telemffb/sim-dcs.md
       - IL-2: telemffb/sim-il2.md
       - Falcon BMS: telemffb/sim-bms.md
@@ -230,7 +231,7 @@ plugins:
         - telemffb/msfs-xp-trim-manual.md
         - telemffb/msfs-xp-helicopters.md
         - telemffb/telem-overrides.md
-        - telemffb/msfs-toolbar-panel.md
+        - telemffb/in-sim-panel.md
         - telemffb/sim-dcs.md
         - telemffb/sim-il2.md
         - telemffb/sim-bms.md

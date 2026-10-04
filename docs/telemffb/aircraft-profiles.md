@@ -6,7 +6,7 @@ Every aircraft profile has a **match string**. When an aircraft loads, TelemFFB 
 
 A match string is a regular expression, and matching starts at the beginning of the name. `Cessna 172` therefore matches `Cessna 172`, `Cessna 172 Skyhawk` and any livery whose name starts that way. `Cessna 172` and `Cessna 172.*` behave the same. Only `^Cessna 172$` matches that one name and nothing longer.
 
-### Which match string wins
+### Which Match String Wins
 
 Several match strings can fit the same aircraft. The most specific one wins:
 
@@ -91,7 +91,7 @@ After accessing the wizard via one of the two methods above, simply follow the s
 
         The other special classes carry their telemetry sources on the class itself. For those, selecting the correct class on Page 2 is enough.
 
-## When Your Profile and a Built-In Both Match
+## Overlapping Profiles
 
 A TelemFFB update can ship a built-in profile for an aircraft you already made a profile for. When both match the loaded aircraft, the main window shows a **Multiple matching profiles detected** prompt, and a tray notification if the window is hidden. Click the prompt to decide what to do.
 
@@ -107,7 +107,7 @@ The more specific match string names the aircraft, and the built-in wins a tie. 
 
 A **Keep mine** or **Don't ask again** answer lapses when a later release changes the built-in profile, and TelemFFB asks again. To be asked again now, use **Profiles → Reset Dismissed Profile Prompts**. A merge is permanent.
 
-## Giving the Loaded Aircraft Its Own Profile
+## Forking a Profile
 
 A broad profile can cover many liveries or variants of an aircraft. Sometimes one of them needs settings of its own. The **fork button** beside **Matched Model** in the status area does this without any hand-editing: it forks the loaded aircraft off its current match onto a new, more specific one.
 

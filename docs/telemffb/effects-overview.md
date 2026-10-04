@@ -2,7 +2,7 @@
 
 This reference documents every effect and setting on the Settings tab. The pages mirror the tab itself: one page per section, entries in the same order the application lists them.
 
-## The Settings-tab sections
+## The Settings-Tab Sections
 
 - **[Basic Settings](effects-basic.md)** - spring modes, force trim, axis control, and per-aircraft basics
 - **[Aerodynamics](effects-aerodynamics.md)** - airflow forces, stall buffeting, turbulence, ETL and VRS
@@ -13,17 +13,17 @@ This reference documents every effect and setting on the Settings tab. The pages
 - **[Basic FFB Effects](effects-ffb.md)** - damper, inertia, friction, deadzone (not telemetry-driven)
 - **[System](effects-system.md)** - per-aircraft VPconf profiles, gain overrides, command runner, pause behavior
 
-## Feel an effect before you fly
+## Feel an Effect Before You Fly
 
 Most effects in this reference can be played on your device from the offline editor, at the strength your settings give them, with no simulator running. See [Effect Preview](effect-preview.md) for how it works and which effects have a preview.
 
-## Browse by simulator
+## Browse by Simulator
 
 A directory of everything available in your sim, linking into the pages above:
 
 [DCS World](effects-sim-dcs.md) · [IL-2 Sturmovik](effects-sim-il2.md) · [Falcon BMS](effects-sim-bms.md) · [Microsoft Flight Simulator](effects-sim-msfs.md) · [X-Plane](effects-sim-xplane.md)
 
-## How to read the entries
+## How to Read the Entries
 
 Each effect entry opens with a badge line showing which simulators it applies to: <span class="sim-badge sim-dcs">DCS</span> <span class="sim-badge sim-il2">IL2</span> <span class="sim-badge sim-bms">BMS</span> <span class="sim-badge sim-msfs">MSFS</span> <span class="sim-badge sim-xplane">XP</span> - together with which device types can use it. Below the description, a table lists the effect's sub-settings; its **Sims** column shows "—" when a sub-setting matches its parent, and names the sims only where it *differs* - that column is where the per-sim nuances live.
 

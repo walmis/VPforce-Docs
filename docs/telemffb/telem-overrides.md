@@ -4,14 +4,17 @@ An advanced MSFS/X-Plane feature: change **where a telemetry item's data comes f
 
 ![The SimConnect/Dataref Overrides Editor entry in the Utilities menu](images/telem-overrides/overrides_menu.png){ width="427px" }
 
-## Why it exists
+## Purpose
 
 TelemFFB's effects consume a fixed set of telemetry items (the names you see in the Monitor tab). Normally each item is wired to a standard SimConnect variable or X-Plane dataref, but not every aircraft populates the standard sources:
 
-- **Source overrides.** Sophisticated addon aircraft often implement their own systems in custom variables and leave the standard ones stale. The classic case is the **autopilot indication**: an addon whose AP never drives the standard `AUTOPILOT MASTER` simvar breaks every AP-aware TelemFFB feature until you override `APMaster` to read the addon's own variable. The same applies to custom engine and flight models (RPM, thrust, accelerations).
+- **Source overrides.** Sophisticated addon aircraft often implement their own systems in custom variables and leave the standard ones stale. Custom engine and flight models are the common case: the addon computes its own RPM, thrust or accelerations, and the standard variables do not follow them.
+
+    An addon autopilot that never sets the standard autopilot variable breaks every AP-aware TelemFFB feature. In MSFS, the [Custom Autopilot Variable](msfs-xp-trim-following.md#custom-autopilot-variable-msfs) setting handles this: enter the addon's variable there. Override `APMaster` instead in X-Plane, or in MSFS when the value needs a scale or transform before TelemFFB can use it.
+
 - **Additional subscriptions.** An override whose Telem Property is a *new* name creates a new telemetry item. This is how the special aircraft implementations (the HPG helicopters, for example) receive their custom `L:Var`s. The aircraft class or the shipped profile carries the required overrides.
 
-## How it works
+## How It Works
 
 - **MSFS** - the override replaces (or adds) the variable in TelemFFB's SimConnect subscription set. The Variable field takes a SimVar name (`VARNAME`), an LVar (`L:VARNAME`) or an [input event](#input-events-b-variables) (`B:EVENT_NAME`); the Unit is the SimConnect unit to request (`bool`, `enum`, `number`, `Percent Over 100`, `degrees`, `meters/second`).
 - **X-Plane** - TelemFFB instructs its X-Plane plugin to subscribe to the given dataref (Unit: `int` or `float`) and export it under the telemetry item's name.
@@ -20,7 +23,7 @@ Either way, the result flows into the same telemetry item the effects already co
 
 ![The Telem Ovd pill and its tooltip, listing each override with its tier](images/telem-overrides/telem_ovd_tooltip.png){ width="500px" }
 
-## Where an aircraft's overrides come from
+## Where an Aircraft's Overrides Come From
 
 An aircraft's overrides are built from three tiers. A later tier replaces an earlier one where both name the same telemetry item:
 
@@ -44,7 +47,7 @@ The **Source** column of the editor names the tier of each row.
 
     [Aircraft with Special Treatment](msfs-xp-special-aircraft.md) lists which aircraft need the clone. The wizard enforces it for HPG and FlyInside aircraft.
 
-## The editor fields
+## The Editor Fields
 
 - **Telem Property** - the telemetry item to feed. The dropdown lists the standard overridable items, but the field is editable, which enables two more forms:
     - `Name:index` targets one element of a *list* telemetry item; the screenshot overrides `AccBody:0/1/2` (the X/Y/Z body accelerations) individually.
@@ -64,7 +67,7 @@ Rows from the Class and Default tiers ship with TelemFFB and are shown **greyed 
 - Your own rows can be selected and deleted. A deleted override stops being subscribed at once.
 - The editor adds and removes rows for the selected aircraft only. With only a class selected in the offline editor, it shows the class rows for reference.
 
-## A worked example
+## A Worked Example
 
 The A2A Comanche is an addon with its own physics and systems model, so its built-in profile re-sources several telemetry items from the addon's variables. This is how such a set looks in the editor and in the Monitor tab:
 
@@ -73,18 +76,19 @@ The A2A Comanche is an addon with its own physics and systems model, so its buil
 
 | Override | Why |
 |---|---|
-| `APMaster` ← `L:ApDisableAileron` | The addon's AP state lives in its own LVar; the standard AP simvar would read stale. Restores AP-aware behavior. |
 | `AccBody:0/1/2` ← `L:FM_BodyAcceleration X/Y/Z`, scale `0.102` | The addon computes its own body accelerations; 0.102 ≈ 1/9.81 converts m/s² to g, the range the effects expect. |
 | `PropRPM` ← `L:Eng1_PropRPM` | The custom engine model's RPM, not the standard prop simvar. |
 | `PropThrust` ← `L:Eng1_ForceZ`, scale `4.45` | Thrust from the custom model, scaled into the expected units. |
 
-## Input events (`B:` variables)
+The addon's autopilot state also lives in its own variable, `L:ApDisableAileron`. The profile reads it through the [Custom Autopilot Variable](msfs-xp-trim-following.md#custom-autopilot-variable-msfs) setting on the joystick, pedals and trim wheel, so it does not appear in the editor.
+
+## Input Events (`B:` Variables)
 
 Many MSFS 2024 cockpit controls do not exist as a SimVar or an LVar. The simulator exposes them as **input events**. TelemFFB reads an input event wherever it takes a variable, when the name is written with a `B:` prefix, for example `B:LIGHTING_NAVIGATION_LIGHT`.
 
 The most common use is a cockpit switch setting: the [Force Trim Switch Simvar](msfs-xp-helicopters.md#helicopter-force-trim) on helicopters, or the [Controls Lock](effects-mechanical.md#controls-lock) variable. A telemetry override can read one as well.
 
-### Finding the variable for a cockpit control
+### Finding the Variable for a Cockpit Control
 
 1. Turn on the simulator's developer mode and open the **Behaviors** window from the developer menu.
 2. With the window open, point the mouse at the control in the cockpit and press **Ctrl+G**. The **Inspector** tab shows that control.
