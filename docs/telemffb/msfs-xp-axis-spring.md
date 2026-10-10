@@ -1,15 +1,15 @@
 # Axis Control & Spring Modes
 
-With MSFS and X-Plane, TelemFFB is the source of the axis positions the simulator receives. The **Axis Control** setting (`telemffb_controls_axes`) enables this: TelemFFB reads your physical stick, applies the spring model and any trim or autopilot offsets, and sends the resulting axis values to the simulator.
+With MSFS and X-Plane, TelemFFB is the source of the axis positions the simulator receives: it reads your physical stick, applies the spring model and any trim or autopilot offsets, and sends the resulting axis values to the simulator. This is always on. **Disable for this device** (`local_disable_axis_control`) turns it off for one device, for an aircraft whose own systems should keep that axis.
 
 !!! tip "Checking for a forgotten binding"
     TelemFFB logs an `axis contention` line when something else is moving an axis it drives. See [Reading the log](troubleshooting.md#reading-the-log).
 
 !!! important "MSFS: unbind your axes"
-    MSFS has no toggle to override external axis control. When Axis Control is enabled, ***you must unbind your joystick and/or pedal axes inside MSFS*** (or SPAD.neXt). Otherwise MSFS's own reading of your physical axis will conflict with the position TelemFFB is sending.
+    MSFS has no toggle to override external axis control, so ***you must unbind your joystick and/or pedal axes inside MSFS*** (or SPAD.neXt). Otherwise MSFS's own reading of your physical axis will conflict with the position TelemFFB is sending.
 
 !!! note "X-Plane"
-    You do **not** need to unbind your axes in X-Plane. The TelemFFB X-Plane plugin uses the simulator's built-in override datarefs, so the axis is overridden automatically when the feature is enabled.
+    You do **not** need to unbind your axes in X-Plane. The TelemFFB X-Plane plugin uses the simulator's built-in override datarefs, so the axis is overridden automatically.
 
 ## Axis Settings
 

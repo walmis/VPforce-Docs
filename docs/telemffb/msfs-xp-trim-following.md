@@ -5,7 +5,7 @@ TelemFFB can move your stick and pedals in response to the simulator's trim and 
 Because neither MSFS nor X-Plane has any concept of force feedback, they treat *any* axis movement as a deliberate control-surface command. If TelemFFB simply let the stick move with the trim and reported that movement to the sim, the sim would read it as **additional elevator input** stacked on top of its own trim, and the aircraft would pitch far more than it should. To prevent this, TelemFFB controls the axis position the sim receives, delivering only a fraction of the physical stick's movement. Getting that fraction right is what the settings below (and the [automatic calibration](msfs-xp-trim-calibration.md)) are for.
 
 !!! important "Prerequisite: Axis Control"
-    Trim and autopilot following require **Axis Control**: TelemFFB must be the source of the axis positions the sim receives. Set that up first, including **unbinding your axes in MSFS**. See [Axis Control & Spring Modes](msfs-xp-axis-spring.md).
+    Trim and autopilot following need TelemFFB to be the source of the axis positions the sim receives, which it is unless **Disable for this device** is on. In MSFS that also means **unbinding your axes in MSFS**. See [Axis Control & Spring Modes](msfs-xp-axis-spring.md).
 
 !!! note
     Trim and autopilot following in MSFS should be considered an ***advanced feature***. It works well across a wide range of aircraft but often benefits from per-aircraft tuning of the elevator gains; see [Automatic Trim Calibration](msfs-xp-trim-calibration.md).
@@ -15,7 +15,7 @@ Because neither MSFS nor X-Plane has any concept of force feedback, they treat *
 
 ## Enabling the Feature
 
-Enable **Axis Control** (`telemffb_controls_axes`), then in the sub-settings enable **Trim Following** and/or **Autopilot Following** as desired.
+Under **Axis Control**, enable **Trim Following** and/or **Autopilot Following** as desired.
 
 ![Trim Following settings, showing the X/Y physical and virtual gain sliders, the Use Calibrated Trim Curve toggle, and the Calibrate button](images/msfs-xp-trim-following/settings.png){ width="700px" }
 

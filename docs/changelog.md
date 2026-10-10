@@ -1,4 +1,8 @@
 # Changelog
+- **October 10, 2026:**
+
+    - Axis control is now always on: the global switch is gone from [Axis Control & Spring Modes](telemffb/msfs-xp-axis-spring.md) and the [Axis Control](telemffb/effects-basic.md#axis-control) reference entry, and **Disable for this device** is the switch that turns it off for one device. The [Trim & Autopilot Following](telemffb/msfs-xp-trim-following.md) prerequisite says the same
+
 - **October 3, 2026:**
 
     - Rewrote **[Automatic Trim Calibration](telemffb/msfs-xp-trim-calibration.md)** for the current tool: the [two-stage run](telemffb/msfs-xp-trim-calibration.md#running-a-calibration) with the test-speed hold and the auto-start option, the [live status](telemffb/msfs-xp-trim-calibration.md#live-status) indicators and step lamps, [control response](telemffb/msfs-xp-trim-calibration.md#control-response) and [gliders](telemffb/msfs-xp-trim-calibration.md#gliders), [stored calibrations](telemffb/msfs-xp-trim-calibration.md#stored-calibrations) at several airspeeds, and the trimmed stick position, with new screenshots

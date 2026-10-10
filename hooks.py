@@ -33,6 +33,7 @@ _SKIP_DATATYPES = {"group", "convert"}
 _UNRELEASED_PREFIXES = ("ffb_api_",)
 
 _telemffb_settings_cache = None
+_telemffb_groups_cache = None
 
 
 def _load_telemffb_settings():
@@ -106,6 +107,31 @@ def _load_telemffb_settings():
     return _telemffb_settings_cache
 
 
+def _load_telemffb_groups():
+    """Section groups (a group row with no prereq of its own) as records of
+    the same shape as a setting: an effect entry may name one, and its
+    table then lists the group's direct children."""
+    global _telemffb_groups_cache
+    if _telemffb_groups_cache is not None:
+        return _telemffb_groups_cache
+    groups = {}
+    for d in ET.parse(TELEMFFB_DEFAULTS_XML).getroot().iter("defaults"):
+        name = d.findtext("name")
+        if (d.findtext("datatype") or "").strip() != "group" or not name \
+                or (d.findtext("prereq") or "").strip():
+            continue
+        rec = groups.setdefault(name, {
+            "name": name, "displayname": (d.findtext("displayname") or "").strip(),
+            "info": "", "order": 0.0, "prereq": "", "modes": (),
+            "parentgroup": (d.findtext("parentgroup") or "").strip(),
+            "grouping": (d.findtext("grouping") or "").strip(),
+            "sims": set(), "devices": set()})
+        rec["sims"] |= {s for s in _SIMS if d.findtext(s) == "true"}
+        rec["devices"] |= {v for v in _DEVICES if d.findtext(v) == "true"}
+    _telemffb_groups_cache = groups
+    return _telemffb_groups_cache
+
+
 def _clean_info(info):
     """Normalize an info string for a table cell: strip HTML, one line."""
     text = re.sub(r"(?i)<br\s*/?>", " ", info)
@@ -144,7 +170,7 @@ def _sim_badges(sims):
 def _effect_block(name, part="both"):
     """Render the badge line and/or sub-setting table for one effect."""
     settings_by_name = {s["name"]: s for s in _load_telemffb_settings()}
-    root = settings_by_name.get(name)
+    root = settings_by_name.get(name) or _load_telemffb_groups().get(name)
     if root is None:
         return f"*(unknown setting {name!r})*"
     _telemffb_documented_effects.add(name)
@@ -351,6 +377,7 @@ def _report_undocumented_effects():
         s for s in settings_by_name.values()
         if s["parentgroup"] in active_groups
         and s["prereq"] not in settings_by_name        # top-level
+        and s["prereq"] not in _telemffb_documented_effects   # under a documented group
         and s["name"] not in _telemffb_documented_effects
         and s["sims"]                                  # hidden legacy entries
     ]
