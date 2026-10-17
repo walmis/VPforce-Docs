@@ -1,4 +1,15 @@
 # Changelog
+- **October 17, 2026:**
+
+    - Added **[Effect Levels & Mute](telemffb/effect-levels.md)**: the per-device [levels](telemffb/effect-levels.md#the-levels), the [Effect Levels box](telemffb/effect-levels.md#the-effect-levels-box) above the settings list and its [dialog](telemffb/effect-levels.md#the-effect-levels-dialog), the [mute](telemffb/effect-levels.md#mute) modes and scopes, [binding a button to the mute](telemffb/effect-levels.md#binding-a-button-to-the-mute), and the badges on the device icons, with new screenshots. The [UI Overview](telemffb/ui-overview.md#view-menu) gains the View menu and the Mute All Devices item, and the Monitor tab, [Effect Preview](telemffb/effect-preview.md) and [Troubleshooting](telemffb/troubleshooting.md#device-problems) pages say how the levels show
+    - Documented the **[Button Devices tab](telemffb/configuration.md#button-devices-tab)** of System Settings and [button bindings](telemffb/ui-overview.md#modifying-settings-in-real-time) from any game controller or FFB device, in the main window and the [in-sim panel](telemffb/in-sim-panel.md#settings-view)
+    - Added **[DirectInput Devices](telemffb/devices-instances.md#directinput-devices)** to Devices & Instances: the FFB axis choice, the force direction corrections, the Detect run and the known bases
+    - [How Settings Work](telemffb/settings-model.md#where-settings-are-stored) names the configuration file, `userconfig_v3.xml`, and says what happens to a TelemFFB 2 configuration on the first start; the [Troubleshooting FAQ](telemffb/troubleshooting.md#faq) links to it
+    - Added **[Custom Follow Variables](telemffb/msfs-xp-trim-following.md#custom-follow-variables-msfs)** and **[Disconnect Autopilot on Override](telemffb/msfs-xp-trim-following.md#disconnect-autopilot-on-override-msfs)** to Trim & Autopilot Following, the held spring center while a control is past the deadzone, and the **[PMDG 737](telemffb/msfs-xp-special-aircraft.md#pmdg-737)** profiles in Aircraft with Special Treatment; the AW109 known issue names the Disable for this device setting
+    - The X-Plane panel update prompt, in [In-Sim Settings Panel](telemffb/in-sim-panel.md#install-the-panel-in-x-plane) and [Connecting Your Simulator](telemffb/sim-setup.md#x-plane), lists the installed and available versions
+    - Updated the effects reference tables from the current TelemFFB defaults
+    - Added the **Display name** field of the [device cards](telemffb/devices-instances.md#the-devices-tab) and its use for the [icon labels](telemffb/ui-overview.md#active-devices-area)
+
 - **October 10, 2026:**
 
     - Axis control is now always on: the global switch is gone from [Axis Control & Spring Modes](telemffb/msfs-xp-axis-spring.md) and the [Axis Control](telemffb/effects-basic.md#axis-control) reference entry, and **Disable for this device** is the switch that turns it off for one device. The [Trim & Autopilot Following](telemffb/msfs-xp-trim-following.md) prerequisite says the same

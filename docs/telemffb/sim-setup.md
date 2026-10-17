@@ -44,7 +44,7 @@ Enable each simulator you fly. For the sims that need an export script or plugin
 
 - **Start in-sim settings panel server**
 
-    - Starts a local HTTP server, active only while X-Plane is the connected sim, that powers the optional [In-Sim Settings Panel](in-sim-panel.md). Enabled by default. When enabled, TelemFFB also offers panel updates at startup.
+    - Starts a local HTTP server, active only while X-Plane is the connected sim, that powers the optional [In-Sim Settings Panel](in-sim-panel.md). Enabled by default. When enabled, TelemFFB also offers panel updates at startup; the prompt lists the installed version per X-Plane install and the version TelemFFB brings.
 
 ### X-Plane Installs
 

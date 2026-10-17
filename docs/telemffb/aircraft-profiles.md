@@ -97,7 +97,7 @@ A TelemFFB update can ship a built-in profile for an aircraft you already made a
 
 ![The Multiple matching profiles prompt on the main window](images/aircraft-profiles/multi-match-prompt.png){ width="650px" }
 
-The more specific match string names the aircraft, and the built-in wins a tie. The dialog says which side applies today, and lists the settings and telemetry overrides of both next to the result of a merge. **Bold** rows would change if you merge. Amber rows are values the two sides set differently; yours wins. Hover a button to see exactly what it does.
+The more specific match string names the aircraft, and the built-in wins a tie. The dialog says which side applies today, and lists the settings and telemetry overrides of both next to the result of a merge. **Bold** rows would change if you merge. Amber rows are values the two sides set differently; yours wins. Hover your mouse over a button to see exactly what it does.
 
 ![The Multiple matching profiles dialog, showing the built-in, your profile and the merged result side by side](images/aircraft-profiles/multi-match-dialog.png){ width="760px" }
 

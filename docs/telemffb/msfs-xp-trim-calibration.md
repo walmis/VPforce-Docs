@@ -57,7 +57,7 @@ The suggestions are optional, and the low and high speeds matter most. A speed h
 Below the suggestions are the live values: **IAS**, **VS**, **Pitch**, **Bank** and **Trim**. Two of them carry an indicator:
 
 - **IAS** has a trend arrow. It points up or down as the airspeed changes, and grows and turns from green to amber to red as the change gets faster. A flat green dash means the airspeed is steady. During a run, IAS also shows how far the speed has drifted from the start, in amber from 5% and in red from 10%.
-- **VS** has a readiness indicator. A flat green dash means the vertical speed is inside the range the next step accepts. Outside that range, an arrow points the way the aircraft is climbing or descending, and turns from amber to red as the error grows. Before you press **Begin Calibration** the range is ±500 fpm. During the run it is about ±100 fpm. Hover over the indicator to see the current error and range.
+- **VS** has a readiness indicator. A flat green dash means the vertical speed is inside the range the next step accepts. Outside that range, an arrow points the way the aircraft is climbing or descending, and turns from amber to red as the error grows. Before you press **Begin Calibration** the range is ±500 fpm. During the run it is about ±100 fpm. Hover your mouse over the indicator to see the current error and range.
 
 The status line has a colored light and one sentence about the current phase or what is missing. A grey line under it shows the calibration's detailed progress. During the sweep, a progress bar counts the measuring stations.
 

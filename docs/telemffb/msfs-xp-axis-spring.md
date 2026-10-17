@@ -2,9 +2,6 @@
 
 With MSFS and X-Plane, TelemFFB is the source of the axis positions the simulator receives: it reads your physical stick, applies the spring model and any trim or autopilot offsets, and sends the resulting axis values to the simulator. This is always on. **Disable for this device** (`local_disable_axis_control`) turns it off for one device, for an aircraft whose own systems should keep that axis.
 
-!!! tip "Checking for a forgotten binding"
-    TelemFFB logs an `axis contention` line when something else is moving an axis it drives. See [Reading the log](troubleshooting.md#reading-the-log).
-
 !!! important "MSFS: unbind your axes"
     MSFS has no toggle to override external axis control, so ***you must unbind your joystick and/or pedal axes inside MSFS*** (or SPAD.neXt). Otherwise MSFS's own reading of your physical axis will conflict with the position TelemFFB is sending.
 
@@ -19,7 +16,7 @@ These sliders scale the axis value sent to the sim. A value of 50% produces 50% 
 
 **Custom Axis Variables**
 
-Some aircraft do not use the standard SimConnect axis events, or use custom `L:` variables. Use these checkboxes to override the default variable sent, or to enter a custom one. Enter `VARNAME` for a SimVar or `L:VARNAME` for an `L:Var`.
+Some aircraft do not use the standard SimConnect axis events, or use custom `L:` variables. Use these checkboxes to override the default variable sent, or to enter a custom one. Enter `VARNAME` for a SimVar or `L:VARNAME` for an `L:Var`. TelemFFB writes the axis position into the variable as a value: in position units for a position SimVar, as a number otherwise.
 
 ## Axis Output
 

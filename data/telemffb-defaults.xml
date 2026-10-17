@@ -11075,28 +11075,14 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>local_disable_axis_control</name>
-			<type>CowanSimHelicopter</type>
+			<type>GliderAircraft</type>
 			<value>true</value>
 			<sim>MSFS</sim>
-			<device>trimwheel</device>
-		</classdefaults_MSFS>
-		<classdefaults_MSFS>
-			<name>local_disable_axis_control</name>
-			<type>FlyInsideHelicopter</type>
-			<value>true</value>
-			<sim>MSFS</sim>
-			<device>trimwheel</device>
+			<device>collective</device>
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>local_disable_axis_control</name>
 			<type>Helicopter</type>
-			<value>true</value>
-			<sim>MSFS</sim>
-			<device>trimwheel</device>
-		</classdefaults_MSFS>
-		<classdefaults_MSFS>
-			<name>local_disable_axis_control</name>
-			<type>FFBApiHelicopter</type>
 			<value>true</value>
 			<sim>MSFS</sim>
 			<device>trimwheel</device>
@@ -11117,17 +11103,31 @@
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>local_disable_axis_control</name>
-			<type>TaogH500Helicopter</type>
+			<type>CowanSimHelicopter</type>
 			<value>true</value>
 			<sim>MSFS</sim>
 			<device>trimwheel</device>
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>local_disable_axis_control</name>
-			<type>GliderAircraft</type>
+			<type>FlyInsideHelicopter</type>
 			<value>true</value>
 			<sim>MSFS</sim>
-			<device>collective</device>
+			<device>trimwheel</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>local_disable_axis_control</name>
+			<type>FFBApiHelicopter</type>
+			<value>true</value>
+			<sim>MSFS</sim>
+			<device>trimwheel</device>
+		</classdefaults_MSFS>
+		<classdefaults_MSFS>
+			<name>local_disable_axis_control</name>
+			<type>TaogH500Helicopter</type>
+			<value>true</value>
+			<sim>MSFS</sim>
+			<device>trimwheel</device>
 		</classdefaults_MSFS>
 		<classdefaults_MSFS>
 			<name>local_disable_axis_control</name>
@@ -11894,17 +11894,24 @@
 		</classdefaults_XPLANE>
 		<classdefaults_XPLANE>
 			<name>local_disable_axis_control</name>
-			<type>GliderAircraft</type>
-			<value>true</value>
-			<sim>XPLANE</sim>
-			<device>collective</device>
-		</classdefaults_XPLANE>
-		<classdefaults_XPLANE>
-			<name>local_disable_axis_control</name>
 			<type>Helicopter</type>
 			<value>true</value>
 			<sim>XPLANE</sim>
 			<device>trimwheel</device>
+		</classdefaults_XPLANE>
+		<classdefaults_XPLANE>
+			<name>local_disable_axis_control</name>
+			<type>XAW109Helicopter</type>
+			<value>true</value>
+			<sim>XPLANE</sim>
+			<device>trimwheel</device>
+		</classdefaults_XPLANE>
+		<classdefaults_XPLANE>
+			<name>local_disable_axis_control</name>
+			<type>GliderAircraft</type>
+			<value>true</value>
+			<sim>XPLANE</sim>
+			<device>collective</device>
 		</classdefaults_XPLANE>
 		<classdefaults_XPLANE>
 			<name>local_disable_axis_control</name>

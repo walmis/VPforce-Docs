@@ -20,6 +20,8 @@ The device icons show the state of each device, in the **Active Devices** panel 
 - **Red** - the configured device was not found at startup, or the instance has an error. Check the USB connection and the device's power. TelemFFB picks the device up as soon as it appears; a restart is not needed.
 - **Grey** - no device is configured for that role. See [Devices and Instances](devices-instances.md).
 
+If the effects on a device feel weak or are missing while its icon is green, look at the icon's badges before anything else. A red crossed speaker means the device is muted; an amber bar chart means one of its effect levels is below 100%. Hover your mouse over the icon for the values, and see [Effect Levels & Mute](effect-levels.md).
+
 After a power cycle the firmware has lost everything it held in memory. TelemFFB sends the active VPforce Configurator profile, the gain overrides and the deadzone again. See [Device recovery](devices-instances.md#device-recovery).
 
 If another VPforce device is connected while the configured one is missing, TelemFFB asks once whether to use that device instead.
@@ -87,7 +89,7 @@ For reference: **System → Open Config/Log directory** opens the folder holding
 **A:** This is a known false-positive pattern with PyInstaller-packaged applications. See [TelemFFB and Antivirus Software](installation.md#telemffb-and-antivirus-software).
 
 **Q: How do I update TelemFFB without losing my settings?**  
-**A:** Extract the new version over (or beside) the old one. Your settings live in `%LOCALAPPDATA%\VPForce-TelemFFB` and the registry, not in the application folder, so they survive updates.
+**A:** Extract the new version over (or beside) the old one. Your settings live in `%LOCALAPPDATA%\VPForce-TelemFFB` (`userconfig_v3.xml`) and the registry, not in the application folder, so they survive updates. See [Where Settings Are Stored](settings-model.md#where-settings-are-stored).
 
 **Q: Running from source and the release build: separate settings?**  
 **A:** No, they share the same configuration. Changes made in one carry over to the other.

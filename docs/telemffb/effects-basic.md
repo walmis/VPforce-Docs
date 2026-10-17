@@ -68,9 +68,10 @@ IL-2 implements its own basic FFB shake effects in-game. The Shake Master group 
 MSFS/X-Plane only: TelemFFB is the source of the axis positions the simulator receives, the foundation for the spring modes, trim following, and autopilot following. This is always on. **Disable for this device** turns it off for one device, for an aircraft whose own systems should keep that axis. The family includes the axis scales, hands-on detection, custom axis variables, and the entire Trim/AP Following tree.
 
 !!! important
-    In MSFS you must **unbind the affected axes in MSFS** (or SPAD.neXt). See [Axis Control & Spring Modes](msfs-xp-axis-spring.md).
+    For MSFS you must **unbind the device's axes in the sim** (or other simconnect software such as SPAD.neXt). See [Axis Control & Spring Modes](msfs-xp-axis-spring.md).
 
 - Trim following and its gains: [Trim & Autopilot Following](msfs-xp-trim-following.md)
+- Following the autopilot through an aircraft's own variables, and disconnecting it by overriding: [Custom Follow Variables](msfs-xp-trim-following.md#custom-follow-variables-msfs) and [Disconnect Autopilot on Override](msfs-xp-trim-following.md#disconnect-autopilot-on-override-msfs)
 - The calibrated trim curve: [Automatic Trim Calibration](msfs-xp-trim-calibration.md)
 - Hands-on detection and Force Mode: [Helicopters - Force Mode](msfs-xp-helicopters.md#force-mode-experimental)
 

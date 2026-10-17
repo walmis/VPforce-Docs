@@ -12,9 +12,12 @@ Everything configured in the System→[System Settings](configuration.md) dialog
 
 **Aircraft settings** are stored in the user appdata folder:
 
-- `%LOCALAPPDATA%\VPForce-TelemFFB`
+- `%LOCALAPPDATA%\VPForce-TelemFFB\userconfig_v3.xml`
 
-The user configuration file here holds only your changes. The full catalog of settings and their default values ships inside the application as a defaults file.
+The user configuration holds only your custom settings and aircraft profile definitions. The full catalog of settings and their default values ships inside the application as a defaults file.
+
+!!! note "Coming from TelemFFB v2"
+    TelemFFB 2 kept its settings in `userconfig_v2.xml` in the same folder. The first time TelemFFB v3 starts, it copies that file to `userconfig_v3.xml` and converts the copy.
 
 ## The Layers
 
@@ -39,7 +42,7 @@ Your configuration file is a **delta**: it stores only the settings you changed,
 The Settings tab shows the *resolved* value of every setting for the loaded aircraft, whichever layer it came from. The interface tells you where a value comes from:
 
 - A setting you changed for this aircraft shows an **x** icon. Click it to remove your override and fall back to the inherited value.
-- **Right-click the x** icon to promote your value to the **class** or **sim** level, so it applies to every aircraft of that class or sim. An information icon then marks the setting; hover it to see which level the override lives at.
+- **Right-click the x** icon to promote your value to the **class** or **sim** level, so it applies to every aircraft of that class or sim. An information icon then marks the setting; hover your mouse over it to see which level the override lives at.
 - **Right-click the information icon** to remove the class or sim override. Every aircraft that used it goes back to the value below it. You can do this from a loaded aircraft; you do not have to open the offline editor.
 
 See [Modifying settings in real time](ui-overview.md#modifying-settings-in-real-time) for a visual walkthrough of these controls.

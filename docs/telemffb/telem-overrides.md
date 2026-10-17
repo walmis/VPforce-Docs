@@ -19,7 +19,7 @@ TelemFFB's effects consume a fixed set of telemetry items (the names you see in 
 - **MSFS** - the override replaces (or adds) the variable in TelemFFB's SimConnect subscription set. The Variable field takes a SimVar name (`VARNAME`), an LVar (`L:VARNAME`) or an [input event](#input-events-b-variables) (`B:EVENT_NAME`); the Unit is the SimConnect unit to request (`bool`, `enum`, `number`, `Percent Over 100`, `degrees`, `meters/second`).
 - **X-Plane** - TelemFFB instructs its X-Plane plugin to subscribe to the given dataref (Unit: `int` or `float`) and export it under the telemetry item's name.
 
-Either way, the result flows into the same telemetry item the effects already consume; verify it live in the **Monitor tab**. When an aircraft with active overrides loads, the status area shows a **Telem Ovd** pill with a count for each tier, for example `Class (6) + Default (6) + User (1)`. Hover it to list every active override and the tier it comes from.
+Either way, the result flows into the same telemetry item the effects already consume; verify it live in the **Monitor tab**. When an aircraft with active overrides loads, the status area shows a **Telem Ovd** pill with a count for each tier, for example `Class (6) + Default (6) + User (1)`. Hover your mouse over it to list every active override and the tier it comes from.
 
 ![The Telem Ovd pill and its tooltip, listing each override with its tier](images/telem-overrides/telem_ovd_tooltip.png){ width="500px" }
 
@@ -59,7 +59,7 @@ The **Source** column of the editor names the tier of each row.
 !!! important "The transform must make the value equivalent to the original"
     TelemFFB's effects expect each telemetry item in the **units, range, and sign of its original standard source**: an override changes where the data comes from, not what the consumers expect. Whatever format the replacement variable uses natively, it is your job (via the Transform/Scale) to deliver an equivalent value. In the example below, the addon's body accelerations arrive in m/s² where the standard item is in g, hence the 0.102 (≈1/9.81) scale. An override that "works" but skips this conversion feeds every dependent effect distorted data.
 
-The table below the fields lists every override in effect for the aircraft. Its **Source** column reads **Class**, **Default** or **User**, the [three tiers](#where-an-aircrafts-overrides-come-from). Hover a Source cell for a reminder of what the tier means.
+The table below the fields lists every override in effect for the aircraft. Its **Source** column reads **Class**, **Default** or **User**, the [three tiers](#where-an-aircrafts-overrides-come-from). Hover your mouse over a Source cell for a reminder of what the tier means.
 
 Rows from the Class and Default tiers ship with TelemFFB and are shown **greyed out**. They show what the aircraft already subscribes, and they cannot be deleted.
 

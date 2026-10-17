@@ -20,6 +20,7 @@ New, improved, and changed functionality for each TelemFFB release, newest first
 - **NEW: 3rd party device support via DirectLink**
     - An optional integration that lets TelemFFB drive any device exposing force feedback through DirectInput
     - Enabled in System Settings > Integrations; DirectLink is a separate free download
+    - Per-device force direction (System Settings > Devices): mirror the forces on an axis, or turn the direction angle, for a base that reads force directions differently from the DirectInput convention.  The position reading is left alone.  A Detect button measures the device and fills these in: it checks the position reading, plays a light spring on each axis and a light force in two directions, then verifies the result with you
 - **NEW: The DirectInput Tap (DCS / IL-2 / Falcon BMS)**
     - "The tap" intercepts the games own FFB effects and lets TelemFFB render them locally
         - **Game Managed (DirectInput Tap)** spring mode re-renders the game's spring: trim center follow and force-trim collapse reproduce exactly
@@ -39,9 +40,18 @@ New, improved, and changed functionality for each TelemFFB release, newest first
     - Now the most specific match wins. When two match equally the built-in profile wins, so a new default profile that ships for an aircraft you already have gets noticed instead of being quietly shadowed
 - **NEW: Overlapping profile resolution**
     - The main window shows "Multiple matching profiles detected" and offers to resolve it.  This happens when a curated profile ships for an aircraft you had already made a profile for
+    - A profile you make in the New Aircraft Wizard is not asked about: forking an aircraft off a broader built-in counts as keeping yours
 - **NEW: Profile Fork button - create a new, more specific profile**
     - A new button sits beside the Matched Model row.  It forks the matched profile for the currently matched aircraft into a more specific match string
     - Until now the New Aircraft Wizard only appeared for unmatched aircraft.  An aircraft that mistakenly matched a broader profile had no way to be separated from it without hand-editing the config
+- **NEW: Bind buttons from any game controller**
+    - Anywhere you can/must bind a button within TelemFFB to perform some function, you can now bind any game controller attached to your PC
+    - Legacy bindings, including the "use master button" based bindings are still honored
+    - New bindings carry the VID:PID:BUTTON_ID of the device button which was pressed during the binding
+    - Individual game controllers can be enabled in System Settings > Button Devices
+- **CHANGED: The configuration file is now userconfig_v3.xml**
+    - Any existing "v2" config is migrated on the first startup
+    - A config or profile export written by this version carries the TelemFFB_v3 root tag; exports from TelemFFB v2 still import
 
 **UI**
 
@@ -51,14 +61,22 @@ New, improved, and changed functionality for each TelemFFB release, newest first
         - See each playing effect, its current intensity and what type of effect it is including the specific waveform for periodic effects
 - **NEW: Device configuration UI re-work**
     - Device cards with pull-down selection of detected devices
+    - Edit the display name for the device shown on the device icons
     - More logical integration of the old "auto launch" configuration options
 - **NEW: All settings (master and child instances) are now configurable through the master instance system settings**
     - You are no longer required to open a child instance to configure its local system settings
 - **NEW: Backup and restore system settings**, from a new File menu on the System Settings dialog
 - **NEW: TelemFFB can restart itself when a change requires it**
+- **NEW: Effect Levels and Mute**
+    - Per device effect level control. Master and per effect type controls are offered.
+    - Instantly mute effects per device or globally with the click of a button.
 
 **MSFS / X-Plane**
 
+- **CHANGED: Global Axis Control is permanently enabled**
+    - Axis control settings are moved into a collapsible 'Axis Control' settings group
+    - The global 'Axis Control' toggle is no longer available.  To disable axis control, use the per-device 'Disable for This Device' setting
+    - Trim and autopilot following remain gated behind the axis control.  Axis control must be enabled to access these features.
 - **NEW: In-sim settings panel**
     - View and change the current aircraft's TelemFFB settings from a window inside the sim
     - Both the settings and monitor tabs are available in the in-sim panels
@@ -78,6 +96,13 @@ New, improved, and changed functionality for each TelemFFB release, newest first
 
 **MSFS**
 
+- **NEW: PMDG 737-600/700/800/900 profiles**
+    - Autopilot state is read from the aircraft's CMD A annunciator, since the PMDG autopilot does not set the standard autopilot variable
+    - Autopilot following reads the captain's control column and wheel variables, so the stick follows the autopilot smoothly instead of in steps
+    - Elevator trim following uses a calibrated trim curve
+    - The yoke autopilot disconnect switch is pre-configured for 'Disconnect Autopilot on Override', disabled by default
+- **NEW: Custom autopilot follow variables** - follow the autopilot in roll, pitch or yaw through a variable of your choice, with a transform to the -1..1 range, for aircraft that publish their yoke or pedal position in their own variables
+- **NEW: Disconnect Autopilot on Override** - send a disconnect event once the stick is held past a configurable deflection, for an autopilot that does not let go on its own
 - **NEW: 25 more aircraft defaults ship with an elevator trim calibration**, 13 of them as new built-in profiles
 - Fix: Camera add-ons such as ChasePlane user camera states TelemFFB did not understand which could leave TelemFFB paused during flight. TelemFFB now uses the sim's motion simulation state instead of the camera views to determine if the user is in the menu system.
 
@@ -86,11 +111,12 @@ New, improved, and changed functionality for each TelemFFB release, newest first
 - **NEW: IL-2 Korea is now its own sim**
     - Korea sends its telemetry on its own port, so TelemFFB can tell it apart from Great Battles. With config validation on, the Korea startup.cfg is updated on the next start
     - IL-2 Sturmovik and IL-2 Korea have separate enable switches (System Settings > IL2)
-    - Korea aircraft profiles and settings now live under the new sim. Your existing Korea settings are copied to the new sim automatically the first time this version starts (a backup is written beside the config as userconfig_v2_pre-il2k_backup.xml)
+    - Korea aircraft profiles and settings now live under the new sim. Your existing Korea settings are copied to the new sim automatically the first time this version starts
 - Fix: the runway rumble effect never played - its enable toggle was not being honored.  It now runs when enabled, so expect a rumble on the ground if you have it switched on
 
 **General fixes**
 
+- Fix: the sim listeners now start once the device is ready (open, delivering input, startup gains read, startup vpconf profile pushed).  Starting TelemFFB while MSFS sat in its menus could leave the status indicator on Running with no telemetry flowing, because the sim's one menu-time frame arrived before the device was ready.  That frame now shows Paused
 - Fix: keep-forces-on-pause is honored for the flight-control spring on MSFS / X-Plane aircraft - a timeout used to stop it one call after the keep-forces protection ran.  When center-spring-on-pause is also on, the flight-control spring is now replaced by the centering spring on a pause instead of left riding on top of it
 - Fix: effects are now properly freed when the sim exits and when TelemFFB exits preventing scenarios that may result in hung effects on the device
 - Fix: resetting the device's effects no longer strands the effects

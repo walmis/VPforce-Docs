@@ -25,13 +25,16 @@ With an aircraft loaded in the sim, there is an **Offline/Preview Mode** button 
 !!! note "Telemetry pauses in offline mode"
     While the offline editor is open, TelemFFB pauses telemetry. Previews use their own effect table, so a paused sim session in the background is not disturbed. Click **Exit Offline Mode** to resume.
 
+!!! note "Previews and the effect levels"
+    A preview plays through the device's [effect levels](effect-levels.md), so what you feel is what the aircraft will play. A muted device still plays previews; you do not have to release the mute to try an effect.
+
 ## Play a Preview
 
 1. Click **▶** next to an effect's intensity slider. The slider handle turns green and the effect controls are disabled while the preview plays.
 2. The button reads **■** while the preview plays. Click it to stop early.
 3. Adjust the slider and play again.
 
-Hover over the **▶** button for a description of what the preview does: the flight condition it plays, the reference speeds or RPM it uses, and how long each phase lasts.
+Hover your mouse over the **▶** button for a description of what the preview does: the flight condition it plays, the reference speeds or RPM it uses, and how long each phase lasts.
 
 ![](images/effect-preview/tooltip.png){ width="415px" }
 
@@ -43,7 +46,7 @@ Hover over the **▶** button for a description of what the preview does: the fl
 
 ### Play on Every Device
 
-When two or more of your devices are running and carry the same setting, a **▶▶** button appears next to **▶**. It plays the preview on all of those devices together. Hover over it to see which devices it plays on.
+When two or more of your devices are running and carry the same setting, a **▶▶** button appears next to **▶**. It plays the preview on all of those devices together. Hover your mouse over it to see which devices it plays on.
 
 To adjust the effect for a given device, use the Active Device selector to switch to the desired device and adjust or preview again from there.
 
@@ -145,7 +148,7 @@ Effects that only make sense against live flight have no preview, and you tune t
 ## FAQ
 
 **Q: Why is the ▶ button grayed out?**  
-**A:** Hover over it for the reason: either no FFB device is connected, or telemetry is streaming.
+**A:** Hover your mouse over it for the reason: either no FFB device is connected, or telemetry is streaming.
 
 **Q: Why does this slider have no ▶ button?**  
 **A:** The effect cannot be previewed on a bench, or is not available in the selected sim. See [What cannot be previewed](#what-cannot-be-previewed).

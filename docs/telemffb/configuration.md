@@ -2,17 +2,15 @@
 
 In the System Menu, choose System Settings. The dialog opens from the **master instance** and configures everything, including the settings of every device instance. Child instances have no settings dialog of their own.
 
-The dialog has three tabs:
+The dialog has four tabs:
 
 - **Devices** - which device each instance connects to, how the instances launch, and each device's own settings.
+- **Button Devices** - other detected game controllers which can be used for button bindings within TelemFFB.
 - **System** - global application settings and startup behavior.
-- **Simulator Setup** - per-simulator connections and the DirectInput Tap.
+- **Simulator Setup** - per-simulator setup.
 
 !!! note
     For where these settings are stored on disk, see [How Settings Work](settings-model.md).
-
-!!! note "Most changes apply without a restart"
-    Saving the dialog applies most changes immediately; device selections switch live. TelemFFB prompts for a restart only when a saved change actually needs one: changing which device is the master instance, the instance auto-launch options, or the theme.
 
 ## Import, Export, and Reset
 
@@ -36,9 +34,9 @@ The dialog's **File** menu backs up and restores the whole configuration:
 
 ### Devices
 
-The **Devices** area holds one **card per device role**: joystick, pedals, collective, trim wheel. Each card carries the device selector, the device's USB ids, and its launch controls: the master-instance marker, the card's auto-launch switch, and a **Window Mode** selection (Normal, Minimized, or Headless). A global **Enable Auto-Launch** switch sits above the cards. The joystick card can hold up to three devices for per-aircraft switching.
+The **Devices** area holds one **card per device role**: joystick, pedals, collective, trim wheel. Each card carries the device selector, the device's USB IDs, a display name field, and its launch controls: the master-instance marker, the card's auto-launch switch, and a **Window Mode** selection (Normal, Minimized, or Headless). A global **Enable Auto-Launch** switch sits above the cards. The joystick card can hold up to three devices for per-aircraft switching.
 
-[Devices & Instances](devices-instances.md) covers the cards, auto-assignment, multiple joysticks, and the launch options in detail.
+[Devices & Instances](devices-instances.md) covers the cards, auto-assignment, multiple joysticks, and the launch options in detail. When a DirectInput device holds a role, its row also carries the axis and force-direction controls described in [DirectInput Devices](devices-instances.md#directinput-devices).
 
 ### Device Settings
 
@@ -63,6 +61,27 @@ Below the cards, the **Device Settings** area has one tab per configured device.
     - **Restore Startup Gains on Exit** - re-push the gain values read from the device at startup when TelemFFB exits, leaving the device as it was found. Disabled by default.
 
     See [VPforce Configurator Integration](vpconf-profiles.md) for how these interact with per-aircraft profiles and gain overrides.
+
+## Button Devices Tab
+
+Any bindable button setting in TelemFFB can be bound to a button on any available game controller:
+
+![System Settings, Button Devices: six controllers listed, two of them enabled and reading, with button 37 held on the VPC Throttle](images/configuration/button-devices-tab.png){ width="650px" }
+
+- **Enabled** - Enable or disable button detection for this device.
+- **Status**
+    
+    - **reading** - TelemFFB is monitoring the device for button events
+    - **off** - Detection is disabled for the device 
+    - **not readable** - When the device cannot be read. Xbox-style controller connected over USB using X-Input are not supported.
+
+- **Pressed** - The button IDs being detected, live. Use it to confirm the row you expect reacts to the controller.
+
+A hat switch appears as four buttons after the controller's last real button: up, right, down, left. A diagonal presses two of them. A controller whose firmware reports the hat as real buttons as well shows both; a bind takes the lowest number, which matches the Windows game controller test page.
+
+A binding records the controller's IDs, so it follows the controller to another USB port. Two controllers of the same model without serial numbers are told apart by port order, so their bindings swap if you swap their ports.
+
+Child instances show the list read-only; the master instance reads the controllers and relays the buttons.
 
 ## System Tab
 

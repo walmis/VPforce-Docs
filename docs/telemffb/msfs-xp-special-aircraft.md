@@ -24,9 +24,10 @@ Several addon aircraft receive treatment beyond the standard aircraft classes. T
 | [Taog's Hangar UH-1H / Bell 205-A1B](#taogs-hangar-uh-1h-bell-205-a1b) | MSFS | `Helicopter` (standard) | A clone |
 | [Simfocus Bell 407](#simfocus-bell-407) | MSFS | `SASHelicopter` | The class |
 | [A2A Comanche (PA-24)](#a2a-comanche-pa-24) | MSFS | `PropellerAircraft` (standard) | A clone |
+| [PMDG 737](#pmdg-737) (600, 700, 800, 900) | MSFS | `JetAircraft` (standard) | A clone |
 | [X-Trident AW109SP](#x-trident-aw109sp) | X-Plane | `XAW109Helicopter` | The class |
 
-For HPG and FlyInside, some of the variables differ between the aircraft of the class, so they stay in each built-in profile. The UH-1H and the Comanche use a standard class, so everything special about them is in the profile.
+For HPG and FlyInside, some of the variables differ between the aircraft of the class, so they stay in each built-in profile. The UH-1H, the Comanche and the 737 use a standard class, so everything special about them is in the profile.
 
 ## HPG Airbus H145 / H160
 
@@ -44,7 +45,7 @@ See [FlyInside Helicopters](msfs-xp-helicopters.md#flyinside-helicopters-msfs-on
 
 The entire CowanSim fleet has default profiles with the `CowanSimHelicopter` class: **206B3, 206L3, 222B, 222UT, 500E, H125, H130, R22, R66, and S-76C++**. (The H125 match pattern deliberately excludes the stock Asobo H125 variants.)
 
-What's different: with Axis Control enabled, the cyclic positions are sent through **CowanSim's own axis variables** (`L:COWANSIM_CYCLIC_X_POSITION` / `L:COWANSIM_CYCLIC_Y_POSITION`) rather than the standard cyclic events, pre-configured via the Custom Axis Variables feature in the class defaults. The R66 profile additionally re-sources the hydraulic-switch telemetry from CowanSim's custom variable. That override belongs to the R66 profile, not to the class, so a new R66 profile must be cloned from the built-in one.
+What's different: with Axis Control enabled, the cyclic positions are sent through **CowanSim's own axis variables** (`L:COWANSIM_CYCLIC_X_POSITION` / `L:COWANSIM_CYCLIC_Y_POSITION`) rather than the standard cyclic events, pre-configured via the Custom Axis Variables feature in the class defaults. The R66 profile also sets the [Custom Hydraulic Variable](effects-mechanical.md#custom-hydraulic-variable-msfs) to CowanSim's hydraulic switch, `L:CSR66_Hyd_Switch`. That setting belongs to the R66 profile, not to the class, so clone the built-in profile for a new R66, or set the variable yourself.
 
 ## Taog's Hangar H500C / OH6A
 
@@ -62,6 +63,13 @@ The `SASHelicopter` class provides an SAS/AFCS integration in the HPG style: the
 
 A standard `PropellerAircraft`; the special treatment is entirely in the default profile. Its telemetry overrides re-source prop RPM, prop thrust and body accelerations from A2A's Accu-Sim variables, because the standard simvars read stale on this aircraft. The profile also reads the autopilot state from A2A's own variable through the [Custom Autopilot Variable](msfs-xp-trim-following.md#custom-autopilot-variable-msfs) setting. This is the [worked example](telem-overrides.md#a-worked-example) on the Telemetry Overrides page.
 
+## PMDG 737
+
+The PMDG 737-600, -700, -800 and -900 ship as `JetAircraft` profiles whose settings read the addon's own systems:
+
+- The autopilot state comes from the CMD A annunciator (`L:switch_4021_73X`) through the [Custom Autopilot Variable](msfs-xp-trim-following.md#custom-autopilot-variable-msfs) setting, because PMDG's autopilot does not set the standard autopilot variable.
+- Autopilot following reads the captain's control column and wheel (`L:yokes_Fore_Aft_capt` and `L:yokes_L_R_capt`) through the [Custom Follow Variables](msfs-xp-trim-following.md#custom-follow-variables-msfs), a transform of `x - 1` converts the 0.0, 2.0 range to the -1.0, +1.0 range expected by TelemFFB.
+
 ## X-Trident AW109SP
 
 An X-Plane implementation via the `XAW109Helicopter` class, developed with input from the aircraft's developer: 4-axis AFCS integration (cyclic trim-rate control, force trim release, autopilot following), pedals that actively track the anti-torque requirement as power and airspeed change (a TelemFFB-side model of the parallel trim actuator, compensating for the limited yaw-servo telemetry the aircraft exports), and collective spring gain with force trim release, driven by a large set of AW109 datarefs subscribed through telemetry overrides. The class defaults set Hardware Force Trim spring mode on all axes.
@@ -69,4 +77,4 @@ An X-Plane implementation via the `XAW109Helicopter` class, developed with input
 Full setup requirements, including the aircraft's own Configurations page settings (which must match the integration), are covered in [X-Trident AW109](msfs-xp-helicopters.md#x-trident-aw109-x-plane-only).
 
 !!! warning "Known issue"
-    The aircraft does not honor the axis-override dataref nor properly accept external axis control: **map your controls in-game and leave Axis Control disabled in TelemFFB** (the default profile ships with it disabled).
+    The aircraft does not honor the axis-override dataref nor properly accept external axis control: **map your controls in-game and leave Disable for this device checked in TelemFFB** on the joystick, the pedals and the collective (the class defaults check it).

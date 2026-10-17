@@ -54,7 +54,7 @@ In X-Plane, the panel is a plugin of its own, separate from the TelemFFB telemet
 4. Click **Install** on that line, then confirm the prompt.
 5. Start X-Plane.
 
-When TelemFFB has a newer panel than the one installed, the **Panel** line reads **update available** and shows an **Update** button. TelemFFB also offers the update when it starts.
+When TelemFFB has a newer panel than the one installed, the **Panel** line reads **update available** and shows an **Update** button. TelemFFB also offers the update when it starts, in a prompt that lists the installed version of each X-Plane install and the version TelemFFB brings. A panel from before version 0.1.2 carries no version number, so the prompt lists it as unknown.
 
 ### Install the Panel Manually in X-Plane
 
@@ -80,7 +80,7 @@ The panel loads the current aircraft's TelemFFB settings once TelemFFB detects t
 
 - **Device buttons** - with more than one device, select **Joystick**, **Pedals**, **Collective** or **Trim Wheel** to show that device's settings and effects.
 - **×** - marks a setting you changed. Click it to return the setting to its default.
-- **Button settings** - click **Click to bind**, then press the button on your device within 5 seconds.
+- **Button settings** - click **Click to bind**, then press the button within 5 seconds. The button can be on the device, or on any controller enabled on the [Button Devices tab](configuration.md#button-devices-tab); the setting then shows the controller's name with the button number.
 - **Configuration errors** - an error that TelemFFB shows in its status area also shows at the top of the panel, until you correct it.
 - **Panel size** - in MSFS, **− / +** makes the whole panel smaller or larger, from 100% to 500%. The size is remembered separately for VR and for the desktop view. In X-Plane, drag an edge of the window.
 
