@@ -17,7 +17,7 @@ TelemFFB's effects consume a fixed set of telemetry items (the names you see in 
 ## How It Works
 
 - **MSFS** - the override replaces (or adds) the variable in TelemFFB's SimConnect subscription set. The Variable field takes a SimVar name (`VARNAME`), an LVar (`L:VARNAME`) or an [input event](#input-events-b-variables) (`B:EVENT_NAME`); the Unit is the SimConnect unit to request (`bool`, `enum`, `number`, `Percent Over 100`, `degrees`, `meters/second`).
-- **X-Plane** - TelemFFB instructs its X-Plane plugin to subscribe to the given dataref (Unit: `int` or `float`) and export it under the telemetry item's name.
+- **X-Plane** - TelemFFB instructs its X-Plane plugin to subscribe to the given dataref (Unit: `int` or `float`) and export it under the telemetry item's name. An override for an existing datum the plugin already provides, such as `APServos` or `ElevTrimPct`, replaces that item. All downstream consumers of that telemetry item will receive resubscribed data.
 
 Either way, the result flows into the same telemetry item the effects already consume; verify it live in the **Monitor tab**. When an aircraft with active overrides loads, the status area shows a **Telem Ovd** pill with a count for each tier, for example `Class (6) + Default (6) + User (1)`. Hover your mouse over it to list every active override and the tier it comes from.
 
@@ -54,7 +54,7 @@ The **Source** column of the editor names the tier of each row.
     - A name not in the list creates a **new** telemetry item under that name.
 - **Variable** - the SimVar/LVar (MSFS) or dataref path (X-Plane) to read.
 - **Unit** - the unit/type to request, per sim as above.
-- **Transform/Scale** - converts the raw value into the range the telemetry item expects. Leave blank for the raw value, enter a **number** for a simple multiplier, or (MSFS) a **math expression** using `x` as the input, e.g. `(x - 50) * 0.02` maps 0-100 onto −1-1. Standard operators and parentheses only; for X-Plane the conversion is a numeric multiplier applied by the plugin.
+- **Transform/Scale** - converts the raw value into different range. Leave blank for the raw value, enter a **number** for a simple multiplier, or a **math expression** using `x` as the input, e.g. `(x - 50) * 0.02` maps 0-100 onto −1-1. Standard operators and parentheses only.
 
 !!! important "The transform must make the value equivalent to the original"
     TelemFFB's effects expect each telemetry item in the **units, range, and sign of its original standard source**: an override changes where the data comes from, not what the consumers expect. Whatever format the replacement variable uses natively, it is your job (via the Transform/Scale) to deliver an equivalent value. In the example below, the addon's body accelerations arrive in m/s² where the standard item is in g, hence the 0.102 (≈1/9.81) scale. An override that "works" but skips this conversion feeds every dependent effect distorted data.

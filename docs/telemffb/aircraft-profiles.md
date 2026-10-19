@@ -105,7 +105,7 @@ The more specific match string names the aircraft, and the built-in wins a tie. 
 - **Keep mine** / **Don't ask again** - leave everything as it is. Offered only while your settings still apply: when your match string is the more specific one, or identical to the built-in's.
 - **Not now** - decide later. The prompt stays until you answer.
 
-A **Keep mine** or **Don't ask again** answer lapses when a later release changes the built-in profile, and TelemFFB asks again. To be asked again now, use **Profiles → Reset Dismissed Profile Prompts**. A merge is permanent.
+A **Keep mine** or **Don't ask again** answer lapses when a later release changes the built-in profile, and TelemFFB asks again. To be asked again now, use **Profiles → Reset Dismissed Prompts**. A merge is permanent.
 
 ## Forking a Profile
 

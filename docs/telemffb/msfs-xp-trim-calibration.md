@@ -27,6 +27,10 @@ There are three ways to open the tool:
 
 ![The amber No Trim Calibration Found prompt above the tabs](images/msfs-xp-trim-following/trim-cal-prompt.png){ width="600px" }
 
+Some aircraft have nothing to calibrate: one without a trim system, or a fly-by-wire aircraft whose stick does not follow the trim. Click the **×** on the prompt to dismiss it for that aircraft. Leaving the prompt in place does no harm. If you dismissed the propmt, you can still access the trim calibration dialog through the Utilities menu (with aircraft loaded) or through the 'Use Calibrated Trim Curve' settings tree.
+
+![The No Trim Calibration Found prompt with its × button and the Dismiss for this aircraft tooltip](images/msfs-xp-trim-following/dismiss-calibration.png){ width="600px" }
+
 Many built-in profiles already include a calibration. These include several MSFS default aircraft and the X-Plane 12 Cessna 172, Cirrus SR22 and Van's RV-10. For these aircraft the prompt does not appear, and the tool opens on the stored calibrations.
 
 ## The Calibration Window
@@ -171,4 +175,4 @@ A calibration writes the trim the same way the aircraft's trim wheel does. It us
 When TelemFFB's debug mode is active, the window also shows these trim settings and a **Record diagnostic trace** checkbox. The trace saves a per-frame record of the run to the TelemFFB log folder. Attach it when you report an aircraft that will not calibrate.
 
 !!! note "X-Plane"
-    Automatic calibration works in X-Plane as well as MSFS. The tool sets the elevator trim through the TelemFFB X-Plane plugin. Use a current version of the plugin; it supplies the pitch, vertical speed and trim values the calibration needs.
+    Automatic calibration works in X-Plane as well as MSFS. The tool moves the elevator trim with individual trim up and trim down commands through the TelemFFB X-Plane plugin. Un-check **Trim commands** in the calibration window to write the trim value directly instead.

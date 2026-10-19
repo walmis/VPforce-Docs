@@ -236,7 +236,7 @@ This behavior is a DCS-side limitation in how the simulator's autopilot interact
 !!! warning "Adaptive Recentering Exception"
     If using **HPG Force Mode** (experimental), ensure Adaptive Recentering is **disabled** in the VPforce Configurator, as it can interfere with the force-based hands-on detection hysteresis.
 
-- For supported aircraft, TelemFFB's **Dynamic Deadzone** automatically activates a deadzone when the autopilot engages, preventing the stick from feeding small position errors back into the AP control loop. The deadzone is removed when the AP disengages, restoring full precision
+- For supported aircraft, TelemFFB's [**Autopilot Deadzone**](effects-basic.md#autopilot-deadzone) activates a deadzone when the autopilot engages, preventing the stick from feeding small position errors back into the AP control loop, and removes it when the AP disengages. A VPforce device gets it through the firmware deadzone, a DirectLink device through the DCS export
 - Not all aircraft are affected equally; the behavior depends on how each module implements autopilot control surfaces
 
 For detailed troubleshooting steps including input deadzone configuration and manual stick synchronization, see [Autopilot Misbehaving or Disengaging Unexpectedly](../rhino/game-specific-troubleshooting.md#autopilot-misbehaving-or-disengaging-unexpectedly).

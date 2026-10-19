@@ -42,9 +42,9 @@ The device icons are in the **Active Devices** side panel along the left edge of
 
     - Effects can be played on the device from here. See [Effect Preview](effect-preview.md).
 
-- **Reset Dismissed Profile Prompts**
+- **Reset Dismissed Prompts**
 
-    - Brings back every **Multiple matching profiles** prompt that you answered with "Keep mine" or "Don't ask again". Your configuration does not change. The item is greyed out when there is nothing to reset. See [Overlapping Profiles](aircraft-profiles.md#overlapping-profiles).
+    - Brings back every **Multiple matching profiles** prompt that you answered with "Keep mine" or "Don't ask again", and every **No Trim Calibration Found** prompt you dismissed. Your configuration does not change. The item is greyed out when there is nothing to reset. See [Overlapping Profiles](aircraft-profiles.md#overlapping-profiles).
 
 
 ### Utilities Menu
@@ -285,7 +285,7 @@ A prompt appears below the **Application Status** box when TelemFFB needs you to
 
 - **No Profile Found for *aircraft*** (red) - the loaded aircraft matches no profile. The controls on the Settings tab are disabled until you create one, because there is no profile to store a change in. Click the prompt to open the [New Aircraft Wizard](aircraft-profiles.md#adding-new-aircraft-support).
 - **Multiple matching profiles detected** (teal) - one of your own profiles and a built-in profile both match the aircraft. Click the prompt to [choose what to do](aircraft-profiles.md#overlapping-profiles).
-- **No Trim Calibration Found for this Aircraft** (amber) - the loaded MSFS or X-Plane fixed-wing aircraft has no stored trim calibration. Click the prompt to open the [Elevator Trim Calibration](msfs-xp-trim-calibration.md) tool. This prompt shows on the master instance, when it drives a joystick.
+- **No Trim Calibration Found for this Aircraft** (yellow) - the loaded MSFS or X-Plane fixed-wing aircraft has no stored trim calibration. Click the prompt to open the [Elevator Trim Calibration](msfs-xp-trim-calibration.md) tool, or click its **×** to dismiss it for this aircraft. This prompt shows on the master instance, when it drives a joystick.
 
 Prompts show only on the master instance.
 

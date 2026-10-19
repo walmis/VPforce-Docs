@@ -1,4 +1,12 @@
 # Changelog
+- **October 19, 2026:**
+
+    - [Trim & Autopilot Following](telemffb/msfs-xp-trim-following.md#autopilot-following): the [Custom Autopilot Variable](telemffb/msfs-xp-trim-following.md#custom-autopilot-variable-msfs), [Custom Follow Variables](telemffb/msfs-xp-trim-following.md#custom-follow-variables-msfs) and [Disconnect Autopilot on Override](telemffb/msfs-xp-trim-following.md#disconnect-autopilot-on-override-msfs) sections now cover X-Plane, with the dataref defaults and the Disconnect Command
+    - [Telemetry Overrides](telemffb/telem-overrides.md#how-it-works): an X-Plane override named for an item the plugin already sends replaces it
+    - [Automatic Trim Calibration](telemffb/msfs-xp-trim-calibration.md#opening-the-tool): dismissing the prompt for an aircraft that has nothing to calibrate, with a screenshot, and the X-Plane note describes the trim commands and the Trim commands checkbox. The Profiles menu item is now **Reset Dismissed Prompts** in [UI Overview](telemffb/ui-overview.md#profiles-menu) and [Aircraft Profiles](telemffb/aircraft-profiles.md#overlapping-profiles)
+    - [Autopilot Deadzone](telemffb/effects-basic.md#autopilot-deadzone) and the DCS [Autopilot Oscillation](telemffb/sim-dcs.md#autopilot-oscillation-with-ffb) section: the deadzone on a DirectLink device is applied by the DCS export
+    - Updated the effects reference tables and the release notes from the current TelemFFB defaults and notes
+
 - **October 17, 2026:**
 
     - Added **[Effect Levels & Mute](telemffb/effect-levels.md)**: the per-device [levels](telemffb/effect-levels.md#the-levels), the [Effect Levels box](telemffb/effect-levels.md#the-effect-levels-box) above the settings list and its [dialog](telemffb/effect-levels.md#the-effect-levels-dialog), the [mute](telemffb/effect-levels.md#mute) modes and scopes, [binding a button to the mute](telemffb/effect-levels.md#binding-a-button-to-the-mute), and the badges on the device icons, with new screenshots. The [UI Overview](telemffb/ui-overview.md#view-menu) gains the View menu and the Mute All Devices item, and the Monitor tab, [Effect Preview](telemffb/effect-preview.md) and [Troubleshooting](telemffb/troubleshooting.md#device-problems) pages say how the levels show
@@ -9,6 +17,7 @@
     - The X-Plane panel update prompt, in [In-Sim Settings Panel](telemffb/in-sim-panel.md#install-the-panel-in-x-plane) and [Connecting Your Simulator](telemffb/sim-setup.md#x-plane), lists the installed and available versions
     - Updated the effects reference tables from the current TelemFFB defaults
     - Added the **Display name** field of the [device cards](telemffb/devices-instances.md#the-devices-tab) and its use for the [icon labels](telemffb/ui-overview.md#active-devices-area)
+    - Added **[Driving the Curves From a Telemetry Item](telemffb/spring-curves.md#driving-the-curves-from-a-telemetry-item)** to Advanced Spring & G-Force Curves: the Curve Input selector lets the Advanced Dynamic curves follow a telemetry item or sim variable in place of airspeed
 
 - **October 10, 2026:**
 

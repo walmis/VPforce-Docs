@@ -17,7 +17,7 @@ The master selector for how the centering spring behaves. The available modes de
 - For **MSFS/X-Plane**, the spring modes are the core of the FFB implementation; see [Axis Control & Spring Modes](msfs-xp-axis-spring.md).
 - For **DCS**, the default is the game-managed spring; the override modes are described in the [DCS guide](sim-dcs.md#joystick-spring-mode), including the [pedal modes](sim-dcs.md#pedal-spring-mode).
 - For a **collective**, the modes are *No Spring* and *Hardware Force Trim*; see [Collective Spring Mode](msfs-xp-helicopters.md#collective-spring-mode).
-- **Advanced Dynamic** is configured through its own curve editor; see [Advanced Spring & G-Force Curves](spring-curves.md).
+- **Advanced Dynamic** is configured through its own curve editor; see [Advanced Spring & G-Force Curves](spring-curves.md). The curves can also [follow a telemetry item](spring-curves.md#driving-the-curves-from-a-telemetry-item) in place of airspeed.
 - **Force Trim** (helicopters and gliders) holds the stick where you release the trim button; see [Helicopter Force Trim](msfs-xp-helicopters.md#helicopter-force-trim). Many gliders have a lever-actuated trim system that works the same way, which is why the aileron/elevator force-trim options exist for gliders too.
 
 <!-- telemffb-effect name=spring_mode part=table -->
@@ -101,6 +101,11 @@ DCS multi-crew: temporarily overrides the joystick spring gain when you occupy a
 
 <!-- telemffb-effect name=ap_active_deadzone_enabled part=badges -->
 
-DCS: applies a device deadzone while the autopilot is engaged, preventing small FFB stick movements from feeding back into the AP control loop and causing false disconnects or oscillation. Supported on a limited set of modules; see [Autopilot Oscillation with FFB](sim-dcs.md#autopilot-oscillation-with-ffb).
+DCS: Prevents small FFB stick movements from feeding back into the AP control loop and causing false disconnects or oscillation.
+
+- **VPforce**: Applies a firmware deadzone while the autopilot is engaged
+- **DirectLink device**:  While the autopilot is engaged, the device axis is sent through the DCS plugin and the input is masked within the deadzone area 
+
+Supported on a limited set of modules; see [Autopilot Oscillation with FFB](sim-dcs.md#autopilot-oscillation-with-ffb).
 
 <!-- telemffb-effect name=ap_active_deadzone_enabled part=table -->
