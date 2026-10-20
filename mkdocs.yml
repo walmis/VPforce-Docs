@@ -18,6 +18,7 @@ not_in_nav: |
   telemffb/multi-device.md
   telemffb/effects-reference.md
   telemffb/whats-new.md
+  telemffb/msfs-toolbar-panel.md
 
 # Navigation structure (ordered by relevance)
 nav:
@@ -44,9 +45,12 @@ nav:
     - Core Concepts:
       - How Settings Work: telemffb/settings-model.md
       - UI Overview: telemffb/ui-overview.md
+      - Effect Levels & Mute: telemffb/effect-levels.md
       - System Settings: telemffb/configuration.md
       - Aircraft Profiles: telemffb/aircraft-profiles.md
+      - Effect Preview: telemffb/effect-preview.md
       - VPforce Configurator Integration: telemffb/vpconf-profiles.md
+    - DirectInput Tap (DCS, IL-2, BMS): telemffb/dinput-tap.md
     - Simulator Guides:
       - MSFS & X-Plane:
         - Overview: telemffb/sim-msfs-xplane.md
@@ -57,6 +61,7 @@ nav:
         - Helicopters: telemffb/msfs-xp-helicopters.md
         - Special Aircraft: telemffb/msfs-xp-special-aircraft.md
         - Telemetry Overrides: telemffb/telem-overrides.md
+        - In-Sim Settings Panel: telemffb/in-sim-panel.md
       - DCS: telemffb/sim-dcs.md
       - IL-2: telemffb/sim-il2.md
       - Falcon BMS: telemffb/sim-bms.md
@@ -138,6 +143,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.footer
     - toc.integrate
   palette:
     scheme: default
@@ -200,6 +206,7 @@ markdown_extensions:
 
 # Plugins
 plugins:
+  - glightbox
   - autorefs:
       link_titles: true
   - search
@@ -216,6 +223,7 @@ plugins:
         - telemffb/sim-setup.md
         - telemffb/settings-model.md
         - telemffb/ui-overview.md
+        - telemffb/effect-levels.md
         - telemffb/configuration.md
         - telemffb/aircraft-profiles.md
         - telemffb/sim-msfs-xplane.md
@@ -225,6 +233,7 @@ plugins:
         - telemffb/msfs-xp-trim-manual.md
         - telemffb/msfs-xp-helicopters.md
         - telemffb/telem-overrides.md
+        - telemffb/in-sim-panel.md
         - telemffb/sim-dcs.md
         - telemffb/sim-il2.md
         - telemffb/sim-bms.md

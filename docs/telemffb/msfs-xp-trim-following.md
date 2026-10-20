@@ -1,21 +1,21 @@
 # Trim & Autopilot Following
 
-TelemFFB can move your stick and pedals in response to the simulator's trim and autopilot, so that trimming the aircraft relieves control pressure and relocates the stick's resting position - just like in a real aircraft.
+TelemFFB can move your stick and pedals in response to the simulator's trim and autopilot, so that trimming the aircraft relieves control pressure and relocates the stick's resting position, just like in a real aircraft.
 
-Because neither MSFS nor X-Plane has any concept of force feedback, they treat *any* axis movement as a deliberate control-surface command. If TelemFFB simply let the stick move with the trim and reported that movement to the sim, the sim would read it as **additional elevator input** stacked on top of its own trim, and the aircraft would pitch far more than it should. To prevent this, TelemFFB controls the axis position the sim receives, delivering only a fraction of the physical stick's movement. Getting that fraction right is what the settings below (and the [automatic calibration](msfs-xp-trim-calibration.md)) are for.
+Because neither MSFS nor X-Plane have any concept of force feedback, they treat *any* axis movement as a deliberate control-surface command. If TelemFFB simply let the stick move with the trim and reported that movement to the sim, the sim would read it as **additional elevator input** stacked on top of its own trim, and the aircraft would pitch far more than it should. To prevent this, TelemFFB controls the axis position the sim receives, delivering only a fraction of the physical stick's movement. Getting that fraction right is what the settings below (and the [automatic calibration](msfs-xp-trim-calibration.md)) are for.
 
 !!! important "Prerequisite: Axis Control"
-    Trim and autopilot following require **Axis Control** - TelemFFB must be the source of the axis positions the sim receives. Set that up first, including **unbinding your axes in MSFS**. See [Axis Control & Spring Modes](msfs-xp-axis-spring.md).
+    Trim and autopilot following need TelemFFB to be the source of the axis positions the sim receives, which it is unless **Disable for this device** is checked. In MSFS that also means **unbinding your axes in MSFS**. See [Axis Control & Spring Modes](msfs-xp-axis-spring.md).
 
 !!! note
-    Trim and autopilot following in MSFS should be considered an ***advanced feature***. It works well across a wide range of aircraft but often benefits from per-aircraft tuning of the elevator gains - see [Automatic Trim Calibration](msfs-xp-trim-calibration.md).
+    Trim and autopilot following in MSFS should be considered an ***advanced feature***. It works well across a wide range of aircraft but often benefits from per-aircraft tuning of the elevator gains; see [Automatic Trim Calibration](msfs-xp-trim-calibration.md).
 
 !!! note "Helicopters"
-    This page describes the fixed-wing implementation. Helicopter cyclics have a simpler trim-following model that reads the rotor trim instead - see [Cyclic Trim Following](msfs-xp-helicopters.md#cyclic-trim-following).
+    This page describes the fixed-wing implementation. Helicopter cyclics have a simpler trim-following model that reads the rotor trim instead; see [Cyclic Trim Following](msfs-xp-helicopters.md#cyclic-trim-following).
 
 ## Enabling the Feature
 
-Enable **Axis Control** (`telemffb_controls_axes`), then in the sub-settings enable **Trim Following** and/or **Autopilot Following** as desired.
+Under **Axis Control**, enable **Trim Following** and/or **Autopilot Following** as desired.
 
 ![Trim Following settings, showing the X/Y physical and virtual gain sliders, the Use Calibrated Trim Curve toggle, and the Calibrate button](images/msfs-xp-trim-following/settings.png){ width="700px" }
 
@@ -23,14 +23,14 @@ Enable **Axis Control** (`telemffb_controls_axes`), then in the sub-settings ena
 
 Trim following is tuned with two gains per axis (X = aileron, Y = elevator):
 
-- **X / Y Trim Gain Physical** - how far the physical stick moves in response to trim. At 100%, full trim travel moves the stick through its full travel. This is a *feel* setting - it controls how much the stick relocates as you trim.
+- **X / Y Trim Gain Physical** - how far the physical stick moves in response to trim. At 100%, full trim travel moves the stick through its full travel. This is a *feel* setting; it controls how much the stick relocates as you trim.
 
-- **X / Y Trim Gain Virtual** - how much of that physical movement is passed on to the simulator. At 20%, only 20% of the stick's trim-induced movement is reported to the sim as control input. **This is the setting that determines whether the aircraft pitches when you trim** - if it is too high the nose follows the trim too strongly, too low (or too negative) and it fights the trim.
+- **X / Y Trim Gain Virtual** - how much of that physical movement is passed on to the simulator. At 20%, only 20% of the stick's trim-induced movement is reported to the sim as control input. **This is the setting that determines whether the aircraft pitches when you trim**: if it is too high the nose follows the trim too strongly, too low (or too negative) and it fights the trim.
 
 !!! tip "Let TelemFFB measure it"
     Do not tune the elevator values manually — run the **[Automatic Trim Calibration](msfs-xp-trim-calibration.md)**. TelemFFB flies the aircraft briefly, measures its actual trim response, and computes the correct elevator gain — or a full calibrated curve where the response is not linear. The aileron and rudder gains can usually stay at their defaults.
 
-## Calibrated Trim Curve *(elevator only)*
+## Calibrated Trim Curve *(Elevator Only)*
 
 Some aircraft do not respond to trim in a simple, straight-line fashion, and a single *Y Trim Gain Virtual* value cannot hold the nose steady across the whole trim range. For these, TelemFFB can measure the aircraft's actual trim response and store a **curve** instead of a single value.
 
@@ -47,11 +47,11 @@ Each time you trim, three things happen:
 
 1. **TelemFFB reads the new trim position** from the simulator.
 
-2. **The stick's spring center relocates** by the trim amount, scaled by the *physical* gain. If you were holding pressure against the spring, that pressure relieves as the center moves toward your hand - exactly what trimming does in a real aircraft.
+2. **The stick's spring center relocates** by the trim amount, scaled by the *physical* gain. If you were holding pressure against the spring, that pressure relieves as the center moves toward your hand, exactly what trimming does in a real aircraft.
 
-3. **An axis value is sent to the simulator.** Your own stick input passes through normally, but the trim-induced part of the stick's movement is first scaled by the *virtual* gain - or replaced by the calibrated curve. This is the critical step: the simulator still applies its own trim internally, so if the stick's full trim movement were reported as control input, it would stack on top of the sim's trim and the aircraft would pitch away from where you trimmed it. The virtual gain delivers only the fraction that keeps the two in balance.
+3. **An axis value is sent to the simulator.** Your own stick input passes through normally, but the trim-induced part of the stick's movement is first scaled by the *virtual* gain, or replaced by the calibrated curve. This is the critical step: the simulator still applies its own trim internally, so if the stick's full trim movement were reported as control input, it would stack on top of the sim's trim and the aircraft would pitch away from where you trimmed it. The virtual gain delivers only the fraction that keeps the two in balance.
 
-When the balance is right, trimming while holding the stick still does not change the aircraft's pitch: the force in your hand relieves and the nose stays put. Where that balance point sits differs per aircraft - which is exactly what the [Automatic Trim Calibration](msfs-xp-trim-calibration.md) measures.
+When the balance is right, trimming while holding the stick still does not change the aircraft's pitch: the force in your hand relieves and the nose stays put. Where that balance point sits differs per aircraft, which is exactly what the [Automatic Trim Calibration](msfs-xp-trim-calibration.md) measures.
 
 !!! note
     Some aircraft report trim in a way that does not map cleanly to a position. If elevator trim following behaves erratically, try the *use axis position instead of trim position* toggle.
@@ -60,9 +60,17 @@ When the balance is right, trimming while holding the stick still does not chang
 
 With autopilot following enabled, the physical controls move with what the autopilot is flying:
 
-- The **elevator** follows through the trim value, because autopilots fly pitch with elevator trim.
-- The **aileron and rudder** follow the control-surface deflection the autopilot commands.
+- **MSFS:**
+
+    - The **elevator** follows through the trim value, because autopilots fly pitch with elevator trim.
+    - The **aileron and rudder** follow the control-surface deflection the autopilot commands.
+  
+- **X-Plane:**
+
+    - The controls follow the simulator's autopilot servo datarefs.
+  
 - The movements are dampened to prevent oscillation in turbulence or on aircraft with very sensitive controls.
+- While you hold a control past the deadzone, its spring center stays where it was. It follows the autopilot again when you let go.
 
 Two settings govern how your hands and the autopilot share the controls:
 
@@ -73,6 +81,29 @@ Two settings govern how your hands and the autopilot share the controls:
 
 !!! note
     If an aircraft becomes unstable with autopilot following engaged and tries to roll inverted, enable the *Invert Aileron Autopilot Axis* option.
+
+### Custom Autopilot Variable { #custom-autopilot-variable-msfs }
+
+Autopilot following uses **AUTOPILOT MASTER** on MSFS and `sim/cockpit2/autopilot/servos_on` on X-Plane to determine the autopilot state. Some advanced or non-standard aircraft implementations may not properly set these standard values and as a result, TelemFFB cannot determine the correct AP state. For those, enable **Custom Autopilot Variable** and enter a variable that shows whether the autopilot is engaged: on MSFS a SimVar, an L:Var or an input event (`B:`), on X-Plane a dataref path. A value of 0 means off; any other value means on.
+
+- Set it on each device that follows the autopilot.
+- If the variable needs converting first, turn this setting off and use the [SimConnect/Dataref Overrides Editor](telem-overrides.md) instead: override **APMaster** (MSFS) or **APServos** (X-Plane) with the variable and a scale.
+
+### Custom Follow Variables { #custom-follow-variables-msfs }
+
+Autopilot following reads the control-surface deflection the autopilot commands, and the trim for pitch. Some addons move their surfaces in steps, or fly through their own systems and publish the yoke and pedal positions in variables of their own. For those, enable **Custom Roll Follow Variable**, **Custom Pitch Follow Variable** or **Custom Yaw Follow Variable** and enter the variable the control should follow: on MSFS a SimVar, an L:Var or an input event (`B:`), on X-Plane a dataref path, reading from -1 (full left, or full forward) to 1.
+
+A variable on another scale needs the **Transform** field under it, where `x` stands for the value. Leave it blank for a variable that already reads -1 to 1; enter `x - 1` for a variable that reads 0 to 2, `x/50 - 1` for a percentage, or `-x` to reverse the sign. The syntax is the same as the Scale field of the overrides editor. The Monitor tab shows the raw value as **APFollowX**, **APFollowY** and **APFollowRudder**.
+
+The pitch variable is read with a calibrated trim curve in use as well. The PMDG 737 profiles are an example of these settings in use; see [Aircraft with Special Treatment](msfs-xp-special-aircraft.md#pmdg-737).
+
+### Disconnect Autopilot on Override { #disconnect-autopilot-on-override-msfs }
+
+Some autopilots do not let go when you overpower the controls. With **Disconnect Autopilot on Override** enabled, TelemFFB sends a disconnect once you hold the stick past the **Disconnect Deflection**: the stick's travel away from the autopilot's command, as a share of full travel. Keep it above the autopilot following deadzone, or a resting hand sends it.
+
+On MSFS, **Disconnect Event** is what TelemFFB sends: a key event, an L:Var, an input event (`B:`) or a SimVar. `AUTOPILOT_DISENGAGE_SET` is the yoke disconnect switch; `AUTOPILOT_OFF` is the master switch. **Disconnect Value** is sent with the event, and **Release Value**, when set, is sent 100 ms later, for an addon that expects the switch to be let go.
+
+On X-Plane, **Disconnect Command** is the command TelemFFB sends. `sim/autopilot/servos_off_any` disconnects the autopilot servos and leaves the flight director; `sim/autopilot/servos_fdir_off` turns the flight director off as well.
 
 !!! note "Legacy manual tuning"
     Before automatic calibration existed, users tuned the gains manually. The procedure and suggested starting values appear in [Manual Trim Tuning (Legacy)](msfs-xp-trim-manual.md).

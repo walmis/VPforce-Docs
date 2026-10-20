@@ -13,7 +13,114 @@ New, improved, and changed functionality for each TelemFFB release, newest first
     Version names match the release tag on the `wip` branch. The most recent release is expanded below; click any older version to expand it.
 
 <details class="release release--latest" id="latest" markdown="1" open>
-<summary>2.1.260815 &mdash; August 15, 2026 <span class="latest-badge">latest</span></summary>
+<summary>3.0.261019 &mdash; October 19, 2026 <span class="latest-badge">latest</span></summary>
+
+**Platform**
+
+- **NEW: 3rd party device support via DirectLink**
+    - An optional integration that lets TelemFFB drive any device exposing force feedback through DirectInput
+    - Enabled in System Settings > Integrations; DirectLink is a separate free download
+- **NEW: Effect previews - feel and tune an effects in isolation**
+    - Accessible via Offline Editor - use the new Offline/Preview mode button to quickly enter offline mode for an actively loaded aircraft.
+- **NEW: Effect Levels and Mute**
+    - Per device effect level control. Master and per effect type controls are available.
+    - Instantly mute effects per device or globally with the click of a button.
+- **NEW: Bind buttons from any game controller**
+    - Anywhere you can/must bind a button within TelemFFB to perform some function, you can now bind any game controller attached to your PC
+    - Individual game controllers can be enabled in System Settings > Button Devices
+- **NEW: Improved aircraft profile matching**
+    - Previously the first profile that matched in file order won
+    - Now the most specific match wins. When two match equally the built-in profile wins, so a new default profile that ships for an aircraft you already have gets noticed instead of being quietly shadowed
+- **NEW: Overlapping profile resolution**
+    - The main window shows "Multiple matching profiles detected" and offers to resolve the conflict.  This happens when a curated profile ships for an aircraft you had already made a profile for
+- **NEW: Profile Fork - create a new, more specific profile**
+    - A new button sits next to the Matched Model row.  It forks the matched profile for the currently matched aircraft into a more specific match string
+    - Previously, the New Aircraft Wizard only appeared for unmatched aircraft.  An aircraft that mistakenly matched a broader profile had no way to be separated from it without hand-editing the config
+- **NEW: The DirectInput Tap (DCS / IL-2 / Falcon BMS)**
+    - "The tap" intercepts the games own FFB effects and lets TelemFFB render them locally
+        - **Game Managed (DirectInput Tap)** spring mode re-renders the game's spring: trim center follow and force-trim collapse reproduce exactly
+        - **Advanced Dynamic** spring mode renders through the tap as well (for a DirectLink device or a VPforce device with the tap installed)
+        - Per-sim setup in System Settings finds your sims, installs the wrapper and keeps its config in step with your devices
+        - Required for DirectLink devices, optional for VPforce devices
+- **NEW: "DCS FFB Fix" installer (DCS)**
+    - A sub-mode of the DirectInput Tap installation for DCS which installs the DirectInput Tap wrapper without the tap in the same way the "dcs-force-feedback-fix" wrapper is used today
+- **CHANGED: The configuration file is now userconfig_v3.xml**
+    - Any existing "v2" config is migrated on the first startup
+
+**UI**
+
+- **NEW: Redesigned Main UI**
+    - Detachable device panel with multiple docking locations
+    - Enhanced monitor tab
+        - See each playing effect, its current intensity and what type of effect it is including the specific waveform for periodic effects
+- **NEW: Device configuration UI re-work**
+    - Device cards with pull-down selection of detected devices
+    - Edit the display name for the device shown on the device icons
+- **NEW: All settings (master and child instances) are now configurable through the master instance system settings**
+- **NEW: Backup and restore system settings**, from a new File menu on the System Settings dialog
+- The "No Trim Calibration Found" prompt can be dismissed per aircraft from the menu on its right end; Profiles > Reset Dismissed Prompts brings it back
+
+**MSFS / X-Plane**
+
+- **CHANGED: Global Axis Control is permanently enabled**
+    - Axis control settings are moved into a collapsible 'Axis Control' settings group
+    - The global 'Axis Control' toggle is no longer available.  To disable axis control, use the per-device 'Disable for This Device' setting
+    - Trim and autopilot following remain gated behind the axis control.  Axis control must be enabled to access these features.
+- **NEW: In-sim settings panels for MSFS and X-Plane**
+    - View and change the current aircraft's TelemFFB settings from a window inside the sim
+    - Both the settings and monitor tabs are available in the in-sim panels
+    - Install via the individual sim configurations in System Settings
+- **NEW: Multiple joystick devices, with per-aircraft switching (MSFS / X-Plane)**
+    - Configure more than one joystick - a stick and a yoke, for example.  Switch between them by changing the primary device in the settings
+- **NEW: Advanced Dynamic spring curves can follow a telemetry item or sim variable instead of airspeed**
+    - For aircraft whose control feel keys off something other than airspeed, such as stabilizer trim position
+- Fix: The Exponential Curve G-force mode is selectable again, with its settings.  It was already the default for any aircraft whose G-force mode was never changed, while the settings showed it as Disabled
+- Fix: the Advanced G-Force 'offset' mode never actually ran on MSFS or X-Plane (it worked on DCS and IL-2) - the dispatch was swallowed on the way to the effect. It runs now
+- Fix: the offset-mode G effect's spring adjuster is back on its original, field-proven parameters - the spring no longer collapses when the offset kicks in
+- Fix: an override saved without a transform could not be re-added from the SimConnect/Dataref Overrides Editor until the transform field was cleared of the text 'None'
+- Fix: the log now names what stopped MSFS telemetry when the sim pauses (paused, parked, slewed, avatar, cinematic, in menus) and says when it resumes - before, a stuck stop was indistinguishable from a dead connection
+- Fix: a maximum elevator, aileron or rudder spring gain of 0 no longer stops the flight controls from updating
+
+**X-Plane**
+
+- **NEW: Manage multiple X-Plane installs**
+    - System Settings > X-Plane lists every X-Plane install found on the PC.  Add/remove additional install locations
+- **NEW: Elevator trim calibration through X-Plane's trim commands**
+    - The calibration moves the trim with X-Plane's pitch trim up and down commands, for aircraft whose own trim system overwrites the trim dataref, such as the Hot Start Challenger 650
+    - The default on X-Plane.  Uncheck Trim commands in the calibration dialog to write the trim dataref instead
+- **NEW: The Autopilot Following settings are now feature parity with MSFS**
+- Fix: the axis override is released when the FFB device disconnects, and a per-device axis disable is honored
+- Dataref override transforms accept the same math expressions as MSFS (x - 1, x/50 - 1, ...), applied in TelemFFB
+
+**MSFS**
+
+- **NEW: PMDG 737-600/700/800/900 profiles**
+    - Autopilot state is read from the aircraft's CMD A annunciator, since the PMDG autopilot does not set the standard autopilot variable
+    - Elevator trim following uses a calibrated trim curve (Only the 600 variant ships with a pre-defined calibration)
+- **NEW: Custom autopilot follow variables** - follow the autopilot in roll, pitch or yaw through a variable of your choice, with a transform to the -1..1 range, for aircraft that publish their yoke or pedal position in their own variables
+- **NEW: Disconnect Autopilot on Override** - send a disconnect event once the stick is held past a configurable deflection, for an autopilot that does not let go on its own
+- **NEW: 25 additional aircraft defaults ship with an elevator trim calibration**, 13 of them as new built-in profiles
+- Fix: Camera add-ons such as ChasePlane user camera states TelemFFB did not understand which could leave TelemFFB paused during flight. TelemFFB now uses the sim's motion simulation state instead of the camera views to determine if the user is in the menu system.
+
+**IL-2**
+
+- **NEW: IL-2 Korea is now its own sim**
+    - Korea sends its telemetry on its own port, so TelemFFB can tell it apart from Great Battles. With config validation on, the Korea startup.cfg is updated on the next start
+    - IL-2 Sturmovik and IL-2 Korea have separate enable switches (System Settings > IL2)
+    - Korea aircraft profiles and settings now live under the new sim. Your existing Korea settings are copied to the new sim automatically the first time this version starts
+- Fix: the runway rumble effect never played - its enable toggle was not being honored.  It now runs when enabled, so expect a rumble on the ground if you have it switched on
+
+**General fixes**
+
+- Fix: the sim listeners now start once the device is ready (open, delivering input, startup gains read, startup vpconf profile pushed).  Starting TelemFFB while MSFS sat in its menus could leave the status indicator on Running with no telemetry flowing, because the sim's one menu-time frame arrived before the device was ready.  That frame now shows Paused
+- Fix: keep-forces-on-pause is honored for the flight-control spring on MSFS / X-Plane aircraft.  When center-spring-on-pause is enabled, the flight-control spring is replaced by the centering spring during pause
+- Fix: effects are now properly freed when the sim exits and when TelemFFB exits preventing scenarios that may result in hung effects on the device
+- Fix: the gear, flaps, speedbrake, canopy, tailhook, fuel boom and wing fold motion effects and the stick shakers had all been rendering as a plain sine wave - their intended square and sawtooth waveforms were silently dropped on the way to the device.  They now play as designed.  This changes the feel of those effects; retune their intensity if they come across harsher than before
+- Fix: the fuel boom and wing fold end-of-travel clunks never played
+</details>
+
+<details class="release" markdown="1">
+<summary>2.1.260815 &mdash; August 15, 2026</summary>
 
 **Platform**
 
@@ -62,7 +169,7 @@ New, improved, and changed functionality for each TelemFFB release, newest first
 **MSFS / X-Plane**
 
 - **NEW: Automated Elevator Trim-Following Calibration** (fixed wing)
-    - See a full demo/walkthrough of the calibration feature here:  https://www.youtube.com/watch?v=otveS5mgbu0 
+    - See a full demo/walkthrough of the calibration feature here: https://www.youtube.com/watch?v=otveS5mgbu0
     - Trim following has always assumed a 1:1 relationship between trim position and elevator - many aircraft (especially 3rd party) are far from 1:1, causing the nose to wander when trimming with the stick held
     - A wizard-style assistant flies a short automated routine, measures your aircraft's real trim response, and produces a calibrated trim-following curve you can apply and test live in the sim before saving
     - Run it at multiple airspeeds and the results blend into a single speed-aware curve; review, delete, export, and import stored calibrations from the dialog

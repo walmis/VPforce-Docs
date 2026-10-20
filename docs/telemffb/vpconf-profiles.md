@@ -9,10 +9,10 @@ Different aircraft often need different VPforce Configurator settings on the dev
 
 Everything in this page follows from four rules:
 
-1. TelemFFB always remembers a **baseline** - the gain values read from the device when TelemFFB started, updated whenever *any* vpconf profile is pushed (startup profile or aircraft/class/sim profile alike).
-2. When an aircraft with **gain overrides** loads, the overrides are applied **after** any vpconf profile push - so overrides always win over profile gains.
+1. TelemFFB always remembers a **baseline**: the gain values read from the device when TelemFFB started, updated whenever *any* vpconf profile is pushed (startup profile or aircraft/class/sim profile alike).
+2. When an aircraft with **gain overrides** loads, the overrides are applied **after** any vpconf profile push, so overrides always win over profile gains.
 3. When an aircraft **without** gain overrides loads, the device is reverted to the baseline.
-4. On exit, if **Restore Startup Gains on Exit** is enabled in [System Settings](configuration.md#configurator-profile-options) (it is off by default), TelemFFB re-pushes the gains it read at startup, leaving the device as it found it. An Exit profile, if configured, is pushed regardless.
+4. On exit, if **Restore Startup Gains on Exit** is enabled in [System Settings](configuration.md#device-settings) (it is off by default), TelemFFB re-pushes the gains it read at startup, leaving the device as it found it. An Exit profile, if configured, is pushed regardless.
 
 The worked examples at the bottom of this page show these rules in action.
 
@@ -21,19 +21,19 @@ The worked examples at the bottom of this page show these rules in action.
 Profiles can be assigned at several levels of specificity.
 
 !!! note "Profiles are validated against the target device"
-    Whenever you select a vpconf profile - in the System Settings selectors or in a per-aircraft setting - TelemFFB checks the profile's USB PID and device identifier against the device it would be pushed to, and rejects the selection on a mismatch. This prevents accidentally overwriting one device with another's configuration (a pedal profile onto your joystick, for example), and protects against a profile whose PID/identifier changes would break the device's reconnection.
+    Whenever you select a vpconf profile, in the System Settings selectors or in a per-aircraft setting, TelemFFB checks the profile's USB PID and device identifier against the device it would be pushed to, and rejects the selection on a mismatch. This prevents accidentally overwriting one device with another's configuration (a pedal profile onto your joystick, for example), and protects against a profile whose PID/identifier changes would break the device's reconnection.
 
-### Startup/Exit profiles
+### Startup/Exit Profiles { #startup-and-exit-profiles }
 
-In [System Settings](configuration.md#configurator-profile-options) you can select profiles that TelemFFB **always** pushes when it starts and when it exits. A typical use: keep a low-force profile on the device while it sits idle, and load your flying profile whenever TelemFFB starts.
+In [System Settings](configuration.md#device-settings) you can select profiles that TelemFFB **always** pushes when it starts and when it exits. A typical use: keep a low-force profile on the device while it sits idle, and load your flying profile whenever TelemFFB starts.
 
 ![](images/vpconf-profiles/startup-exit-profiles.png){ width="584px" height="195px" }
 
-### Global Default profile
+### Global Default Profile
 
-The Global Default is not a separate profile - it is an option that **reuses the startup profile as the fallback**. With it enabled, whenever a loaded aircraft has no profile assigned at any level, TelemFFB re-pushes the startup profile. This is what returns the device to a known state after flying an aircraft that *did* push a custom profile. With it disabled, the previous aircraft's profile simply stays on the device.
+The Global Default is not a separate profile; it is an option that **reuses the startup profile as the fallback**. With it enabled, whenever a loaded aircraft has no profile assigned at any level, TelemFFB re-pushes the startup profile. This is what returns the device to a known state after flying an aircraft that *did* push a custom profile. With it disabled, the previous aircraft's profile simply stays on the device.
 
-### Assigning a configurator profile to a specific aircraft
+### Assigning a Configurator Profile to a Specific Aircraft
 
 With the aircraft loaded (or the sim, class, or aircraft selected in the offline editor), use the **Configurator File** selector in the Settings tab's System section and browse to the vpconf profile. The assignment is stored in your user configuration; every time that aircraft loads, TelemFFB pushes the profile to the device.
 
@@ -55,24 +55,24 @@ Independent of this hierarchy: the Startup/Exit profiles always push at startup/
 
 ## Dynamic Configurator Gain Overrides
 
-In addition to (or instead of) pushing a whole vpconf profile, you can override the individual effect-type gains per aircraft. As with any TelemFFB setting, overrides can be configured at the sim, aircraft-class, or specific-aircraft level - sim and class via the ***Offline/Global Sim/Class Editor***, a specific aircraft most easily from the Settings tab while it is loaded.
+In addition to (or instead of) pushing a whole vpconf profile, you can override the individual effect-type gains per aircraft. As with any TelemFFB setting, overrides can be configured at the sim, aircraft-class, or specific-aircraft level: sim and class via the [***Offline Editor***](settings-model.md#offline-editor), a specific aircraft most easily from the Settings tab while it is loaded.
 
-### Configuring the gains
+### Configuring the Gains
 
 1. Enable the **Override Configurator Sliders** toggle (1)
-2. Press the **Configurator Gains Override** button (2)
+2. Press the **Configure Gain Overrides** button (2). Once the aircraft has overrides, the button reads **Edit Gain Overrides**.
 
 ![](images/vpconf-profiles/gain-overrides.png){ width="487px" height="478px" }
 
-Tick the checkbox for an effect type and adjust its slider. Changes take effect almost immediately - there is a short settle delay so the device is not flooded with commands while you drag. With **Live Updates** enabled you feel each change as you make it.
+Tick the checkbox for an effect type and adjust its slider. Changes take effect almost immediately; there is a short settle delay so the device is not flooded with commands while you drag. With **Live Updates** enabled you feel each change as you make it.
 
 - **Revert** - unticks all override checkboxes and returns the gains to the stored baseline (the gains read at startup, or after the last vpconf push).
 - **Cancel** - undoes everything changed since the window opened, then closes it.
 - **Save and Close** - writes the overrides to your user configuration for the currently loaded aircraft.
 
-### Worked examples
+### Worked Examples
 
-Each example tracks a single gain (spring) from TelemFFB startup, through two aircraft, to exit. **Device** is what is on the device; **Baseline** is what TelemFFB remembers (rule 1). The exit rows assume **Restore Startup Gains on Exit** is enabled - with it disabled (the default), the last-pushed gains simply remain on the device.
+Each example tracks a single gain (spring) from TelemFFB startup, through two aircraft, to exit. **Device** is what is on the device; **Baseline** is what TelemFFB remembers (rule 1). The exit rows assume **Restore Startup Gains on Exit** is enabled; with it disabled (the default), the last-pushed gains simply remain on the device.
 
 **Example 1 - override only.** Device starts at 50%. No startup profile. Aircraft A has a 100% spring override; aircraft B has nothing configured.
 
@@ -106,4 +106,4 @@ Each example tracks a single gain (spring) from TelemFFB startup, through two ai
 | Exit → startup gains restored | 50% | - |
 
 !!! note
-    The push when aircraft B loads happens even when those values are already on the device - it is what clears aircraft A's gain override.
+    The push when aircraft B loads happens even when those values are already on the device; it is what clears aircraft A's gain override.

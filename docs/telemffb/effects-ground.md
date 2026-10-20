@@ -6,7 +6,7 @@ Effects for the aircraft's interaction with the surface, in the order they appea
 
 <!-- telemffb-effect name=runway_rumble_enabled part=badges -->
 
-Rolling vibration while taxiing, taking off, and landing - intensity follows the surface and speed.
+Rolling vibration while taxiing, taking off, and landing; intensity follows the surface and speed.
 
 <!-- telemffb-effect name=runway_rumble_enabled part=table -->
 
@@ -33,6 +33,6 @@ Pedal vibration simulating nosewheel shimmy under braking: it triggers only abov
 Ground steering feel for the pedals: friction that is heavy at taxi speed and decays as the aircraft accelerates and the nosewheel unloads, plus a steering-gear centering spring.
 
 !!! note
-    Requires the [Friction Override](effects-ffb.md) to be enabled - this effect scales the Configurator friction value.
+    Requires the [Friction Override](effects-ffb.md) to be enabled; this effect scales the Configurator friction value.
 
 <!-- telemffb-effect name=steering_friction part=table -->

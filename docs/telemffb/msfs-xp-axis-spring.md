@@ -1,12 +1,12 @@
 # Axis Control & Spring Modes
 
-With MSFS and X-Plane, TelemFFB is the source of the axis positions the simulator receives. The **Axis Control** setting (`telemffb_controls_axes`) enables this: TelemFFB reads your physical stick, applies the spring model and any trim or autopilot offsets, and sends the resulting axis values to the simulator.
+With MSFS and X-Plane, TelemFFB is the source of the axis positions the simulator receives: it reads your physical stick, applies the spring model and any trim or autopilot offsets, and sends the resulting axis values to the simulator. This is always on. **Disable for this device** (`local_disable_axis_control`) turns it off for one device, for an aircraft whose own systems should keep that axis.
 
 !!! important "MSFS: unbind your axes"
-    MSFS has no toggle to override external axis control. When Axis Control is enabled, ***you must unbind your joystick and/or pedal axes inside MSFS*** (or SPAD.neXt). Otherwise MSFS's own reading of your physical axis will conflict with the position TelemFFB is sending.
+    MSFS has no toggle to override external axis control, so ***you must unbind your joystick and/or pedal axes inside MSFS*** (or SPAD.neXt). Otherwise MSFS's own reading of your physical axis will conflict with the position TelemFFB is sending.
 
 !!! note "X-Plane"
-    You do **not** need to unbind your axes in X-Plane. The TelemFFB X-Plane plugin uses the simulator's built-in override datarefs, so the axis is overridden automatically when the feature is enabled.
+    You do **not** need to unbind your axes in X-Plane. The TelemFFB X-Plane plugin uses the simulator's built-in override datarefs, so the axis is overridden automatically.
 
 ## Axis Settings
 
@@ -16,9 +16,9 @@ These sliders scale the axis value sent to the sim. A value of 50% produces 50% 
 
 **Custom Axis Variables**
 
-Some aircraft do not use the standard SimConnect axis events, or use custom `L:` variables. Use these checkboxes to override the default variable sent, or to enter a custom one. Enter `VARNAME` for a SimVar or `L:VARNAME` for an `L:Var`.
+Some aircraft do not use the standard SimConnect axis events, or use custom `L:` variables. Use these checkboxes to override the default variable sent, or to enter a custom one. Enter `VARNAME` for a SimVar or `L:VARNAME` for an `L:Var`. TelemFFB writes the axis position into the variable as a value: in position units for a position SimVar, as a number otherwise.
 
-## How the Axis Positions Reach the Sim
+## Axis Output
 
 ### MSFS
 
@@ -31,7 +31,7 @@ TelemFFB sends each axis over SimConnect using the sim's standard axis events. W
 | Rudder / pedals | `AXIS_RUDDER_SET` | `ROTOR_AXIS_TAIL_ROTOR_SET` |
 | Collective | - | `AXIS_COLLECTIVE_SET` |
 
-The physical axis position is mapped onto the event's full input range (±16384). Axis curves are not supported in this implementation, but the **Axis Scale** sliders above can reduce sensitivity - a scale of 50% sends only half the input range across the full physical travel, giving less sensitive control at the expense of range of movement.
+The physical axis position is mapped onto the event's full input range (±16384). Axis curves are not supported in this implementation, but the **Axis Scale** sliders above can reduce sensitivity: a scale of 50% sends only half the input range across the full physical travel, giving less sensitive control at the expense of range of movement.
 
 The **Custom Axis Variables** option replaces the standard event for an axis: TelemFFB writes the position to the SimVar or `L:Var` you specify instead.
 
@@ -47,7 +47,7 @@ TelemFFB streams the axis values to its X-Plane plugin, which engages the simula
 
 The collective mapping is not a workaround: X-Plane has no dedicated collective dataref, and Laminar's dataref documentation designates the prop handle ratio as the helicopter collective.
 
-Because these overrides are part of the X-Plane SDK, no unbinding is required - while an override is active the sim ignores its own joystick input for that axis. Unlike MSFS, the targets are fixed: there is no Custom Axis Variables option for X-Plane. If an override is ever left stuck (after a TelemFFB crash, for example), the plugin's menu in X-Plane (**Plugins → TelemFFB → Clear All Overrides**) resets them.
+Because these overrides are part of the X-Plane SDK, no unbinding is required; while an override is active the sim ignores its own joystick input for that axis. Unlike MSFS, the targets are fixed: there is no Custom Axis Variables option for X-Plane. If an override is ever left stuck (after a TelemFFB crash, for example), the plugin's menu in X-Plane (**Plugins → TelemFFB → Clear All Overrides**) resets them.
 
 ## Spring Modes
 

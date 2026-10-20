@@ -18,7 +18,7 @@ For **MSFS** and **X-Plane**, which do not have native FFB support, TelemFFB pro
 
 **Falcon BMS** falls between these categories. The game supports limited native FFB, but its primary F-16 aircraft is fly-by-wire and has no traditional force feedback on the side-stick. TelemFFB adds haptic effects such as gunfire and buffeting.
 
-## How it works
+## How It Works
 
 TelemFFB began as a simple haptic effect generator for DCS. It added supplemental effects such as engine rumble and gunfire on top of the simulator's native force feedback.
 

@@ -308,10 +308,9 @@ Many high-fidelity third-party aircraft implement their own internal flight mode
 
 **Possible workaround — aircraft L:Vars:**
 
-Many third-party developers expose their internal data via **L:Vars** (local variables), which are aircraft-specific SimConnect variables that can be read by external applications. If an L:Var exists that provides the affected data, it can generally be used in a custom TelemFFB aircraft profile to substitute for the missing standard variable.
+Many third-party developers expose their internal data via **L:Vars** (local variables), which are aircraft-specific SimConnect variables that can be read by external applications. If an L:Var or input event provides the affected data, you can tell TelemFFB to read it instead of the standard variable. Use the **SimConnect/Dataref Overrides Editor** in the TelemFFB **Utilities** menu. See **[Telemetry Overrides](../telemffb/telem-overrides.md)** for how the editor works, with a worked example.
 
-!!! warning "Not Yet User-Accessible"
-    The interface for mapping custom L:Vars to TelemFFB effects is not yet fully documented or easily accessible to end users. If you encounter an aircraft where a specific effect is not working correctly, reach out on the **[#TelemFFB-User](https://discord.com/channels/965234441511383080/968208779084701716)** channel on the VPforce Discord — the community or developers may be able to assist with a custom profile.
+If you cannot find a variable that carries the data, ask on the **[#TelemFFB-User](https://discord.com/channels/965234441511383080/968208779084701716)** channel on the VPforce Discord. Other users may already have an override for the aircraft.
 
 **Known limitation — PMDG and SDK-only aircraft:**
 
@@ -404,7 +403,7 @@ An active VPN connection is one of the most common causes of telemetry not reach
 
 TelemFFB includes an auto-setup feature that configures IL-2's built-in telemetry output and points it at the correct local port. Verify the following:
 
-1. In TelemFFB, confirm that **Auto IL-2 Telemetry Setup** is enabled and that the **IL-2 Install Path** is set correctly. See **[IL-2 Sturmovik configuration](../telemffb/sim-setup.md#il-2-sturmovik)** for details on these settings.
+1. In TelemFFB, confirm that **Auto Telemetry setup** is enabled for your IL-2 game and that its **IL-2 Install Path** is set correctly. See **[IL-2 Sturmovik and IL-2 Korea](../telemffb/sim-setup.md#il-2-sturmovik-and-il-2-korea)** for details on these settings.
 2. If auto-setup is enabled and the path is correct, allow TelemFFB to perform the setup and restart IL-2.
 3. If you have manually edited your IL-2 telemetry configuration, verify that the settings match what TelemFFB expects. Incorrect port numbers or IP addresses are a common cause of failure.
 
@@ -442,10 +441,9 @@ Some third-party aircraft for X-Plane implement custom systems without writing d
 
 **Possible workaround — custom datarefs:**
 
-Many third-party X-Plane developers expose internal data through custom datarefs. If a custom dataref exists that provides the affected data, it may be possible to use it in a custom TelemFFB aircraft profile as a substitute.
+Many third-party X-Plane developers expose internal data through custom datarefs. If a custom dataref provides the affected data, you can tell TelemFFB to read it instead of the standard dataref. Use the **SimConnect/Dataref Overrides Editor** in the TelemFFB **Utilities** menu. See **[Telemetry Overrides](../telemffb/telem-overrides.md)** for how the editor works, with a worked example.
 
-!!! warning "Not Yet User-Accessible"
-    The interface for mapping custom datarefs to TelemFFB effects is not yet fully documented or easily accessible to end users. If you encounter an aircraft where a specific effect is not working correctly, reach out on the **[#TelemFFB-User](https://discord.com/channels/965234441511383080/968208779084701716)** channel on the VPforce Discord — the community or developers may be able to assist with a custom profile.
+If you cannot find a dataref that carries the data, ask on the **[#TelemFFB-User](https://discord.com/channels/965234441511383080/968208779084701716)** channel on the VPforce Discord. Other users may already have an override for the aircraft.
 
 ---
 
